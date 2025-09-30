@@ -25,8 +25,9 @@
       background: #f4f4f4;
       padding: 1rem;
       border-radius: 8px;
-      white-space: pre-wrap;   /* ✅ wrap text */
-      word-wrap: break-word;   /* ✅ break words */
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      font-family: monospace;
     }
     details summary { font-weight: bold; cursor: pointer; margin-bottom: 0.5rem; }
     .back-to-top { font-size: 0.9rem; text-align: right; margin-top: 0.5rem; }
@@ -132,7 +133,8 @@
         <a href="#season-report">📈 Season</a> | 
         <a href="#full-season-report">📆 Full Season</a> | 
         <a href="#wellness-report">💤 Wellness</a> | 
-        <a href="#next-steps">🚀 Next Steps</a>
+        <a href="#next-steps">🚀 Next Steps</a> | 
+        <a href="#suggested-sessions">🏋️ Sessions</a>
       </nav>
 
       <!-- Weekly -->
@@ -156,7 +158,7 @@
         <p class="back-to-top"><a href="#samples-nav">↑ Back to top</a></p>
       </details>
 
-      <!-- Season (short) -->
+      <!-- Season -->
       <details id="season-report">
         <summary>📈 Season Report (2025-08-19 → 2025-09-30)</summary>
         <pre>
@@ -266,37 +268,70 @@ High stress early, recovery in Jul, late-season detraining risk.
         <p class="back-to-top"><a href="#samples-nav">↑ Back to top</a></p>
       </details>
 
+      <!-- Suggested Training Sessions -->
+      <details id="suggested-sessions">
+        <summary>🏋️ Suggested Training Sessions (Next 4 Weeks)</summary>
+        <pre>
+### Athlete: [Anon] — Oct 2025 Macrocycle (Examples for Different Athlete Types)
+
+**Cyclist Example**
+Week 1–2 (Build):
+- Endurance: 3h Z2 ride, 2h steady ride
+- Intervals: 4x10min @ 90% FTP, 8x3min @ VO₂max
+- Skills: 90min group ride
+- Strength: 2x core + leg stability
+Week 3 (Overload):
+- 4.5h long Z2 ride (last 45min tempo)
+- 6x5min @ 110% FTP, 12x30s sprints
+- Back-to-back weekend: 4h + 2h tempo
+Week 4 (Deload):
+- 2h Z2, 90min recovery
+- 3x6min sweet spot
+- Skills drills + mobility
+
+---
+
+**Triathlete Example**
+Week 1–2 (Build):
+- Swim: 8x200m aerobic, 12x100m threshold
+- Bike: 2h Z2, 3x12min @ FTP
+- Run: 12km long run, 8x400m intervals
+Week 3 (Overload):
+- Swim: 20x100m aerobic, 6x50m sprints
+- Bike: 4h Z2 ride, 5x5min VO₂max
+- Run: 16km long run, 5x1km @ 10k pace
+Week 4 (Deload):
+- Swim: drills + 1.5km aerobic
+- Bike: 2h Z2 + light tempo
+- Run: 8km easy, 6x200m strides
+
+---
+
+**Runner Example**
+Week 1–2 (Build):
+- Long Run: 14–16km Z2
+- Intervals: 6x800m @ 10k pace, 10x200m strides
+- Easy Runs: 2–3x 45min Z1
+- Strength: 2x functional
+Week 3 (Overload):
+- Long Run: 18km with final 4km tempo
+- Intervals: 8x1km @ threshold
+- Back-to-back: Sat long run, Sun 12km steady
+Week 4 (Deload):
+- Long Run: 10km Z2
+- 5x200m strides
+- Mobility + recovery focus
+
+---
+
+**Note:** The Coach GPT adapts plans automatically to athlete type (Cyclist, Triathlete, Runner) using the same phased approach: Build → Overload → Deload → Consolidation.
+        </pre>
+        <p class="back-to-top"><a href="#samples-nav">↑ Back to top</a></p>
+      </details>
+
     </div>
   </section>
 
   <section id="download">
     <div class="card">
-      <h2>Get the App</h2>
-      <p>
-        In the GPT Store, search for:  
-        <strong>"Intervals icu training coach v2.79"</strong>
-      </p>
-      <ul>
-        <li><a href="https://chat.openai.com/gpts" target="_blank">🌐 Open GPT Store (web)</a></li>
-        <li><a href="https://apps.apple.com/us/app/chatgpt/id6448311069" target="_blank">📱 Download ChatGPT on iOS</a></li>
-        <li><a href="https://play.google.com/store/apps/details?id=com.openai.chatgpt" target="_blank">📱 Download ChatGPT on Android</a></li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="card">
-      <h2>Contact</h2>
-      <p>For integration, customization, or coaching inquiries, connect via GitHub:</p>
-      <a href="https://github.com/revo2wheels" target="_blank" class="github-button">
-        <svg viewBox="0 0 16 16" aria-hidden="true"><path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c..."/></svg>
-        github.com/revo2wheels
-      </a>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2025 Coach GPT App — Data-driven training intelligence. Powered by <a href="https://intervals.icu" target="_blank" style="color:#aaa;">Intervals.icu</a>.</p>
-  </footer>
-</body>
-</html>
+      <h2>Get the App</h2
