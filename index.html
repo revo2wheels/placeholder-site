@@ -35,6 +35,22 @@
     .back-to-top a:hover { text-decoration: underline; }
     /* Smooth scroll */
     html { scroll-behavior: smooth; }
+    /* Mobile header adjustments */
+@media (max-width: 768px) {
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  nav {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+  }
+  nav a {
+    margin: 5px 10px 0 0;
+    font-size: 0.95rem;
+  }
+}
   </style>
 </head>
 <body>
