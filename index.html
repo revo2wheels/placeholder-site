@@ -6,72 +6,184 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <!-- Favicon -->
   <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/44225520?v=4">
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; background: #f9f9f9; color: #222; }
-    header { background: #222; color: #fff; padding: 1rem 2rem; display: flex; align-items: center; justify-content: space-between; }
-    header h1 { margin: 0; font-size: 1.5rem; display: flex; align-items: center; }
-    header h1 img { width: 40px; height: 40px; border-radius: 8px; margin-right: 10px; }
-    nav a { margin-left: 15px; color: #fff; text-decoration: none; }
-    section { padding: 2rem; max-width: 900px; margin: auto; }
-    h2 { color: #444; }
-    .card { background: #fff; padding: 1.5rem; margin-bottom: 1.5rem; border-radius: 10px; box-shadow: 0 2px 5px rgba(0,0,0,0.1); }
-    footer { text-align: center; padding: 1rem; background: #222; color: #aaa; margin-top: 2rem; }
-    .profile-header { display: flex; align-items: center; gap: 20px; }
-    .profile-header img { border-radius: 50%; width: 100px; height: 100px; }
-    .github-button { display: inline-flex; align-items: center; gap: 8px; background: #24292e; color: #fff; padding: 10px 15px; border-radius: 6px; text-decoration: none; font-weight: bold; transition: background 0.2s ease-in-out; }
-    .github-button:hover { background: #444c56; }
-    .github-button svg { width: 20px; height: 20px; fill: #fff; }
-    pre {
-      background: #f4f4f4;
-      padding: 1rem;
-      border-radius: 8px;
-      white-space: pre-wrap;
-      word-wrap: break-word;
-      font-family: monospace;
-    }
-    details summary { font-weight: bold; cursor: pointer; margin-bottom: 0.5rem; }
-    .back-to-top { font-size: 0.9rem; text-align: right; margin-top: 0.5rem; }
-    .back-to-top a { color: #555; text-decoration: none; }
-    .back-to-top a:hover { text-decoration: underline; }
-    /* Smooth scroll */
-    html { scroll-behavior: smooth; }
-    /* Mobile header adjustments */
-@media (max-width: 768px) {
-  header {
-    flex-direction: column;
-    align-items: flex-start;
+ <style>
+  /* Base layout */
+  body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background: #f9f9f9;
+    color: #222;
   }
-  nav {
+
+  header {
+    background: #222;
+    color: #fff;
+    padding: 1rem 2rem;
     display: flex;
-    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  header h1 {
+    margin: 0;
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+  }
+
+  header h1 img {
+    width: 40px;
+    height: 40px;
+    border-radius: 8px;
+    margin-right: 10px;
+  }
+
+  nav a {
+    margin-left: 15px;
+    color: #fff;
+    text-decoration: none;
+  }
+
+  section {
+    padding: 2rem;
+    max-width: 900px;
+    margin: auto;
+  }
+
+  h2 {
+    color: #444;
+  }
+
+  .card {
+    background: #fff;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+  }
+
+  footer {
+    text-align: center;
+    padding: 1rem;
+    background: #222;
+    color: #aaa;
+    margin-top: 2rem;
+  }
+
+  .profile-header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+  }
+
+  .profile-header img {
+    border-radius: 50%;
+    width: 100px;
+    height: 100px;
+  }
+
+  .github-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    background: #24292e;
+    color: #fff;
+    padding: 10px 15px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background 0.2s ease-in-out;
+  }
+
+  .github-button:hover {
+    background: #444c56;
+  }
+
+  .github-button svg {
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+  }
+
+  pre {
+    background: #f4f4f4;
+    padding: 1rem;
+    border-radius: 8px;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: monospace;
+  }
+
+  details summary {
+    font-weight: bold;
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+  }
+
+  .back-to-top {
+    font-size: 0.9rem;
+    text-align: right;
     margin-top: 0.5rem;
   }
-  nav a {
-    margin: 5px 10px 0 0;
-    font-size: 0.95rem;
+
+  .back-to-top a {
+    color: #555;
+    text-decoration: none;
   }
-}
-    /* Samples navigation spacing */
-#samples-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 8px;
-}
 
-#samples-nav a {
-  background: #eee;
-  padding: 6px 10px;
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: 0.9rem;
-  color: #333;
-}
+  .back-to-top a:hover {
+    text-decoration: underline;
+  }
 
-#samples-nav a:hover {
-  background: #ddd;
-}
+  /* Smooth scroll */
+  html {
+    scroll-behavior: smooth;
+  }
 
-  </style>
+  /* Mobile header adjustments */
+  @media (max-width: 768px) {
+    header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      margin-top: 0.5rem;
+    }
+    nav a {
+      margin: 5px 10px 0 0;
+      font-size: 0.95rem;
+    }
+  }
+
+  /* Samples navigation bar fix */
+  #samples-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 1rem;
+  }
+
+  #samples-nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    background: #eee;
+    padding: 6px 10px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 0.9rem;
+    color: #333;
+    white-space: nowrap;
+  }
+
+  #samples-nav a:hover {
+    background: #ddd;
+  }
+</style>
+
 </head>
 <body>
   <header>
