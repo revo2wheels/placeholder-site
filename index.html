@@ -16,6 +16,8 @@
     table { border-collapse: collapse; width: 100%; margin-top: 1rem; }
     th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
     th { background-color: #f2f2f2; }
+    .profile-header { display: flex; align-items: center; gap: 20px; }
+    .profile-header img { border-radius: 50%; width: 100px; height: 100px; }
   </style>
 </head>
 <body>
@@ -61,7 +63,10 @@
 
   <section id="profile">
     <div class="card">
-      <h2>Coach Profile</h2>
+      <div class="profile-header">
+        <img src="https://avatars.githubusercontent.com/u/44225520?v=4" alt="Coach GPT Avatar">
+        <h2>Coach Profile</h2>
+      </div>
       <p>
         This coach blends <strong>data-driven precision</strong> with <strong>evidence-based training principles</strong>. 
         By combining objective load metrics (TSS, CTL, ATL, HRV, VO₂max) with subjective feedback (RPE, mood, recovery), 
@@ -73,64 +78,4 @@
       </p>
       <p>
         With deep expertise across <strong>triathlon, cycling, running, and endurance sports</strong>, 
-        this coach applies frameworks like <em>Seiler’s 80/20 principle, Banister TRIMP load modeling, Foster’s Monotony/Strain, and tapering protocols</em>. 
-        Whether preparing for Ironman, Gran Fondo, or Marathon, the coach ensures athletes peak at the right time while minimizing injury risk.
-      </p>
-
-      <h3>Technical Skills Matrix</h3>
-      <table>
-        <tr><th>Domain</th><th>Skills</th></tr>
-        <tr><td><strong>Load Management</strong></td><td>ACWR, Strain, Monotony, CTL/ATL/Form analysis</td></tr>
-        <tr><td><strong>Recovery Analysis</strong></td><td>Recovery Index (HRV + RestHR + Form), sleep metrics, fatigue detection</td></tr>
-        <tr><td><strong>Training Quality</strong></td><td>Polarisation Index, Durability Index (avgDecoupling), Quality Session Balance</td></tr>
-        <tr><td><strong>Frameworks Applied</strong></td><td>Seiler 80/20, Banister TRIMP, Foster Monotony/Strain, tapering models</td></tr>
-        <tr><td><strong>Decision Rules</strong></td><td>Hard Days Hard/Easy Days Easy, overload → deload cycles, consistency tracking</td></tr>
-        <tr><td><strong>Sport Specialisation</strong></td><td>Ironman, Triathlon (short & long course), Gran Fondo, Marathon/Ultramarathon, Cycling TT/10k</td></tr>
-        <tr><td><strong>System Integration</strong></td><td>Glossary placeholders → Advanced Markers → Heuristics → Cheat Sheet</td></tr>
-      </table>
-    </div>
-  </section>
-
-  <section id="intervals">
-    <div class="card">
-      <h2>Intervals.icu Dependency</h2>
-      <p>
-        The Coach GPT App is <strong>fully dependent on <a href="https://intervals.icu" target="_blank">Intervals.icu</a></strong> for data.
-        Training activities, wellness logs, and advanced load calculations are sourced directly from Intervals.icu.
-      </p>
-      <p>
-        For the best results, athletes should ensure their <strong>wellness markers (HRV, resting HR, sleep, mood, stress, soreness)</strong> 
-        are synchronized to Intervals.icu. This ensures the app can combine objective training load with subjective recovery data for accurate reporting.
-      </p>
-      <p>
-        Special thanks to <strong>David Tinker</strong>, the creator of Intervals.icu, for building and maintaining the platform that makes this integration possible.
-      </p>
-    </div>
-  </section>
-
-  <section id="download">
-    <div class="card">
-      <h2>Get the Coach GPT App</h2>
-      <p>
-        Access the Coach GPT inside the ChatGPT app via the GPT Store. Available on web, iOS, and Android:
-      </p>
-      <ul>
-        <li><a href="https://chat.openai.com/gpts" target="_blank">🌐 Open in GPT Store (web)</a></li>
-        <li><a href="https://apps.apple.com/us/app/chatgpt/id6448311069" target="_blank">📱 Download on iOS (App Store)</a></li>
-        <li><a href="https://play.google.com/store/apps/details?id=com.openai.chatgpt" target="_blank">📱 Download on Android (Google Play)</a></li>
-      </ul>
-    </div>
-  </section>
-
-  <section id="contact">
-    <div class="card">
-      <h2>Contact</h2>
-      <p>For integration, customization, or coaching inquiries, please connect with the developer team behind Coach GPT.</p>
-    </div>
-  </section>
-
-  <footer>
-    <p>© 2025 Coach GPT App — Data-driven training intelligence. Powered by <a href="https://intervals.icu" target="_blank" style="color:#aaa;">Intervals.icu</a>.</p>
-  </footer>
-</body>
-</html>
+        this coach applies frameworks like
