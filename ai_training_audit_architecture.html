@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI-Driven Training Audit System | Clive King</title>
+  <style>
+    body {
+      font-family: 'Inter', Arial, sans-serif;
+      background-color: #ffffff;
+      color: #1a1a1a;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background-color: #0f172a;
+      color: #ffffff;
+      padding: 1.5rem 2rem;
+      text-align: center;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 1.8rem;
+      letter-spacing: 0.5px;
+    }
+    header p {
+      margin: 0.25rem 0 0;
+      font-size: 0.9rem;
+      color: #94a3b8;
+    }
+    main {
+      padding: 2rem;
+      max-width: 960px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    h2 {
+      border-bottom: 2px solid #e2e8f0;
+      padding-bottom: 0.25rem;
+      margin-top: 2rem;
+      color: #0f172a;
+    }
+    pre, .diagram {
+      background-color: #f8fafc;
+      border: 1px solid #e2e8f0;
+      border-radius: 0.75rem;
+      padding: 1rem;
+      overflow-x: auto;
+      font-family: 'Courier New', monospace;
+      font-size: 0.9rem;
+      color: #1e293b;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    }
+    footer {
+      background-color: #f1f5f9;
+      text-align: center;
+      padding: 1.5rem;
+      font-size: 0.85rem;
+      color: #475569;
+      border-top: 1px solid #e2e8f0;
+    }
+    a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>AI-Driven Training Audit System</h1>
+    <p>by <a href="https://www.cliveking.net" target="_blank" style="color:#38bdf8;">cliveking.net</a></p>
+  </header>
+
+  <main>
+    <section>
+      <h2>Overview</h2>
+      <p>This architecture integrates <strong>Intervals.icu</strong> as the source of truth for athlete data, <strong>ChatGPT</strong> for reasoning and natural-language reporting, <strong>LangChain</strong> for middleware orchestration, and <strong>GitHub</strong> for maintaining the core audit logic and heuristics.</p>
+    </section>
+
+    <section>
+      <h2>High-Level Architecture Diagram</h2>
+      <div class="diagram">
+        <pre>
+                   ┌────────────────────────────────────────────┐
+                   │                User / Coach                │
+                   │  (chat interface, report requests)         │
+                   └────────────────────────────────────────────┘
+                                        │
+                                        ▼
+┌──────────────────────────────────────────────────────────────────────────┐
+│                     CHATGPT (LLM Reasoning Layer)                        │
+│                                                                          │
+│  • Parses user intent and report mode                                    │
+│  • Calls LangChain tools to fetch + audit data                           │
+│  • Formats validated outputs into readable reports                       │
+└──────────────────────────────────────────────────────────────────────────┘
+                                        │
+                                        ▼
+┌──────────────────────────────────────────────────────────────────────────┐
+│                       LANGCHAIN ORCHESTRATOR                             │
+│                                                                          │
+│  • Defines tools: fetch_intervals_data(), run_audit_pipeline()           │
+│  • Executes Tier0 hygiene, Tier1 validation, Tier2 audit                 │
+│  • Returns structured JSON to ChatGPT                                    │
+└──────────────────────────────────────────────────────────────────────────┘
+                                        │
+                                        ▼
+┌──────────────────────────────────────────────────────────────────────────┐
+│                   INTERVALS.ICU DATA SOURCE (API)                         │
+│                                                                          │
+│  • JSON schema for /activities and /wellness endpoints                   │
+│  • Unique activity IDs, canonical training metrics                        │
+│  • Accessed via authenticated LangChain tools                            │
+└──────────────────────────────────────────────────────────────────────────┘
+                                        │
+                                        ▼
+┌──────────────────────────────────────────────────────────────────────────┐
+│                     GITHUB REPOSITORY (Knowledge Base)                   │
+│                                                                          │
+│  • Stores AuditCoreModule.py, Coach v16, and heuristic documents         │
+│  • LangChain loads these via GitHubRepoLoader                            │
+│  • Acts as source of truth for audit rules                               │
+└──────────────────────────────────────────────────────────────────────────┘
+                                        │
+                                        ▼
+┌──────────────────────────────────────────────────────────────────────────┐
+│                     AUDIT PIPELINE EXECUTION (Python)                    │
+│                                                                          │
+│  • Executes hygiene, validation, and freeze checks                       │
+│  • Returns JSON: {"auditStatus": "✅", "totals": {...}}                 │
+└──────────────────────────────────────────────────────────────────────────┘
+                                        │
+                                        ▼
+┌──────────────────────────────────────────────────────────────────────────┐
+│                     RENDERING + OUTPUT                                   │
+│                                                                          │
+│  • ChatGPT formats human-readable summary reports                        │
+│  • Weekly, Season, and Wellness modes supported                          │
+│  • Exports Markdown, PDF, or HTML                                        │
+└──────────────────────────────────────────────────────────────────────────┘
+        </pre>
+      </div>
+    </section>
+
+    <section>
+      <h2>System Flow</h2>
+      <ol>
+        <li>User initiates a command in ChatGPT (e.g., “Run season report”).</li>
+        <li>ChatGPT calls LangChain Tool <code>run_audit_pipeline(mode='season')</code>.</li>
+        <li>LangChain fetches Intervals.icu JSON and executes <code>AuditCoreModule</code>.</li>
+        <li>Audit validates via Tier0 hygiene → Tier1 validation → Tier2 audit.</li>
+        <li>Validated totals frozen and returned as structured JSON.</li>
+        <li>ChatGPT formats and delivers the final report.</li>
+      </ol>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 <a href="https://www.cliveking.net">Clive King</a>. All rights reserved. | AI-Driven Training Audit System Architecture</p>
+  </footer>
+</body>
+</html>
