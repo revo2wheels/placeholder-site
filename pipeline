@@ -69,10 +69,25 @@
   </style>
 </head>
 <body>
-  <header>
-    <h1>AI-Driven Training Audit System</h1>
-    <p>by <a href="https://www.cliveking.net" target="_blank" style="color:#38bdf8;">cliveking.net</a></p>
-  </header>
+<header>
+  <h1>
+    <img src="https://avatars.githubusercontent.com/u/44225520?v=4" alt="App Icon">
+    <a href="https://www.cliveking.net" style="color: #fff; text-decoration: none;">
+      Coach GPT App
+    </a>
+  </h1>
+  <nav>
+    <a href="https://www.cliveking.net#about">About</a>
+    <a href="https://www.cliveking.net#features">Features</a>
+    <a href="https://www.cliveking.net#profile">Coach Profile</a>
+    <a href="https://www.cliveking.net#intervals">Intervals.icu</a>
+    <a href="https://www.cliveking.net#samples">Samples</a>
+    <a href="https://www.cliveking.net#download">Download</a>
+    <a href="https://www.cliveking.net#contact">Contact</a>
+    <!-- New -->
+    <a href="https://www.cliveking.net/pipeline" style="font-weight: bold; color: #38bdf8;">Pipeline</a>
+  </nav>
+</header>
 
   <main>
     <section>
