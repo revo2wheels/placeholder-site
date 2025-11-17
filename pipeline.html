@@ -3,11 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pipeline Architecture | Coach GPT App | Clive King</title>
+  <title>Pipeline Architecture — Current vs Future | Coach GPT App</title>
   <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/44225520?v=4" />
   <style>
     body {
-      font-family: "Inter", Arial, sans-serif;
+      font-family: 'Inter', Arial, sans-serif;
       margin: 0;
       background-color: #0f172a;
       color: #f8fafc;
@@ -48,7 +48,7 @@
     }
     main {
       padding: 3rem 2rem;
-      max-width: 900px;
+      max-width: 1000px;
       margin: 0 auto;
     }
     h2 {
@@ -62,10 +62,24 @@
       border-radius: 0.75rem;
       padding: 1rem;
       overflow-x: auto;
-      font-family: "Courier New", monospace;
+      font-family: 'Courier New', monospace;
       font-size: 0.9rem;
       color: #e2e8f0;
       box-shadow: 0 1px 2px rgba(0,0,0,0.3);
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-top: 1rem;
+    }
+    th, td {
+      border: 1px solid #1e293b;
+      padding: 0.5rem 0.75rem;
+      text-align: left;
+    }
+    th {
+      background: #0f172a;
+      color: #38bdf8;
     }
     footer {
       text-align: center;
@@ -96,90 +110,102 @@
       <a href="https://www.cliveking.net#profile">Coach Profile</a>
       <a href="https://www.cliveking.net#intervals">Intervals.icu</a>
       <a href="https://www.cliveking.net#samples">Samples</a>
-      <a href="https://www.cliveking.net#download">Download</a>
-      <a href="https://www.cliveking.net#contact">Contact</a>
-      <a href="https://www.cliveking.net/pipeline" style="color:#38bdf8;font-weight:600;">Pipeline</a>
+      <a href="https://www.cliveking.net/pipeline.html" style="color:#38bdf8;font-weight:600;">Pipeline</a>
     </nav>
   </header>
 
   <main>
-    <h1 style="text-align:center;color:#38bdf8;">AI-Driven Training Audit System Architecture</h1>
+    <h1 style="text-align:center;color:#38bdf8;">System Architecture — Current vs Future</h1>
+
     <p style="text-align:center;max-width:700px;margin:0 auto 2rem;">
-      This system integrates <strong>Intervals.icu</strong> as the source of truth, 
-      <strong>ChatGPT</strong> for reasoning and reporting, 
-      <strong>LangChain</strong> as the orchestration layer, and 
-      <strong>GitHub</strong> as the repository for knowledge and Python audit logic.
+      This document describes the current operational pipeline for the <strong>Coach GPT App</strong>, identifies key architectural issues,
+      and outlines the next-generation <strong>Render Container Architecture</strong> for stable, scalable computation.
     </p>
 
-    <h2>High-Level Architecture Diagram</h2>
+    <h2>Current Architecture</h2>
     <div class="diagram">
 <pre>
-                   ┌────────────────────────────────────────────┐
-                   │                User / Coach                │
-                   │  (chat interface, report requests)         │
-                   └────────────────────────────────────────────┘
-                                        │
-                                        ▼
-┌──────────────────────────────────────────────────────────────────────────┐
-│                     CHATGPT (LLM Reasoning Layer)                        │
-│  • Parses user intent and report mode                                    │
-│  • Calls LangChain tools to fetch + audit data                           │
-│  • Formats validated outputs into readable reports                       │
-└──────────────────────────────────────────────────────────────────────────┘
-                                        │
-                                        ▼
-┌──────────────────────────────────────────────────────────────────────────┐
-│                       LANGCHAIN ORCHESTRATOR                             │
-│  • Defines tools: fetch_intervals_data(), run_audit_pipeline()           │
-│  • Executes Tier0 hygiene, Tier1 validation, Tier2 audit                 │
-│  • Returns structured JSON to ChatGPT                                    │
-└──────────────────────────────────────────────────────────────────────────┘
-                                        │
-                                        ▼
-┌──────────────────────────────────────────────────────────────────────────┐
-│                   INTERVALS.ICU DATA SOURCE (API)                         │
-│  • JSON schema for /activities and /wellness endpoints                   │
-│  • Unique activity IDs, canonical training metrics                        │
-│  • Accessed via authenticated LangChain tools                            │
-└──────────────────────────────────────────────────────────────────────────┘
-                                        │
-                                        ▼
-┌──────────────────────────────────────────────────────────────────────────┐
-│                     GITHUB REPOSITORY (Knowledge Base)                   │
-│  • Stores AuditCoreModule.py, Coach v16, and heuristic documents         │
-│  • Acts as source of truth for audit rules                               │
-└──────────────────────────────────────────────────────────────────────────┘
-                                        │
-                                        ▼
-┌──────────────────────────────────────────────────────────────────────────┐
-│                     AUDIT PIPELINE EXECUTION (Python)                    │
-│  • Executes hygiene, validation, and freeze checks                       │
-│  • Returns JSON: {\"auditStatus\": \"✅\", \"totals\": {...}}                 │
-└──────────────────────────────────────────────────────────────────────────┘
-                                        │
-                                        ▼
-┌──────────────────────────────────────────────────────────────────────────┐
-│                     RENDERING + OUTPUT                                   │
-│  • ChatGPT formats human-readable summary reports                        │
-│  • Weekly, Season, and Wellness modes supported                          │
-│  • Exports Markdown, PDF, or HTML                                        │
-└──────────────────────────────────────────────────────────────────────────┘
+                 ┌───────────────────────────────┐
+                 │          User / Coach          │
+                 │ (Prompt commands via ChatGPT)  │
+                 └───────────────┬───────────────┘
+                                 │
+                                 ▼
+        ┌─────────────────────────────────────────────┐
+        │               ChatGPT App                   │
+        │ (LLM reasoning + tool orchestration)        │
+        └───────────────┬─────────────────────────────┘
+                        │ HTTPS tool call
+                        ▼
+        ┌─────────────────────────────────────────────┐
+        │          Cloudflare Worker Proxy            │
+        │ - Auth proxy between ChatGPT & APIs         │
+        │ - Serially concatenates GitHub + ICU calls  │
+        └───────────────┬─────────────────────────────┘
+                        │
+           ┌────────────┴────────────┐
+           ▼                         ▼
+┌────────────────────┐     ┌──────────────────────────┐
+│   GitHub Repo      │     │   Intervals.icu API      │
+│ (Rules & schemas)  │     │ (Athlete, wellness data) │
+└────────────────────┘     └──────────────────────────┘
 </pre>
     </div>
 
-    <h2>System Flow</h2>
-    <ol>
-      <li>User initiates a command in ChatGPT (e.g., “Run season report”).</li>
-      <li>ChatGPT calls LangChain Tool <code>run_audit_pipeline(mode='season')</code>.</li>
-      <li>LangChain fetches Intervals.icu JSON and executes <code>AuditCoreModule</code>.</li>
-      <li>Audit validates via Tier0 hygiene → Tier1 validation → Tier2 audit.</li>
-      <li>Validated totals frozen and returned as structured JSON.</li>
-      <li>ChatGPT formats and delivers the final report.</li>
-    </ol>
+    <h2>Current System Limitations</h2>
+    <table>
+      <tr><th>Issue</th><th>Description</th><th>Impact</th></tr>
+      <tr><td>API Concatenation</td><td>Cloudflare combines multiple GET responses into one payload.</td><td>Causes oversized responses and JSON corruption.</td></tr>
+      <tr><td>Data Serialization Drift</td><td>Base64 + JSON double encoding across endpoints.</td><td>Loss of numeric precision and audit variance &gt; 2%.</td></tr>
+      <tr><td>Stateless Execution</td><td>No caching or Tier-level memory between requests.</td><td>Duplicate ICU fetches and wasted API quota.</td></tr>
+      <tr><td>Proxy Overload</td><td>All routing, merging, and logic done in Cloudflare.</td><td>Brittle and unmaintainable; single point of failure.</td></tr>
+      <tr><td>Virtual LangChain</td><td>ChatGPT simulates code instead of executing real Python.</td><td>Inconsistent numeric results, non-deterministic audits.</td></tr>
+      <tr><td>Schema Coupling</td><td>No handshake between GPT schema and GitHub version.</td><td>Field renames silently break audits.</td></tr>
+      <tr><td>Lack of Observability</td><td>No logs or telemetry from Cloudflare or ChatGPT tools.</td><td>Impossible to debug intermittent failures.</td></tr>
+    </table>
+
+    <h2>Future Architecture (Render Container Model)</h2>
+    <div class="diagram">
+<pre>
+        ┌──────────────────────────┐
+        │        ChatGPT App       │
+        │ (User interface + logic) │
+        └────────────┬─────────────┘
+                     │ HTTPS (Tool call)
+                     ▼
+        ┌──────────────────────────┐
+        │    Render Container      │
+        │  (FastAPI + LangServe)   │
+        │    ┌────────────────┐    │
+        │    │  LangChain     │    │
+        │    │  + your repo   │    │
+        │    └────────────────┘    │
+        │ Executes Python code     │
+        └────────────┬─────────────┘
+                     │
+                     ▼
+        ┌──────────────────────────┐
+        │     Intervals.icu API    │
+        │ (External Data Provider) │
+        └──────────────────────────┘
+</pre>
+    </div>
+
+    <h2>Pipeline Improvements</h2>
+    <table>
+      <tr><th>Current Weakness</th><th>Future Mitigation</th></tr>
+      <tr><td>Concatenated API calls</td><td>FastAPI handles separate endpoints with structured responses.</td></tr>
+      <tr><td>Serialization drift</td><td>Typed Pydantic models guarantee consistent datatypes.</td></tr>
+      <tr><td>Stateless pipeline</td><td>LangChain memory cache retains Tier-level context.</td></tr>
+      <tr><td>Proxy overload</td><td>Split routing logic; Cloudflare becomes static edge, not processor.</td></tr>
+      <tr><td>Virtual math</td><td>True Python execution in container ensures numeric accuracy.</td></tr>
+      <tr><td>Schema mismatch</td><td>Version negotiation headers (v16.17+) between GPT and backend.</td></tr>
+      <tr><td>No observability</td><td>FastAPI logs + Prometheus metrics for traceable reports.</td></tr>
+    </table>
   </main>
 
   <footer>
-    <p>&copy; 2025 <a href=\"https://www.cliveking.net\">Clive King</a> · AI-Driven Training Audit System Architecture</p>
+    <p>&copy; 2025 <a href="https://www.cliveking.net">Clive King</a> · Coach GPT App — Unified Pipeline Architecture</p>
   </footer>
 </body>
 </html>
