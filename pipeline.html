@@ -110,12 +110,12 @@
       <a href="https://www.cliveking.net#profile">Coach Profile</a>
       <a href="https://www.cliveking.net#intervals">Intervals.icu</a>
       <a href="https://www.cliveking.net#samples">Samples</a>
-      <a href="https://www.cliveking.net/pipeline.html" style="color:#38bdf8;font-weight:600;">Pipeline</a>
+      <a href="https://www.cliveking.net/pipeline.html" style="color:#38bdf8;font-weight:600;">DESIGN</a>
     </nav>
   </header>
 
   <main>
-    <h1 style="text-align:center;color:#38bdf8;">System Architecture — Current vs Future</h1>
+    <h1 style="text-align:center;color:#38bdf8;">System Architecture — Current</h1>
 
     <p style="text-align:center;max-width:700px;margin:0 auto 2rem;">
       This document describes the current operational pipeline for the <strong>Coach GPT App</strong>, identifies key architectural issues,
@@ -125,83 +125,122 @@
     <h2>Current Architecture</h2>
     <div class="diagram">
 <pre>
-                 ┌───────────────────────────────┐
-                 │          User / Coach          │
-                 │ (Prompt commands via ChatGPT)  │
-                 └───────────────┬───────────────┘
-                                 │
-                                 ▼
-        ┌─────────────────────────────────────────────┐
-        │               ChatGPT App                   │
-        │ (LLM reasoning + tool orchestration)        │
-        └───────────────┬─────────────────────────────┘
-                        │ HTTPS tool call
-                        ▼
-        ┌─────────────────────────────────────────────┐
-        │          Cloudflare Worker Proxy            │
-        │ - Auth proxy between ChatGPT & APIs         │
-        │ - Serially concatenates GitHub + ICU calls  │
-        └───────────────┬─────────────────────────────┘
-                        │
-           ┌────────────┴────────────┐
-           ▼                         ▼
-┌────────────────────┐     ┌──────────────────────────┐
-│   GitHub Repo      │     │   Intervals.icu API      │
-│ (Rules & schemas)  │     │ (Athlete, wellness data) │
-└────────────────────┘     └──────────────────────────┘
+┌──────────────────────────┐
+│        ChatGPT App       │
+│  (UI + tool invocation)  │
+└────────────┬─────────────┘
+             │ HTTPS tool call
+             ▼
+┌──────────────────────────┐
+│   Cloudflare Worker      │
+│  • Auth proxy only       │
+│  • No computation        │
+└────────────┬─────────────┘
+             ▼
+┌────────────────────────────────────┐
+│    Railway FastAPI Backend          │
+│  • Tier-0 fetch (activities/wellness)
+│  • Tier-1 normalization + snapshots
+│  • Tier-2 enforced totals + audits  │
+│  • Semantic JSON (URF v5.1)         │
+└────────────┬───────────────────────┘
+             ▼
+┌──────────────────────────┐
+│     Intervals.icu API    │
+│  (Authoritative source)  │
+└──────────────────────────┘
 </pre>
     </div>
 
-    <h2>Current System Limitations</h2>
-    <table>
-      <tr><th>Issue</th><th>Description</th><th>Impact</th></tr>
-      <tr><td>API Concatenation</td><td>Cloudflare combines multiple GET responses into one payload.</td><td>Causes oversized responses and JSON corruption.</td></tr>
-      <tr><td>Data Serialization Drift</td><td>Base64 + JSON double encoding across endpoints.</td><td>Loss of numeric precision and audit variance &gt; 2%.</td></tr>
-      <tr><td>Stateless Execution</td><td>No caching or Tier-level memory between requests.</td><td>Duplicate ICU fetches and wasted API quota.</td></tr>
-      <tr><td>Proxy Overload</td><td>All routing, merging, and logic done in Cloudflare.</td><td>Brittle and unmaintainable; single point of failure.</td></tr>
-      <tr><td>Virtual LangChain</td><td>ChatGPT simulates code instead of executing real Python.</td><td>Inconsistent numeric results, non-deterministic audits.</td></tr>
-      <tr><td>Schema Coupling</td><td>No handshake between GPT schema and GitHub version.</td><td>Field renames silently break audits.</td></tr>
-      <tr><td>Lack of Observability</td><td>No logs or telemetry from Cloudflare or ChatGPT tools.</td><td>Impossible to debug intermittent failures.</td></tr>
-    </table>
+<h2>Current Architecture Guarantees</h2>
+<table>
+  <tr><th>Area</th><th>Implementation</th><th>Result</th></tr>
 
-    <h2>Future Architecture (Render Container Model)</h2>
-    <div class="diagram">
-<pre>
-        ┌──────────────────────────┐
-        │        ChatGPT App       │
-        │ (User interface + logic) │
-        └────────────┬─────────────┘
-                     │ HTTPS (Tool call)
-                     ▼
-        ┌──────────────────────────┐
-        │    Render Container      │
-        │  (FastAPI + LangServe)   │
-        │    ┌────────────────┐    │
-        │    │  LangChain     │    │
-        │    │  + your repo   │    │
-        │    └────────────────┘    │
-        │ Executes Python code     │
-        └────────────┬─────────────┘
-                     │
-                     ▼
-        ┌──────────────────────────┐
-        │     Intervals.icu API    │
-        │ (External Data Provider) │
-        └──────────────────────────┘
-</pre>
-    </div>
+  <tr>
+    <td>Execution Model</td>
+    <td>Real Python execution on Railway (FastAPI)</td>
+    <td>Deterministic, reproducible results</td>
+  </tr>
 
-    <h2>Pipeline Improvements</h2>
-    <table>
-      <tr><th>Current Weakness</th><th>Future Mitigation</th></tr>
-      <tr><td>Concatenated API calls</td><td>FastAPI handles separate endpoints with structured responses.</td></tr>
-      <tr><td>Serialization drift</td><td>Typed Pydantic models guarantee consistent datatypes.</td></tr>
-      <tr><td>Stateless pipeline</td><td>LangChain memory cache retains Tier-level context.</td></tr>
-      <tr><td>Proxy overload</td><td>Split routing logic; Cloudflare becomes static edge, not processor.</td></tr>
-      <tr><td>Virtual math</td><td>True Python execution in container ensures numeric accuracy.</td></tr>
-      <tr><td>Schema mismatch</td><td>Version negotiation headers (v16.17+) between GPT and backend.</td></tr>
-      <tr><td>No observability</td><td>FastAPI logs + Prometheus metrics for traceable reports.</td></tr>
-    </table>
+  <tr>
+    <td>Cloudflare Role</td>
+    <td>Auth + request proxy only (no computation)</td>
+    <td>No payload mutation or logic drift</td>
+  </tr>
+
+  <tr>
+    <td>Data Fetch</td>
+    <td>Tier-0 authenticated ICU fetch with fixed windows</td>
+    <td>Stable datasets and predictable scope</td>
+  </tr>
+
+  <tr>
+    <td>Audit Pipeline</td>
+    <td>Tier-0 → Tier-1 → Tier-2 enforced validation</td>
+    <td>Totals locked; variance explicitly checked</td>
+  </tr>
+
+  <tr>
+    <td>Totals Authority</td>
+    <td>Tier-2 hard-enforced event-only totals</td>
+    <td>No weekly bleed into season or summary reports</td>
+  </tr>
+
+  <tr>
+    <td>Serialization</td>
+    <td>Single-pass JSON (no base64, no double encoding)</td>
+    <td>No numeric precision loss</td>
+  </tr>
+
+  <tr>
+    <td>State Handling</td>
+    <td>Context preserved across Tier boundaries</td>
+    <td>No redundant ICU fetches</td>
+  </tr>
+
+  <tr>
+    <td>Schema Control</td>
+    <td>Unified Reporting Framework (URF v5.1)</td>
+    <td>Explicit contracts between pipeline stages</td>
+  </tr>
+
+  <tr>
+    <td>Observability</td>
+    <td>Structured logs at each Tier boundary</td>
+    <td>Full traceability of audit decisions</td>
+  </tr>
+</table>
+
+<h2>Design Principles</h2>
+<table>
+  <tr><th>Principle</th><th>Meaning in Practice</th></tr>
+
+  <tr>
+    <td>Determinism</td>
+    <td>All metrics are computed once, audited, and reused without recomputation</td>
+  </tr>
+
+  <tr>
+    <td>Separation of Concerns</td>
+    <td>Edge handles auth and routing; backend handles computation and audits</td>
+  </tr>
+
+  <tr>
+    <td>Auditability</td>
+    <td>Every report can be traced back to Tier-0 source data</td>
+  </tr>
+
+  <tr>
+    <td>Schema Stability</td>
+    <td>URF contracts prevent silent field drift between versions</td>
+  </tr>
+
+  <tr>
+    <td>Numerical Integrity</td>
+    <td>No virtual math, no inference, no approximations</td>
+  </tr>
+</table>
+
   </main>
 
   <footer>

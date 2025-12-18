@@ -213,13 +213,13 @@
     <a href="https://www.cliveking.net#download">Download</a>
     <a href="https://www.cliveking.net#contact">Contact</a>
     <!-- New -->
-    <a href="https://www.cliveking.net/pipeline.html" style="font-weight: bold; color: #38bdf8;">Pipeline</a>
+    <a href="https://www.cliveking.net/pipeline.html" style="font-weight: bold; color: #38bdf8;">DESIGN</a>
   </nav>
 </header>
   <!-- About -->
   <section id="about">
     <div class="card">
-      <h2>About the Coach GPT</h2>
+      <h2>About the Intervals ICU Coach V5 (Railway T2 Engine) Edition! </h2>
       <p>
         The Coach GPT App blends <strong>data-driven precision</strong> with <strong>evidence-based training principles</strong>.
         It integrates objective load metrics (TSS, CTL, ATL, HRV, VO₂max) with subjective markers (RPE, mood, recovery)
@@ -236,12 +236,10 @@
   <h2>🧭 Coach Tips — Get More From Your AI Coach</h2>
   <ol>
     <li><strong>Confirm your Intervals.icu connection first.</strong> Type “Connection active” before running any report.</li>
-    <li><strong>Let the coach self-audit.</strong> If totals or hours look incorrect, say “Audit and validate totals”.</li>
     <li><strong>Tell me your age.</strong> Enables Friel-based load and recovery adjustments (defaults to 35 if not given).</li>
     <li><strong>Log subjective data.</strong> Sleep, fatigue, mood, soreness, motivation, and hydration improve accuracy.</li>
     <li><strong>Keep FTP and zones current.</strong> Retest FTP/LT1 roughly every 6 weeks or after 3–4 microcycles.</li>
-    <li><strong>Be specific in commands.</strong> e.g. “Run a weekly report”, “Show wellness trend”, “Audit season totals”.</li>
-    <li><strong>Check the audit flag.</strong> Reports only render when audit✅. If not, ask to re-audit.</li>
+    <li><strong>Be specific in commands.</strong> e.g. “Run a weekly report (based on last  7 days)”, Run a wellness report (it will be based on last 42 days of data)”, “Run a Season Report (it will based on last 90 days)”.</li>
     <li><strong>Understand data limits.</strong> Some derived metrics (e.g. age or readiness) depend on what Intervals.icu provides.</li>
   </ol>
 </section>
@@ -327,242 +325,363 @@
   <p>Anonymised examples for a cycling-focused athlete.</p>
 
   <details>
-    <summary>Weekly Report</summary>
-    <pre>
-<h3>📊 Weekly Report — Unified Reporting Framework v5.1</h3>
-<div class="codeblock">
-<table>
-<tr><td>Athlete</td><td>[Anon]</td></tr>
-<tr><td>Discipline</td><td>Cycling</td></tr>
-<tr><td>Window</td><td>2025-10-20 → 2025-10-26</td></tr>
-<tr><td>Audit</td><td>✅ Final</td></tr>
-</table>
-</div>
+  <summary>✅ Weekly Training Report — Last 7 Days (URF v5.1)</summary>
 
-<h4>🔹 Key Stats</h4>
-<div class="codeblock"><table>
-<tr><td>Volume</td><td>10 h 46 m</td></tr>
-<tr><td>Load (TSS)</td><td>579</td></tr>
-<tr><td>CTL / ATL</td><td>92 / 81</td></tr>
-<tr><td>Form</td><td>+11</td></tr>
-<tr><td>ACWR</td><td>1.01</td></tr>
-<tr><td>Monotony</td><td>3.6 ⚠</td></tr>
-<tr><td>Strain</td><td>579</td></tr>
-</table></div>
+  <section class="report">
 
-<h4>🔸 Training Quality</h4>
-<div class="codeblock"><table>
-<tr><td>Z1–Z2 Distribution</td><td>70 % ✅</td></tr>
-<tr><td>Z3–Z5 Time</td><td>30 % ⚠</td></tr>
-<tr><td>FatOx Index</td><td>0.80 ✅</td></tr>
-<tr><td>HR–Power Decoupling</td><td>4.9 % ✅</td></tr>
-</table></div>
+    <h3>Weekly Training Report — Joe Bloggs</h3>
+    <p>
+      <strong>Period:</strong> Last 7 days (ending Dec 18, 2025)<br>
+      <strong>Framework:</strong> Unified Reporting Framework v5.1<br>
+      <strong>Dataset:</strong> Tier-2 canonical (event-only)
+    </p>
 
-<h4>🔹 Efficiency & Adaptation</h4>
-<div class="codeblock"><table>
-<tr><td>Benchmark Index</td><td>Stable (+0.4 %)</td></tr>
-<tr><td>Specificity Index</td><td>0.74 → 0.77</td></tr>
-<tr><td>Durability Marker</td><td>High</td></tr>
-</table></div>
+    <h4>🧭 Overview</h4>
+    <ul>
+      <li><strong>Total Hours:</strong> 10.24 h</li>
+      <li><strong>Distance:</strong> 210.6 km</li>
+      <li><strong>Total Load:</strong> 425 TSS</li>
+      <li><strong>CTL / ATL / TSB:</strong> 74.4 / 61.1 / +13.3 → Form positive</li>
+      <li><strong>Phase:</strong> Productive / Loading (ACWR 1.02)</li>
+      <li><strong>Trend:</strong> Fatigue ↑ (+6.1 %) · Fitness stable · Recovery moderate</li>
+    </ul>
 
-<h4>🔸 Recovery & Wellness</h4>
-<div class="codeblock"><table>
-<tr><td>HRV</td><td>46 ms</td></tr>
-<tr><td>RestHR</td><td>44 bpm</td></tr>
-<tr><td>Sleep</td><td>7.6 h avg</td></tr>
-<tr><td>Fatigue / Stress / Soreness</td><td>Low</td></tr>
-</table></div>
+    <h4>⚙️ Key Metrics</h4>
+    <table class="codeblock">
+      <tr><th>Metric</th><th>Value</th><th>Status</th><th>Coaching Insight</th></tr>
+      <tr><td>ACWR</td><td>1.02</td><td>✅ Productive</td><td>Balanced short/long load</td></tr>
+      <tr><td>Monotony</td><td>1.15</td><td>✅ Optimal</td><td>Healthy variation</td></tr>
+      <tr><td>Strain</td><td>69.8</td><td>✅ Optimal</td><td>Below overreach risk</td></tr>
+      <tr><td>Fatigue Trend</td><td>+6.1 %</td><td>⚠ Accumulating</td><td>Monitor recovery</td></tr>
+      <tr><td>Recovery Index</td><td>0.77</td><td>✅ Moderate</td><td>Avoid stacked hard days</td></tr>
+      <tr><td>Stress Tolerance</td><td>2.0</td><td>⚠ Low</td><td>Increase load gradually</td></tr>
+      <tr><td>Polarisation</td><td>1.00</td><td>✅ 80/20</td><td>Clear intensity separation</td></tr>
+      <tr><td>FOx Efficiency</td><td>0.64</td><td>✅ Optimal</td><td>Good fat oxidation</td></tr>
+    </table>
 
-<h4>📈 Performance Insights (Automated)</h4>
-<ul>
-<li>✅ Seiler alignment – Polarisation 0.72 (Optimal 80/20 balance)</li>
-<li>✅ San Millán – FatOx ≥ 0.8 and Dec ≤ 5 %</li>
-<li>✅ Friel – Balanced ACWR (1.01)</li>
-<li>⚠ Foster – Monotony > 3.0 → Slight uniformity risk</li>
-</ul>
+    <h4>📊 Load & Intensity Distribution</h4>
+    <ul>
+      <li><strong>Polarisation:</strong> ~80 % Z1–Z2 / 20 % Z3+</li>
+      <li><strong>Fatigue vs Fitness:</strong> ATL 61 &lt; CTL 74 → recovery window open</li>
+      <li><strong>Metabolic Drift:</strong> +0.08 → stable efficiency</li>
+    </ul>
 
-<h4>🧭 Actions (Max 5)</h4>
-<ol>
-<li>Maintain ≥ 70 % Z1–Z2 for aerobic durability (Seiler).</li>
-<li>Keep FatOx ≥ 0.8 and Decoupling ≤ 5 % (San Millán).</li>
-<li>Schedule recovery microcycle next week (Friel).</li>
-<li>Retest FTP / LT1 in 6 weeks (benchmark update).</li>
-<li>Validate FatMax calibration ± 5 % via field data.</li>
-</ol>
+    <h4>🚴‍♂️ Training Breakdown</h4>
+    <table class="codeblock">
+      <tr><th>Date</th><th>Session</th><th>TSS</th><th>Duration</th><th>Distance</th></tr>
+      <tr><td>Dec 13</td><td>Zwift – BaseCamp Tempo + Surges</td><td>99</td><td>1 h 31 m</td><td>50.2 km</td></tr>
+      <tr><td>Dec 15</td><td>Zwift – Aerobic Endurance + Tempo</td><td>63</td><td>1 h 11 m</td><td>37.1 km</td></tr>
+      <tr><td>Dec 17</td><td>Zwift Race – Hell of the North (A)</td><td>80</td><td>1 h 07 m</td><td>42.5 km</td></tr>
+      <tr><td>Dec 18</td><td>Zwift – Deux zAlpe ATbase</td><td>126</td><td>2 h 34 m</td><td>54.7 km</td></tr>
+    </table>
 
-    </pre>
-  </details>
+    <p><strong>Total:</strong> 10 h 14 m · 210.6 km · 425 TSS</p>
+
+    <h4>🧩 Adaptation & Recovery</h4>
+    <table class="codeblock">
+      <tr><td>Efficiency Factor</td><td>1.9</td><td>Improving power–HR efficiency</td></tr>
+      <tr><td>Fatigue Resistance</td><td>0.95</td><td>High durability</td></tr>
+      <tr><td>Z2 Stability</td><td>0.04</td><td>Steady aerobic pacing</td></tr>
+      <tr><td>Aerobic Decay</td><td>0.02</td><td>Minimal loss</td></tr>
+    </table>
+
+    <h4>💡 Coaching Actions</h4>
+    <ul>
+      <li>✅ Maintain ≥ 70 % Z1–Z2 volume</li>
+      <li>⚠ Extend Zone 2 rides for durability</li>
+      <li>⚠ Schedule a rest or skills-focus day</li>
+      <li>✅ Polarisation and efficiency optimal</li>
+      <li>✅ Recovery Index healthy (0.77)</li>
+    </ul>
+
+    <h4>🏁 Summary</h4>
+    <p>
+      You are in a productive, well-balanced load state. Polarisation and metabolic
+      efficiency are excellent, with fatigue accumulation within acceptable bounds.
+      Maintain rhythm, extend endurance sessions, and consolidate gains with a
+      recovery-focused day mid-week.
+    </p>
+
+    <p class="muted">
+      URF v5.1 · Canonical source: Intervals.icu Activities Dataset ·
+      Rendered via Railway Tier-2 engine
+    </p>
+
+  </section>
+</details>
+
 
   <details>
-    <summary>Season Report</summary>
-    <pre>
-<h3>📆 Season Report — Unified Reporting Framework v5.1</h3>
-<div class="codeblock"><table>
-<tr><td>Athlete</td><td>[Anon]</td></tr>
-<tr><td>Window</td><td>2025-09-15 → 2025-10-26</td></tr>
-<tr><td>Phases</td><td>Build → Overload → Deload</td></tr>
-<tr><td>Audit</td><td>✅ Final</td></tr>
-</table></div>
+  <summary>✅ Season Training Report — Q4 2025 (URF v5.1)</summary>
 
-<h4>🔹 Key Stats</h4>
-<div class="codeblock"><table>
-<tr><td>Total Volume</td><td>61.3 h</td></tr>
-<tr><td>Total Load (TSS)</td><td>3330</td></tr>
-<tr><td>Average ACWR</td><td>1.08</td></tr>
-<tr><td>CTL Trend</td><td>+12 ↑</td></tr>
-<tr><td>Recovery Index</td><td>0.63</td></tr>
-<tr><td>Monotony</td><td>2.8 ✅</td></tr>
-<tr><td>Strain</td><td>930 ✅</td></tr>
-</table></div>
+  <section class="report">
 
-<h4>🔸 Training Quality</h4>
-<div class="codeblock"><table>
-<tr><td>Polarisation Index</td><td>0.74 ✅</td></tr>
-<tr><td>FatOx Index (Avg)</td><td>0.81 ✅</td></tr>
-<tr><td>Endurance Durability</td><td>High</td></tr>
-</table></div>
+    <h3>Season Report — Joe Bloggs (Q4 2025)</h3>
+    <p>
+      <strong>Framework:</strong> Unified Reporting Framework v5.1<br>
+      <strong>Period:</strong> 90-day season block<br>
+      <strong>Generated:</strong> 18 Dec 2025 · Timezone: Europe/Zurich
+    </p>
 
-<h4>🔹 Efficiency & Adaptation</h4>
-<div class="codeblock"><table>
-<tr><td>Benchmark Index</td><td>+2.1 %</td></tr>
-<tr><td>Specificity Index</td><td>0.75 → 0.79</td></tr>
-<tr><td>Durability Marker</td><td>Improved</td></tr>
-</table></div>
+    <h4>🧭 Season Overview (90 Days)</h4>
+    <table class="codeblock">
+      <tr><th>Metric</th><th>Value</th><th>Interpretation</th></tr>
+      <tr><td>CTL (Chronic Load)</td><td>74.4</td><td>Solid endurance base</td></tr>
+      <tr><td>ATL (Acute Load)</td><td>61.1</td><td>Moderate recent fatigue</td></tr>
+      <tr><td>TSB (Form)</td><td>+13.3</td><td>Fresh and well-recovered</td></tr>
+      <tr><td>ACWR</td><td>0.92</td><td>Productive load balance</td></tr>
+      <tr><td>Total Hours</td><td>152.4 h</td><td>~3-month training volume</td></tr>
+      <tr><td>Total Distance</td><td>3,701.8 km</td><td>Consistent endurance work</td></tr>
+      <tr><td>Total TSS</td><td>7,145</td><td>Robust seasonal load</td></tr>
+    </table>
 
-<h4>🧱 Phase Summary</h4>
-<div class="codeblock"><table>
-<tr><th>Phase</th><th>Span</th><th>Volume (h)</th><th>Load (TSS)</th><th>Trend</th></tr>
-<tr><td>Build</td><td>2 wks</td><td>18.4</td><td>940</td><td>↑</td></tr>
-<tr><td>Overload</td><td>3 wks</td><td>31.7</td><td>1770</td><td>↑↑</td></tr>
-<tr><td>Deload</td><td>1 wk</td><td>11.2</td><td>620</td><td>↓</td></tr>
-</table></div>
+    <h4>📊 Fitness & Load Trends</h4>
+    <ul>
+      <li><strong>Fatigue Trend:</strong> −17.9 % → recovering state (amber)</li>
+      <li><strong>ACWR:</strong> 0.92 → productive equilibrium</li>
+      <li><strong>Polarisation Index:</strong> 1.00 ✅ (80/20 compliant)</li>
+      <li><strong>Fatigue Resistance:</strong> 0.95 → high durability</li>
+      <li><strong>Efficiency Factor:</strong> 1.9 → strong aerobic conditioning</li>
+      <li><strong>Aerobic Decay:</strong> 0.02 → minimal endurance loss</li>
+      <li><strong>Z2 Stability:</strong> 0.04 → consistent aerobic pacing</li>
+    </ul>
 
-<h4>🔸 Recovery & Wellness</h4>
-<div class="codeblock"><table>
-<tr><td>HRV Trend</td><td>-6 % during Overload ⚠</td></tr>
-<tr><td>RestHR</td><td>Stable (44 bpm)</td></tr>
-<tr><td>Sleep Average</td><td>7.4 h</td></tr>
-<tr><td>Stress / Fatigue</td><td>Normalised after Deload</td></tr>
-</table></div>
+    <h4>🧩 Weekly Phases Summary</h4>
+    <table class="codeblock">
+      <tr><th>Week</th><th>Distance (km)</th><th>Hours</th><th>TSS</th></tr>
+      <tr><td>38</td><td>195</td><td>8.6</td><td>413</td></tr>
+      <tr><td>39</td><td>266</td><td>12.8</td><td>510</td></tr>
+      <tr><td>40</td><td>280</td><td>11.7</td><td>637</td></tr>
+      <tr><td>41</td><td>191</td><td>14.4</td><td>452</td></tr>
+      <tr><td>42</td><td>289</td><td>16.6</td><td>795</td></tr>
+      <tr><td>43</td><td>310</td><td>10.7</td><td>520</td></tr>
+      <tr><td>44</td><td>324</td><td>11.0</td><td>595</td></tr>
+      <tr><td>45</td><td>407</td><td>13.9</td><td>722</td></tr>
+      <tr><td>46</td><td>242</td><td>10.0</td><td>471</td></tr>
+      <tr><td>47</td><td>411</td><td>14.8</td><td>702</td></tr>
+      <tr><td>48</td><td>240</td><td>7.9</td><td>444</td></tr>
+      <tr><td>49</td><td>168</td><td>5.1</td><td>200</td></tr>
+      <tr><td>50</td><td>237</td><td>9.3</td><td>414</td></tr>
+      <tr><td>51</td><td>144</td><td>5.5</td><td>270</td></tr>
+    </table>
 
-<h4>📈 Performance Insights</h4>
-<ul>
-<li>✅ ACWR 0.9–1.2 — adaptive zone</li>
-<li>✅ CTL +12 — progressive load gain</li>
-<li>⚠ HRV suppression during Overload phase</li>
-<li>✅ Subjective stress ↓ after Deload</li>
-</ul>
+    <p>
+      <strong>Observation:</strong>
+      Strong build through Weeks 40–47, followed by progressive fatigue relief
+      and steady recovery toward Week 51.
+    </p>
 
-<h4>🧭 Actions</h4>
-<ol>
-<li>Maintain 3 : 1 build/deload cycle (Friel).</li>
-<li>Extend base endurance before next intensity phase.</li>
-<li>Ensure ≥ 7.5 h sleep for recovery quality.</li>
-<li>Retest FTP and VO₂ metrics post-block.</li>
-<li>Monitor HRV and mood for readiness confirmation.</li>
-</ol>
+    <h4>💡 Insights</h4>
+    <ul>
+      <li>Metabolic Drift: 0.107 → stable aerobic economy</li>
+      <li>Fatigue Trend: −17.9 % → recovery dominant</li>
+      <li>Fitness Phase: Productive loading</li>
+      <li>Recovery Index: 0.77 → healthy range</li>
+      <li>Durability: improving (1.00)</li>
+    </ul>
+
+    <h4>🧠 Coach Notes & Recommendations</h4>
+    <ul>
+      <li>✅ Maintain ≥70 % Z1–Z2 (Seiler 80/20)</li>
+      <li>⚠ Improve Zone 2 efficiency via longer steady sessions</li>
+      <li>✅ Durability trending upward — keep long-ride structure</li>
+      <li>⚠ Slight over-intensity (LIR = 2.00) → modulate short-term load</li>
+      <li>✅ Positive form (+13 TSB) → ready for controlled build or race block</li>
+    </ul>
+
+    <p>
+      <strong>Periodisation context:</strong><br>
+      Base → Build → Peak → Taper → Recovery.  
+      Maintain ACWR ≤ 1.3 and allow ATL reduction of 30–50 % during taper phases.
+    </p>
+
+    <h4>🧾 Summary</h4>
+    <p>
+      The season profile is balanced, durable, and well-managed.
+      Aerobic endurance and fatigue control are strong, with the block ending in
+      a recovered, productive state — ideal for transition or sharpening.
+    </p>
+
+    <p class="muted">
+      URF v5.1 · Canonical source: Intervals.icu Activities Dataset ·
+      Rendered via Railway Tier-2 engine
+    </p>
+
+  </section>
+</details>
 
 
-    </pre>
-  </details>
+<details>
+  <summary>✅ Wellness Report — 42-Day Block (URF v5.1)</summary>
+
+  <section class="report">
+
+    <h3>Unified Wellness Report — 42-Day Block</h3>
+    <p>
+      <strong>Athlete:</strong> Joe Bloggs · CH Zurich, Switzerland<br>
+      <strong>Generated:</strong> 18 Dec 2025 · <strong>Timezone:</strong> Europe/Zurich
+    </p>
+
+    <h4>🧠 1. Executive Summary</h4>
+    <ul>
+      <li><strong>Overall status:</strong> Recovered &amp; Stable</li>
+      <li><strong>Form (TSB):</strong> +13.3 — positive and rising</li>
+      <li><strong>CTL:</strong> 74.4 — aerobic base maintained</li>
+      <li><strong>ATL:</strong> 61.1 — sustainable acute load</li>
+      <li><strong>Readiness:</strong> ✅ Optimal recovery window (3–5 days)</li>
+    </ul>
+
+    <h4>💓 2. Core Wellness Metrics (Garmin → Intervals)</h4>
+    <table class="codeblock">
+      <tr><th>Metric</th><th>Current</th><th>Trend</th><th>Interpretation</th></tr>
+      <tr><td>Resting HR</td><td>42 bpm</td><td>↓ stable</td><td>Excellent efficiency</td></tr>
+      <tr><td>HRV</td><td>High</td><td>↔</td><td>Balanced autonomic state</td></tr>
+      <tr><td>VO₂ Max</td><td>~60</td><td>↔</td><td>Endurance maintained</td></tr>
+      <tr><td>Sleep Score</td><td>80–85</td><td>↔</td><td>Adequate recovery</td></tr>
+      <tr><td>Sleep Duration</td><td>7h 15m</td><td>↑ slight</td><td>Near-optimal</td></tr>
+    </table>
+
+    <h4>🧘 3. Subjective Wellness</h4>
+    <table class="codeblock">
+      <tr><td>Mood / Motivation</td><td>😊 High</td></tr>
+      <tr><td>Perceived Recovery</td><td>✅ Good</td></tr>
+      <tr><td>Stress (non-training)</td><td>⚖️ Moderate</td></tr>
+      <tr><td>Sleep Quality</td><td>🌙 Good</td></tr>
+      <tr><td>Illness / Fatigue</td><td>🚫 None</td></tr>
+    </table>
+
+    <h4>🩺 4. Training Readiness Outlook</h4>
+    <ul>
+      <li><strong>CTL:</strong> Strong aerobic base</li>
+      <li><strong>ATL:</strong> Manage taper; keep easy days</li>
+      <li><strong>TSB:</strong> 🟢 Ready for quality training</li>
+    </ul>
+
+    <p>
+      You’re in a low-fatigue, high-form state — ideal for a controlled
+      intensity block or event taper. Avoid extended detraining (&gt;7 days).
+    </p>
+
+    <h4>⚙️ 5. Recommended Focus (Next 7 Days)</h4>
+    <ol>
+      <li>Maintain load at 75–85% of recent 4-week average</li>
+      <li>Include 2 threshold / sweet-spot sessions</li>
+      <li>Maintain ≥2 active recovery or Z1 days</li>
+      <li>Target ≥7.5 h sleep</li>
+      <li>Increase carbs + protein ~10% on intensity days</li>
+    </ol>
+
+    <h4>🪙 6. Tier-2 Audit</h4>
+    <ul>
+      <li>✅ Audit Final</li>
+      <li>✅ Variance &lt; 0.5%</li>
+      <li>✅ Canonical CTL / ATL / TSB aligned</li>
+      <li>✅ Dataset range: 42 days (wellness only)</li>
+      <li>✅ Renderer: Railway Tier-2 engine</li>
+    </ul>
+
+    <p class="muted">
+      URF v5.1 · Canonical source: Intervals.icu Wellness Dataset ·
+      Generated via Railway Render Container
+    </p>
+
+  </section>
+</details>
+
 
   <details>
-    <summary>Wellness Trend</summary>
-    <pre>
-<h3>💠 Wellness Trend — Unified Reporting Framework v5.1</h3>
-<div class="codeblock"><table>
-<tr><td>Athlete</td><td>[Anon]</td></tr>
-<tr><td>Window</td><td>2025-10-13 → 2025-10-26</td></tr>
-<tr><td>Audit</td><td>✅ Final</td></tr>
-</table></div>
+  <summary>🧭 Training Summary — Unified Report (URF v5.1)</summary>
 
-<h4>🔹 Key Stats</h4>
-<div class="codeblock"><table>
-<tr><td>HRV Avg</td><td>46 ms</td></tr>
-<tr><td>RestHR</td><td>44 bpm</td></tr>
-<tr><td>Sleep Duration</td><td>7.6 h</td></tr>
-<tr><td>Sleep Quality</td><td>84 %</td></tr>
-<tr><td>Stress / Fatigue / Soreness</td><td>Low (2 / 5)</td></tr>
-<tr><td>Mood</td><td>Good ↑</td></tr>
-</table></div>
+  <section class="report">
 
-<h4>🔸 Recovery Summary</h4>
-<div class="codeblock"><table>
-<tr><td>Recovery Index</td><td>0.68 ✅</td></tr>
-<tr><td>Readiness Score</td><td>0.72 ✅</td></tr>
-<tr><td>Hydration</td><td>Adequate (~2.3 L/day)</td></tr>
-<tr><td>Sleep Consistency</td><td>High</td></tr>
-</table></div>
+    <h3>Training Summary — Joe Bloggs</h3>
+    <p>
+      <strong>Framework:</strong> Unified Reporting Framework v5.1<br>
+      <strong>Window:</strong> Rolling 90 days<br>
+      <strong>Generated:</strong> 18 Dec 2025 · Timezone: Europe/Zurich
+    </p>
 
-<h4>📈 Performance Insights</h4>
-<ul>
-<li>✅ HRV +2 % vs previous fortnight</li>
-<li>✅ RestHR −1 bpm improvement</li>
-<li>✅ Fatigue consistent ≤ 2/5</li>
-<li>⚠ Stress spike mid-block (Transient)</li>
-</ul>
+    <h4>📊 Overview</h4>
+    <table class="codeblock">
+      <tr><td>Training Hours</td><td>152.4 h</td></tr>
+      <tr><td>Total Distance</td><td>3,701.8 km</td></tr>
+      <tr><td>Total Load (TSS)</td><td>7,145</td></tr>
+      <tr><td>Primary Sports</td><td>Ride / Run / Swim</td></tr>
+    </table>
 
-<h4>🧭 Actions</h4>
-<ol>
-<li>Maintain sleep ≥ 7.5 h /night.</li>
-<li>Prioritise hydration during load weeks.</li>
-<li>If HRV ↓ > 10 %, reduce load ≈ 15 %.</li>
-<li>Retest readiness after Deload.</li>
-<li>Keep subjective logs daily.</li>
-</ol>
+    <h4>💪 Current Wellness State</h4>
+    <table class="codeblock">
+      <tr><th>Metric</th><th>Value</th><th>Interpretation</th></tr>
+      <tr><td>CTL (Fitness)</td><td>74.4</td><td>Solid endurance base</td></tr>
+      <tr><td>ATL (Fatigue)</td><td>61.1</td><td>Controlled, below risk threshold</td></tr>
+      <tr><td>TSB (Form)</td><td>+13.3</td><td>Fresh and recovering</td></tr>
+    </table>
 
-    </pre>
-  </details>
+    <p>
+      <strong>Status:</strong> Form positive → ideal phase for performance or testing.<br>
+      <strong>Recommendation:</strong> Maintain current load; avoid excessive tapering beyond +20 TSB.
+    </p>
 
-  <details>
-    <summary>Executive Summary</summary>
-    <pre>
-<h3>🧩 Executive Summary — Unified Reporting Framework v5.1</h3>
-<div class="codeblock"><table>
-<tr><td>Athlete</td><td>[Anon]</td></tr>
-<tr><td>Scope</td><td>Load & Recovery Overview</td></tr>
-<tr><td>Period</td><td>Last 42 days</td></tr>
-<tr><td>Audit</td><td>✅ Final</td></tr>
-</table></div>
+    <h4>🔍 Trend Insights</h4>
+    <ul>
+      <li>
+        <strong>Fatigue Trend:</strong> −17.9 % (recovering)<br>
+        Indicates recovery following recent load reduction.
+        <em>Coaching:</em> Reload progressively; avoid sharp intensity spikes.
+      </li>
+      <li>
+        <strong>Fitness Phase:</strong> Productive / Loading<br>
+        ACWR within 0.8–1.3 → sustainable, low injury risk.
+      </li>
+      <li>
+        <strong>Metabolic Drift:</strong> 0.08<br>
+        Aerobic stability improving; Z2 efficiency consistent.
+      </li>
+    </ul>
 
-<h4>🔹 Key Stats</h4>
-<div class="codeblock"><table>
-<tr><td>Volume</td><td>61.3 h</td></tr>
-<tr><td>Load (TSS)</td><td>3330</td></tr>
-<tr><td>CTL / ATL</td><td>90 / 84</td></tr>
-<tr><td>Form</td><td>+6</td></tr>
-<tr><td>ACWR</td><td>1.08 ✅</td></tr>
-<tr><td>Monotony</td><td>2.8 ✅</td></tr>
-<tr><td>Strain</td><td>930 ✅</td></tr>
-<tr><td>Polarisation</td><td>0.74 ✅</td></tr>
-</table></div>
+    <h4>⚙️ Load & Intensity</h4>
+    <table class="codeblock">
+      <tr><th>Measure</th><th>Status</th><th>Interpretation</th></tr>
+      <tr><td>Polarisation</td><td>✅ Optimal (100%)</td><td>Seiler 80/20 balance confirmed</td></tr>
+      <tr><td>Load Intensity Ratio</td><td>⚠ High (2.0)</td><td>Slightly heavy on high-intensity sessions</td></tr>
+      <tr><td>Durability Index</td><td>✅ Stable (1.00)</td><td>Long-ride structure consistent</td></tr>
+      <tr><td>Efficiency Drift</td><td>✅ Stable (0.00%)</td><td>Fatigue resistance sustained</td></tr>
+    </table>
 
-<h4>🔸 Recovery & Wellness</h4>
-<div class="codeblock"><table>
-<tr><td>HRV</td><td>46 ms ✅</td></tr>
-<tr><td>RestHR</td><td>44 bpm ✅</td></tr>
-<tr><td>Recovery Index</td><td>0.68 ✅</td></tr>
-<tr><td>Readiness</td><td>0.72 ✅</td></tr>
-</table></div>
+    <p>
+      <strong>Actionable takeaway:</strong>
+      Maintain high Z1–Z2 volume and slightly reduce mid-threshold intensity
+      to improve aerobic economy.
+    </p>
 
-<h4>📈 Performance Insights</h4>
-<ul>
-<li>✅ Balanced ACWR (0.8–1.3)</li>
-<li>✅ Positive HRV stability</li>
-<li>⚠ Monotony 2.8 → uniformity watch</li>
-</ul>
+    <h4>🧠 Coaching Actions</h4>
+    <ul>
+      <li>✅ Maintain ≥70 % Z1–Z2 endurance time</li>
+      <li>⚠ Improve Zone 2 efficiency (extend duration, slightly lower IF)</li>
+      <li>✅ Durability improving — continue long aerobic rides</li>
+      <li>⚠ Load intensity slightly elevated (LIR = 2.00) — monitor recovery</li>
+      <li>✅ Fatigue trend healthy — recovering state</li>
+      <li>✅ Polarisation optimal (80/20 confirmed)</li>
+      <li>✅ Efficiency drift stable — good aerobic control</li>
+      <li>✅ Recovery index healthy (0.77)</li>
+    </ul>
 
-<h4>🧭 Actions</h4>
-<ol>
-<li>Continue 3:1 build/deload rhythm.</li>
-<li>Keep Z1–Z2 ≥ 70 % volume.</li>
-<li>Maintain ≥ 2 nights recovery after high load.</li>
-<li>Monitor HRV daily for fatigue trend.</li>
-<li>Plan next benchmark retest in week 7.</li>
-</ol>
+    <h4>🧩 Interpretation Summary</h4>
+    <p>
+      You are in a productive, controlled training phase.
+      CTL is stable, ATL well managed, and fatigue reduction signals readiness
+      for performance testing or block transition.
+      Focus next on Z2 duration and maintaining winter consistency.
+    </p>
 
-    </pre>
-  </details>
+    <p class="muted">
+      URF v5.1 · Canonical source: Intervals.icu Activities + Wellness ·
+      Rendered via Railway Tier-2 engine
+    </p>
+
+  </section>
+</details>
+
 </section>
 
 
@@ -572,7 +691,7 @@
       <h2>Get the App</h2>
       <p>In the GPT Store, search for: <strong>"Intervals icu training coach"</strong></p>
       <ul>
-        <li><a href="https://chat.openai.com/gpts" target="_blank">🌐 Open GPT Store (web)</a></li>
+        <li><a href="https://chatgpt.com/g/g-6933fc6bcd008191bb52885be4d1927c-intervals-icu-coach-v5-railway-t2-engine" target="_blank">🌐 Open APP on GPT Store (web)</a></li>
         <li><a href="https://apps.apple.com/us/app/chatgpt/id6448311069" target="_blank">📱 Download ChatGPT on iOS</a></li>
         <li><a href="https://play.google.com/store/apps/details?id=com.openai.chatgpt" target="_blank">📱 Download ChatGPT on Android</a></li>
       </ul>
