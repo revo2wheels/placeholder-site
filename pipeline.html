@@ -5,125 +5,50 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Pipeline Architecture — Current vs Future | Coach GPT App</title>
   <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/44225520?v=4" />
-  <style>
-    body {
-      font-family: 'Inter', Arial, sans-serif;
-      margin: 0;
-      background-color: #0f172a;
-      color: #f8fafc;
-      line-height: 1.6;
-    }
-    header {
-      background-color: #020617;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 1rem 2rem;
-      border-bottom: 1px solid #1e293b;
-    }
-    header h1 {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      font-size: 1.25rem;
-      margin: 0;
-    }
-    header h1 img {
-      width: 36px;
-      height: 36px;
-      border-radius: 50%;
-    }
-    header nav a {
-      color: #cbd5e1;
-      margin-left: 1.5rem;
-      text-decoration: none;
-      font-weight: 500;
-    }
-    header nav a:hover {
-      color: #38bdf8;
-    }
-    header nav a[href*="pipeline"] {
-      color: #38bdf8;
-      font-weight: 600;
-    }
-    main {
-      padding: 3rem 2rem;
-      max-width: 1000px;
-      margin: 0 auto;
-    }
-    h2 {
-      color: #38bdf8;
-      border-bottom: 1px solid #1e293b;
-      padding-bottom: 0.25rem;
-      margin-top: 2.5rem;
-    }
-    .diagram {
-      background-color: #1e293b;
-      border-radius: 0.75rem;
-      padding: 1rem;
-      overflow-x: auto;
-      font-family: 'Courier New', monospace;
-      font-size: 0.9rem;
-      color: #e2e8f0;
-      box-shadow: 0 1px 2px rgba(0,0,0,0.3);
-    }
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      margin-top: 1rem;
-    }
-    th, td {
-      border: 1px solid #1e293b;
-      padding: 0.5rem 0.75rem;
-      text-align: left;
-    }
-    th {
-      background: #0f172a;
-      color: #38bdf8;
-    }
-    footer {
-      text-align: center;
-      padding: 2rem;
-      font-size: 0.85rem;
-      color: #94a3b8;
-      border-top: 1px solid #1e293b;
-      background-color: #020617;
-    }
-    footer a {
-      color: #38bdf8;
-      text-decoration: none;
-    }
-    footer a:hover {
-      text-decoration: underline;
-    }
-  </style>
+  <link rel="stylesheet" href="assets/css/style.css?v=1.7">
 </head>
+
 <body>
+  <!-- ===================================================
+  🧭 HEADER
+  ==================================================== -->
   <header>
     <h1>
       <img src="https://avatars.githubusercontent.com/u/44225520?v=4" alt="App Icon" />
-      <a href="https://www.cliveking.net" style="color:#fff;text-decoration:none;">Coach GPT App</a>
+      <a href="https://www.cliveking.net">Coach GPT App</a>
     </h1>
     <nav>
       <a href="https://www.cliveking.net#about">About</a>
       <a href="https://www.cliveking.net#features">Features</a>
-      <a href="https://www.cliveking.net#profile">Coach Profile</a>
-      <a href="https://www.cliveking.net#intervals">Intervals.icu</a>
+      <a href="https://www.cliveking.net#Reports">Reports</a>
+      <a href="https://www.cliveking.net#Questions">Questions</a>
       <a href="https://www.cliveking.net#samples">Samples</a>
-      <a href="https://www.cliveking.net/pipeline.html" style="color:#38bdf8;font-weight:600;">DESIGN</a>
+      <a href="https://www.cliveking.net#coach">Coach</a>
+      <a href="https://www.cliveking.net#download">Download</a>
+      <a href="https://www.cliveking.net#contact">Contact</a>
+      <a href="https://www.cliveking.net/pipeline.html" style="font-weight:bold;color:#38bdf8;">DESIGN</a>
     </nav>
   </header>
 
+  <!-- ===================================================
+  📘 MAIN CONTENT
+  ==================================================== -->
   <main>
-    <h1 style="text-align:center;color:#38bdf8;">System Architecture — Current</h1>
+    <section class="card">
+      <h1>System Architecture — Current</h1>
+      <p style="text-align:center;max-width:700px;margin:0 auto 2rem;">
+        This document outlines the current operational design for the <strong>Coach GPT App</strong>,
+        the guarantees provided by its architecture, and the roadmap for the next-generation
+        Intervals.icu AI Coaching Pipeline.
+      </p>
+    </section>
 
-    <p style="text-align:center;max-width:700px;margin:0 auto 2rem;">
-      This document describes the current operational design for the <strong>Coach GPT App</strong>, presents the current architectural guarantees, design principles and
-      and outlines pipleine for the next-generation Intervals ICU AI Coach.
-    </p>
-
-    <h2>Current Architecture</h2>
-    <div class="diagram">
+    <!-- ===================================================
+    ⚙️ CURRENT ARCHITECTURE
+    ==================================================== -->
+<section class="card">
+  <h2>⚙️ Current Architecture</h2>
+  <div class="codeblock" style="font-family:'Courier New',monospace;font-size:0.9rem;overflow-x:auto;text-align:center;">
 <pre>
 ┌──────────────────────────┐
 │        ChatGPT App       │
@@ -140,7 +65,7 @@
 ┌────────────────────────────────────┐
 │    Railway FastAPI Backend          │
 │  • Tier-0 fetch (activities/wellness)
-│  • Tier-1 normalization + snapshots
+│  • Tier-1 normalization + snapshots │
 │  • Tier-2 enforced totals + audits  │
 │  • Semantic JSON (URF v5.1)         │
 └────────────┬───────────────────────┘
@@ -150,104 +75,69 @@
 │  (Authoritative source)  │
 └──────────────────────────┘
 </pre>
-    </div>
+  </div>
+</section>
 
-<h2>Current Architecture Guarantees</h2>
-<table>
-  <tr><th>Area</th><th>Implementation</th><th>Result</th></tr>
 
-  <tr>
-    <td>Execution Model</td>
-    <td>Real Python execution on Railway (FastAPI)</td>
-    <td>Deterministic, reproducible results</td>
-  </tr>
+    <!-- ===================================================
+    🧩 ARCHITECTURE GUARANTEES
+    ==================================================== -->
+    <section class="card">
+      <h2>🧩 Current Architecture Guarantees</h2>
+      <table>
+        <thead>
+          <tr><th>Area</th><th>Implementation</th><th>Result</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Execution Model</td><td>Real Python execution on Railway (FastAPI)</td><td>Deterministic, reproducible results</td></tr>
+          <tr><td>Cloudflare Role</td><td>Auth + request proxy only (no computation)</td><td>No payload mutation or logic drift</td></tr>
+          <tr><td>Data Fetch</td><td>Tier-0 authenticated ICU fetch with fixed windows</td><td>Stable datasets and predictable scope</td></tr>
+          <tr><td>Audit Pipeline</td><td>Tier-0 → Tier-1 → Tier-2 enforced validation</td><td>Totals locked; variance explicitly checked</td></tr>
+          <tr><td>Totals Authority</td><td>Tier-2 hard-enforced event-only totals</td><td>No weekly bleed into season or summary reports</td></tr>
+          <tr><td>Serialization</td><td>Single-pass JSON (no base64, no double encoding)</td><td>No numeric precision loss</td></tr>
+          <tr><td>State Handling</td><td>Context preserved across Tier boundaries</td><td>No redundant ICU fetches</td></tr>
+          <tr><td>Schema Control</td><td>Unified Reporting Framework (URF v5.1)</td><td>Explicit contracts between pipeline stages</td></tr>
+          <tr><td>Observability</td><td>Structured logs at each Tier boundary</td><td>Full traceability of audit decisions</td></tr>
+        </tbody>
+      </table>
+    </section>
 
-  <tr>
-    <td>Cloudflare Role</td>
-    <td>Auth + request proxy only (no computation)</td>
-    <td>No payload mutation or logic drift</td>
-  </tr>
+    <!-- ===================================================
+    📐 DESIGN PRINCIPLES
+    ==================================================== -->
+    <section class="card">
+      <h2>📐 Design Principles</h2>
+      <table>
+        <thead>
+          <tr><th>Principle</th><th>Meaning in Practice</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Determinism</td><td>All metrics are computed once, audited, and reused without recomputation.</td></tr>
+          <tr><td>Separation of Concerns</td><td>Edge handles auth and routing; backend handles computation and audits.</td></tr>
+          <tr><td>Auditability</td><td>Every report can be traced back to Tier-0 source data.</td></tr>
+          <tr><td>Schema Stability</td><td>URF contracts prevent silent field drift between versions.</td></tr>
+          <tr><td>Numerical Integrity</td><td>No virtual math, inference, or approximation; all values are explicit.</td></tr>
+        </tbody>
+      </table>
+    </section>
 
-  <tr>
-    <td>Data Fetch</td>
-    <td>Tier-0 authenticated ICU fetch with fixed windows</td>
-    <td>Stable datasets and predictable scope</td>
-  </tr>
-
-  <tr>
-    <td>Audit Pipeline</td>
-    <td>Tier-0 → Tier-1 → Tier-2 enforced validation</td>
-    <td>Totals locked; variance explicitly checked</td>
-  </tr>
-
-  <tr>
-    <td>Totals Authority</td>
-    <td>Tier-2 hard-enforced event-only totals</td>
-    <td>No weekly bleed into season or summary reports</td>
-  </tr>
-
-  <tr>
-    <td>Serialization</td>
-    <td>Single-pass JSON (no base64, no double encoding)</td>
-    <td>No numeric precision loss</td>
-  </tr>
-
-  <tr>
-    <td>State Handling</td>
-    <td>Context preserved across Tier boundaries</td>
-    <td>No redundant ICU fetches</td>
-  </tr>
-
-  <tr>
-    <td>Schema Control</td>
-    <td>Unified Reporting Framework (URF v5.1)</td>
-    <td>Explicit contracts between pipeline stages</td>
-  </tr>
-
-  <tr>
-    <td>Observability</td>
-    <td>Structured logs at each Tier boundary</td>
-    <td>Full traceability of audit decisions</td>
-  </tr>
-</table>
-
-<h2>Design Principles</h2>
-<table>
-  <tr><th>Principle</th><th>Meaning in Practice</th></tr>
-
-  <tr>
-    <td>Determinism</td>
-    <td>All metrics are computed once, audited, and reused without recomputation</td>
-  </tr>
-
-  <tr>
-    <td>Separation of Concerns</td>
-    <td>Edge handles auth and routing; backend handles computation and audits</td>
-  </tr>
-
-  <tr>
-    <td>Auditability</td>
-    <td>Every report can be traced back to Tier-0 source data</td>
-  </tr>
-
-  <tr>
-    <td>Schema Stability</td>
-    <td>URF contracts prevent silent field drift between versions</td>
-  </tr>
-
-  <tr>
-    <td>Numerical Integrity</td>
-    <td>No virtual math, no inference, no approximations</td>
-  </tr>
-</table>
-
-    <h2>🧠 Pipeline</h4>
-    <ul>
-      <li>Extend reports to cover full season year, last 365 days or when your season started</li>
-      <li>Convert actions to calendar events in Intervals, e.g. plan for next week</li>
-      <li>Convert Calendar event workouts to downloadable files e.g. ZWO, and for upload to Intervals library directly via chat instruction</li>      
+    <!-- ===================================================
+    🚀 FUTURE PIPELINE
+    ==================================================== -->
+    <section class="card">
+      <h2>🚀 Future Pipeline Extensions</h2>
+      <ul>
+        <li>Extend reporting to full-season and 365-day longitudinal datasets.</li>
+        <li>Convert action recommendations to calendar events directly in Intervals.icu, and read planned Calendar events to update actions</li>
+        <li>Generate downloadable workout files (e.g., ZWO) and push to Intervals libraries via chat commands.</li>
+        <li>Integrate adaptive load simulation for predictive season modeling.</li>
+      </ul>
+    </section>
   </main>
 
+  <!-- ===================================================
+  ⚫ FOOTER
+  ==================================================== -->
   <footer>
     <p>&copy; 2025 <a href="https://www.cliveking.net">Clive King</a> · Coach GPT App — Unified Pipeline Architecture</p>
   </footer>
