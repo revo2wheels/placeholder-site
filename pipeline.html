@@ -3,9 +3,9 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Pipeline Architecture — Current vs Future | Coach GPT App</title>
+  <title>Pipeline Architecture — Unified Prefetch Design | Coach GPT App</title>
   <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/44225520?v=4" />
-  <link rel="stylesheet" href="assets/css/style.css?v=1.7">
+  <link rel="stylesheet" href="assets/css/style.css?v=1.8">
 </head>
 
 <body>
@@ -31,116 +31,85 @@
     </nav>
   </header>
 
-  <!-- ===================================================
-  📘 MAIN CONTENT
-  ==================================================== -->
   <main>
+    <!-- ===================================================
+    ⚙️ CURRENT PIPELINE
+    ==================================================== -->
     <section class="card">
-      <h1>System Architecture — Current</h1>
-      <p style="text-align:center;max-width:700px;margin:0 auto 2rem;">
-        This document outlines the current operational design for the <strong>Coach GPT App</strong>,
-        the guarantees provided by its architecture, and the roadmap for the next-generation
-        Intervals.icu AI Coaching Pipeline.
+      <h1>Unified Prefetch Architecture — v5.1 Design</h1>
+      <p style="text-align:center;max-width:750px;margin:0 auto 2rem;">
+        The <strong>Coach GPT App</strong> now runs on a unified prefetch architecture that separates
+        <em>data retrieval</em>, <em>normalization</em>, and <em>semantic report generation</em>
+        across Cloudflare and Railway.  
+        This ensures deterministic output, fixed schema contracts, and verifiable data lineage from <strong>Intervals.icu</strong>.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>⚙️ Current Operational Pipeline</h2>
+      <div class="codeblock" style="font-family:'Courier New',monospace;font-size:0.9rem;overflow-x:auto;text-align:center;">
+<pre>
+┌──────────────────────────────┐
+│        ChatGPT / CLI App     │
+│  (Tool invocation layer)     │
+└─────────────┬────────────────┘
+              │  HTTPS tool call
+              ▼
+┌──────────────────────────────────────────────┐
+│         🌩️ Cloudflare Worker (Edge)          │
+│  • Auth + routing proxy                     │
+│  • Handles ?start/?end normalization         │
+│  • Prefetches Intervals data → JSON context  │
+└─────────────┬────────────────────────────────┘
+              ▼
+┌──────────────────────────────────────────────┐
+│        🚉 Railway Backend (FastAPI)           │
+│  • Tier-0: Prefetch normalization             │
+│     - DataFrame coercion + baseline columns   │
+│     - Empty-source detection + AuditHalt      │
+│  • Tier-1: Activity & wellness validation     │
+│     - moving_time filtering, zero-checks      │
+│  • Tier-2: Aggregation + enforcement          │
+│     - Totals reconciliation, variance checks  │
+│  • Outputs URF v5.1 Semantic JSON             │
+└─────────────┬────────────────────────────────┘
+              ▼
+┌──────────────────────────────┐
+│     Intervals.icu API        │
+│   (authoritative source)     │
+└──────────────────────────────┘
+</pre>
+      </div>
+      <p style="text-align:center;margin-top:1rem;">
+        🔄 Cloudflare handles authentication, routing, and optional synthetic testing.<br>
+        🚉 Railway performs full computation, validation, and serialization.
       </p>
     </section>
 
     <!-- ===================================================
-    ⚙️ CURRENT ARCHITECTURE
-    ==================================================== -->
-<section class="card">
-  <h2>⚙️ Current Architecture</h2>
-  <div class="codeblock" style="font-family:'Courier New',monospace;font-size:0.9rem;overflow-x:auto;text-align:center;">
-<pre>
-┌──────────────────────────┐
-│        ChatGPT App       │
-│  (UI + tool invocation)  │
-└────────────┬─────────────┘
-             │ HTTPS tool call
-             ▼
-┌──────────────────────────┐
-│   Cloudflare Worker      │
-│  • Auth proxy only       │
-│  • No computation        │
-└────────────┬─────────────┘
-             ▼
-┌────────────────────────────────────┐
-│    Railway FastAPI Backend          │
-│  • Tier-0 fetch (activities/wellness)
-│  • Tier-1 normalization + snapshots │
-│  • Tier-2 enforced totals + audits  │
-│  • Semantic JSON (URF v5.1)         │
-└────────────┬───────────────────────┘
-             ▼
-┌──────────────────────────┐
-│     Intervals.icu API    │
-│  (Authoritative source)  │
-└──────────────────────────┘
-</pre>
-  </div>
-</section>
-
-
-    <!-- ===================================================
-    🧩 ARCHITECTURE GUARANTEES
+    🧩 PIPELINE GUARANTEES
     ==================================================== -->
     <section class="card">
-      <h2>🧩 Current Architecture Guarantees</h2>
+      <h2>🧩 Architecture Guarantees</h2>
       <table>
         <thead>
-          <tr><th>Area</th><th>Implementation</th><th>Result</th></tr>
+          <tr><th>Area</th><th>Implementation</th><th>Guarantee</th></tr>
         </thead>
         <tbody>
-          <tr><td>Execution Model</td><td>Real Python execution on Railway (FastAPI)</td><td>Deterministic, reproducible results</td></tr>
-          <tr><td>Cloudflare Role</td><td>Auth + request proxy only (no computation)</td><td>No payload mutation or logic drift</td></tr>
-          <tr><td>Data Fetch</td><td>Tier-0 authenticated ICU fetch with fixed windows</td><td>Stable datasets and predictable scope</td></tr>
-          <tr><td>Audit Pipeline</td><td>Tier-0 → Tier-1 → Tier-2 enforced validation</td><td>Totals locked; variance explicitly checked</td></tr>
-          <tr><td>Totals Authority</td><td>Tier-2 hard-enforced event-only totals</td><td>No weekly bleed into season or summary reports</td></tr>
-          <tr><td>Serialization</td><td>Single-pass JSON (no base64, no double encoding)</td><td>No numeric precision loss</td></tr>
-          <tr><td>State Handling</td><td>Context preserved across Tier boundaries</td><td>No redundant ICU fetches</td></tr>
-          <tr><td>Schema Control</td><td>Unified Reporting Framework (URF v5.1)</td><td>Explicit contracts between pipeline stages</td></tr>
-          <tr><td>Observability</td><td>Structured logs at each Tier boundary</td><td>Full traceability of audit decisions</td></tr>
+          <tr><td>Prefetch Flow</td><td>Cloudflare normalizes date params and injects optional test payloads</td><td>Safe staging tests without real data</td></tr>
+          <tr><td>Execution Model</td><td>Python execution on Railway (FastAPI + Pandas)</td><td>Deterministic, audited output</td></tr>
+          <tr><td>Tier-0 Validation</td><td>Baseline column checks (`moving_time`, `distance`, etc.)</td><td>No schema drift or missing fields</td></tr>
+          <tr><td>Tier-1 Audit</td><td>Filters invalid / null activities, computes daily summaries</td><td>Enforced numeric consistency</td></tr>
+          <tr><td>Tier-2 Enforcement</td><td>Lock totals, enforce logical consistency</td><td>No variance bleed between scopes</td></tr>
+          <tr><td>Serialization</td><td>Single-pass semantic JSON (no float loss)</td><td>Stable numeric precision</td></tr>
+          <tr><td>Observability</td><td>Structured logs at all Tier boundaries</td><td>Traceable audit chain (light→full→wellness)</td></tr>
+          <tr><td>Schema Version</td><td>URF v5.1 unified contracts</td><td>Cross-version compatibility with GPT tool API</td></tr>
         </tbody>
       </table>
     </section>
 
-    <!-- ===================================================
-    📐 DESIGN PRINCIPLES
-    ==================================================== -->
-    <section class="card">
-      <h2>📐 Design Principles</h2>
-      <table>
-        <thead>
-          <tr><th>Principle</th><th>Meaning in Practice</th></tr>
-        </thead>
-        <tbody>
-          <tr><td>Determinism</td><td>All metrics are computed once, audited, and reused without recomputation.</td></tr>
-          <tr><td>Separation of Concerns</td><td>Edge handles auth and routing; backend handles computation and audits.</td></tr>
-          <tr><td>Auditability</td><td>Every report can be traced back to Tier-0 source data.</td></tr>
-          <tr><td>Schema Stability</td><td>URF contracts prevent silent field drift between versions.</td></tr>
-          <tr><td>Numerical Integrity</td><td>No virtual math, inference, or approximation; all values are explicit.</td></tr>
-        </tbody>
-      </table>
-    </section>
-
-    <!-- ===================================================
-    🚀 FUTURE PIPELINE
-    ==================================================== -->
-    <section class="card">
-      <h2>🚀 Future Pipeline Extensions</h2>
-      <ul>
-        <li>Extend reporting to full-season and 365-day longitudinal datasets.</li>
-        <li>Convert action recommendations to calendar events directly in Intervals.icu, and read planned Calendar events to update actions</li>
-        <li>Generate downloadable workout files (e.g., ZWO) and push to Intervals libraries via chat commands.</li>
-        <li>Integrate adaptive load simulation for predictive season modeling.</li>
-      </ul>
-    </section>
-  </main>
-
-  <!-- ===================================================
-  ⚫ FOOTER
-  ==================================================== -->
   <footer>
-    <p>&copy; 2025 <a href="https://www.cliveking.net">Clive King</a> · Coach GPT App — Unified Pipeline Architecture</p>
+    <p>&copy; 2026 <a href="https://www.cliveking.net">Clive King</a> · Coach GPT App — Unified Prefetch Architecture</p>
   </footer>
 </body>
 </html>
