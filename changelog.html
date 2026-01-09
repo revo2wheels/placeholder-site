@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Changelog — Coach GPT App (v5.1.x)</title>
+  <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/44225520?v=4" />
+  <link rel="stylesheet" href="assets/css/style.css?v=1.7">
+</head>
+
+<body>
+  <!-- ===================================================
+  🧭 HEADER
+  ==================================================== -->
+  <header>
+    <h1>
+      <img src="https://avatars.githubusercontent.com/u/44225520?v=4" alt="App Icon" />
+      <a href="https://www.cliveking.net">Coach GPT App</a>
+    </h1>
+    <nav>
+      <a href="https://www.cliveking.net#about">About</a>
+      <a href="https://www.cliveking.net#features">Features</a>
+      <a href="https://www.cliveking.net#Reports">Reports</a>
+      <a href="https://www.cliveking.net#Questions">Questions</a>
+      <a href="https://www.cliveking.net#samples">Samples</a>
+      <a href="https://www.cliveking.net#coach">Coach</a>
+      <a href="https://www.cliveking.net#download">Download</a>
+      <a href="https://www.cliveking.net#contact">Contact</a>
+      <a href="https://www.cliveking.net/changelog.html">CHANGELOG</a>
+      <a href="https://www.cliveking.net/changelog.html" style="font-weight:bold;color:#38bdf8;">CHANGELOG</a>
+      <a href="https://www.cliveking.net/pipeline.html">DESIGN</a>
+    </nav>
+  </header>
+
+  <!-- ===================================================
+  📘 MAIN CONTENT
+  ==================================================== -->
+  <main>
+
+    <section class="card">
+      <h1>Product Changelog — v5.1</h1>
+      <p style="text-align:center;max-width:700px;margin:0 auto 2rem;">
+        This page shows every enhancement delivered to the
+        <strong>Coach GPT App</strong> since the release of <strong>v5.1</strong>.
+        Each micro-version (<code>v5.1.xx</code>) corresponds to a closed
+        <em>Enhancement</em> issue in GitHub.
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>🧾 Live Enhancement Log</h2>
+      <div id="changelog" style="min-height:200px;">
+        Loading changelog…
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ===================================================
+  ⚫ FOOTER
+  ==================================================== -->
+  <footer>
+    <p>&copy; 2025 <a href="https://www.cliveking.net">Clive King</a> · Coach GPT App — Live Product Changelog</p>
+  </footer>
+
+<script>
+fetch("https://intervalsicugptcoach.clive-a5a.workers.dev/changelog")
+  .then(r => r.json())
+  .then(data => {
+    const root = document.getElementById("changelog");
+    root.innerHTML = "";
+
+    data.changelog.slice().reverse().forEach(item => {
+      const div = document.createElement("div");
+      div.className = "card";
+      div.innerHTML = `
+        <h3>${item.version}</h3>
+        <p><strong>${item.title}</strong></p>
+        <p style="color:#777;font-size:0.9em;">${item.date}</p>
+        <p><a href="${item.url}" target="_blank">View on GitHub</a></p>
+      `;
+      root.appendChild(div);
+    });
+  })
+  .catch(err => {
+    document.getElementById("changelog").innerText =
+      "Failed to load changelog.";
+  });
+</script>
+
+</body>
+</html>
