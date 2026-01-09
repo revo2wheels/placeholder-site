@@ -9,6 +9,7 @@
 </head>
 
 <body>
+
 <header>
   <h1>
     <img src="https://avatars.githubusercontent.com/u/44225520?v=4" />
@@ -35,12 +36,11 @@
 <section class="card">
   <h2>🧠 What’s New (Live)</h2>
   <p id="headline">Loading…</p>
-  <ul id="rollup"></ul>
 </section>
 
 <section class="card">
   <h2>🧾 Full Enhancement Log</h2>
-  <div id="changelog">Loading changelog…</div>
+  <div id="changelog">Loading…</div>
 </section>
 
 </main>
@@ -48,51 +48,48 @@
 <footer>
   <p>&copy; 2026 Clive King · Coach GPT App</p>
 </footer>
+
 <script>
 const API = "https://changelogintervalsicugptcoach.clive-a5a.workers.dev/changelog";
 
 fetch(API)
   .then(r => r.json())
   .then(data => {
-    const entries = data.changelog.slice().reverse();   // newest first
+    const entries = data.changelog.slice().reverse(); // newest first
 
-    // === HEADLINE ===
+    // === HEADLINE ROLLUP ===
     const headline = entries.slice(0, 3).map(e => e.title).join(" • ");
     document.getElementById("headline").innerText =
       "Recent upgrades: " + headline;
 
-    // === ROLLUP LIST ===
-    const rollup = document.getElementById("rollup");
-    rollup.innerHTML = "";
-    entries.slice(0, 6).forEach(e => {
-      const li = document.createElement("li");
-      li.innerHTML = `<strong>${e.version}</strong> — ${e.title}`;
-      rollup.appendChild(li);
-    });
-
-    // === FULL LOG ===
+    // === FULL EXPANDABLE LOG ===
     const root = document.getElementById("changelog");
     root.innerHTML = "";
 
     entries.forEach(e => {
-      const div = document.createElement("div");
-      div.className = "card";
-      div.innerHTML = `
-        <h3>${e.version}</h3>
-        <p><strong>${e.title}</strong></p>
-        <p style="color:#777">${e.date}</p>
-        <p><a href="${e.url}" target="_blank">View on GitHub</a></p>
+      const block = document.createElement("div");
+      block.innerHTML = `
+        <details class="card">
+          <summary>
+            <strong>${e.version}</strong> — ${e.title}
+            <span style="float:right;color:#777;font-size:0.9em">${e.date}</span>
+          </summary>
+          <div style="margin-top:1rem;white-space:pre-wrap;">
+            ${e.body || "No description provided."}
+            <p style="margin-top:1rem">
+              <a href="${e.url}" target="_blank">View on GitHub →</a>
+            </p>
+          </div>
+        </details>
       `;
-      root.appendChild(div);
+      root.appendChild(block);
     });
   })
-  .catch(err => {
+  .catch(() => {
     document.getElementById("changelog").innerText =
       "Unable to load live changelog.";
   });
 </script>
-
-
 
 </body>
 </html>
