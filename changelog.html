@@ -9,82 +9,87 @@
 </head>
 
 <body>
-  <!-- ===================================================
-  🧭 HEADER
-  ==================================================== -->
-  <header>
-    <h1>
-      <img src="https://avatars.githubusercontent.com/u/44225520?v=4" alt="App Icon" />
-      <a href="https://www.cliveking.net">Coach GPT App</a>
-    </h1>
-    <nav>
-      <a href="https://www.cliveking.net#about">About</a>
-      <a href="https://www.cliveking.net#features">Features</a>
-      <a href="https://www.cliveking.net#Reports">Reports</a>
-      <a href="https://www.cliveking.net#Questions">Questions</a>
-      <a href="https://www.cliveking.net#samples">Samples</a>
-      <a href="https://www.cliveking.net#coach">Coach</a>
-      <a href="https://www.cliveking.net#download">Download</a>
-      <a href="https://www.cliveking.net#contact">Contact</a>
-      <a href="https://www.cliveking.net/changelog.html">CHANGELOG</a>
-      <a href="https://www.cliveking.net/changelog.html" style="font-weight:bold;color:#38bdf8;">CHANGELOG</a>
-      <a href="https://www.cliveking.net/pipeline.html">DESIGN</a>
-    </nav>
-  </header>
+<header>
+  <h1>
+    <img src="https://avatars.githubusercontent.com/u/44225520?v=4" />
+    <a href="https://www.cliveking.net">Coach GPT App</a>
+  </h1>
+  <nav>
+    <a href="/">Home</a>
+    <a href="/pipeline.html">Design</a>
+    <a href="/changelog.html" style="font-weight:bold;color:#38bdf8;">Changelog</a>
+  </nav>
+</header>
 
-  <!-- ===================================================
-  📘 MAIN CONTENT
-  ==================================================== -->
-  <main>
+<main>
 
-    <section class="card">
-      <h1>Product Changelog — v5.1</h1>
-      <p style="text-align:center;max-width:700px;margin:0 auto 2rem;">
-        This page shows every enhancement delivered to the
-        <strong>Coach GPT App</strong> since the release of <strong>v5.1</strong>.
-        Each micro-version (<code>v5.1.xx</code>) corresponds to a closed
-        <em>Enhancement</em> issue in GitHub.
-      </p>
-    </section>
+<section class="card">
+  <h1>🚀 Product Changelog — v5.1</h1>
+  <p>
+    Every micro-version (<code>v5.1.xx</code>) below maps directly to a closed
+    <strong>Enhancement</strong> issue in GitHub.
+    This page updates automatically when engineering ships.
+  </p>
+</section>
 
-    <section class="card">
-      <h2>🧾 Live Enhancement Log</h2>
-      <div id="changelog" style="min-height:200px;">
-        Loading changelog…
-      </div>
-    </section>
+<section class="card">
+  <h2>🧠 What’s New (Live)</h2>
+  <p id="headline">Loading…</p>
+  <ul id="rollup"></ul>
+</section>
 
-  </main>
+<section class="card">
+  <h2>🧾 Full Enhancement Log</h2>
+  <div id="changelog">Loading changelog…</div>
+</section>
 
-  <!-- ===================================================
-  ⚫ FOOTER
-  ==================================================== -->
-  <footer>
-    <p>&copy; 2025 <a href="https://www.cliveking.net">Clive King</a> · Coach GPT App — Live Product Changelog</p>
-  </footer>
+</main>
+
+<footer>
+  <p>&copy; 2026 Clive King · Coach GPT App</p>
+</footer>
 
 <script>
-fetch("https://changelogintervalsicugptcoach.clive-a5a.workers.dev/changelog")
+const API = "https://changelogintervalsicugptcoach.clive-a5a.workers.dev/changelog";
+
+fetch(API)
   .then(r => r.json())
   .then(data => {
+    const entries = data.changelog.reverse();
+
+    // Headline
+    const latest = entries.slice(0, 6).map(e => e.title);
+    document.getElementById("headline").innerText =
+      "Recent upgrades: " + latest.slice(0,3).join(" • ");
+
+    // Rollup
+    const rollup = document.getElementById("rollup");
+    rollup.innerHTML = "";
+    latest.forEach(e => {
+      const li = document.createElement("li");
+      li.innerHTML = `<strong>${e.version}</strong> — ${e.title}`;
+      rollup.appendChild(li);
+    });
+
+    // Full list
     const root = document.getElementById("changelog");
     root.innerHTML = "";
 
-    data.changelog.slice().reverse().forEach(item => {
+    entries.forEach(e => {
       const div = document.createElement("div");
       div.className = "card";
       div.innerHTML = `
-        <h3>${item.version}</h3>
-        <p><strong>${item.title}</strong></p>
-        <p style="color:#777;font-size:0.9em;">${item.date}</p>
-        <p><a href="${item.url}" target="_blank">View on GitHub</a></p>
+        <h3>${e.version}</h3>
+        <p><strong>${e.title}</strong></p>
+        <p style="color:#777">${e.date}</p>
+        <p><a href="${e.url}" target="_blank">View on GitHub</a></p>
       `;
       root.appendChild(div);
     });
   })
   .catch(err => {
     document.getElementById("changelog").innerText =
-      "Failed to load changelog.";
+      "Unable to load live changelog.";
   });
 </script>
 
