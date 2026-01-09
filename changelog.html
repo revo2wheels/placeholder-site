@@ -48,30 +48,29 @@
 <footer>
   <p>&copy; 2026 Clive King · Coach GPT App</p>
 </footer>
-
 <script>
 const API = "https://changelogintervalsicugptcoach.clive-a5a.workers.dev/changelog";
 
 fetch(API)
   .then(r => r.json())
   .then(data => {
-    const entries = data.changelog.reverse();
+    const entries = data.changelog.slice().reverse();   // newest first
 
-    // Headline
-    const latest = entries.slice(0, 6).map(e => e.title);
+    // === HEADLINE ===
+    const headline = entries.slice(0, 3).map(e => e.title).join(" • ");
     document.getElementById("headline").innerText =
-      "Recent upgrades: " + latest.slice(0,3).join(" • ");
+      "Recent upgrades: " + headline;
 
-    // Rollup
+    // === ROLLUP LIST ===
     const rollup = document.getElementById("rollup");
     rollup.innerHTML = "";
-    latest.forEach(e => {
+    entries.slice(0, 6).forEach(e => {
       const li = document.createElement("li");
       li.innerHTML = `<strong>${e.version}</strong> — ${e.title}`;
       rollup.appendChild(li);
     });
 
-    // Full list
+    // === FULL LOG ===
     const root = document.getElementById("changelog");
     root.innerHTML = "";
 
@@ -92,6 +91,8 @@ fetch(API)
       "Unable to load live changelog.";
   });
 </script>
+
+
 
 </body>
 </html>
