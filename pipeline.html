@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -32,6 +33,8 @@
   </header>
 
   <main>
+
+
     <!-- ===================================================
     ⚙️ CURRENT PIPELINE
     ==================================================== -->
@@ -40,15 +43,33 @@
       <p style="text-align:center;max-width:750px;margin:0 auto 2rem;">
         The <strong>Coach GPT App</strong> now runs on a unified prefetch architecture that separates
         <em>data retrieval</em>, <em>normalization</em>, and <em>semantic report generation</em>
-        across Cloudflare and Railway.  
-        This ensures deterministic output, fixed schema contracts, and verifiable data lineage from <strong>Intervals.icu</strong>.
+        across Cloudflare and Railway.
+        This ensures deterministic output, fixed schema contracts, and verifiable data lineage from
+        <strong>Intervals.icu</strong>.
       </p>
     </section>
 
-    <section class="card">
-      <h2>⚙️ Current Operational Pipeline</h2>
-      <div class="codeblock" style="font-family:'Courier New',monospace;font-size:0.9rem;overflow-x:auto;text-align:center;">
-<pre>
+    <section class="card" style="border-left:4px solid #22c55e;">
+      <h2>🟢 What Exists Today vs 🔵 What Comes Next</h2>
+      <p>
+        The Coach GPT App is already fully operational today using a deterministic,
+        audited pipeline. The sections below distinguish between:
+      </p>
+      <ul>
+        <li><strong>🟢 Current Architecture</strong> — running in production now</li>
+        <li><strong>🔵 Future Architecture</strong> — planned evolution toward MCP-native, multi-LLM operation</li>
+      </ul>
+    </section>
+
+    <section class="card" style="border-left:4px solid #22c55e;">
+      <h2>⚙️ Current Operational Pipeline (Production)</h2>
+      <p class="muted">
+        Status: <strong>Live</strong> • Used in production • Backward compatible
+      </p>
+
+      <div class="codeblock"
+        style="font-family:'Courier New',monospace;font-size:0.9rem;overflow-x:auto;text-align:center;">
+        <pre>
 ┌──────────────────────────────┐
 │        ChatGPT / CLI App     │
 │  (Tool invocation layer)     │
@@ -93,40 +114,354 @@
       <h2>🧩 Architecture Guarantees</h2>
       <table>
         <thead>
-          <tr><th>Area</th><th>Implementation</th><th>Guarantee</th></tr>
+          <tr>
+            <th>Area</th>
+            <th>Implementation</th>
+            <th>Guarantee</th>
+          </tr>
         </thead>
         <tbody>
-          <tr><td>Prefetch Flow</td><td>Cloudflare normalizes date params and injects optional test payloads</td><td>Safe staging tests without real data</td></tr>
-          <tr><td>Execution Model</td><td>Python execution on Railway (FastAPI + Pandas)</td><td>Deterministic, audited output</td></tr>
-          <tr><td>Tier-0 Validation</td><td>Baseline column checks (`moving_time`, `distance`, etc.)</td><td>No schema drift or missing fields</td></tr>
-          <tr><td>Tier-1 Audit</td><td>Filters invalid / null activities, computes daily summaries</td><td>Enforced numeric consistency</td></tr>
-          <tr><td>Tier-2 Enforcement</td><td>Lock totals, enforce logical consistency</td><td>No variance bleed between scopes</td></tr>
-          <tr><td>Serialization</td><td>Single-pass semantic JSON (no float loss)</td><td>Stable numeric precision</td></tr>
-          <tr><td>Observability</td><td>Structured logs at all Tier boundaries</td><td>Traceable audit chain (light→full→wellness)</td></tr>
-          <tr><td>Schema Version</td><td>URF v5.1 unified contracts</td><td>Cross-version compatibility with GPT tool API</td></tr>
+          <tr>
+            <td>Prefetch Flow</td>
+            <td>Cloudflare normalizes date params and injects optional test payloads</td>
+            <td>Safe staging tests without real data</td>
+          </tr>
+          <tr>
+            <td>Execution Model</td>
+            <td>Python execution on Railway (FastAPI + Pandas)</td>
+            <td>Deterministic, audited output</td>
+          </tr>
+          <tr>
+            <td>Tier-0 Validation</td>
+            <td>Baseline column checks (`moving_time`, `distance`, etc.)</td>
+            <td>No schema drift or missing fields</td>
+          </tr>
+          <tr>
+            <td>Tier-1 Audit</td>
+            <td>Filters invalid / null activities, computes daily summaries</td>
+            <td>Enforced numeric consistency</td>
+          </tr>
+          <tr>
+            <td>Tier-2 Enforcement</td>
+            <td>Lock totals, enforce logical consistency</td>
+            <td>No variance bleed between scopes</td>
+          </tr>
+          <tr>
+            <td>Serialization</td>
+            <td>Single-pass semantic JSON (no float loss)</td>
+            <td>Stable numeric precision</td>
+          </tr>
+          <tr>
+            <td>Observability</td>
+            <td>Structured logs at all Tier boundaries</td>
+            <td>Traceable audit chain (light→full→wellness)</td>
+          </tr>
+          <tr>
+            <td>Schema Version</td>
+            <td>URF v5.1 unified contracts</td>
+            <td>Cross-version compatibility with GPT tool API</td>
+          </tr>
         </tbody>
       </table>
     </section>
 
     <!-- ===================================================
+🧠 LLM-NATIVE ARCHITECTURE
+==================================================== -->
+    <section class="card" style="border-left:4px solid #38bdf8;">
+      <h2>🧠 Future LLM-Native Architecture (Planned)</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Design Goal</th>
+            <th>Implementation</th>
+            <th>Guarantee</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Natural Language Interface</td>
+            <td>LLMs interact exclusively via MCP tools (no UI state, no clicks)</td>
+            <td>Human-like interaction without loss of determinism</td>
+          </tr>
+          <tr>
+            <td>Multi-LLM Compatibility</td>
+            <td>MCP-standard tool schemas (OpenAI, Anthropic, Mistral, local models)</td>
+            <td>No vendor lock-in; identical outputs across models</td>
+          </tr>
+          <tr>
+            <td>Secure Access Control</td>
+            <td>Cloudflare Workers act as MCP + OAuth gateway</td>
+            <td>Intervals.icu tokens never exposed to LLMs</td>
+          </tr>
+          <tr>
+            <td>Edge Policy Enforcement</td>
+            <td>OAuth scopes, rate limits, and request validation at Cloudflare Edge</td>
+            <td>Strong isolation between clients, tools, and athletes</td>
+          </tr>
+          <tr>
+            <td>Execution Engine</td>
+            <td>Python services on Railway (FastAPI + Pandas)</td>
+            <td>Deterministic, auditable metric computation</td>
+          </tr>
+          <tr>
+            <td>Authoritative Data Source</td>
+            <td>Intervals.icu APIs (activities, intervals, FIT-derived data)</td>
+            <td>Single source of truth for all training data</td>
+          </tr>
+          <tr>
+            <td>Semantic Contract</td>
+            <td>URF v5.1 structured semantic JSON</td>
+            <td>LLMs interpret results without recomputation or inference</td>
+          </tr>
+          <tr>
+            <td>Context Integrity</td>
+            <td>Explicit context windows (activity, 7d, 90d, rolling)</td>
+            <td>No accidental “seasonal” or cross-scope mislabeling</td>
+          </tr>
+          <tr>
+            <td>Headless by Design</td>
+            <td>No dependency on web UI or dashboards</td>
+            <td>Future-proof for voice, agents, automation, and APIs</td>
+          </tr>
+          <tr>
+            <td>Tool-First Expansion</td>
+            <td>New capabilities exposed as MCP tools</td>
+            <td>Feature growth without breaking existing clients</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <!-- ===================================================
+🧩 FUTURE PIPELINE
+==================================================== -->
+
+    <section class="card" style="border-left:4px solid #38bdf8;">
+      <h2>⚙️ Future Operational Pipeline</h2>
+      <p class="muted">
+        Status: <strong>Planned</strong> • Incremental rollout • No breaking changes
+      </p>
+
+      <div class="codeblock"
+        style="font-family:'Courier New',monospace;font-size:0.9rem;overflow-x:auto;text-align:center;">
+        <pre>
+
+🧭 System Diagram
+
+┌────────────────────┐
+│  Human / LLM Agent │
+│  (Chat, Voice, AI) │
+└─────────┬──────────┘
+          │  Natural Language
+          ▼
+┌──────────────────────────────┐
+│ MCP Tool Interface (Standard)│
+│ • Typed tool contracts       │
+│ • No UI state                │
+│ • Multi-LLM compatible       │
+└─────────┬────────────────────┘
+          │ MCP call
+          ▼
+┌──────────────────────────────┐
+│ Cloudflare Edge (OAuth + MCP)│
+│ • OAuth token handling       │
+│ • Scope enforcement          │
+│ • Rate limiting              │
+│ • Request normalization      │
+└─────────┬────────────────────┘
+          │ Authenticated request
+          ▼
+┌──────────────────────────────┐
+│ Railway Execution Layer      │
+│ (FastAPI + Pandas)           │
+│ • Tier-0 validation          │
+│ • Tier-1 audit               │
+│ • Tier-2 enforcement         │
+│ • Deterministic computation  │
+└─────────┬────────────────────┘
+          │ Canonical queries
+          ▼
+┌──────────────────────────────┐
+│ Intervals.icu APIs           │
+│ • Activities (7d / 90d)      │
+│ • Intervals & FIT-derived    │
+│ • CORE sensor (if present)   │
+└─────────┬────────────────────┘
+          │ Structured data
+          ▼
+┌──────────────────────────────┐
+│ Semantic JSON (URF v5.1)     │
+│ • Explicit context windows   │
+│ • Locked totals              │
+│ • No recomputation allowed   │
+└─────────┬────────────────────┘
+          │ Read-only
+          ▼
+┌──────────────────────────────┐
+│ LLM Rendering / Reasoning    │
+│ • Descriptive only           │
+│ • Coach-like narrative       │
+│ • No metric invention        │
+└──────────────────────────────┘
+
+</pre>
+      </div>
+      <p style="text-align:Left;margin-top:1rem;">
+        🔄 Cloudflare handles authentication, routing, and optional synthetic testing.<br>
+        🚉 Railway performs full computation, validation, and serialization.<br>
+        💡Independence from LLMs via MCP
+      </p>
+    </section>
+
+    <section class="card" style="border-left:4px solid #38bdf8;">
+
+      <h2>🔑 Key Insights</h2>
+
+      <ul>
+        <li>
+          <strong>There is no UI state</strong><br>
+          Every interaction is stateless, reproducible, and tool-driven.
+        </li>
+
+        <li>
+          <strong>LLMs never compute metrics</strong><br>
+          They only interpret pre-computed, audited semantic JSON.
+        </li>
+
+        <li>
+          <strong>OAuth tokens never reach the model</strong><br>
+          Cloudflare fully isolates authentication from reasoning.
+        </li>
+
+        <li>
+          <strong>Intervals.icu remains the single source of truth</strong><br>
+          All metrics originate from published APIs or FIT-derived data.
+        </li>
+
+        <li>
+          <strong>Context is explicit, never inferred</strong><br>
+          Each metric declares whether it is activity, 7d, 90d, or rolling.
+        </li>
+
+        <li>
+          <strong>The system is headless by design</strong><br>
+          It works equally well for chat, voice, automation, or background agents.
+        </li>
+      </ul>
+
+      <hr>
+
+      <h2>⚙️ How It Works (End-to-End)</h2>
+
+      <ol>
+        <li>
+          <strong>User or AI issues a natural-language request</strong><br>
+          Example: <em>“Explain my weekly intensity balance and recovery status.”</em>
+        </li>
+
+        <li>
+          <strong>Request is converted into an MCP tool call</strong>
+          <ul>
+            <li>Strongly typed inputs</li>
+            <li>Explicit report scope (weekly / season / activity)</li>
+          </ul>
+        </li>
+
+        <li>
+          <strong>Cloudflare Edge handles trust and policy</strong>
+          <ul>
+            <li>OAuth token exchange with Intervals.icu</li>
+            <li>Scope validation</li>
+            <li>Rate limiting</li>
+            <li>Parameter normalization</li>
+          </ul>
+        </li>
+
+        <li>
+          <strong>Railway executes the computation</strong>
+          <ul>
+            <li>Tier-0: schema + column validation</li>
+            <li>Tier-1: numeric consistency and filtering</li>
+            <li>Tier-2: locked totals and scope enforcement</li>
+            <li>No cross-window leakage (e.g. weekly ≠ seasonal)</li>
+          </ul>
+        </li>
+
+        <li>
+          <strong>Canonical semantic JSON is produced</strong>
+          <ul>
+            <li>URF v5.1 contract</li>
+            <li>Explicit context windows</li>
+            <li>Deterministic numeric precision</li>
+            <li>No derived ambiguity</li>
+          </ul>
+        </li>
+
+        <li>
+          <strong>LLM renders the report</strong>
+          <ul>
+            <li>Descriptive, coach-like language</li>
+            <li>Anchored strictly to provided semantics</li>
+            <li>No recomputation, guessing, or extrapolation</li>
+          </ul>
+        </li>
+      </ol>
+
+      <hr>
+
+      <h2>🧠 Why This Matters</h2>
+
+      <p>
+        This architecture enables natural language coaching at scale <strong>without</strong>:
+      </p>
+
+      <ul>
+        <li>Dashboards</li>
+        <li>Sliders</li>
+        <li>Charts</li>
+        <li>Hidden state</li>
+        <li>Silent recomputation</li>
+      </ul>
+
+      <p>
+        The result is a system that is:
+      </p>
+
+      <ul>
+        <li>Auditable</li>
+        <li>Secure</li>
+        <li>Model-agnostic</li>
+        <li>Future-proof</li>
+        <li>Genuinely conversational</li>
+      </ul>
+
+      <p>
+        <strong>Natural language becomes the interface — not the source of truth.</strong>
+      </p>
+
+    </section>
+
+
+
+    <!-- ===================================================
 📬 CONTACT SECTION
 =================================================== -->
-<section id="contact">
-  <div class="card">
-    <h2>📬 Contact</h2>
-    <p>
-      For integration, customization, or coaching inquiries, connect via
-      GitHub link below or DM via 
-      <a href="https://intervals.icu/athlete/1914741" target="_blank">Intervals.icu DM</a> and contribute in 
-      <a href="https://forum.intervals.icu/t/yet-another-ai-chatgpt-coach/117856" target="_blank">Intervals.icu Forum</a>.
-    </p>
+    <section id="contact">
+      <div class="card">
+        <h2>📬 Contact</h2>
+        <p>
+          For integration, customization, or coaching inquiries, connect via
+          GitHub link below or DM via
+          <a href="https://intervals.icu/athlete/1914741" target="_blank">Intervals.icu DM</a> and contribute in
+          <a href="https://forum.intervals.icu/t/yet-another-ai-chatgpt-coach/117856" target="_blank">Intervals.icu
+            Forum</a>.
+        </p>
 
-    <a href="https://github.com/revo2wheels/intervalsicugptcoach-public"
-       target="_blank"
-       class="github-button">
-      <svg viewBox="0 0 16 16" aria-hidden="true">
-        <path fill-rule="evenodd"
-              d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38
+        <a href="https://github.com/revo2wheels/intervalsicugptcoach-public" target="_blank" class="github-button">
+          <svg viewBox="0 0 16 16" aria-hidden="true">
+            <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38
                  0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94
                  -.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21
                  1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95
@@ -135,25 +470,27 @@
                  2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82
                  1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54
                  1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.01 8.01 0
-                 0016 8c0-4.42-3.58-8-8-8z"/>
-      </svg>
-      <strong>github.com/revo2wheels</strong>
-    </a>
-    <p class="muted" style="margin-top:1rem; text-align:Left;">
-      Built with ❤️ for endurance athletes — by <strong>Clive King</strong>.<br>
-      Powered by <a href="https://intervals.icu" target="_blank">Intervals.icu</a>, Cloudflare and the <a href="https://railway.com?referralCode=-xO_3x">Railway</a> Engine.
-    </p>
-  </div>
-</section>
-<!-- ===================================================
+                 0016 8c0-4.42-3.58-8-8-8z" />
+          </svg>
+          <strong>github.com/revo2wheels</strong>
+        </a>
+        <p class="muted" style="margin-top:1rem; text-align:Left;">
+          Built with ❤️ for endurance athletes — by <strong>Clive King</strong>.<br>
+          Powered by <a href="https://intervals.icu" target="_blank">Intervals.icu</a>, Cloudflare and the <a
+            href="https://railway.com?referralCode=-xO_3x">Railway</a> Engine.
+        </p>
+      </div>
+    </section>
+    <!-- ===================================================
 🦶 FOOTER
 =================================================== -->
-<footer id="footer">
-  <p>
-    © 2025 Coach GPT App — Data-driven endurance intelligence.<br>
-    Powered by <a href="https://intervals.icu" target="_blank">Intervals.icu</a>
-    and the <a href="https://railway.com?referralCode=-xO_3x">Railway</a> Engine.
-  </p>
-</footer>
+    <footer id="footer">
+      <p>
+        © 2025 Coach GPT App — Data-driven endurance intelligence.<br>
+        Powered by <a href="https://intervals.icu" target="_blank">Intervals.icu</a>
+        and the <a href="https://railway.com?referralCode=-xO_3x">Railway</a> Engine.
+      </p>
+    </footer>
 </body>
+
 </html>
