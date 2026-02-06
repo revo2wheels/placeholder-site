@@ -93,6 +93,7 @@ ul, ol { margin-left: 1.2rem; }
 ul li, ol li { margin-bottom: 0.4rem; }
 hr { border: none; border-top: 1px solid #e5e7eb; margin: 1.5rem 0; }
 
+/* Base (desktop + default) */
 blockquote {
   position: relative;
   padding-left: 2.5rem;
@@ -109,6 +110,30 @@ blockquote::before {
   color: #38bdf8;
   font-family: serif;
 }
+
+/* Mobile overrides (tighter layout) */
+@media (max-width: 600px) {
+
+  #feedback blockquote {
+    margin: 0.6rem 0;
+    padding-left: 1.8rem;
+    font-size: 0.95rem;
+    line-height: 1.35;
+  }
+
+  #feedback blockquote::before {
+    font-size: 2.4rem;
+    top: -0.15rem;
+  }
+
+  #feedback .muted {
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.8rem;
+  }
+
+}
+
 
 /* ===================================================
 🪶 REPORT SAMPLE CARD STYLING
