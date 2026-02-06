@@ -911,85 +911,100 @@
     <summary>🧭 Tier-1 Core Coaching Markers (32 active)</summary>
     <p>Primary load, recovery, metabolic, and readiness metrics — continuously monitored across all report types.</p>
 
-    <table>
-      <thead>
-        <tr><th>Domain</th><th>Markers</th><th>Purpose</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>Load & Performance</strong></td>
-          <td>CTL, ATL, TSB, TSS, ACWR, Monotony, Strain, LIR, Fatigue Trend</td>
-          <td>Measure training load, balance, and adaptation trends.</td>
-        </tr>
-        <tr>
-          <td><strong>Wellness & Recovery</strong></td>
-          <td>Recovery Index, HRV, Resting HR, Sleep Score, Sleep Duration, Stress Tolerance, Mood, Soreness</td>
-          <td>Assess physiological recovery and psychological readiness.</td>
-        </tr>
-        <tr>
-          <td><strong>Metabolic Efficiency</strong></td>
-          <td>FatOx, MES, EF, Efficiency Drift %, Fatigue Resistance, Z2 Stability</td>
-          <td>Evaluate aerobic durability and energy system balance.</td>
-        </tr>
-        <tr>
-          <td><strong>Periodisation</strong></td>
-          <td>Block Phase, Taper Efficiency, Consistency Score, Durability Index, Adaptation Ratio</td>
-          <td>Track training phase progression and long-term load control.</td>
-        </tr>
-        <tr>
-          <td><strong>Readiness & CNS</strong></td>
-          <td>CNS Fatigue Index, Motivation Stability, Readiness Forecast</td>
-          <td>Measure neural recovery and performance readiness.</td>
-        </tr>
-        <tr>
-          <td><strong>Holistic Actions</strong></td>
-          <td>Adaptive Action Score, Action State 🟢🟠🔴, Trend Confidence %</td>
-          <td>Generate adaptive feedback and actionable coaching guidance.</td>
-        </tr>
-      </tbody>
-    </table>
+    <div class="overflow-x-auto">
+      <table>
+        <thead>
+          <tr><th>Domain</th><th>Markers</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Load & Performance</strong></td>
+            <td>CTL, ATL, TSB, TSS, ACWR, Monotony, Strain, LIR, Fatigue Trend</td>
+            <td>Measure training load, balance, and adaptation trends.</td>
+          </tr>
+          <tr>
+            <td><strong>Wellness & Recovery</strong></td>
+            <td>Recovery Index, HRV, Resting HR, Sleep Score, Sleep Duration, Stress Tolerance, Mood, Soreness</td>
+            <td>Assess physiological recovery and psychological readiness.</td>
+          </tr>
+          <tr>
+            <td><strong>Metabolic Efficiency</strong></td>
+            <td>FatOx, MES, EF, Efficiency Drift %, Fatigue Resistance, Z2 Stability</td>
+            <td>Evaluate aerobic durability and energy system balance.</td>
+          </tr>
+          <tr>
+            <td><strong>Periodisation</strong></td>
+            <td>Block Phase, Taper Efficiency, Consistency Score, Durability Index, Adaptation Ratio</td>
+            <td>Track training phase progression and long-term load control.</td>
+          </tr>
+          <tr>
+            <td><strong>Readiness & CNS</strong></td>
+            <td>CNS Fatigue Index, Motivation Stability, Readiness Forecast</td>
+            <td>Measure neural recovery and performance readiness.</td>
+          </tr>
+          <tr>
+            <td><strong>Holistic Actions</strong></td>
+            <td>Adaptive Action Score, Action State 🟢🟠🔴, Trend Confidence %</td>
+            <td>Generate adaptive feedback and actionable coaching guidance.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
   </details>
 
   <!-- Tier 2 -->
   <details>
     <summary>🧮 Tier-2 Derived / Conditional Markers (+7 if present)</summary>
     <p>Derived from device integrations (Garmin, HRV4, Whoop) or advanced load models; used to refine URF analytics.</p>
-    <table>
-      <thead><tr><th>Marker</th><th>Source / Dependency</th><th>Purpose</th></tr></thead>
-      <tbody>
-        <tr><td><strong>VO₂ Estimation (VO₂eff)</strong></td><td>Garmin or power–HR model</td><td>Cardiorespiratory efficiency trend</td></tr>
-        <tr><td><strong>Intensity Factor (IF)</strong></td><td>Power data (FTP defined)</td><td>Session intensity relative to threshold</td></tr>
-        <tr><td><strong>Session RPE (sRPE)</strong></td><td>Manual / subjective input</td><td>Perceived load calibration (TSS × RPE)</td></tr>
-        <tr><td><strong>Sleep Debt Index</strong></td><td>Wellness logs (Sleep vs Target)</td><td>Quantifies chronic recovery deficit</td></tr>
-        <tr><td><strong>HRV-SDNN / RMSSD</strong></td><td>HRV4Training / Whoop API</td><td>Autonomic variance for deeper readiness precision</td></tr>
-        <tr><td><strong>Glycogen Depletion Score</strong></td><td>Power × Duration × IF model</td><td>Estimates carbohydrate utilisation</td></tr>
-        <tr><td><strong>Hydration Score</strong></td><td>Body weight & HR trend</td><td>Detects dehydration or plasma volume shifts</td></tr>
-      </tbody>
-    </table>
+
+    <div class="overflow-x-auto">
+      <table>
+        <thead>
+          <tr><th>Marker</th><th>Source / Dependency</th><th>Purpose</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>VO₂ Estimation (VO₂eff)</strong></td><td>Garmin or power–HR model</td><td>Cardiorespiratory efficiency trend</td></tr>
+          <tr><td><strong>Intensity Factor (IF)</strong></td><td>Power data (FTP defined)</td><td>Session intensity relative to threshold</td></tr>
+          <tr><td><strong>Session RPE (sRPE)</strong></td><td>Manual / subjective input</td><td>Perceived load calibration (TSS × RPE)</td></tr>
+          <tr><td><strong>Sleep Debt Index</strong></td><td>Wellness logs (Sleep vs Target)</td><td>Quantifies chronic recovery deficit</td></tr>
+          <tr><td><strong>HRV-SDNN / RMSSD</strong></td><td>HRV4Training / Whoop API</td><td>Autonomic variance for deeper readiness precision</td></tr>
+          <tr><td><strong>Glycogen Depletion Score</strong></td><td>Power × Duration × IF model</td><td>Estimates carbohydrate utilisation</td></tr>
+          <tr><td><strong>Hydration Score</strong></td><td>Body weight & HR trend</td><td>Detects dehydration or plasma volume shifts</td></tr>
+        </tbody>
+      </table>
+    </div>
   </details>
 
   <!-- Tier 3 -->
   <details>
     <summary>⚗️ Tier-3 Experimental / R&D Markers (+3–4 optional)</summary>
     <p>Emerging research metrics under testing within the URF framework — included when sufficient longitudinal data exists.</p>
-    <table>
-      <thead><tr><th>Marker</th><th>Prototype Model</th><th>Use Case</th></tr></thead>
-      <tbody>
-        <tr><td><strong>Running Economy Index</strong></td><td>Stride Power / HR regression</td><td>Energy cost of running (per pace)</td></tr>
-        <tr><td><strong>Swim Stress Coefficient</strong></td><td>Swim TSS model (velocity × RPE)</td><td>Quantifies swim load for triathletes</td></tr>
-        <tr><td><strong>Body Composition Drift</strong></td><td>Weight log × Load × Recovery Index</td><td>Detects energy imbalance / under-recovery</td></tr>
-        <tr><td><strong>Glycogen Repletion Efficiency</strong></td><td>Post-session HR recovery × nutrition logs</td><td>Models carbohydrate uptake rate</td></tr>
-      </tbody>
-    </table>
+
+    <div class="overflow-x-auto">
+      <table>
+        <thead>
+          <tr><th>Marker</th><th>Prototype Model</th><th>Use Case</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><strong>Running Economy Index</strong></td><td>Stride Power / HR regression</td><td>Energy cost of running (per pace)</td></tr>
+          <tr><td><strong>Swim Stress Coefficient</strong></td><td>Swim TSS model (velocity × RPE)</td><td>Quantifies swim load for triathletes</td></tr>
+          <tr><td><strong>Body Composition Drift</strong></td><td>Weight log × Load × Recovery Index</td><td>Detects energy imbalance / under-recovery</td></tr>
+          <tr><td><strong>Glycogen Repletion Efficiency</strong></td><td>Post-session HR recovery × nutrition logs</td><td>Models carbohydrate uptake rate</td></tr>
+        </tbody>
+      </table>
+    </div>
   </details>
 
   <hr>
 
-<p class="muted" style="text-align:left;">
-  🧩 <strong>Total Monitored Markers:</strong> Tier-1 (32) + Tier-2 (7) + Tier-3 (3-4) → ≈ <strong>39–43</strong><br>
-  Weighted dynamically across report types (Weekly • Seasonal • Wellness • Summary) via the URF adaptive relevance model.
-</p>
+  <p class="muted" style="text-align:left;">
+    🧩 <strong>Total Monitored Markers:</strong>
+    Tier-1 (32) + Tier-2 (7) + Tier-3 (3–4) → ≈ <strong>39–43</strong><br>
+    Weighted dynamically across report types (Weekly • Seasonal • Wellness • Summary)
+    via the URF adaptive relevance model.
+  </p>
 </section>
+
 
 
 <!-- ===================================================
