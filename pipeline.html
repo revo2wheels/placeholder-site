@@ -77,22 +77,22 @@
               │  HTTPS tool call
               ▼
 ┌──────────────────────────────────────────────┐
-│         🌩️ Cloudflare Worker (Edge)          │
-│  • Auth + routing proxy                     │
-│  • Handles ?start/?end normalization         │
+│          Cloudflare Worker (Edge)            │
+│  • Auth + routing proxy                      │
+│  • Handles start/end normalization           │
 │  • Prefetches Intervals data → JSON context  │
 └─────────────┬────────────────────────────────┘
               ▼
 ┌──────────────────────────────────────────────┐
-│        🚉 Railway Backend (FastAPI)           │
-│  • Tier-0: Prefetch normalization             │
-│     - DataFrame coercion + baseline columns   │
-│     - Empty-source detection + AuditHalt      │
-│  • Tier-1: Activity & wellness validation     │
-│     - moving_time filtering, zero-checks      │
-│  • Tier-2: Aggregation + enforcement          │
-│     - Totals reconciliation, variance checks  │
-│  • Outputs URF v5.1 Semantic JSON             │
+│         Railway Backend (FastAPI)            │
+│  • Tier-0: Prefetch normalization            │
+│     - DataFrame coercion + baseline columns  │
+│     - Empty-source detection + AuditHalt     │
+│  • Tier-1: Activity & wellness validation    │
+│     - moving_time filtering, zero-checks     │
+│  • Tier-2: Aggregation + enforcement         │
+│     - Totals reconciliation, variance checks │
+│  • Outputs URF v5.1 Semantic JSON            │
 └─────────────┬────────────────────────────────┘
               ▼
 ┌──────────────────────────────┐
@@ -287,7 +287,6 @@
 │ Intervals.icu APIs           │
 │ • Activities (7d / 90d)      │
 │ • Intervals & FIT-derived    │
-│ • CORE sensor (if present)   │
 └─────────┬────────────────────┘
           │ Structured data
           ▼
