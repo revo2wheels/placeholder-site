@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Privacy Policy — Coach GPT App. Transparent data handling for OAuth-based, stateless AI coaching powered by Intervals.icu." />
+  <meta name="author" content="Clive King" />
+  <title>Privacy Policy | Coach GPT App</title>
+
+  <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/44225520?v=4" />
+  <link rel="stylesheet" href="assets/css/style.css?v=1.8">
+</head>
+
+<body>
+
+<!-- ===================================================
+🧭 HEADER
+=================================================== -->
+<header>
+  <h1>
+    <img src="https://avatars.githubusercontent.com/u/44225520?v=4" alt="App Icon" />
+    <a href="https://www.cliveking.net">Coach GPT App</a>
+  </h1>
+
+  <nav>
+    <a href="https://www.cliveking.net#about">About</a>
+    <a href="https://www.cliveking.net#features">Features</a>
+    <a href="https://www.cliveking.net#Reports">Reports</a>
+    <a href="https://www.cliveking.net#Questions">Questions</a>
+    <a href="https://www.cliveking.net#samples">Samples</a>
+    <a href="https://www.cliveking.net#coach">Coach</a>
+    <a href="https://www.cliveking.net#download">Download</a>
+    <a href="https://www.cliveking.net#contact">Contact</a>
+
+    <a href="https://www.cliveking.net/changelog.html">Changelog</a>
+    <a href="https://www.cliveking.net/pipeline.html">Design</a>
+    <a href="https://www.cliveking.net/privacy.html" style="font-weight:bold;color:#38bdf8;">Privacy</a>
+  </nav>
+</header>
+
+<main>
+
+<!-- ===================================================
+🔐 PRIVACY POLICY
+=================================================== -->
+<section class="card">
+  <h2>🔐 Privacy Policy</h2>
+  <p class="muted">
+    Last updated: 2026
+  </p>
+
+  <p>
+    The <strong>Coach GPT App</strong> is designed to be
+    <strong>stateless, transparent, and privacy-respecting by default</strong>.
+    This page explains exactly what data is accessed, how it flows through the system,
+    and what is <em>not</em> stored.
+  </p>
+
+  <hr>
+
+  <h3>🧭 Who This Applies To</h3>
+  <p>
+    This privacy policy applies to:
+  </p>
+  <ul>
+    <li>The Coach GPT App experience inside ChatGPT and other LLMs</li>
+    <li>The supporting Cloudflare and Railway execution pipeline</li>
+    <li>All interactions that access Intervals.icu data via OAuth</li>
+  </ul>
+
+  <hr>
+
+  <h3>📡 Data Sources</h3>
+  <p>
+    All athlete training and wellness data originates from
+    <strong>Intervals.icu</strong>.
+    The Coach GPT App does <strong>not</strong> collect data directly from devices,
+    browsers, or sensors.
+  </p>
+
+  <ul>
+    <li>Activities, intervals, and FIT-derived metrics</li>
+    <li>Wellness logs (HRV, sleep, mood, soreness, etc.)</li>
+    <li>Derived metrics computed from Intervals.icu datasets</li>
+  </ul>
+
+  <p class="muted">
+    Intervals.icu remains the <strong>single source of truth</strong> at all times.
+  </p>
+
+  <hr>
+
+  <h3>🔑 Authentication & OAuth</h3>
+  <p>
+    Access to Intervals.icu data is granted using
+    <strong>OAuth authorization</strong>.
+  </p>
+
+  <ul>
+    <li>You explicitly approve access via Intervals.icu</li>
+    <li>No usernames or passwords are ever shared</li>
+    <li>OAuth tokens are handled exclusively by Cloudflare Workers</li>
+    <li>Tokens are never exposed to the language model</li>
+  </ul>
+
+  <p>
+    OAuth access can be revoked at any time from your Intervals.icu account.
+  </p>
+
+  <hr>
+
+  <h3>🧠 Role of AI / LLMs</h3>
+  <p>
+    Large Language Models (LLMs), including ChatGPT, are used
+    <strong>only to interpret and explain results</strong>.
+  </p>
+
+  <ul>
+    <li>LLMs receive pre-computed, audited semantic JSON only</li>
+    <li>No hidden inference or recomputation occurs</li>
+  </ul>
+
+  <p class="muted">
+    All numerical computation is performed server-side using deterministic Python code. LLMs like ChatGPT, Claude etc. can interpret this data and can make mistakes. Please double check reponses. 
+  </p>
+
+  <hr>
+
+  <h3>🚉 Processing & Execution</h3>
+  <p>
+    Data processing occurs in a controlled backend environment:
+  </p>
+
+  <ul>
+    <li>Execution on Railway (FastAPI + Pandas)</li>
+    <li>Tier-0 schema validation</li>
+    <li>Tier-1 numeric consistency checks</li>
+    <li>Tier-2 scope enforcement and locked totals</li>
+  </ul>
+
+  <p>
+    The output is a single canonical
+    <strong>Semantic JSON document (URF v5.1)</strong>
+    with explicit context windows (activity, 7-day, 90-day, rolling).
+  </p>
+
+  <hr>
+
+  <h3>🧾 Data Storage</h3>
+  <p>
+    The Coach GPT App does <strong>not</strong> maintain a user database.
+  </p>
+
+  <ul>
+    <li>No personal data is permanently stored by this website</li>
+    <li>No training history is retained outside execution context</li>
+    <li>No profiles, dashboards, or accounts exist</li>
+  </ul>
+
+  <p class="muted">
+    Any temporary processing data exists only for the duration of a request.
+  </p>
+
+  <hr>
+
+  <h3>🍪 Cookies & Tracking</h3>
+  <p>
+    This website:
+  </p>
+  <ul>
+    <li>Does <strong>not</strong> use cookies</li>
+    <li>Does <strong>not</strong> use analytics trackers</li>
+    <li>Does <strong>not</strong> embed advertising networks</li>
+  </ul>
+
+  <p>
+    No behavioral tracking or cross-site profiling is performed.
+  </p>
+
+  <hr>
+
+  <h3>🌍 Data Location & Transfers</h3>
+  <p>
+    Depending on your usage:
+  </p>
+  <ul>
+    <li>Intervals.icu processes data under its own privacy policy</li>
+    <li>Cloudflare and Railway may process data in regional data centers</li>
+    <li>LLM providers process text responses under their own terms</li>
+  </ul>
+
+  <p>
+    No additional third-party data sharing occurs beyond what is required
+    to generate the requested report.
+  </p>
+
+  <hr>
+
+  <h3>🧠 Your Rights (GDPR)</h3>
+  <p>
+    Because the Coach GPT App does not store personal data,
+    most GDPR requests should be directed to:
+  </p>
+
+  <ul>
+    <li><strong>Intervals.icu</strong> — for training and wellness data</li>
+    <li>Your chosen LLM provider — for chat history retention settings</li>
+  </ul>
+
+  <p>
+    You may revoke OAuth access at any time and discontinue use immediately.
+  </p>
+
+  <hr>
+
+  <h3>🔁 Changes to This Policy</h3>
+  <p>
+    Architectural or data-handling changes are documented publicly in the
+    <a href="https://www.cliveking.net/changelog.html">Changelog</a>.
+  </p>
+
+  <p class="muted">
+    The ROADMAP and design evolution are fully transparent by intent.
+  </p>
+
+  <hr>
+
+  <h3>📬 Contact</h3>
+  <p>
+    For privacy or data-handling questions, contact:
+  </p>
+
+  <ul>
+    <li>GitHub: <a href="https://github.com/revo2wheels/intervalsicugptcoach-public" target="_blank">revo2wheels</a></li>
+    <li>      <a href="https://intervals.icu/athlete/1914741" target="_blank">Intervals.icu DM</a></li>
+  </ul>
+
+</section>
+
+</main>
+
+    <!-- ===================================================
+🦶 FOOTER
+=================================================== -->
+    <footer id="footer">
+      <p>
+        © 2026 Coach GPT App — Data-driven endurance intelligence.<br>
+        Powered by <a href="https://intervals.icu" target="_blank">Intervals.icu</a>
+        and the <a href="https://railway.com?referralCode=-xO_3x">Railway</a> Engine.
+      </p>
+      <a href="/privacy.html">Privacy & GDPR</a>
+
+    </footer>
+
+</body>
+</html>
