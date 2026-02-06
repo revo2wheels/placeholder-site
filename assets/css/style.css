@@ -93,6 +93,23 @@ ul, ol { margin-left: 1.2rem; }
 ul li, ol li { margin-bottom: 0.4rem; }
 hr { border: none; border-top: 1px solid #e5e7eb; margin: 1.5rem 0; }
 
+blockquote {
+  position: relative;
+  padding-left: 2.5rem;
+  font-style: italic;
+}
+
+blockquote::before {
+  content: "“";
+  position: absolute;
+  left: 0;
+  top: -0.2rem;
+  font-size: 3.5rem;
+  line-height: 1;
+  color: #38bdf8;
+  font-family: serif;
+}
+
 /* ===================================================
 🪶 REPORT SAMPLE CARD STYLING
 =================================================== */
