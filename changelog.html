@@ -36,7 +36,7 @@
   <section class="card">
     <h1>🚀 Product Changelog — v5.1</h1>
     <p>
-      Every micro-version (<code>v5.1.xx</code>) below maps directly to a closed
+      Every github #nn refers to a micro-version update and maps directly to a closed
       <strong>Enhancement</strong> issue in GitHub.
       This page updates automatically when engineering ships.
     </p>
@@ -113,6 +113,12 @@
 document.addEventListener("DOMContentLoaded", () => {
   const API = "https://changelogintervalsicugptcoach.clive-a5a.workers.dev/changelog";
 
+  // 🔢 Extract GitHub issue number from URL (canonical change ID)
+  const issueNumber = (e) => {
+    const match = e.url && e.url.match(/issues\/(\d+)/);
+    return match ? `#${match[1]}` : "—";
+  };
+
   fetch(API)
     .then(r => r.json())
     .then(data => {
@@ -135,7 +141,7 @@ document.addEventListener("DOMContentLoaded", () => {
           block.innerHTML = `
             <details class="card">
               <summary>
-                <strong>${e.version}</strong> — ${e.title}
+                <strong>${issueNumber(e)}</strong> — ${e.title}
                 <span style="float:right;color:#777;font-size:0.85em">${e.date}</span>
               </summary>
               <div style="margin-top:0.75rem;white-space:pre-wrap;">
@@ -159,7 +165,7 @@ document.addEventListener("DOMContentLoaded", () => {
           block.innerHTML = `
             <details class="card">
               <summary>
-                <strong>${e.version}</strong> — ${e.title}
+                <strong>${issueNumber(e)}</strong> — ${e.title}
                 <span style="float:right;color:#777;font-size:0.9em">${e.date}</span>
               </summary>
               <div style="margin-top:1rem;white-space:pre-wrap;">
