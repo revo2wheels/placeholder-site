@@ -289,6 +289,82 @@ details p { padding: 0.5rem 0.75rem; margin: 0; }
   opacity: 1;
   transform: rotate(15deg);
 }
+
+/* ===================================================
+🧾 CHANGELOG PREVIEW (TOP 12 ONLY)
+=================================================== */
+
+#changelog-preview {
+  margin-top: 0.5rem;
+}
+
+.changelog-item {
+  padding: 0.5rem 0;
+  border-bottom: 1px solid #e5e7eb;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+
+.changelog-item:last-child {
+  border-bottom: none;
+}
+
+.changelog-item strong {
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.changelog-more {
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: #6b7280;
+  font-style: italic;
+}
+
+.card .more {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+}
+
+.card .more a {
+  color: #2563eb;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.card .more a:hover {
+  color: #0ea5e9;
+  text-decoration: underline;
+}
+
+/* ===================================================
+🧾 COMPACT CHANGELOG ROWS (COLLAPSED STATE)
+=================================================== */
+
+/* Reduce outer card padding for changelog rows */
+#changelog-preview details.card {
+  padding: 0.6rem 0.9rem;
+  margin-bottom: 0.75rem;
+}
+
+/* Tighten summary row height */
+#changelog-preview details.card > summary {
+  padding: 0.35rem 0.6rem;
+  font-size: 0.95rem;
+  line-height: 1.3;
+}
+
+/* Reduce summary text vertical alignment */
+#changelog-preview details.card > summary strong {
+  font-weight: 600;
+}
+
+/* Remove extra spacing inside summary */
+#changelog-preview details.card > summary span {
+  line-height: 1.2;
+}
+
+
 /* ===================================================
 🐙 GITHUB BUTTON (Classic Style)
 =================================================== */
