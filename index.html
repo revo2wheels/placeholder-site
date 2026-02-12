@@ -45,7 +45,19 @@
     <img src="https://avatars.githubusercontent.com/u/44225520?v=4" alt="Coach GPT Avatar" style="width:100px;height:100px;border-radius:50%;">
     <div>
       <h2>About the Intervals ICU Coach V5 (Railway T2 Engine)</h2>
-      <p class="muted">AI-Driven Endurance Performance Framework • Unified Reporting v5.1</p>
+      <p class="muted">
+        AI-Driven Endurance Performance Framework • Unified Reporting v5.1 —
+        Last updated <span id="last-updated"></span>
+      </p>
+
+<script>
+  const lastModified = new Date(document.lastModified);
+  const day = String(lastModified.getDate()).padStart(2, '0');
+  const month = String(lastModified.getMonth() + 1).padStart(2, '0');
+  const year = lastModified.getFullYear();
+  document.getElementById("last-updated").textContent = `${day}/${month}/${year}`;
+</script>
+
     </div>
   </div>
 
