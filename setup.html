@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>First-Time Setup — Coach GPT App</title>
+  <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/44225520?v=4" />
+  <link rel="stylesheet" href="assets/css/style.css?v=1.7">
+</head>
+
+<body>
+
+  <header>
+    <h1>
+      <img src="https://avatars.githubusercontent.com/u/44225520?v=4" alt="App Icon" />
+      <a href="https://www.cliveking.net">Coach GPT App</a>
+    </h1>
+    <nav>
+      <a href="https://www.cliveking.net#about">About</a>
+      <a href="https://www.cliveking.net#features">Features</a>
+      <a href="https://www.cliveking.net#Reports">Reports</a>
+      <a href="https://www.cliveking.net#Questions">Questions</a>
+      <a href="https://www.cliveking.net#samples">Samples</a>
+      <a href="https://www.cliveking.net#coach">Coach</a>
+      <a href="https://www.cliveking.net#download">Download</a>
+      <a href="https://www.cliveking.net#contact">Contact</a>
+      <a href="https://www.cliveking.net/changelog.html">Changelog</a>
+      <a href="https://www.cliveking.net/pipeline.html">Design</a>
+      <a href="https://www.cliveking.net/privacy.html">Privacy</a>
+    </nav>
+  </header>
+
+<main>
+
+  <section class="card">
+    <h1>⚙️ First-Time Setup</h1>
+    <p>
+      Follow these steps to connect your Intervals.icu account and generate your first training report.
+      The entire setup takes less than one minute.
+    </p>
+  </section>
+<section class="card">
+  <h2>🚀 Step-by-Step Setup</h2>
+
+  <h3>Step 1 — Open the Coach</h3>
+  <p>
+    Open the Intervals.icu Coach inside ChatGPT, click on this link in a web browser <a href="https://chatgpt.com/g/g-6933fc6bcd008191bb52885be4d1927c-intervals-icu-coach-v5-railway-t2-engine"> Intervals ICU Coach V5</a>
+  and type or click "run a weekly report" and the following sign in prompt will appear, click sign in. This wil redirect you sign into Intervals.icu or if already signed it will move to step 2.</p> 
+  <img src="assets/Screenshot_13-2-2026_95338_chatgpt.com.jpeg" alt="Open Coach in ChatGPT" style="width:75%;border-radius:10px;margin:1rem 0;">
+
+  <h3>Step 2 — Connect your Intervals.icu account</h3>
+  <p>
+    When prompted, click <strong>OK - to Connect Intervals.icu</strong> and approve access, do not uncheck any items.
+    This allows the coach to read your training data securely and create new calendar events.
+  </p>
+  <img src="assets/Screenshot_13-2-2026_95351_intervals.icu.jpeg" alt="Authorize Intervals account" style="width:30%;border-radius:10px;margin:1rem 0;">
+
+  <h3>Step 3 — Return to ChatGPT</h3>
+  <p>
+    After authorization, you will be redirected back to ChatGPT, it will flash up a green message stating "connected", then prompt the following: Click always allow to stop this happening on every request.
+  </p>
+  <img src="assets/Screenshot_13-2-2026_9545_chatgpt.com.jpeg" alt="Return to ChatGPT" style="width:75%;border-radius:10px;margin:1rem 0;">
+
+  <h3>Step 4 — Run your first report</h3>
+    <p>
+    It will now continue to show your report
+  </p>
+
+  <img src="assets/Screenshot_13-2-2026_95426_chatgpt.com.jpeg" alt="Run weekly report" style="width:75%;border-radius:10px;margin:1rem 0;">
+
+  <p>
+    You should now see your first training summary.
+  </p>
+</section>
+
+
+  <section class="card">
+    <h2>⚠️ Common Setup Issues</h2>
+
+    <h3>Athlete profile missing or account not connected</h3>
+    <p>
+      This means the OAuth connection was not completed.
+    </p>
+    <ol>
+      <li>Reopen the Coach</li>
+      <li>Click <strong>Connect Intervals.icu</strong></li>
+      <li>Approve access</li>
+      <li>Run the report again</li>
+    </ol>
+
+    <hr>
+
+    <h3>STRAVA activities are not available via the API</h3>
+    <p>
+      This means your activities exist only in Strava, and Intervals cannot access
+      the required training metrics.
+    </p>
+
+    <p>
+      To fix this, connect a direct recording source:
+    </p>
+    <ul>
+      <li>Garmin</li>
+      <li>Wahoo</li>
+      <li>Zwift</li>
+      <li>TrainerRoad</li>
+      <li>Upload FIT files directly</li>
+    </ul>
+
+    <p>
+      Explanation:
+      <a href="https://forum.intervals.icu/t/import-all-data-from-strava/81068" target="_blank">
+        Why Strava-only accounts don’t work →
+      </a>
+    </p>
+  </section>
+
+  <section class="card">
+    <h2>📊 Data Requirements</h2>
+    <p>The coach works best when your account has:</p>
+    <ul>
+      <li>Activities with time, distance, and training load</li>
+      <li>A connected device or training platform</li>
+      <li>Optional wellness data for recovery analysis</li>
+    </ul>
+  </section>
+
+  <section class="card">
+    <h2>🧪 Run a Data Quality Check</h2>
+    <p>
+      If your report looks incorrect, empty, or missing activities,
+      run a quick data quality audit.
+    </p>
+
+    <p>
+      After you have connected. In ChatGPT, type:
+    </p>
+    <pre><code>run data quality report</code></pre>
+
+    <p>
+      This report checks:
+    </p>
+    <ul>
+      <li>If your athlete profile is connected correctly</li>
+      <li>If activities are available</li>
+      <li>If training load, heart rate, and power data exist</li>
+      <li>If wellness data is present</li>
+      <li>If any sources are missing or incomplete</li>
+    </ul>
+
+    <p>
+      The report will return a <strong>data quality score</strong> and
+      highlight actions to fix any issues.
+    </p>
+  </section>
+
+  
+</main>
+
+  <!-- ===================================================
+📬 CONTACT SECTION
+=================================================== -->
+  <section id="contact">
+    <div class="card">
+      <h2>📬 Contact</h2>
+      <p>
+        For integration, customization, or coaching inquiries, connect via
+        GitHub link below or DM via
+        <a href="https://intervals.icu/athlete/1914741" target="_blank">Intervals.icu DM</a> and contribute in
+        <a href="https://forum.intervals.icu/t/yet-another-ai-chatgpt-coach/117856" target="_blank">Intervals.icu
+          Forum</a>.
+      </p>
+
+      <a href="https://github.com/revo2wheels/intervalsicugptcoach-public" target="_blank" class="github-button">
+        <svg viewBox="0 0 16 16" aria-hidden="true">
+          <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38
+                 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94
+                 -.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21
+                 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95
+                 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21
+                 2.2.82a7.6 7.6 0 012-.27c.68 0 1.36.09 2 .27 1.53-1.04
+                 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82
+                 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54
+                 1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.01 8.01 0
+                 0016 8c0-4.42-3.58-8-8-8z" />
+        </svg>
+        <strong>github.com/revo2wheels</strong>
+      </a>
+      <p class="muted" style="margin-top:1rem; text-align:Left;">
+        Built with ❤️ for endurance athletes — by <strong>Clive King</strong>.<br>
+        Powered by <a href="https://intervals.icu" target="_blank">Intervals.icu</a>, Cloudflare and the <a
+          href="https://railway.com?referralCode=-xO_3x">Railway</a> Engine.
+      </p>
+    </div>
+  </section>
+
+  <!-- ===================================================
+🦶 FOOTER
+=================================================== -->
+  <footer id="footer">
+    <p>
+      © 2026 Coach GPT App — Data-driven endurance intelligence.<br>
+      Powered by <a href="https://intervals.icu" target="_blank">Intervals.icu</a>
+      and the <a href="https://railway.com?referralCode=-xO_3x">Railway</a> Engine.
+    </p>
+    <a href="/privacy.html">Privacy & GDPR</a>
+  </footer>
+
+</body>
+</html>
