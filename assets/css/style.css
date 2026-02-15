@@ -245,20 +245,21 @@ tbody tr:nth-child(odd) { background: #fafafa; }
 tbody tr:hover { background: #eef6ff; transition: background 0.2s ease-in-out; }
 
 /* ===================================================
-📱 MOBILE TABLE SCROLL FIX (Markers Section)
+📱 UNIVERSAL MOBILE TABLE SCROLL FIX
 =================================================== */
 
-#markers .overflow-x-auto {
+.overflow-x-auto {
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
 
-#markers .overflow-x-auto table {
-  min-width: 650px; /* prevents column collapse */
+.overflow-x-auto table {
+  min-width: 720px;   /* adjust per largest table */
+  table-layout: auto;
 }
 
 @media (max-width: 768px) {
-  #markers .overflow-x-auto::after {
+  .overflow-x-auto::after {
     content: "Swipe →";
     display: block;
     text-align: right;
@@ -268,38 +269,8 @@ tbody tr:hover { background: #eef6ff; transition: background 0.2s ease-in-out; }
   }
 }
 
-#markers table {
-  table-layout: auto;
-}
 
-/* ===================================================
-📱 MOBILE TABLE SCROLL FIX (Coach Section)
-=================================================== */
 
-#coach .overflow-x-auto {
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-}
-
-#coach .overflow-x-auto table {
-  min-width: 750px; /* prevents column collapse */
-}
-
-@media (max-width: 768px) {
-  #coach .overflow-x-auto::after {
-    content: "Swipe →";
-    display: block;
-    text-align: right;
-    font-size: 0.75rem;
-    color: #888;
-    padding-top: 0.4rem;
-  }
-}
-
-#coach table {
-  table-layout: auto;
-  font-size: 0.85rem;
-}
 
 
 /* ===================================================
