@@ -1,345 +1,390 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Coach GPT App — An AI-powered endurance coach integrating Intervals.icu data to deliver intelligent training, recovery, and performance insights.">
-<meta name="author" content="Clive King">
-<meta property="og:title" content="Coach GPT App — Training Intelligence">
-<meta property="og:description" content="Smart AI coaching powered by Intervals.icu and the Unified Reporting Framework (URF v5.1)">
-<meta property="og:image" content="https://avatars.githubusercontent.com/u/44225520?v=4">
-<meta property="og:type" content="website">
-<link rel="canonical" href="https://www.cliveking.net">
-<link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/44225520?v=4">
-<title>Coach GPT App — Training Intelligence</title>
-<link rel="stylesheet" href="assets/css/style.css?v=1.7">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description"
+    content="Coach GPT App — An AI-powered endurance coach integrating Intervals.icu data to deliver intelligent training, recovery, and performance insights.">
+  <meta name="author" content="Clive King">
+  <meta property="og:title" content="Coach GPT App — Training Intelligence">
+  <meta property="og:description"
+    content="Smart AI coaching powered by Intervals.icu and the Unified Reporting Framework (URF v5.1)">
+  <meta property="og:image" content="https://avatars.githubusercontent.com/u/44225520?v=4">
+  <meta property="og:type" content="website">
+  <link rel="canonical" href="https://www.cliveking.net">
+  <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/44225520?v=4">
+  <title>Coach GPT App — Training Intelligence</title>
+  <link rel="stylesheet" href="assets/css/style.css?v=1.7">
 </head>
 
 <body id="top">
-<header>
-  <h1>
-    <img src="https://avatars.githubusercontent.com/u/44225520?v=4" alt="App Icon">
-    <a href="#top">Coach GPT App</a>
-  </h1>
-<nav>
-  <a href="#about" style="font-weight:bold;color:#38bdf8;">About</a>
-  <a href="#features">Features</a>
-  <a href="#Reports">Reports</a>
-  <a href="#Questions">Questions</a>
-  <a href="#samples">Samples</a>
-  <a href="#coach">Coach</a>
-  <a href="#download">Download</a>
-  <a href="#contact">Contact</a>
-  <a href="https://www.cliveking.net/changelog.html">Changelog</a>
-  <a href="https://www.cliveking.net/pipeline.html">Design</a>
-  <a href="https://www.cliveking.net/privacy.html">Privacy</a>
-</nav>
+  <header>
+    <h1>
+      <img src="https://avatars.githubusercontent.com/u/44225520?v=4" alt="App Icon">
+      <a href="#top">Coach GPT App</a>
+    </h1>
+    <nav>
+      <a href="#about" style="font-weight:bold;color:#38bdf8;">About</a>
+      <a href="#features">Features</a>
+      <a href="#Reports">Reports</a>
+      <a href="#Questions">Questions</a>
+      <a href="#samples">Samples</a>
+      <a href="#coach">Coach</a>
+      <a href="#download">Download</a>
+      <a href="#contact">Contact</a>
+      <a href="https://www.cliveking.net/changelog.html">Changelog</a>
+      <a href="https://www.cliveking.net/pipeline.html">Design</a>
+      <a href="https://www.cliveking.net/privacy.html">Privacy</a>
+    </nav>
 
-</header>
+  </header>
 
-<!-- ===================================================
+  <!-- ===================================================
 🏁 ABOUT SECTION (Full Original Content)
 =================================================== -->
-<section id="about" class="card">
-  <div class="profile-header" style="display:flex;align-items:center;gap:20px;">
-    <img src="https://avatars.githubusercontent.com/u/44225520?v=4" alt="Coach GPT Avatar" style="width:100px;height:100px;border-radius:50%;">
-    <div>
-      <h2>About the Intervals ICU Coach V5 (Railway T2 Engine)</h2>
-      <p class="muted">
-        AI-Driven Endurance Performance Framework • Unified Reporting v5.1 —
-        Last updated <span id="last-updated"></span>
+  <section id="about" class="card">
+    <div class="profile-header" style="display:flex;align-items:center;gap:20px;">
+      <img src="https://avatars.githubusercontent.com/u/44225520?v=4" alt="Coach GPT Avatar"
+        style="width:100px;height:100px;border-radius:50%;">
+      <div>
+        <h2>About the Intervals ICU Coach V5 (Railway T2 Engine)</h2>
+        <p class="muted">
+          AI-Driven Endurance Performance Framework • Unified Reporting v5.1 —
+          Last updated <span id="last-updated"></span>
+        </p>
+
+        <script>
+          const lastModified = new Date(document.lastModified);
+          const day = String(lastModified.getDate()).padStart(2, '0');
+          const month = String(lastModified.getMonth() + 1).padStart(2, '0');
+          const year = lastModified.getFullYear();
+          document.getElementById("last-updated").textContent = `${day}/${month}/${year}`;
+        </script>
+
+      </div>
+    </div>
+
+    <p>The <strong>Intervals ICU Coach V5</strong> blends <strong>data-driven precision</strong> with
+      <strong>evidence-based endurance science</strong>. It integrates <em>objective training data</em>
+      (TSS, CTL, ATL, HRV, VO₂max) and <em>subjective feedback</em> (RPE, mood, sleep, recovery)
+      to generate <strong>structural performance intelligence</strong>.
+    </p>
+
+    <p>Powered by the <strong>Railway T3 Engine</strong>, the system now extends beyond load monitoring.
+      Using the <em>Unified Reporting Framework</em>, it evaluates not only how much work you perform —
+      but how your physiology expresses fitness under stress.</p>
+    <p>
+      The <strong>Coach GPT App</strong> is fully dependent on
+      <a href="https://www.intervals.icu" target="_blank">Intervals.icu</a> which integrates with Garmin, Amazfit,
+      Huawei, Polar, Suunto, Coros, Wahoo, Zwift, MyWhoosh, Rouvy, Hammerhead, Concept2, Strava, Dropbox, Oura and
+      WHOOP.
+    </p>
+
+    <blockquote><strong>Turn the data already inside Intervals.icu into clear, actionable intelligence.</strong>
+    </blockquote>
+
+    <hr>
+
+    <section id="feedback" class="card">
+      <h3>💬 What Supporters Are Saying</h3>
+
+      <blockquote>
+        “Game changer. What a fantastic add-on.”
+        <span class="muted">— Jeff</span>
+      </blockquote>
+
+      <blockquote>
+        “I use it almost every day to understand what to improve in my races and workouts.”
+        <span class="muted">— Marco S.</span>
+      </blockquote>
+
+      <blockquote>
+        “It's producing really good insights and it's actually fun to use.”
+        <span class="muted">— Marius</span>
+      </blockquote>
+
+      <blockquote>
+        “Very cool and awesome potential. Enjoying it so far.”
+        <span class="muted">— G-Mack</span>
+      </blockquote>
+
+      <blockquote>
+        “This app is great. Using it with Concept2 erg data has given me good ideas to think through, plus a modified
+        training plan to help meet my goal.”
+        <span class="muted">— Richard</span>
+      </blockquote>
+
+      <p>
+        Coach GPT App is free to use.
+        If you find value in it and would like to support continued development,
+        infrastructure costs, and new features,
+        you can become a supporter below.
+        Your support genuinely helps keep the project independent and improving.
       </p>
 
-<script>
-  const lastModified = new Date(document.lastModified);
-  const day = String(lastModified.getDate()).padStart(2, '0');
-  const month = String(lastModified.getMonth() + 1).padStart(2, '0');
-  const year = lastModified.getFullYear();
-  document.getElementById("last-updated").textContent = `${day}/${month}/${year}`;
-</script>
-
-    </div>
-  </div>
-
-<p>The <strong>Intervals ICU Coach V5</strong> blends <strong>data-driven precision</strong> with 
-<strong>evidence-based endurance science</strong>. It integrates <em>objective training data</em> 
-(TSS, CTL, ATL, HRV, VO₂max) and <em>subjective feedback</em> (RPE, mood, sleep, recovery) 
-to generate <strong>structural performance intelligence</strong>.</p>
-
-<p>Powered by the <strong>Railway T3 Engine</strong>, the system now extends beyond load monitoring. 
-Using the <em>Unified Reporting Framework</em>, it evaluates not only how much work you perform — 
-but how your physiology expresses fitness under stress.</p>
-
-<p> The application is free but it costs me to run on backend platforms, if you want to support this project I'd be very grateful to help me balance that, buy me a coffee in the link below and become a supporter. Thank you! </p>
-
-<script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="revo2wheels" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
-
-<hr>
-
-<section id="feedback" class="card">
-  <h3>💬 What Supporters Are Saying</h3>
-
-  <blockquote>
-    “Game changer. What a fantastic add-on.”
-    <span class="muted">— Jeff</span>
-  </blockquote>
-
-  <blockquote>
-    “I use it almost every day to understand what to improve in my races and workouts.”
-    <span class="muted">— Marco S.</span>
-  </blockquote>
-
-  <blockquote>
-    “It's producing really good insights and it's actually fun to use.”
-    <span class="muted">— Marius</span>
-  </blockquote>
-
-  <blockquote>
-    “Very cool and awesome potential. Enjoying it so far.”
-    <span class="muted">— G-Mack</span>
-  </blockquote>
-
-  <blockquote>
-    “This app is great. Using it with Concept2 erg data has given me good ideas to think through, plus a modified training plan to help meet my goal.”
-    <span class="muted">— Richard</span>
-  </blockquote>
-</section>
+      <center>
+        <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
+          data-name="bmc-button" data-slug="revo2wheels" data-color="#FFDD00" data-emoji="" data-font="Cookie"
+          data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000"
+          data-coffee-color="#ffffff"></script>
+      </center>
+    </section>
 
 
-<hr>
+    <hr>
 
-  <h3>🔬 Scientific & Methodological Framework</h3>
-  <ul>
-    <li><strong>Seiler’s 80/20 Polarised Model</strong> – builds aerobic durability with intensity balance.</li>
-    <li><strong>San Millán’s Zone 2 Metabolic Efficiency</strong> – improves mitochondrial density and fat oxidation.</li>
-    <li><strong>Friel’s Periodisation Principles</strong> – applies micro/macrocycle load control and aging-adjusted recovery.</li>
-    <li><strong>Banister’s TRIMP Impulse–Response Model</strong> – quantifies stress and adaptation over time.</li>
-    <li><strong>Foster’s Monotony & Strain Indices</strong> – detect overuse, repetition, and systemic stress.</li>
-  </ul>
+    <h3>🔬 Scientific & Methodological Framework</h3>
+    <ul>
+      <li><strong>Seiler’s 80/20 Polarised Model</strong> – builds aerobic durability with intensity balance.</li>
+      <li><strong>San Millán’s Zone 2 Metabolic Efficiency</strong> – improves mitochondrial density and fat oxidation.
+      </li>
+      <li><strong>Friel’s Periodisation Principles</strong> – applies micro/macrocycle load control and aging-adjusted
+        recovery.</li>
+      <li><strong>Banister’s TRIMP Impulse–Response Model</strong> – quantifies stress and adaptation over time.</li>
+      <li><strong>Foster’s Monotony & Strain Indices</strong> – detect overuse, repetition, and systemic stress.</li>
+    </ul>
 
-  <p>Using these foundations, the coach continuously monitors 
-  <strong>ACWR</strong>, <strong>Polarisation Index</strong>, and <strong>Recovery Index</strong> 
-  to identify maladaptation early and apply proactive recovery or load modulation.</p>
+    <p>Using these foundations, the coach continuously monitors
+      <strong>ACWR</strong>, <strong>Polarisation Index</strong>, and <strong>Recovery Index</strong>
+      to identify maladaptation early and apply proactive recovery or load modulation.
+    </p>
 
-  <p>Whether you’re targeting a <strong>Gran Fondo</strong>, <strong>Ironman</strong>, or <strong>Marathon</strong>, 
-  this system ensures progressive overload, sustainable adaptation, and peak timing — 
-  maximizing aerobic performance while minimizing injury and non-functional overreaching.</p>
+    <p>Whether you’re targeting a <strong>Gran Fondo</strong>, <strong>Ironman</strong>, or <strong>Marathon</strong>,
+      this system ensures progressive overload, sustainable adaptation, and peak timing —
+      maximizing aerobic performance while minimizing injury and non-functional overreaching.</p>
 
-  <hr>
+    <hr>
 
-  <h3>⚙️ What the Coach Actually Does</h3>
-<ul>
-  <li>🧩 Analyzes your <strong>training load dynamics</strong> (CTL, ATL, TSB, FatigueTrend, ACWR).</li>
-  <li>📈 Generates <strong>Weekly, Seasonal, and Wellness Reports</strong> automatically using URF.</li>
-  <li>🧠 Models <strong>structural capability</strong> (Anaerobic Repeatability, Durability, Neural Density).</li>
-  <li>🩺 Monitors <strong>stress and readiness</strong> (Monotony, Strain, Recovery Index, HRV).</li>
-  <li>🎯 Guides <strong>future microcycle planning</strong> based on how your system expresses stress — not just how much load you accumulate.</li>
-</ul>
+    <h3>⚙️ What the Coach Actually Does</h3>
+    <ul>
+      <li>🧩 Analyzes your <strong>training load dynamics</strong> (CTL, ATL, TSB, FatigueTrend, ACWR).</li>
+      <li>📈 Generates <strong>Weekly, Seasonal, and Wellness Reports</strong> automatically using URF.</li>
+      <li>🧠 Models <strong>structural capability</strong> (Anaerobic Repeatability, Durability, Neural Density).</li>
+      <li>🩺 Monitors <strong>stress and readiness</strong> (Monotony, Strain, Recovery Index, HRV).</li>
+      <li>🎯 Guides <strong>future microcycle planning</strong> based on how your system expresses stress — not just how
+        much load you accumulate.</li>
+    </ul>
 
-<hr>
+    <hr>
 
-<h3>🧠 Tier-3 Performance Intelligence</h3>
+    <h3>🧠 Tier-3 Performance Intelligence</h3>
 
-<p>The latest version introduces <strong>Performance Intelligence</strong> — a structural modeling layer 
-that analyzes how your system handles intensity, durability, and neural strain.</p>
+    <p>The latest version introduces <strong>Performance Intelligence</strong> — a structural modeling layer
+      that analyzes how your system handles intensity, durability, and neural strain.</p>
 
-<ul>
-  <li>🔥<strong>WDRM — Anaerobic Repeatability</strong><br>
-      Tracks W′ depletion depth, repeatability, and supra-threshold stress density.</li>
+    <ul>
+      <li>🔥<strong>WDRM — Anaerobic Repeatability</strong><br>
+        Tracks W′ depletion depth, repeatability, and supra-threshold stress density.</li>
 
-  <li>🏔 <strong>ISDM — Durability</strong><br>
-      Measures decoupling, drift exposure, and fatigue resistance during longer efforts.</li>
+      <li>🏔 <strong>ISDM — Durability</strong><br>
+        Measures decoupling, drift exposure, and fatigue resistance during longer efforts.</li>
 
-  <li>⚡<strong>NDLI — Neural Load Density</strong><br>
-      Detects high-intensity clustering and central fatigue accumulation.</li>
-</ul>
+      <li>⚡<strong>NDLI — Neural Load Density</strong><br>
+        Detects high-intensity clustering and central fatigue accumulation.</li>
+    </ul>
 
-<p>This layer does not replace traditional metrics like TSS or CTL.  
-It evaluates how your body behaves under load.</p>
+    <p>This layer does not replace traditional metrics like TSS or CTL.
+      It evaluates how your body behaves under load.</p>
 
-<p><strong>Why this matters:</strong> Future training guidance is no longer shaped 
-only by volume targets — but by repeatability stability, durability trends, 
-and intensity clustering patterns.</p>
+    <p><strong>Why this matters:</strong> Future training guidance is no longer shaped
+      only by volume targets — but by repeatability stability, durability trends,
+      and intensity clustering patterns.</p>
 
-</section>
-<!-- ===================================================
+  </section>
+  <!-- ===================================================
 🧭 QUICK START — COACH TIPS
 =================================================== -->
-<section id="coach-tips" class="card">
-  <h2>🧭 Quick Start — Coach Tips</h2>
+  <section id="coach-tips" class="card">
+    <h2>🧭 Quick Start — Coach Tips</h2>
 
-  <ol class="coach-tips-list">
-    <li><strong>Install the GPT App:</strong> 
-      <a href="https://chatgpt.com/g/g-6933fc6bcd008191bb52885be4d1927c-intervals-icu-coach-v5-railway-t2-engine" target="_blank">
-      Intervals ICU Coach V5</a> (v3 is now deprecated)
-    </li>
-    <li>If you are having trouble see this <a href="setup.html">setup guide</a> for first time</li>
-    <li><strong>First time setup:</strong> You’ll be redirected to <code>intervalsicugptcoach.clive-a5a.workers.dev</code> for secure OAuth authorization. Sign in, approve access, and return to ChatGPT.</li>
-    <li><strong>Your data is safe:</strong> No credentials or data are stored — the app exchanges Intervals.icu data via tokenized access only.</li>
-    <li><strong>OAuth:</strong> Enables secure account linking without passwords or API keys.</li>
-    <li><strong>Confirm Intervals.icu connection:</strong> Type “Connection active” before your first report to verify integration.</li>
-    <li><strong>FTP, age, and zones:</strong> These are auto-retrieved from Intervals.icu (defaults to 35 years old if not set).</li>
-    <li><strong>Log subjective data:</strong> Sleep, mood, fatigue, soreness, hydration — these enhance report accuracy and wellness alignment.</li>
-    <li><strong>Keep FTP and zones current:</strong> Re-test every 6 weeks or after major training blocks.</li>
-    <li><strong>Use precise commands:</strong> e.g. “Run a weekly report (7 days)” or “Run a wellness report (42 days)”.</li>
-    <li><strong>Ask explainer questions:</strong> “What does ACWR mean?” or “Explain Monotony and Strain.”</li>
-    <li><strong>Check for data sync issues:</strong> If reports return blanks, confirm your Intervals.icu activity privacy settings allow API access.</li>
-    <li><strong>Optional advanced use:</strong> Ask for “Fatigue forecast”, “Metabolic report”, or “Race readiness check” to trigger extended analysis modes.</li>
-  </ol>
+    <ol class="coach-tips-list">
+      <li><strong>Install the GPT App:</strong>
+        <a href="https://chatgpt.com/g/g-6933fc6bcd008191bb52885be4d1927c-intervals-icu-coach-v5-railway-t2-engine"
+          target="_blank">
+          Intervals ICU Coach V5</a> (v3 is now deprecated)
+      </li>
+      <li>If you are having trouble see this <a href="setup.html">setup guide</a> for first time</li>
+      <li><strong>First time setup:</strong> You’ll be redirected to
+        <code>intervalsicugptcoach.clive-a5a.workers.dev</code> for secure OAuth authorization. Sign in, approve access,
+        and return to ChatGPT.</li>
+      <li><strong>Your data is safe:</strong> No credentials or data are stored — the app exchanges Intervals.icu data
+        via tokenized access only.</li>
+      <li><strong>OAuth:</strong> Enables secure account linking without passwords or API keys.</li>
+      <li><strong>Confirm Intervals.icu connection:</strong> Type “Connection active” before your first report to verify
+        integration.</li>
+      <li><strong>FTP, age, and zones:</strong> These are auto-retrieved from Intervals.icu (defaults to 35 years old if
+        not set).</li>
+      <li><strong>Log subjective data:</strong> Sleep, mood, fatigue, soreness, hydration — these enhance report
+        accuracy and wellness alignment.</li>
+      <li><strong>Keep FTP and zones current:</strong> Re-test every 6 weeks or after major training blocks.</li>
+      <li><strong>Use precise commands:</strong> e.g. “Run a weekly report (7 days)” or “Run a wellness report (42
+        days)”.</li>
+      <li><strong>Ask explainer questions:</strong> “What does ACWR mean?” or “Explain Monotony and Strain.”</li>
+      <li><strong>Check for data sync issues:</strong> If reports return blanks, confirm your Intervals.icu activity
+        privacy settings allow API access.</li>
+      <li><strong>Optional advanced use:</strong> Ask for “Fatigue forecast”, “Metabolic report”, or “Race readiness
+        check” to trigger extended analysis modes.</li>
+    </ol>
 
-  <p class="muted">
-    💡 Pro Tip: Add subjective logs in Intervals.icu (mood, soreness, stress) for richer coaching intelligence and better URF alignment.
-  </p>
-  
-<p class="muted-left">
-    IMPORTANT NOTE: Please be aware that beause of STRAVA API policy intervals.icu cannot share any STRAVA sourced data with third parties.
-    This is otherwise fine for Garmin, Wahoo, Zwift etc, and FIT file uploads to Intevals.ICU - please connect these to your intervals.icu profile. After you have connected a proper source
-    import all your activities from Strava, this is not subject to API terms! see <A href="https://forum.intervals.icu/t/import-all-data-from-strava/81068">Import all Your data from Strava</A>
-  </p>
-</section>
+    <p class="muted">
+      💡 Pro Tip: Add subjective logs in Intervals.icu (mood, soreness, stress) for richer coaching intelligence and
+      better URF alignment.
+    </p>
 
-<!-- ===================================================
+    <p class="muted-left">
+      IMPORTANT NOTE: Please be aware that beause of STRAVA API policy intervals.icu cannot share any STRAVA sourced
+      data with third parties.
+      This is otherwise fine for Garmin, Wahoo, Zwift etc, and FIT file uploads to Intevals.ICU - please connect these
+      to your intervals.icu profile. After you have connected a proper source
+      import all your activities from Strava, this is not subject to API terms! see <A
+        href="https://forum.intervals.icu/t/import-all-data-from-strava/81068">Import all Your data from Strava</A>
+    </p>
+  </section>
+
+  <!-- ===================================================
 📈 REPORTS OVERVIEW + FULL SAMPLE REPORTS (Unified)
 =================================================== -->
-<!-- Legacy anchor alias for backward compatibility -->
-<span id="samples" style="position:relative; top:-80px;"></span>
-<section id="Reports" class="card">
-  <h2>📈 Reports Overview (Unified Reporting Framework v5.1)</h2>
+  <!-- Legacy anchor alias for backward compatibility -->
+  <span id="samples" style="position:relative; top:-80px;"></span>
+  <section id="Reports" class="card">
+    <h2>📈 Reports Overview (Unified Reporting Framework v5.1)</h2>
 
-  <p>
-    Reports are generated automatically using the <strong>Unified Reporting Framework (URF v5.1)</strong>.
-    Each uses canonical Intervals.icu data and applies the Railway Tier-2 Engine for validation and consistency.
-    These outputs ensure reproducible metrics, validated fatigue indicators, and synchronized wellness alignment.
-  </p>
-
-  <p>
-    Below are the available report types — click to expand. Scroll further to view anonymised <strong>sample reports</strong>
-    illustrating full URF output.
-  </p>
-
-  <details>
-    <summary>📅 Run a Weekly Report -> Sample</summary>
     <p>
-      Analyzes your last 7 days — load, intensity, and recovery alignment.
-      Includes: <strong>ACWR</strong>, <strong>FatigueTrend</strong>, <strong>CTL / ATL / TSB</strong>,
-      <strong>Polarisation</strong>, and metabolic drift indicators.
+      Reports are generated automatically using the <strong>Unified Reporting Framework (URF v5.1)</strong>.
+      Each uses canonical Intervals.icu data and applies the Railway Tier-2 Engine for validation and consistency.
+      These outputs ensure reproducible metrics, validated fatigue indicators, and synchronized wellness alignment.
     </p>
-    <!-- === WEEKLY SAMPLE === -->
-<section class="report">
 
-  <div class="report-header-tag">
-    📊 Weekly Report — URF v5.1 + Tier-3 Performance Intelligence
-  </div>
+    <p>
+      Below are the available report types — click to expand. Scroll further to view anonymised <strong>sample
+        reports</strong>
+      illustrating full URF output.
+    </p>
 
-  <h3>Status: Productive load, accumulating fatigue, optimal strain control.</h3>
+    <details>
+      <summary>📅 Run a Weekly Report -> Sample</summary>
+      <p>
+        Analyzes your last 7 days — load, intensity, and recovery alignment.
+        Includes: <strong>ACWR</strong>, <strong>FatigueTrend</strong>, <strong>CTL / ATL / TSB</strong>,
+        <strong>Polarisation</strong>, and metabolic drift indicators.
+      </p>
+      <!-- === WEEKLY SAMPLE === -->
+      <section class="report">
 
-  <hr>
+        <div class="report-header-tag">
+          📊 Weekly Report — URF v5.1 + Tier-3 Performance Intelligence
+        </div>
 
-  <h4>🧾 Meta</h4>
-  <p><strong>Athlete:</strong> Sample Athlete</p>
-  <p><strong>Period:</strong> 2026-02-05 → 2026-02-11</p>
-  <p><strong>Framework:</strong> Unified Reporting Framework v5.1</p>
-  <p><strong>Scope:</strong> Weekly tactical control</p>
-  <p><strong>Timezone:</strong> Europe/Zurich</p>
+        <h3>Status: Productive load, accumulating fatigue, optimal strain control.</h3>
 
-  <hr>
+        <hr>
 
-  <h4>⏱ Hours</h4>
-  <p><strong>14.24 h</strong></p>
+        <h4>🧾 Meta</h4>
+        <p><strong>Athlete:</strong> Sample Athlete</p>
+        <p><strong>Period:</strong> 2026-02-05 → 2026-02-11</p>
+        <p><strong>Framework:</strong> Unified Reporting Framework v5.1</p>
+        <p><strong>Scope:</strong> Weekly tactical control</p>
+        <p><strong>Timezone:</strong> Europe/Zurich</p>
 
-  <h4>🔢 Training Load (TSS)</h4>
-  <p><strong>652 TSS</strong></p>
+        <hr>
 
-  <h4>📏 Distance</h4>
-  <p><strong>343.3 km</strong></p>
+        <h4>⏱ Hours</h4>
+        <p><strong>14.24 h</strong></p>
 
-  <hr>
+        <h4>🔢 Training Load (TSS)</h4>
+        <p><strong>652 TSS</strong></p>
 
-  <h4>📊 Metrics</h4>
+        <h4>📏 Distance</h4>
+        <p><strong>343.3 km</strong></p>
 
-  <h5>Load & Fatigue</h5>
-  <ul>
-    <li><strong>ACWR:</strong> 0.98 🟢 (Productive)</li>
-    <li><strong>Monotony:</strong> 1.69 🟢 (Optimal variation)</li>
-    <li><strong>Strain:</strong> 157.4 🟢 (Low overall strain)</li>
-    <li><strong>FatigueTrend:</strong> +16.4 🔴 (Accumulating)</li>
-    <li><strong>Recovery Index:</strong> 0.66 🟢 (Optimal but slightly suppressed)</li>
-  </ul>
+        <hr>
 
-  <p>
-    ACWR indicates controlled weekly load relative to chronic baseline.<br>
-    Monotony shows healthy variation despite clustered intensity.<br>
-    FatigueTrend confirms short-term fatigue accumulation.<br>
-    Recovery Index remains in optimal range but trending suppressed.
-  </p>
+        <h4>📊 Metrics</h4>
 
-  <h5>Intensity Distribution</h5>
-  <ul>
-    <li><strong>Polarisation (Power Ratio):</strong> 0.57 🔴 (Z2-dominant)</li>
-    <li><strong>Polarisation Index (Combined):</strong> 0.73 🟠 (Pyramidal)</li>
-    <li><strong>ZQI:</strong> 3.5 🔴 (Low high-intensity density)</li>
-    <li><strong>FatOx Efficiency:</strong> 0.62 🟢 (Balanced)</li>
-    <li><strong>FOxI:</strong> 61.9 🟠 (Moderate)</li>
-    <li><strong>MES:</strong> 22.5 🟢 (Strong metabolic efficiency)</li>
-  </ul>
+        <h5>Load & Fatigue</h5>
+        <ul>
+          <li><strong>ACWR:</strong> 0.98 🟢 (Productive)</li>
+          <li><strong>Monotony:</strong> 1.69 🟢 (Optimal variation)</li>
+          <li><strong>Strain:</strong> 157.4 🟢 (Low overall strain)</li>
+          <li><strong>FatigueTrend:</strong> +16.4 🔴 (Accumulating)</li>
+          <li><strong>Recovery Index:</strong> 0.66 🟢 (Optimal but slightly suppressed)</li>
+        </ul>
 
-  <p>
-    Power-based polarisation reflects substantial Z2 dominance.<br>
-    Combined index sits in pyramidal range across sports.<br>
-    ZQI indicates limited true high-intensity exposure despite heavy load.<br>
-    Metabolic markers show stable aerobic efficiency.
-  </p>
+        <p>
+          ACWR indicates controlled weekly load relative to chronic baseline.<br>
+          Monotony shows healthy variation despite clustered intensity.<br>
+          FatigueTrend confirms short-term fatigue accumulation.<br>
+          Recovery Index remains in optimal range but trending suppressed.
+        </p>
 
-  <hr>
+        <h5>Intensity Distribution</h5>
+        <ul>
+          <li><strong>Polarisation (Power Ratio):</strong> 0.57 🔴 (Z2-dominant)</li>
+          <li><strong>Polarisation Index (Combined):</strong> 0.73 🟠 (Pyramidal)</li>
+          <li><strong>ZQI:</strong> 3.5 🔴 (Low high-intensity density)</li>
+          <li><strong>FatOx Efficiency:</strong> 0.62 🟢 (Balanced)</li>
+          <li><strong>FOxI:</strong> 61.9 🟠 (Moderate)</li>
+          <li><strong>MES:</strong> 22.5 🟢 (Strong metabolic efficiency)</li>
+        </ul>
 
-  <h4>🧪 Extended Metrics</h4>
+        <p>
+          Power-based polarisation reflects substantial Z2 dominance.<br>
+          Combined index sits in pyramidal range across sports.<br>
+          ZQI indicates limited true high-intensity exposure despite heavy load.<br>
+          Metabolic markers show stable aerobic efficiency.
+        </p>
 
-  <h5>Lactate Profiling</h5>
-  <ul>
-    <li><strong>Mean Lactate:</strong> 1.92 mmol/L</li>
-    <li><strong>Latest Lactate:</strong> 1.8 mmol/L</li>
-    <li><strong>LT1 (Inferred):</strong> 210 W</li>
-    <li><strong>Z2 Personalized:</strong> 210–225 W</li>
-    <li><strong>Correlation r:</strong> 0.99 (High confidence)</li>
-  </ul>
+        <hr>
 
-  <p>
-    Zone calibration is physiologically aligned and stable.<br>
-    Z2 work above 225 W would exceed inferred LT1 boundary.
-  </p>
+        <h4>🧪 Extended Metrics</h4>
 
-  <hr>
+        <h5>Lactate Profiling</h5>
+        <ul>
+          <li><strong>Mean Lactate:</strong> 1.92 mmol/L</li>
+          <li><strong>Latest Lactate:</strong> 1.8 mmol/L</li>
+          <li><strong>LT1 (Inferred):</strong> 210 W</li>
+          <li><strong>Z2 Personalized:</strong> 210–225 W</li>
+          <li><strong>Correlation r:</strong> 0.99 (High confidence)</li>
+        </ul>
 
-  <h4>⚡ Performance Intelligence (Tier-3)</h4>
+        <p>
+          Zone calibration is physiologically aligned and stable.<br>
+          Z2 work above 225 W would exceed inferred LT1 boundary.
+        </p>
 
-  <h5>Anaerobic Repeatability (WDRM)</h5>
-  <ul>
-    <li><strong>Max Depletion:</strong> 0.75</li>
-    <li><strong>High Depletion Sessions:</strong> 1</li>
-    <li><strong>Total Joules &gt; FTP:</strong> 152,992 J</li>
-  </ul>
-  <p>Single deep depletion event observed. Anaerobic load present but not excessive.</p>
+        <hr>
 
-  <h5>Durability (ISDM)</h5>
-  <ul>
-    <li><strong>Mean Decoupling:</strong> 3.0 🟢</li>
-    <li><strong>High Drift Sessions:</strong> 3 🟠</li>
-    <li><strong>Long Sessions:</strong> 1</li>
-  </ul>
-  <p>Cardiovascular durability stable, with fatigue interaction visible.</p>
+        <h4>⚡ Performance Intelligence (Tier-3)</h4>
 
-  <h5>Neural Density (NDLI)</h5>
-  <ul>
-    <li><strong>Rolling Joules &gt; FTP:</strong> 152,992 🟢</li>
-    <li><strong>High Intensity Days:</strong> 4 🟢</li>
-    <li><strong>Mean IF:</strong> 0.69</li>
-  </ul>
-  <p><strong>High neuromuscular + metabolic strain overlap observed.</strong></p>
+        <h5>Anaerobic Repeatability (WDRM)</h5>
+        <ul>
+          <li><strong>Max Depletion:</strong> 0.75</li>
+          <li><strong>High Depletion Sessions:</strong> 1</li>
+          <li><strong>Total Joules &gt; FTP:</strong> 152,992 J</li>
+        </ul>
+        <p>Single deep depletion event observed. Anaerobic load present but not excessive.</p>
 
-  <hr>
+        <h5>Durability (ISDM)</h5>
+        <ul>
+          <li><strong>Mean Decoupling:</strong> 3.0 🟢</li>
+          <li><strong>High Drift Sessions:</strong> 3 🟠</li>
+          <li><strong>Long Sessions:</strong> 1</li>
+        </ul>
+        <p>Cardiovascular durability stable, with fatigue interaction visible.</p>
 
-  <h4>🧭 Zones</h4>
-  <pre>
+        <h5>Neural Density (NDLI)</h5>
+        <ul>
+          <li><strong>Rolling Joules &gt; FTP:</strong> 152,992 🟢</li>
+          <li><strong>High Intensity Days:</strong> 4 🟢</li>
+          <li><strong>Mean IF:</strong> 0.69</li>
+        </ul>
+        <p><strong>High neuromuscular + metabolic strain overlap observed.</strong></p>
+
+        <hr>
+
+        <h4>🧭 Zones</h4>
+        <pre>
 Z1  ██████████████████████████ 54.6%
 Z2  ██████████ 21.7%
 Z3  █████ 10.9%
@@ -350,1071 +395,1665 @@ Z7  ▏0.2%
 SS  ██ 4.5%
   </pre>
 
-  <p>
-    Clear aerobic bias overall.<br>
-    Z2 dominance explains low power polarisation ratio.
-  </p>
+        <p>
+          Clear aerobic bias overall.<br>
+          Z2 dominance explains low power polarisation ratio.
+        </p>
 
-  <hr>
+        <hr>
 
-  <h4>📅 Daily Load Map</h4>
-  <pre>
+        <h4>📅 Daily Load Map</h4>
+        <pre>
 Thu  Fri  Sat  Sun  Mon  Tue  Wed
 ▃    ▁    █    █    ▃    ▃    ▃
 62   16   177  172  77   72   76
 ↑    ↑    ↑    ↑    ↑    ↑    ↑
   </pre>
 
-  <p>Load peaked on weekend (Sat–Sun). ATL &gt; CTL across window.</p>
+        <p>Load peaked on weekend (Sat–Sun). ATL &gt; CTL across window.</p>
 
-  <hr>
+        <hr>
 
-  <h4>🔋 W′ Balance Summary</h4>
-  <pre>
+        <h4>🔋 W′ Balance Summary</h4>
+        <pre>
 Anaerobic Timeline:
 Thu ▂  Fri ▇  Sat ▇  Sun ▇  Mon ▇  Tue ▇
   </pre>
 
-  <p>Clustered weekend high-depletion pattern confirmed.</p>
+        <p>Clustered weekend high-depletion pattern confirmed.</p>
 
-  <hr>
+        <hr>
 
-  <h4>❤️ Wellness</h4>
-  <ul>
-    <li><strong>CTL:</strong> 75.35</li>
-    <li><strong>ATL:</strong> 78.66</li>
-    <li><strong>TSB:</strong> -3.31</li>
-    <li><strong>HRV Mean:</strong> 49.8</li>
-    <li><strong>HRV Latest:</strong> 58</li>
-    <li><strong>HRV Trend (7d):</strong> -0.3</li>
-  </ul>
+        <h4>❤️ Wellness</h4>
+        <ul>
+          <li><strong>CTL:</strong> 75.35</li>
+          <li><strong>ATL:</strong> 78.66</li>
+          <li><strong>TSB:</strong> -3.31</li>
+          <li><strong>HRV Mean:</strong> 49.8</li>
+          <li><strong>HRV Latest:</strong> 58</li>
+          <li><strong>HRV Trend (7d):</strong> -0.3</li>
+        </ul>
 
-  <hr>
+        <hr>
 
-  <h4>🎯 Actions</h4>
-  <ul>
-    <li>⚠ Improve Zone 2 efficiency — extend duration or refine pacing.</li>
-    <li>⚠ FatigueTrend rising — monitor next 3–4 days intensity.</li>
-    <li>⚠ Recovery Index slightly suppressed — prioritise sleep and fueling.</li>
-    <li>✅ Durability stable — long ride structure working.</li>
-    <li>⚠ Intensity clustered — avoid stacking further supra-threshold sessions.</li>
-  </ul>
+        <h4>🎯 Actions</h4>
+        <ul>
+          <li>⚠ Improve Zone 2 efficiency — extend duration or refine pacing.</li>
+          <li>⚠ FatigueTrend rising — monitor next 3–4 days intensity.</li>
+          <li>⚠ Recovery Index slightly suppressed — prioritise sleep and fueling.</li>
+          <li>✅ Durability stable — long ride structure working.</li>
+          <li>⚠ Intensity clustered — avoid stacking further supra-threshold sessions.</li>
+        </ul>
 
-  <hr>
+        <hr>
 
-    <h4>🗓️ Planned Events</h4>
-  <table class="codeblock">
-    <tr><th>Date</th><th>Workout</th><th>Planned TSS</th></tr>
-    <tr><td>Feb 12</td><td>Recovery Ride</td><td>34</td></tr>
-    <tr><td>Feb 13</td><td>VO₂ Controlled</td><td>63</td></tr>
-    <tr><td>Feb 14</td><td>Long Endurance</td><td>126</td></tr>
-  </table>
+        <h4>🗓️ Planned Events</h4>
+        <table class="codeblock">
+          <tr>
+            <th>Date</th>
+            <th>Workout</th>
+            <th>Planned TSS</th>
+          </tr>
+          <tr>
+            <td>Feb 12</td>
+            <td>Recovery Ride</td>
+            <td>34</td>
+          </tr>
+          <tr>
+            <td>Feb 13</td>
+            <td>VO₂ Controlled</td>
+            <td>63</td>
+          </tr>
+          <tr>
+            <td>Feb 14</td>
+            <td>Long Endurance</td>
+            <td>126</td>
+          </tr>
+        </table>
 
-  <h4>🧮 Planned Summary by Date</h4>
-  <p>Peak load scheduled for long aerobic session; intensity moderated post-cluster week.</p>
+        <h4>🧮 Planned Summary by Date</h4>
+        <p>Peak load scheduled for long aerobic session; intensity moderated post-cluster week.</p>
 
-  <hr>
+        <hr>
 
-  <h4>🔮 Future Forecast</h4>
-  <ul>
-    <li><strong>CTL (Projected):</strong> 69.6</li>
-    <li><strong>ATL (Projected):</strong> 55.4</li>
-    <li><strong>TSB (Projected):</strong> +14.2</li>
-    <li><strong>Load Trend:</strong> Declining</li>
-    <li><strong>Fatigue Class:</strong> Transition</li>
-  </ul>
+        <h4>🔮 Future Forecast</h4>
+        <ul>
+          <li><strong>CTL (Projected):</strong> 69.6</li>
+          <li><strong>ATL (Projected):</strong> 55.4</li>
+          <li><strong>TSB (Projected):</strong> +14.2</li>
+          <li><strong>Load Trend:</strong> Declining</li>
+          <li><strong>Fatigue Class:</strong> Transition</li>
+        </ul>
 
-  <hr>
+        <hr>
 
-  <h4>🧭 Future Actions</h4>
-  <p>
-    Low-priority transition phase.<br>
-    Maintain light aerobic structure.<br>
-    Avoid unnecessary additional intensity.
-  </p>
+        <h4>🧭 Future Actions</h4>
+        <p>
+          Low-priority transition phase.<br>
+          Maintain light aerobic structure.<br>
+          Avoid unnecessary additional intensity.
+        </p>
 
-  <hr>
+        <hr>
 
-  <p><strong>Closing Note:</strong><br>
-  Load was productive with clear intensity clustering and accumulating short-term fatigue.
-  Recovery trajectory is positive and structure supports transition toward freshness.
-  </p>
+        <p><strong>Closing Note:</strong><br>
+          Load was productive with clear intensity clustering and accumulating short-term fatigue.
+          Recovery trajectory is positive and structure supports transition toward freshness.
+        </p>
 
-</section>
+      </section>
 
 
     </details>
 
-  <details>
-    <summary>🌿 Run a Wellness Report -> Sample</summary>
-    <p>
-      Summarizes the last 42 days of physiological and lifestyle markers:
-      Recovery Index, HRV, Sleep Quality, Stress Tolerance, and Monotony.
-    </p>
-<section class="report">
-  <div class="report-header-tag">📊 Summary Report — URF v5.1</div>
-
-  <h3>📅 Annual Training Summary</h3>
-
-  <p><strong>Status:</strong> Optimal — High-volume year with structured overload and controlled transitions.</p>
-
-  <hr>
-
-  <h4>🧾 Meta</h4>
-  <table class="codeblock">
-    <tr><td>Athlete</td><td>Sample Athlete</td></tr>
-    <tr><td>Period</td><td>2025-01-01 → 2025-12-31</td></tr>
-    <tr><td>Scope</td><td>High-level overview of current training state</td></tr>
-    <tr><td>Framework</td><td>Unified Reporting Framework v5.1</td></tr>
-    <tr><td>Timezone</td><td>Europe/Zurich</td></tr>
-  </table>
-
-  <h4>⏱ Hours</h4>
-  <p><strong>Total:</strong> 813.6 h</p>
-  <p>Sustained high annual volume distributed across multiple macro-cycles.
-     Load was consistent with long-term endurance development.</p>
-
-  <h4>🔥 Training Load (TSS)</h4>
-  <p><strong>Total:</strong> 36,003 TSS</p>
-  <p>High cumulative stress with repeated overload phases.
-     Distribution reflects deliberate stress–recovery cycling rather than random accumulation.</p>
-
-  <h4>📏 Distance</h4>
-  <p><strong>Total:</strong> 17,332.4 km</p>
-  <p>Large aerobic base volume across the year.
-     Distance aligns proportionally with total hours and TSS.</p>
-
-  <hr>
-
-  <h4>❤️ Wellness (Annual Context)</h4>
-  <ul>
-    <li><strong>CTL (Year End):</strong> 74.16</li>
-    <li><strong>ATL (Year End):</strong> 74.16</li>
-    <li><strong>TSB:</strong> ~0</li>
-    <li><strong>HRV Mean:</strong> 48.8</li>
-    <li><strong>HRV Latest:</strong> 54</li>
-    <li><strong>HRV 7d Trend:</strong> +7.1</li>
-  </ul>
-
-  <p>Year closed in a balanced load state (CTL ≈ ATL).
-     Positive HRV trend into year-end indicates recovery consolidation.
-     No chronic suppression visible in available HRV series.</p>
-
-  <p>You finished the year neither fatigued nor detrained.
-     Autonomic signals suggest stable system health at transition.</p>
-
-  <hr>
-
-  <h4>💡 Executive Insights</h4>
-  <ul>
-    <li>Repeated <strong>overreached → taper → rebuild</strong> structure throughout the year.</li>
-    <li>High chronic workload maintained without sustained systemic breakdown.</li>
-    <li>Several high-risk weeks were followed by corrective taper blocks.</li>
-    <li>End-of-year recovery phase was well timed.</li>
-    <li>Annual system health appears stable under large load exposure.</li>
-  </ul>
-
-  <hr>
-
-  <h4>🗓 Phases (Full Block Overview)</h4>
-  <table class="codeblock">
-    <tr>
-      <th>Phase</th>
-      <th>Start</th>
-      <th>End</th>
-      <th>Days</th>
-      <th>TSS</th>
-      <th>Hours</th>
-      <th>Descriptor</th>
-    </tr>
-    <tr><td>Base</td><td>2024-12-30</td><td>2025-01-05</td><td>7</td><td>322</td><td>12.1</td><td>🧱 Aerobic emphasis</td></tr>
-    <tr><td>Overreached</td><td>2025-01-06</td><td>2025-02-02</td><td>28</td><td>2516</td><td>74.9</td><td>High fatigue block</td></tr>
-    <tr><td>Continuous Load</td><td>2025-02-03</td><td>2025-02-09</td><td>7</td><td>521</td><td>12.6</td><td>Steady load</td></tr>
-    <tr><td>Overreached</td><td>2025-02-10</td><td>2025-02-23</td><td>14</td><td>2532</td><td>48.0</td><td>High fatigue block</td></tr>
-    <tr><td>Taper</td><td>2025-02-24</td><td>2025-03-16</td><td>21</td><td>1737</td><td>32.6</td><td>📉 ATL reduction</td></tr>
-    <tr><td>Build</td><td>2025-04-14</td><td>2025-04-20</td><td>7</td><td>843</td><td>15.2</td><td>Progressive overload</td></tr>
-    <tr><td>Base</td><td>2025-06-30</td><td>2025-07-13</td><td>14</td><td>1574</td><td>39.4</td><td>Aerobic volume</td></tr>
-    <tr><td>Taper</td><td>2025-08-11</td><td>2025-09-14</td><td>35</td><td>2971</td><td>79.4</td><td>Extended freshness phase</td></tr>
-    <tr><td>Recovery</td><td>2025-12-29</td><td>2026-01-04</td><td>7</td><td>215</td><td>6.8</td><td>Year-end reset</td></tr>
-  </table>
-
-  <hr>
-
-  <h4>📘 Phase Pattern Summary</h4>
-  <p>The year shows frequent short overreach blocks,
-     systematic taper/reset phases,
-     and stable continuous load segments.</p>
-
-  <p>This resembles aggressive block periodisation
-     with repeated stress peaks followed by controlled unloading.</p>
-
-  <hr>
-
-  <h4>⚡ Performance Summary</h4>
-  <ul>
-    <li><strong>Mean IF:</strong> 0.695</li>
-    <li><strong>Mean Decoupling:</strong> 3.09%</li>
-    <li><strong>Mean W′:</strong> 20,040 J</li>
-    <li><strong>Mean Joules > FTP per session:</strong> 31,891 J</li>
-  </ul>
-
-  <p>Intensity was consistently moderate (IF ~0.70).
-     Durability remained stable (decoupling ~3%).
-     High supra-threshold exposure occurred frequently but within repeatable tolerance.</p>
-
-  <p>You trained hard, often, and repeatedly near high strain —
-     but durability metrics held.</p>
-
-  <hr>
-
-  <p><strong>Closing Note:</strong><br>
-     2025 reflects a high-volume, high-structure year with repeated overload
-     and effective recovery cycling. System health at year end is balanced,
-     HRV trend is positive, and no chronic instability markers are present.</p>
-
-</section>
-
-
-
-
-
-  </details>
-
-  <details>
-    <summary>🏋️ Run a Season Report -> Sample</summary>
-    <p>
-      Evaluates your 90-day training block: CTL growth, intensity distribution,
-      long-term fatigue adaptation, and aerobic efficiency.
-    </p>
-     <!-- full Season block content exactly as in your sample -->
-<section class="report">
-  <div class="report-header-tag">📊 Sample Output — URF v5.1</div>
-
-  <h3>📅 Seasonal Training Report — Sample Athlete</h3>
-
-  <p><strong>Status:</strong> Productive block with repeated overreach phases and controlled recovery transitions.</p>
-
-  <hr>
-
-  <h4>🧾 Meta</h4>
-  <table class="codeblock">
-    <tr><td>Athlete</td><td>Sample Athlete</td></tr>
-    <tr><td>Period</td><td>2025-11-15 → 2026-02-11</td></tr>
-    <tr><td>Scope</td><td>Medium-term fitness, fatigue and progression trends</td></tr>
-    <tr><td>Framework</td><td>Unified Reporting Framework v5.1</td></tr>
-    <tr><td>Timezone</td><td>Europe/Zurich</td></tr>
-  </table>
-
-  <h4>⏱ Hours</h4>
-  <p><strong>Total:</strong> 149.8 h</p>
-
-  <h4>🔥 Training Load (TSS)</h4>
-  <p><strong>Total:</strong> 6,436 TSS</p>
-
-  <h4>📏 Distance</h4>
-  <p><strong>Total:</strong> 3,272.3 km</p>
-
-  <hr>
-
-  <h4>📊 Metrics (Season Context)</h4>
-
-  <h5>Load Regulation</h5>
-  <table class="codeblock">
-    <tr><td>ACWR</td><td>1.00 🟢 (Productive)</td></tr>
-    <tr><td>Monotony</td><td>1.69 🟢 (Optimal)</td></tr>
-    <tr><td>Strain</td><td>157.4 🟢 (Controlled)</td></tr>
-    <tr><td>FatigueTrend (90d)</td><td>Accumulating 🔴</td></tr>
-  </table>
-
-  <p class="coach-note">
-    Load regulation has remained within productive bounds. Fatigue accumulation is present across the 90-day window but remains structured rather than chaotic.
-  </p>
-
-  <h5>Intensity Structure</h5>
-  <table class="codeblock">
-    <tr><td>Polarisation (Power Ratio)</td><td>0.57 🔴 (Z2-dominant)</td></tr>
-    <tr><td>Polarisation Index (Combined)</td><td>0.73 🟠 (Pyramidal)</td></tr>
-  </table>
-
-  <p class="coach-note">
-    Season structure shows consistent aerobic dominance with moderate pyramidal layering. Power ratio &lt;0.7 confirms sustained Z2 emphasis.
-  </p>
-
-  <hr>
-
-  <h4>🧪 Extended Metrics (Physiological Calibration)</h4>
-
-  <table class="codeblock">
-    <tr><td>Mean Lactate</td><td>1.92 mmol/L</td></tr>
-    <tr><td>LT1 (Inferred)</td><td>210 W</td></tr>
-    <tr><td>Z2 Window</td><td>210–225 W</td></tr>
-    <tr><td>Correlation (r)</td><td>0.99 (High confidence)</td></tr>
-  </table>
-
-  <p class="coach-note">
-    Lactate-power relationship remains stable across the season. No metabolic drift detected.
-  </p>
-
-  <hr>
-
-  <h4>🔧 Adaptation Metrics</h4>
-  <table class="codeblock">
-    <tr><td>Efficiency Factor</td><td>1.90</td></tr>
-    <tr><td>Fatigue Resistance</td><td>0.95</td></tr>
-    <tr><td>Endurance Decay</td><td>0.02</td></tr>
-    <tr><td>Z2 Stability</td><td>0.04</td></tr>
-    <tr><td>Aerobic Decay</td><td>0.02</td></tr>
-  </table>
-
-  <p class="coach-note">
-    Aerobic durability preserved. Minimal decay across the block.
-  </p>
-
-  <hr>
-
-  <h4>📈 Trend Metrics</h4>
-  <table class="codeblock">
-    <tr><td>Load Trend</td><td>+5.94</td></tr>
-    <tr><td>Fitness Trend</td><td>-1.16</td></tr>
-    <tr><td>Fatigue Trend (recent)</td><td>-0.04</td></tr>
-  </table>
-
-  <p class="coach-note">
-    Load increased modestly. Fitness plateau suggests stimulus saturation between overload blocks.
-  </p>
-
-  <hr>
-
-  <h4>⚡ Performance Intelligence</h4>
-
-  <h5>Chronic State (90 Days)</h5>
-
-  <h6>Anaerobic Repeatability (WDRM)</h6>
-  <table class="codeblock">
-    <tr><td>Mean Depletion</td><td>0.24 🟢</td></tr>
-    <tr><td>High Depletion Sessions</td><td>8 🟠</td></tr>
-    <tr><td>Total Joules &gt; FTP</td><td>1,109,246 J</td></tr>
-  </table>
-
-  <h6>Durability (ISDM)</h6>
-  <table class="codeblock">
-    <tr><td>Mean Decoupling</td><td>1.78% 🟢</td></tr>
-    <tr><td>High Drift Sessions</td><td>26 🔴</td></tr>
-  </table>
-
-  <h6>Neural Density (NDLI)</h6>
-  <table class="codeblock">
-    <tr><td>High-Intensity Sessions</td><td>24 🟢</td></tr>
-    <tr><td>Mean IF (90d)</td><td>0.74</td></tr>
-    <tr><td>Mean Training Load</td><td>51.9 🟢</td></tr>
-  </table>
-
-  <p class="coach-note">
-    Baseline durability is strong, but frequent drift episodes suggest cumulative fatigue exposure during longer efforts.
-  </p>
-
-  <hr>
-
-  <h5>Acute Overlay (Last 7 Days)</h5>
-  <table class="codeblock">
-    <tr><td>Max Depletion</td><td>0.75</td></tr>
-    <tr><td>High Drift Sessions</td><td>3</td></tr>
-    <tr><td>High Intensity Days</td><td>4</td></tr>
-  </table>
-
-  <hr>
-
-  <h4>🗂 Phases</h4>
-  <table class="codeblock">
-    <tr><th>Phase</th><th>Days</th><th>TSS</th><th>Hours</th><th>Descriptor</th></tr>
-    <tr><td>Base</td><td>7</td><td>206</td><td>3.8</td><td>Aerobic emphasis</td></tr>
-    <tr><td>Overreached</td><td>14</td><td>1146</td><td>22.7</td><td>High fatigue block</td></tr>
-    <tr><td>Recovery</td><td>7</td><td>200</td><td>5.1</td><td>Regeneration</td></tr>
-    <tr><td>Build</td><td>7</td><td>414</td><td>9.3</td><td>Progressive overload</td></tr>
-    <tr><td>Extended Overreach</td><td>21</td><td>1640</td><td>43.8</td><td>Sustained overload</td></tr>
-  </table>
-
-  <hr>
-
-  <h4>📊 Performance Summary</h4>
-  <table class="codeblock">
-    <tr><td>Mean IF</td><td>0.74</td></tr>
-    <tr><td>Mean Decoupling</td><td>1.78%</td></tr>
-    <tr><td>Mean W′</td><td>19,735 J</td></tr>
-    <tr><td>Mean Joules &gt; FTP / Session</td><td>14,790 J</td></tr>
-  </table>
-
-  <hr>
-
-  <h4>🎯 Actions</h4>
-  <ul>
-    <li>Refine Zone 2 precision (210–225 W).</li>
-    <li>Avoid extended overreach blocks without reset.</li>
-    <li>Monitor high drift session frequency.</li>
-    <li>Protect sleep and fueling during high-load phases.</li>
-  </ul>
-
-  <hr>
-
-  <h4>🔮 Future Forecast</h4>
-  <table class="codeblock">
-    <tr><td>Projected CTL</td><td>69.6</td></tr>
-    <tr><td>Projected ATL</td><td>55.4</td></tr>
-    <tr><td>Projected TSB</td><td>+14.2</td></tr>
-    <tr><td>Fatigue Class</td><td>Transition</td></tr>
-  </table>
-
-  <hr>
-
-  <h4>🧭 Future Action</h4>
-  <p>Transition / Recovery Phase. Maintain light aerobic activity and avoid stacking supra-threshold work during freshness window.</p>
-
-  <hr>
-
-  <p class="coach-note">
-    The 90-day block shows deliberate overload cycling layered on a stable aerobic foundation. Chronic durability is strong; recent fatigue is acute rather than structural.
-  </p>
-
-</section>
-
-
-  </details>
-
-  <details>
-    <summary>🧭 Run a Summary Report -> Sample</summary>
-    <p>
-      </p><section class="report">
-  <div class="report-header-tag">📊 Summary Report — URF v5.1</div>
-
-  <h3>📅 Annual Training Summary</h3>
-
-  <p><strong>Status:</strong> Optimal — High-volume year with structured overload and controlled transitions.</p>
-
-  <hr>
-
-  <h4>🧾 Meta</h4>
-  <table class="codeblock">
-    <tr><td>Athlete</td><td>Sample Athlete</td></tr>
-    <tr><td>Period</td><td>2025-01-01 → 2025-12-31</td></tr>
-    <tr><td>Scope</td><td>High-level overview of current training state</td></tr>
-    <tr><td>Framework</td><td>Unified Reporting Framework v5.1</td></tr>
-    <tr><td>Timezone</td><td>Europe/Zurich</td></tr>
-  </table>
-
-  <h4>⏱ Hours</h4>
-  <p><strong>Total:</strong> 813.6 h</p>
-  <p>Sustained high annual volume distributed across multiple macro-cycles.
-     Load was consistent with long-term endurance development.</p>
-
-  <h4>🔥 Training Load (TSS)</h4>
-  <p><strong>Total:</strong> 36,003 TSS</p>
-  <p>High cumulative stress with repeated overload phases.
-     Distribution reflects deliberate stress–recovery cycling rather than random accumulation.</p>
-
-  <h4>📏 Distance</h4>
-  <p><strong>Total:</strong> 17,332.4 km</p>
-  <p>Large aerobic base volume across the year.
-     Distance aligns proportionally with total hours and TSS.</p>
-
-  <hr>
-
-  <h4>❤️ Wellness (Annual Context)</h4>
-  <ul>
-    <li><strong>CTL (Year End):</strong> 74.16</li>
-    <li><strong>ATL (Year End):</strong> 74.16</li>
-    <li><strong>TSB:</strong> ~0</li>
-    <li><strong>HRV Mean:</strong> 48.8</li>
-    <li><strong>HRV Latest:</strong> 54</li>
-    <li><strong>HRV 7d Trend:</strong> +7.1</li>
-  </ul>
-
-  <p>Year closed in a balanced load state (CTL ≈ ATL).
-     Positive HRV trend into year-end indicates recovery consolidation.
-     No chronic suppression visible in available HRV series.</p>
-
-  <p>You finished the year neither fatigued nor detrained.
-     Autonomic signals suggest stable system health at transition.</p>
-
-  <hr>
-
-  <h4>💡 Executive Insights</h4>
-  <ul>
-    <li>Repeated <strong>overreached → taper → rebuild</strong> structure throughout the year.</li>
-    <li>High chronic workload maintained without sustained systemic breakdown.</li>
-    <li>Several high-risk weeks were followed by corrective taper blocks.</li>
-    <li>End-of-year recovery phase was well timed.</li>
-    <li>Annual system health appears stable under large load exposure.</li>
-  </ul>
-
-  <hr>
-
-  <h4>🗓 Phases (Full Block Overview)</h4>
-  <table class="codeblock">
-    <tr>
-      <th>Phase</th>
-      <th>Start</th>
-      <th>End</th>
-      <th>Days</th>
-      <th>TSS</th>
-      <th>Hours</th>
-      <th>Descriptor</th>
-    </tr>
-    <tr><td>Base</td><td>2024-12-30</td><td>2025-01-05</td><td>7</td><td>322</td><td>12.1</td><td>🧱 Aerobic emphasis</td></tr>
-    <tr><td>Overreached</td><td>2025-01-06</td><td>2025-02-02</td><td>28</td><td>2516</td><td>74.9</td><td>High fatigue block</td></tr>
-    <tr><td>Continuous Load</td><td>2025-02-03</td><td>2025-02-09</td><td>7</td><td>521</td><td>12.6</td><td>Steady load</td></tr>
-    <tr><td>Overreached</td><td>2025-02-10</td><td>2025-02-23</td><td>14</td><td>2532</td><td>48.0</td><td>High fatigue block</td></tr>
-    <tr><td>Taper</td><td>2025-02-24</td><td>2025-03-16</td><td>21</td><td>1737</td><td>32.6</td><td>📉 ATL reduction</td></tr>
-    <tr><td>Build</td><td>2025-04-14</td><td>2025-04-20</td><td>7</td><td>843</td><td>15.2</td><td>Progressive overload</td></tr>
-    <tr><td>Base</td><td>2025-06-30</td><td>2025-07-13</td><td>14</td><td>1574</td><td>39.4</td><td>Aerobic volume</td></tr>
-    <tr><td>Taper</td><td>2025-08-11</td><td>2025-09-14</td><td>35</td><td>2971</td><td>79.4</td><td>Extended freshness phase</td></tr>
-    <tr><td>Recovery</td><td>2025-12-29</td><td>2026-01-04</td><td>7</td><td>215</td><td>6.8</td><td>Year-end reset</td></tr>
-  </table>
-
-  <hr>
-
-  <h4>📘 Phase Pattern Summary</h4>
-  <p>The year shows frequent short overreach blocks,
-     systematic taper/reset phases,
-     and stable continuous load segments.</p>
-
-  <p>This resembles aggressive block periodisation
-     with repeated stress peaks followed by controlled unloading.</p>
-
-  <hr>
-
-  <h4>⚡ Performance Summary</h4>
-  <ul>
-    <li><strong>Mean IF:</strong> 0.695</li>
-    <li><strong>Mean Decoupling:</strong> 3.09%</li>
-    <li><strong>Mean W′:</strong> 20,040 J</li>
-    <li><strong>Mean Joules > FTP per session:</strong> 31,891 J</li>
-  </ul>
-
-  <p>Intensity was consistently moderate (IF ~0.70).
-     Durability remained stable (decoupling ~3%).
-     High supra-threshold exposure occurred frequently but within repeatable tolerance.</p>
-
-  <p>You trained hard, often, and repeatedly near high strain —
-     but durability metrics held.</p>
-
-  <hr>
-
-  <p><strong>Closing Note:</strong><br>
-     2025 reflects a high-volume, high-structure year with repeated overload
-     and effective recovery cycling. System health at year end is balanced,
-     HRV trend is positive, and no chronic instability markers are present.</p>
-
-</section>
-
-  </details>
-
-  <details>
-    <summary>🧠 Performance Intelligence -> Sample</summary>
-    <p>
-    A structural modeling layer that analyzes how your system handles intensity, durability, and neural strain. After a weekly or season report ask to show your Performance Intelligence. This will also provide a solid foundation for creating future workout plans when asked. 
-    </p>
-     <!-- Perfmoance Intelligence sample -->
-<section class="report">
-
-  <h3>🧠 Performance Intelligence</h3>
-
-  <p><strong>Status:</strong> Recovery phase active — Productive load balance with strong chronic durability and controlled acute stress.</p>
-
-  <hr>
-
-  <h4>🏗 Chronic Capacity (90d)</h4>
-
-  <h5>🔁 Anaerobic Repeatability (W′ Depletion – 90d)</h5>
-  <table class="codeblock">
-    <tr><th>Metric</th><th>Value</th><th>State</th></tr>
-    <tr><td>Mean depletion %</td><td>0.24</td><td>🟢 Green</td></tr>
-    <tr><td>High depletion sessions</td><td>8</td><td>🟠 Moderate</td></tr>
-    <tr><td>Max depletion %</td><td>1.14</td><td>ℹ Informational</td></tr>
-    <tr><td>Total Joules &gt; FTP</td><td>1,109,246 J</td><td>ℹ Informational</td></tr>
-  </table>
-
-  <p>
-    Chronic anaerobic exposure is present but controlled.
-    Eight high-depletion sessions over 90 days indicate periodic supra-threshold stimulus without excessive clustering.
-    Mean depletion remains within adaptive green range (0.15–0.35).
-  </p>
-
-  <hr>
-
-  <h5>🏔 Durability (Cardiovascular Stability – 90d)</h5>
-  <table class="codeblock">
-    <tr><th>Metric</th><th>Value</th><th>State</th></tr>
-    <tr><td>Mean decoupling</td><td>1.78</td><td>🟢 Stable</td></tr>
-    <tr><td>High drift sessions</td><td>26</td><td>🔴 Elevated exposure</td></tr>
-    <tr><td>Max decoupling</td><td>22.82</td><td>ℹ Informational</td></tr>
-  </table>
-
-  <p>
-    Mean decoupling in the green band confirms strong aerobic durability.
-    High drift session count (26) reflects repeated cardiovascular strain exposures across the macro block.
-    Despite that exposure, average stability remains preserved.
-  </p>
-
-  <hr>
-
-  <h5>⚡ Neural Density (Intensity Distribution – 90d)</h5>
-  <table class="codeblock">
-    <tr><th>Metric</th><th>Value</th><th>State</th></tr>
-    <tr><td>High-intensity sessions</td><td>24</td><td>🟢 Adaptive range</td></tr>
-    <tr><td>Mean IF</td><td>0.74</td><td>ℹ Informational</td></tr>
-    <tr><td>Mean training load</td><td>51.9</td><td>🟢 Optimal</td></tr>
-  </table>
-
-  <p>
-    High-intensity session count is within adaptive bandwidth (8–25).
-    Mean training load sits comfortably in optimal range (40–70).
-    Chronic intensity density appears sustainable relative to load base.
-  </p>
-
-  <hr>
-
-  <h4>🔎 Acute Overlay (7d)</h4>
-
-  <h5>💥 Anaerobic Load (7d)</h5>
-  <table class="codeblock">
-    <tr><th>Metric</th><th>Value</th><th>State</th></tr>
-    <tr><td>Mean depletion %</td><td>0.31</td><td>🟢 Green</td></tr>
-    <tr><td>High depletion sessions</td><td>1</td><td>🟢 Controlled</td></tr>
-    <tr><td>Max depletion %</td><td>0.75</td><td>ℹ Informational</td></tr>
-    <tr><td>Total Joules &gt; FTP</td><td>152,992 J</td><td>ℹ Informational</td></tr>
-  </table>
-
-  <p>
-    Recent anaerobic exposure is moderate and well spaced.
-    Single high-depletion session suggests controlled intensity application.
-  </p>
-
-  <hr>
-
-  <h5>🧭 Durability (7d)</h5>
-  <table class="codeblock">
-    <tr><th>Metric</th><th>Value</th><th>State</th></tr>
-    <tr><td>Mean decoupling</td><td>3.01</td><td>🟢 Stable</td></tr>
-    <tr><td>High drift sessions</td><td>3</td><td>🟠 Moderate</td></tr>
-    <tr><td>Long sessions</td><td>1</td><td>ℹ Informational</td></tr>
-  </table>
-
-  <p>
-    Short-term decoupling remains inside green band (0–5).
-    Three higher-drift sessions suggest mild durability strain but not instability.
-  </p>
-
-  <hr>
-
-  <h5>🔋 Neural Density (7d)</h5>
-  <table class="codeblock">
-    <tr><th>Metric</th><th>Value</th><th>State</th></tr>
-    <tr><td>High-intensity days</td><td>4</td><td>🟢 Balanced</td></tr>
-    <tr><td>Rolling Joules &gt; FTP</td><td>152,992 J</td><td>🟢 Green</td></tr>
-    <tr><td>Mean IF</td><td>0.69</td><td>ℹ Informational</td></tr>
-  </table>
-
-  <p>
-    Intensity clustering remains within green range.
-    Mean IF indicates moderate load relative to chronic capacity.
-  </p>
-
-  <hr>
-
-  <h4>🔄 Chronic vs Acute Contrast</h4>
-  <ul>
-    <li>Chronic durability: <strong>Strong and stable (1.78 mean decoupling).</strong></li>
-    <li>Acute durability: <strong>Stable (3.01) without excessive drift.</strong></li>
-    <li>Chronic anaerobic exposure: <strong>Structured and adaptive.</strong></li>
-    <li>Acute anaerobic stress: <strong>Controlled and non-clustered.</strong></li>
-    <li>Neural density: <strong>Balanced across both 90d and 7d windows.</strong></li>
-  </ul>
-
-  <p>
-    Your chronic system shows high tolerance with preserved aerobic stability.
-    The acute overlay does not exceed chronic capacity — stress is proportionate.
-  </p>
-
-  <hr>
-
-  <h4>🎯 Intelligence Summary</h4>
-  <ul>
-    <li>Durability base is robust despite repeated overload phases.</li>
-    <li>Anaerobic repeatability remains adaptive rather than excessive.</li>
-    <li>Intensity density is currently balanced.</li>
-    <li>Acute stress aligns safely within chronic conditioning envelope.</li>
-  </ul>
-
-  <p><strong>Closing Note:</strong><br>
-  Performance intelligence indicates strong chronic durability with controlled acute stress exposure.
-  Current recovery phase supports consolidation before any renewed build stimulus.
-  </p>
-
-</section>
-
-  </details>
-  <hr>
-<!-- ===================================================
+    <details>
+      <summary>🌿 Run a Wellness Report -> Sample</summary>
+      <p>
+        Summarizes the last 42 days of physiological and lifestyle markers:
+        Recovery Index, HRV, Sleep Quality, Stress Tolerance, and Monotony.
+      </p>
+      <section class="report">
+        <div class="report-header-tag">📊 Summary Report — URF v5.1</div>
+
+        <h3>📅 Annual Training Summary</h3>
+
+        <p><strong>Status:</strong> Optimal — High-volume year with structured overload and controlled transitions.</p>
+
+        <hr>
+
+        <h4>🧾 Meta</h4>
+        <table class="codeblock">
+          <tr>
+            <td>Athlete</td>
+            <td>Sample Athlete</td>
+          </tr>
+          <tr>
+            <td>Period</td>
+            <td>2025-01-01 → 2025-12-31</td>
+          </tr>
+          <tr>
+            <td>Scope</td>
+            <td>High-level overview of current training state</td>
+          </tr>
+          <tr>
+            <td>Framework</td>
+            <td>Unified Reporting Framework v5.1</td>
+          </tr>
+          <tr>
+            <td>Timezone</td>
+            <td>Europe/Zurich</td>
+          </tr>
+        </table>
+
+        <h4>⏱ Hours</h4>
+        <p><strong>Total:</strong> 813.6 h</p>
+        <p>Sustained high annual volume distributed across multiple macro-cycles.
+          Load was consistent with long-term endurance development.</p>
+
+        <h4>🔥 Training Load (TSS)</h4>
+        <p><strong>Total:</strong> 36,003 TSS</p>
+        <p>High cumulative stress with repeated overload phases.
+          Distribution reflects deliberate stress–recovery cycling rather than random accumulation.</p>
+
+        <h4>📏 Distance</h4>
+        <p><strong>Total:</strong> 17,332.4 km</p>
+        <p>Large aerobic base volume across the year.
+          Distance aligns proportionally with total hours and TSS.</p>
+
+        <hr>
+
+        <h4>❤️ Wellness (Annual Context)</h4>
+        <ul>
+          <li><strong>CTL (Year End):</strong> 74.16</li>
+          <li><strong>ATL (Year End):</strong> 74.16</li>
+          <li><strong>TSB:</strong> ~0</li>
+          <li><strong>HRV Mean:</strong> 48.8</li>
+          <li><strong>HRV Latest:</strong> 54</li>
+          <li><strong>HRV 7d Trend:</strong> +7.1</li>
+        </ul>
+
+        <p>Year closed in a balanced load state (CTL ≈ ATL).
+          Positive HRV trend into year-end indicates recovery consolidation.
+          No chronic suppression visible in available HRV series.</p>
+
+        <p>You finished the year neither fatigued nor detrained.
+          Autonomic signals suggest stable system health at transition.</p>
+
+        <hr>
+
+        <h4>💡 Executive Insights</h4>
+        <ul>
+          <li>Repeated <strong>overreached → taper → rebuild</strong> structure throughout the year.</li>
+          <li>High chronic workload maintained without sustained systemic breakdown.</li>
+          <li>Several high-risk weeks were followed by corrective taper blocks.</li>
+          <li>End-of-year recovery phase was well timed.</li>
+          <li>Annual system health appears stable under large load exposure.</li>
+        </ul>
+
+        <hr>
+
+        <h4>🗓 Phases (Full Block Overview)</h4>
+        <table class="codeblock">
+          <tr>
+            <th>Phase</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Days</th>
+            <th>TSS</th>
+            <th>Hours</th>
+            <th>Descriptor</th>
+          </tr>
+          <tr>
+            <td>Base</td>
+            <td>2024-12-30</td>
+            <td>2025-01-05</td>
+            <td>7</td>
+            <td>322</td>
+            <td>12.1</td>
+            <td>🧱 Aerobic emphasis</td>
+          </tr>
+          <tr>
+            <td>Overreached</td>
+            <td>2025-01-06</td>
+            <td>2025-02-02</td>
+            <td>28</td>
+            <td>2516</td>
+            <td>74.9</td>
+            <td>High fatigue block</td>
+          </tr>
+          <tr>
+            <td>Continuous Load</td>
+            <td>2025-02-03</td>
+            <td>2025-02-09</td>
+            <td>7</td>
+            <td>521</td>
+            <td>12.6</td>
+            <td>Steady load</td>
+          </tr>
+          <tr>
+            <td>Overreached</td>
+            <td>2025-02-10</td>
+            <td>2025-02-23</td>
+            <td>14</td>
+            <td>2532</td>
+            <td>48.0</td>
+            <td>High fatigue block</td>
+          </tr>
+          <tr>
+            <td>Taper</td>
+            <td>2025-02-24</td>
+            <td>2025-03-16</td>
+            <td>21</td>
+            <td>1737</td>
+            <td>32.6</td>
+            <td>📉 ATL reduction</td>
+          </tr>
+          <tr>
+            <td>Build</td>
+            <td>2025-04-14</td>
+            <td>2025-04-20</td>
+            <td>7</td>
+            <td>843</td>
+            <td>15.2</td>
+            <td>Progressive overload</td>
+          </tr>
+          <tr>
+            <td>Base</td>
+            <td>2025-06-30</td>
+            <td>2025-07-13</td>
+            <td>14</td>
+            <td>1574</td>
+            <td>39.4</td>
+            <td>Aerobic volume</td>
+          </tr>
+          <tr>
+            <td>Taper</td>
+            <td>2025-08-11</td>
+            <td>2025-09-14</td>
+            <td>35</td>
+            <td>2971</td>
+            <td>79.4</td>
+            <td>Extended freshness phase</td>
+          </tr>
+          <tr>
+            <td>Recovery</td>
+            <td>2025-12-29</td>
+            <td>2026-01-04</td>
+            <td>7</td>
+            <td>215</td>
+            <td>6.8</td>
+            <td>Year-end reset</td>
+          </tr>
+        </table>
+
+        <hr>
+
+        <h4>📘 Phase Pattern Summary</h4>
+        <p>The year shows frequent short overreach blocks,
+          systematic taper/reset phases,
+          and stable continuous load segments.</p>
+
+        <p>This resembles aggressive block periodisation
+          with repeated stress peaks followed by controlled unloading.</p>
+
+        <hr>
+
+        <h4>⚡ Performance Summary</h4>
+        <ul>
+          <li><strong>Mean IF:</strong> 0.695</li>
+          <li><strong>Mean Decoupling:</strong> 3.09%</li>
+          <li><strong>Mean W′:</strong> 20,040 J</li>
+          <li><strong>Mean Joules > FTP per session:</strong> 31,891 J</li>
+        </ul>
+
+        <p>Intensity was consistently moderate (IF ~0.70).
+          Durability remained stable (decoupling ~3%).
+          High supra-threshold exposure occurred frequently but within repeatable tolerance.</p>
+
+        <p>You trained hard, often, and repeatedly near high strain —
+          but durability metrics held.</p>
+
+        <hr>
+
+        <p><strong>Closing Note:</strong><br>
+          2025 reflects a high-volume, high-structure year with repeated overload
+          and effective recovery cycling. System health at year end is balanced,
+          HRV trend is positive, and no chronic instability markers are present.</p>
+
+      </section>
+
+
+
+
+
+    </details>
+
+    <details>
+      <summary>🏋️ Run a Season Report -> Sample</summary>
+      <p>
+        Evaluates your 90-day training block: CTL growth, intensity distribution,
+        long-term fatigue adaptation, and aerobic efficiency.
+      </p>
+      <!-- full Season block content exactly as in your sample -->
+      <section class="report">
+        <div class="report-header-tag">📊 Sample Output — URF v5.1</div>
+
+        <h3>📅 Seasonal Training Report — Sample Athlete</h3>
+
+        <p><strong>Status:</strong> Productive block with repeated overreach phases and controlled recovery transitions.
+        </p>
+
+        <hr>
+
+        <h4>🧾 Meta</h4>
+        <table class="codeblock">
+          <tr>
+            <td>Athlete</td>
+            <td>Sample Athlete</td>
+          </tr>
+          <tr>
+            <td>Period</td>
+            <td>2025-11-15 → 2026-02-11</td>
+          </tr>
+          <tr>
+            <td>Scope</td>
+            <td>Medium-term fitness, fatigue and progression trends</td>
+          </tr>
+          <tr>
+            <td>Framework</td>
+            <td>Unified Reporting Framework v5.1</td>
+          </tr>
+          <tr>
+            <td>Timezone</td>
+            <td>Europe/Zurich</td>
+          </tr>
+        </table>
+
+        <h4>⏱ Hours</h4>
+        <p><strong>Total:</strong> 149.8 h</p>
+
+        <h4>🔥 Training Load (TSS)</h4>
+        <p><strong>Total:</strong> 6,436 TSS</p>
+
+        <h4>📏 Distance</h4>
+        <p><strong>Total:</strong> 3,272.3 km</p>
+
+        <hr>
+
+        <h4>📊 Metrics (Season Context)</h4>
+
+        <h5>Load Regulation</h5>
+        <table class="codeblock">
+          <tr>
+            <td>ACWR</td>
+            <td>1.00 🟢 (Productive)</td>
+          </tr>
+          <tr>
+            <td>Monotony</td>
+            <td>1.69 🟢 (Optimal)</td>
+          </tr>
+          <tr>
+            <td>Strain</td>
+            <td>157.4 🟢 (Controlled)</td>
+          </tr>
+          <tr>
+            <td>FatigueTrend (90d)</td>
+            <td>Accumulating 🔴</td>
+          </tr>
+        </table>
+
+        <p class="coach-note">
+          Load regulation has remained within productive bounds. Fatigue accumulation is present across the 90-day
+          window but remains structured rather than chaotic.
+        </p>
+
+        <h5>Intensity Structure</h5>
+        <table class="codeblock">
+          <tr>
+            <td>Polarisation (Power Ratio)</td>
+            <td>0.57 🔴 (Z2-dominant)</td>
+          </tr>
+          <tr>
+            <td>Polarisation Index (Combined)</td>
+            <td>0.73 🟠 (Pyramidal)</td>
+          </tr>
+        </table>
+
+        <p class="coach-note">
+          Season structure shows consistent aerobic dominance with moderate pyramidal layering. Power ratio &lt;0.7
+          confirms sustained Z2 emphasis.
+        </p>
+
+        <hr>
+
+        <h4>🧪 Extended Metrics (Physiological Calibration)</h4>
+
+        <table class="codeblock">
+          <tr>
+            <td>Mean Lactate</td>
+            <td>1.92 mmol/L</td>
+          </tr>
+          <tr>
+            <td>LT1 (Inferred)</td>
+            <td>210 W</td>
+          </tr>
+          <tr>
+            <td>Z2 Window</td>
+            <td>210–225 W</td>
+          </tr>
+          <tr>
+            <td>Correlation (r)</td>
+            <td>0.99 (High confidence)</td>
+          </tr>
+        </table>
+
+        <p class="coach-note">
+          Lactate-power relationship remains stable across the season. No metabolic drift detected.
+        </p>
+
+        <hr>
+
+        <h4>🔧 Adaptation Metrics</h4>
+        <table class="codeblock">
+          <tr>
+            <td>Efficiency Factor</td>
+            <td>1.90</td>
+          </tr>
+          <tr>
+            <td>Fatigue Resistance</td>
+            <td>0.95</td>
+          </tr>
+          <tr>
+            <td>Endurance Decay</td>
+            <td>0.02</td>
+          </tr>
+          <tr>
+            <td>Z2 Stability</td>
+            <td>0.04</td>
+          </tr>
+          <tr>
+            <td>Aerobic Decay</td>
+            <td>0.02</td>
+          </tr>
+        </table>
+
+        <p class="coach-note">
+          Aerobic durability preserved. Minimal decay across the block.
+        </p>
+
+        <hr>
+
+        <h4>📈 Trend Metrics</h4>
+        <table class="codeblock">
+          <tr>
+            <td>Load Trend</td>
+            <td>+5.94</td>
+          </tr>
+          <tr>
+            <td>Fitness Trend</td>
+            <td>-1.16</td>
+          </tr>
+          <tr>
+            <td>Fatigue Trend (recent)</td>
+            <td>-0.04</td>
+          </tr>
+        </table>
+
+        <p class="coach-note">
+          Load increased modestly. Fitness plateau suggests stimulus saturation between overload blocks.
+        </p>
+
+        <hr>
+
+        <h4>⚡ Performance Intelligence</h4>
+
+        <h5>Chronic State (90 Days)</h5>
+
+        <h6>Anaerobic Repeatability (WDRM)</h6>
+        <table class="codeblock">
+          <tr>
+            <td>Mean Depletion</td>
+            <td>0.24 🟢</td>
+          </tr>
+          <tr>
+            <td>High Depletion Sessions</td>
+            <td>8 🟠</td>
+          </tr>
+          <tr>
+            <td>Total Joules &gt; FTP</td>
+            <td>1,109,246 J</td>
+          </tr>
+        </table>
+
+        <h6>Durability (ISDM)</h6>
+        <table class="codeblock">
+          <tr>
+            <td>Mean Decoupling</td>
+            <td>1.78% 🟢</td>
+          </tr>
+          <tr>
+            <td>High Drift Sessions</td>
+            <td>26 🔴</td>
+          </tr>
+        </table>
+
+        <h6>Neural Density (NDLI)</h6>
+        <table class="codeblock">
+          <tr>
+            <td>High-Intensity Sessions</td>
+            <td>24 🟢</td>
+          </tr>
+          <tr>
+            <td>Mean IF (90d)</td>
+            <td>0.74</td>
+          </tr>
+          <tr>
+            <td>Mean Training Load</td>
+            <td>51.9 🟢</td>
+          </tr>
+        </table>
+
+        <p class="coach-note">
+          Baseline durability is strong, but frequent drift episodes suggest cumulative fatigue exposure during longer
+          efforts.
+        </p>
+
+        <hr>
+
+        <h5>Acute Overlay (Last 7 Days)</h5>
+        <table class="codeblock">
+          <tr>
+            <td>Max Depletion</td>
+            <td>0.75</td>
+          </tr>
+          <tr>
+            <td>High Drift Sessions</td>
+            <td>3</td>
+          </tr>
+          <tr>
+            <td>High Intensity Days</td>
+            <td>4</td>
+          </tr>
+        </table>
+
+        <hr>
+
+        <h4>🗂 Phases</h4>
+        <table class="codeblock">
+          <tr>
+            <th>Phase</th>
+            <th>Days</th>
+            <th>TSS</th>
+            <th>Hours</th>
+            <th>Descriptor</th>
+          </tr>
+          <tr>
+            <td>Base</td>
+            <td>7</td>
+            <td>206</td>
+            <td>3.8</td>
+            <td>Aerobic emphasis</td>
+          </tr>
+          <tr>
+            <td>Overreached</td>
+            <td>14</td>
+            <td>1146</td>
+            <td>22.7</td>
+            <td>High fatigue block</td>
+          </tr>
+          <tr>
+            <td>Recovery</td>
+            <td>7</td>
+            <td>200</td>
+            <td>5.1</td>
+            <td>Regeneration</td>
+          </tr>
+          <tr>
+            <td>Build</td>
+            <td>7</td>
+            <td>414</td>
+            <td>9.3</td>
+            <td>Progressive overload</td>
+          </tr>
+          <tr>
+            <td>Extended Overreach</td>
+            <td>21</td>
+            <td>1640</td>
+            <td>43.8</td>
+            <td>Sustained overload</td>
+          </tr>
+        </table>
+
+        <hr>
+
+        <h4>📊 Performance Summary</h4>
+        <table class="codeblock">
+          <tr>
+            <td>Mean IF</td>
+            <td>0.74</td>
+          </tr>
+          <tr>
+            <td>Mean Decoupling</td>
+            <td>1.78%</td>
+          </tr>
+          <tr>
+            <td>Mean W′</td>
+            <td>19,735 J</td>
+          </tr>
+          <tr>
+            <td>Mean Joules &gt; FTP / Session</td>
+            <td>14,790 J</td>
+          </tr>
+        </table>
+
+        <hr>
+
+        <h4>🎯 Actions</h4>
+        <ul>
+          <li>Refine Zone 2 precision (210–225 W).</li>
+          <li>Avoid extended overreach blocks without reset.</li>
+          <li>Monitor high drift session frequency.</li>
+          <li>Protect sleep and fueling during high-load phases.</li>
+        </ul>
+
+        <hr>
+
+        <h4>🔮 Future Forecast</h4>
+        <table class="codeblock">
+          <tr>
+            <td>Projected CTL</td>
+            <td>69.6</td>
+          </tr>
+          <tr>
+            <td>Projected ATL</td>
+            <td>55.4</td>
+          </tr>
+          <tr>
+            <td>Projected TSB</td>
+            <td>+14.2</td>
+          </tr>
+          <tr>
+            <td>Fatigue Class</td>
+            <td>Transition</td>
+          </tr>
+        </table>
+
+        <hr>
+
+        <h4>🧭 Future Action</h4>
+        <p>Transition / Recovery Phase. Maintain light aerobic activity and avoid stacking supra-threshold work during
+          freshness window.</p>
+
+        <hr>
+
+        <p class="coach-note">
+          The 90-day block shows deliberate overload cycling layered on a stable aerobic foundation. Chronic durability
+          is strong; recent fatigue is acute rather than structural.
+        </p>
+
+      </section>
+
+
+    </details>
+
+    <details>
+      <summary>🧭 Run a Summary Report -> Sample</summary>
+      <p>
+      </p>
+      <section class="report">
+        <div class="report-header-tag">📊 Summary Report — URF v5.1</div>
+
+        <h3>📅 Annual Training Summary</h3>
+
+        <p><strong>Status:</strong> Optimal — High-volume year with structured overload and controlled transitions.</p>
+
+        <hr>
+
+        <h4>🧾 Meta</h4>
+        <table class="codeblock">
+          <tr>
+            <td>Athlete</td>
+            <td>Sample Athlete</td>
+          </tr>
+          <tr>
+            <td>Period</td>
+            <td>2025-01-01 → 2025-12-31</td>
+          </tr>
+          <tr>
+            <td>Scope</td>
+            <td>High-level overview of current training state</td>
+          </tr>
+          <tr>
+            <td>Framework</td>
+            <td>Unified Reporting Framework v5.1</td>
+          </tr>
+          <tr>
+            <td>Timezone</td>
+            <td>Europe/Zurich</td>
+          </tr>
+        </table>
+
+        <h4>⏱ Hours</h4>
+        <p><strong>Total:</strong> 813.6 h</p>
+        <p>Sustained high annual volume distributed across multiple macro-cycles.
+          Load was consistent with long-term endurance development.</p>
+
+        <h4>🔥 Training Load (TSS)</h4>
+        <p><strong>Total:</strong> 36,003 TSS</p>
+        <p>High cumulative stress with repeated overload phases.
+          Distribution reflects deliberate stress–recovery cycling rather than random accumulation.</p>
+
+        <h4>📏 Distance</h4>
+        <p><strong>Total:</strong> 17,332.4 km</p>
+        <p>Large aerobic base volume across the year.
+          Distance aligns proportionally with total hours and TSS.</p>
+
+        <hr>
+
+        <h4>❤️ Wellness (Annual Context)</h4>
+        <ul>
+          <li><strong>CTL (Year End):</strong> 74.16</li>
+          <li><strong>ATL (Year End):</strong> 74.16</li>
+          <li><strong>TSB:</strong> ~0</li>
+          <li><strong>HRV Mean:</strong> 48.8</li>
+          <li><strong>HRV Latest:</strong> 54</li>
+          <li><strong>HRV 7d Trend:</strong> +7.1</li>
+        </ul>
+
+        <p>Year closed in a balanced load state (CTL ≈ ATL).
+          Positive HRV trend into year-end indicates recovery consolidation.
+          No chronic suppression visible in available HRV series.</p>
+
+        <p>You finished the year neither fatigued nor detrained.
+          Autonomic signals suggest stable system health at transition.</p>
+
+        <hr>
+
+        <h4>💡 Executive Insights</h4>
+        <ul>
+          <li>Repeated <strong>overreached → taper → rebuild</strong> structure throughout the year.</li>
+          <li>High chronic workload maintained without sustained systemic breakdown.</li>
+          <li>Several high-risk weeks were followed by corrective taper blocks.</li>
+          <li>End-of-year recovery phase was well timed.</li>
+          <li>Annual system health appears stable under large load exposure.</li>
+        </ul>
+
+        <hr>
+
+        <h4>🗓 Phases (Full Block Overview)</h4>
+        <table class="codeblock">
+          <tr>
+            <th>Phase</th>
+            <th>Start</th>
+            <th>End</th>
+            <th>Days</th>
+            <th>TSS</th>
+            <th>Hours</th>
+            <th>Descriptor</th>
+          </tr>
+          <tr>
+            <td>Base</td>
+            <td>2024-12-30</td>
+            <td>2025-01-05</td>
+            <td>7</td>
+            <td>322</td>
+            <td>12.1</td>
+            <td>🧱 Aerobic emphasis</td>
+          </tr>
+          <tr>
+            <td>Overreached</td>
+            <td>2025-01-06</td>
+            <td>2025-02-02</td>
+            <td>28</td>
+            <td>2516</td>
+            <td>74.9</td>
+            <td>High fatigue block</td>
+          </tr>
+          <tr>
+            <td>Continuous Load</td>
+            <td>2025-02-03</td>
+            <td>2025-02-09</td>
+            <td>7</td>
+            <td>521</td>
+            <td>12.6</td>
+            <td>Steady load</td>
+          </tr>
+          <tr>
+            <td>Overreached</td>
+            <td>2025-02-10</td>
+            <td>2025-02-23</td>
+            <td>14</td>
+            <td>2532</td>
+            <td>48.0</td>
+            <td>High fatigue block</td>
+          </tr>
+          <tr>
+            <td>Taper</td>
+            <td>2025-02-24</td>
+            <td>2025-03-16</td>
+            <td>21</td>
+            <td>1737</td>
+            <td>32.6</td>
+            <td>📉 ATL reduction</td>
+          </tr>
+          <tr>
+            <td>Build</td>
+            <td>2025-04-14</td>
+            <td>2025-04-20</td>
+            <td>7</td>
+            <td>843</td>
+            <td>15.2</td>
+            <td>Progressive overload</td>
+          </tr>
+          <tr>
+            <td>Base</td>
+            <td>2025-06-30</td>
+            <td>2025-07-13</td>
+            <td>14</td>
+            <td>1574</td>
+            <td>39.4</td>
+            <td>Aerobic volume</td>
+          </tr>
+          <tr>
+            <td>Taper</td>
+            <td>2025-08-11</td>
+            <td>2025-09-14</td>
+            <td>35</td>
+            <td>2971</td>
+            <td>79.4</td>
+            <td>Extended freshness phase</td>
+          </tr>
+          <tr>
+            <td>Recovery</td>
+            <td>2025-12-29</td>
+            <td>2026-01-04</td>
+            <td>7</td>
+            <td>215</td>
+            <td>6.8</td>
+            <td>Year-end reset</td>
+          </tr>
+        </table>
+
+        <hr>
+
+        <h4>📘 Phase Pattern Summary</h4>
+        <p>The year shows frequent short overreach blocks,
+          systematic taper/reset phases,
+          and stable continuous load segments.</p>
+
+        <p>This resembles aggressive block periodisation
+          with repeated stress peaks followed by controlled unloading.</p>
+
+        <hr>
+
+        <h4>⚡ Performance Summary</h4>
+        <ul>
+          <li><strong>Mean IF:</strong> 0.695</li>
+          <li><strong>Mean Decoupling:</strong> 3.09%</li>
+          <li><strong>Mean W′:</strong> 20,040 J</li>
+          <li><strong>Mean Joules > FTP per session:</strong> 31,891 J</li>
+        </ul>
+
+        <p>Intensity was consistently moderate (IF ~0.70).
+          Durability remained stable (decoupling ~3%).
+          High supra-threshold exposure occurred frequently but within repeatable tolerance.</p>
+
+        <p>You trained hard, often, and repeatedly near high strain —
+          but durability metrics held.</p>
+
+        <hr>
+
+        <p><strong>Closing Note:</strong><br>
+          2025 reflects a high-volume, high-structure year with repeated overload
+          and effective recovery cycling. System health at year end is balanced,
+          HRV trend is positive, and no chronic instability markers are present.</p>
+
+      </section>
+
+    </details>
+
+    <details>
+      <summary>🧠 Performance Intelligence -> Sample</summary>
+      <p>
+        A structural modeling layer that analyzes how your system handles intensity, durability, and neural strain.
+        After a weekly or season report ask to show your Performance Intelligence. This will also provide a solid
+        foundation for creating future workout plans when asked.
+      </p>
+      <!-- Perfmoance Intelligence sample -->
+      <section class="report">
+
+        <h3>🧠 Performance Intelligence</h3>
+
+        <p><strong>Status:</strong> Recovery phase active — Productive load balance with strong chronic durability and
+          controlled acute stress.</p>
+
+        <hr>
+
+        <h4>🏗 Chronic Capacity (90d)</h4>
+
+        <h5>🔁 Anaerobic Repeatability (W′ Depletion – 90d)</h5>
+        <table class="codeblock">
+          <tr>
+            <th>Metric</th>
+            <th>Value</th>
+            <th>State</th>
+          </tr>
+          <tr>
+            <td>Mean depletion %</td>
+            <td>0.24</td>
+            <td>🟢 Green</td>
+          </tr>
+          <tr>
+            <td>High depletion sessions</td>
+            <td>8</td>
+            <td>🟠 Moderate</td>
+          </tr>
+          <tr>
+            <td>Max depletion %</td>
+            <td>1.14</td>
+            <td>ℹ Informational</td>
+          </tr>
+          <tr>
+            <td>Total Joules &gt; FTP</td>
+            <td>1,109,246 J</td>
+            <td>ℹ Informational</td>
+          </tr>
+        </table>
+
+        <p>
+          Chronic anaerobic exposure is present but controlled.
+          Eight high-depletion sessions over 90 days indicate periodic supra-threshold stimulus without excessive
+          clustering.
+          Mean depletion remains within adaptive green range (0.15–0.35).
+        </p>
+
+        <hr>
+
+        <h5>🏔 Durability (Cardiovascular Stability – 90d)</h5>
+        <table class="codeblock">
+          <tr>
+            <th>Metric</th>
+            <th>Value</th>
+            <th>State</th>
+          </tr>
+          <tr>
+            <td>Mean decoupling</td>
+            <td>1.78</td>
+            <td>🟢 Stable</td>
+          </tr>
+          <tr>
+            <td>High drift sessions</td>
+            <td>26</td>
+            <td>🔴 Elevated exposure</td>
+          </tr>
+          <tr>
+            <td>Max decoupling</td>
+            <td>22.82</td>
+            <td>ℹ Informational</td>
+          </tr>
+        </table>
+
+        <p>
+          Mean decoupling in the green band confirms strong aerobic durability.
+          High drift session count (26) reflects repeated cardiovascular strain exposures across the macro block.
+          Despite that exposure, average stability remains preserved.
+        </p>
+
+        <hr>
+
+        <h5>⚡ Neural Density (Intensity Distribution – 90d)</h5>
+        <table class="codeblock">
+          <tr>
+            <th>Metric</th>
+            <th>Value</th>
+            <th>State</th>
+          </tr>
+          <tr>
+            <td>High-intensity sessions</td>
+            <td>24</td>
+            <td>🟢 Adaptive range</td>
+          </tr>
+          <tr>
+            <td>Mean IF</td>
+            <td>0.74</td>
+            <td>ℹ Informational</td>
+          </tr>
+          <tr>
+            <td>Mean training load</td>
+            <td>51.9</td>
+            <td>🟢 Optimal</td>
+          </tr>
+        </table>
+
+        <p>
+          High-intensity session count is within adaptive bandwidth (8–25).
+          Mean training load sits comfortably in optimal range (40–70).
+          Chronic intensity density appears sustainable relative to load base.
+        </p>
+
+        <hr>
+
+        <h4>🔎 Acute Overlay (7d)</h4>
+
+        <h5>💥 Anaerobic Load (7d)</h5>
+        <table class="codeblock">
+          <tr>
+            <th>Metric</th>
+            <th>Value</th>
+            <th>State</th>
+          </tr>
+          <tr>
+            <td>Mean depletion %</td>
+            <td>0.31</td>
+            <td>🟢 Green</td>
+          </tr>
+          <tr>
+            <td>High depletion sessions</td>
+            <td>1</td>
+            <td>🟢 Controlled</td>
+          </tr>
+          <tr>
+            <td>Max depletion %</td>
+            <td>0.75</td>
+            <td>ℹ Informational</td>
+          </tr>
+          <tr>
+            <td>Total Joules &gt; FTP</td>
+            <td>152,992 J</td>
+            <td>ℹ Informational</td>
+          </tr>
+        </table>
+
+        <p>
+          Recent anaerobic exposure is moderate and well spaced.
+          Single high-depletion session suggests controlled intensity application.
+        </p>
+
+        <hr>
+
+        <h5>🧭 Durability (7d)</h5>
+        <table class="codeblock">
+          <tr>
+            <th>Metric</th>
+            <th>Value</th>
+            <th>State</th>
+          </tr>
+          <tr>
+            <td>Mean decoupling</td>
+            <td>3.01</td>
+            <td>🟢 Stable</td>
+          </tr>
+          <tr>
+            <td>High drift sessions</td>
+            <td>3</td>
+            <td>🟠 Moderate</td>
+          </tr>
+          <tr>
+            <td>Long sessions</td>
+            <td>1</td>
+            <td>ℹ Informational</td>
+          </tr>
+        </table>
+
+        <p>
+          Short-term decoupling remains inside green band (0–5).
+          Three higher-drift sessions suggest mild durability strain but not instability.
+        </p>
+
+        <hr>
+
+        <h5>🔋 Neural Density (7d)</h5>
+        <table class="codeblock">
+          <tr>
+            <th>Metric</th>
+            <th>Value</th>
+            <th>State</th>
+          </tr>
+          <tr>
+            <td>High-intensity days</td>
+            <td>4</td>
+            <td>🟢 Balanced</td>
+          </tr>
+          <tr>
+            <td>Rolling Joules &gt; FTP</td>
+            <td>152,992 J</td>
+            <td>🟢 Green</td>
+          </tr>
+          <tr>
+            <td>Mean IF</td>
+            <td>0.69</td>
+            <td>ℹ Informational</td>
+          </tr>
+        </table>
+
+        <p>
+          Intensity clustering remains within green range.
+          Mean IF indicates moderate load relative to chronic capacity.
+        </p>
+
+        <hr>
+
+        <h4>🔄 Chronic vs Acute Contrast</h4>
+        <ul>
+          <li>Chronic durability: <strong>Strong and stable (1.78 mean decoupling).</strong></li>
+          <li>Acute durability: <strong>Stable (3.01) without excessive drift.</strong></li>
+          <li>Chronic anaerobic exposure: <strong>Structured and adaptive.</strong></li>
+          <li>Acute anaerobic stress: <strong>Controlled and non-clustered.</strong></li>
+          <li>Neural density: <strong>Balanced across both 90d and 7d windows.</strong></li>
+        </ul>
+
+        <p>
+          Your chronic system shows high tolerance with preserved aerobic stability.
+          The acute overlay does not exceed chronic capacity — stress is proportionate.
+        </p>
+
+        <hr>
+
+        <h4>🎯 Intelligence Summary</h4>
+        <ul>
+          <li>Durability base is robust despite repeated overload phases.</li>
+          <li>Anaerobic repeatability remains adaptive rather than excessive.</li>
+          <li>Intensity density is currently balanced.</li>
+          <li>Acute stress aligns safely within chronic conditioning envelope.</li>
+        </ul>
+
+        <p><strong>Closing Note:</strong><br>
+          Performance intelligence indicates strong chronic durability with controlled acute stress exposure.
+          Current recovery phase supports consolidation before any renewed build stimulus.
+        </p>
+
+      </section>
+
+    </details>
+    <hr>
+    <!-- ===================================================
 🧠 TOP 10 QUESTIONS SECTION (Fixed Numbering & Flow)
 =================================================== -->
-<section id="Questions" class="card">
-  <h2>🧠 Top 10 Questions — Get the Most Out of Me!</h2>
-  <p>
-    Click any question below to reveal what kind of insight it unlocks within your
-    <strong>Intervals.icu Unified Reporting Framework (URF v5.1)</strong> analysis.
-  </p>
+    <section id="Questions" class="card">
+      <h2>🧠 Top 10 Questions — Get the Most Out of Me!</h2>
+      <p>
+        Click any question below to reveal what kind of insight it unlocks within your
+        <strong>Intervals.icu Unified Reporting Framework (URF v5.1)</strong> analysis.
+      </p>
 
-  <!-- 1️⃣ Training Load & Performance -->
-  <h3>🧭 1. Training Load & Performance</h3>
+      <!-- 1️⃣ Training Load & Performance -->
+      <h3>🧭 1. Training Load & Performance</h3>
 
-  <details><summary>1️⃣ What’s my current training phase and load balance?</summary>
-    <p>Analyzes <strong>ACWR, CTL, ATL, TSB</strong> to determine whether you’re in a recovery, productive, or overload phase.</p>
-  </details>
+      <details>
+        <summary>1️⃣ What’s my current training phase and load balance?</summary>
+        <p>Analyzes <strong>ACWR, CTL, ATL, TSB</strong> to determine whether you’re in a recovery, productive, or
+          overload phase.</p>
+      </details>
 
-  <details><summary>2️⃣ How is my fatigue trending over the last 7 or 28 days?</summary>
-    <p>Evaluates <strong>FatigueTrend (%)</strong> — positive means accumulating fatigue, negative means recovery trend.</p>
-  </details>
+      <details>
+        <summary>2️⃣ How is my fatigue trending over the last 7 or 28 days?</summary>
+        <p>Evaluates <strong>FatigueTrend (%)</strong> — positive means accumulating fatigue, negative means recovery
+          trend.</p>
+      </details>
 
-  <details><summary>3️⃣ Am I maintaining the right intensity distribution (Seiler 80/20)?</summary>
-    <p>Reviews the <strong>Polarisation Index</strong> to confirm zone balance (Z1/Z2 vs Z3).</p>
-  </details>
+      <details>
+        <summary>3️⃣ Am I maintaining the right intensity distribution (Seiler 80/20)?</summary>
+        <p>Reviews the <strong>Polarisation Index</strong> to confirm zone balance (Z1/Z2 vs Z3).</p>
+      </details>
 
-  <!-- 2️⃣ Wellness & Recovery -->
-  <h3>💤 2. Wellness & Recovery</h3>
+      <!-- 2️⃣ Wellness & Recovery -->
+      <h3>💤 2. Wellness & Recovery</h3>
 
-  <details><summary>4️⃣ Which wellness markers should I monitor this week?</summary>
-    <p>Summarizes <strong>Recovery Index, HRV, Sleep, Stress, Mood, and TSB</strong> interactions to evaluate recovery alignment.</p>
-  </details>
+      <details>
+        <summary>4️⃣ Which wellness markers should I monitor this week?</summary>
+        <p>Summarizes <strong>Recovery Index, HRV, Sleep, Stress, Mood, and TSB</strong> interactions to evaluate
+          recovery alignment.</p>
+      </details>
 
-  <details><summary>5️⃣ How recovered am I for my next block or race?</summary>
-    <p>Evaluates readiness based on <strong>Form (TSB)</strong>, <strong>Recovery Index</strong>, and fatigue trend.</p>
-  </details>
+      <details>
+        <summary>5️⃣ How recovered am I for my next block or race?</summary>
+        <p>Evaluates readiness based on <strong>Form (TSB)</strong>, <strong>Recovery Index</strong>, and fatigue trend.
+        </p>
+      </details>
 
-  <details><summary>6️⃣ What are the early warning signs of overload?</summary>
-    <p>Flags <strong>rising ATL</strong>, <strong>Stress Tolerance &lt; 2</strong>, <strong>Monotony &gt; 2.5</strong>, or negative HRV changes.</p>
-  </details>
+      <details>
+        <summary>6️⃣ What are the early warning signs of overload?</summary>
+        <p>Flags <strong>rising ATL</strong>, <strong>Stress Tolerance &lt; 2</strong>, <strong>Monotony &gt;
+            2.5</strong>, or negative HRV changes.</p>
+      </details>
 
-  <!-- 3️⃣ Metabolic Efficiency -->
-  <h3>⚙️ 3. Metabolic & Endurance Efficiency</h3>
+      <!-- 3️⃣ Metabolic Efficiency -->
+      <h3>⚙️ 3. Metabolic & Endurance Efficiency</h3>
 
-  <details><summary>7️⃣ How efficient is my metabolism right now?</summary>
-    <p>Breaks down <strong>FatOx Efficiency, FOxI, MES, GR, CUR</strong> to assess aerobic vs glycolytic balance.</p>
-  </details>
+      <details>
+        <summary>7️⃣ How efficient is my metabolism right now?</summary>
+        <p>Breaks down <strong>FatOx Efficiency, FOxI, MES, GR, CUR</strong> to assess aerobic vs glycolytic balance.
+        </p>
+      </details>
 
-  <details><summary>8️⃣ What does my Efficiency Drift mean for endurance durability?</summary>
-    <p>Explains aerobic stability and cardiac drift % — &lt;5 % = durable base; rising values = fatigue onset.</p>
-  </details>
+      <details>
+        <summary>8️⃣ What does my Efficiency Drift mean for endurance durability?</summary>
+        <p>Explains aerobic stability and cardiac drift % — &lt;5 % = durable base; rising values = fatigue onset.</p>
+      </details>
 
-  <!-- 4️⃣ Periodization -->
-  <h3>🎯 4. Session & Periodization Planning</h3>
+      <!-- 4️⃣ Periodization -->
+      <h3>🎯 4. Session & Periodization Planning</h3>
 
-  <details><summary>9️⃣ What’s the optimal training focus for next week?</summary>
-    <p>Uses <strong>CTL/ATL/TSB</strong> ratios to suggest appropriate distribution of endurance, tempo, and intensity sessions.</p>
-  </details>
+      <details>
+        <summary>9️⃣ What’s the optimal training focus for next week?</summary>
+        <p>Uses <strong>CTL/ATL/TSB</strong> ratios to suggest appropriate distribution of endurance, tempo, and
+          intensity sessions.</p>
+      </details>
 
-  <details><summary>🔟 Can you analyze my last race or key workout in depth?</summary>
-    <p>Generates a complete session report (power, HR, metabolic data, load impact, recovery requirement).</p>
-  </details>
+      <details>
+        <summary>🔟 Can you analyze my last race or key workout in depth?</summary>
+        <p>Generates a complete session report (power, HR, metabolic data, load impact, recovery requirement).</p>
+      </details>
 
-  <!-- 💡 Bonus -->
-  <h3>💡 Bonus Pro Tips</h3>
-  <ul>
-    <li>“Show me my metabolic or fatigue charts for the past 6 weeks.”</li>
-    <li>“Compare my last two blocks — am I adapting efficiently?”</li>
-    <li>“Analyse my last workout”</li>
-    <li>“Show my Season Performance Intelligence”</li>
-    
-  </ul>
-</section>
+      <!-- 💡 Bonus -->
+      <h3>💡 Bonus Pro Tips</h3>
+      <ul>
+        <li>“Show me my metabolic or fatigue charts for the past 6 weeks.”</li>
+        <li>“Compare my last two blocks — am I adapting efficiently?”</li>
+        <li>“Analyse my last workout”</li>
+        <li>“Show my Season Performance Intelligence”</li>
+
+      </ul>
+    </section>
 
 
-<!-- ===================================================
+    <!-- ===================================================
 ⚙️ FEATURES SECTION
 =================================================== -->
-<section id="features" class="card">
-  <h2>🚀 Core Features</h2>
-  <ul>
-    <li>Automatic <strong>Weekly, Seasonal, and Wellness Reports</strong> (URF v5.1)</li>
-    <li>Load, Recovery, and Quality markers auto-classified 🟢🟠🔴</li>
-    <li>Subjective logs (RPE, mood, fatigue, feel) integrated with objective metrics (TSS, HRV, CTL, ATL)</li>
-    <li>Supports <strong>Triathlon, Cycling, Running, Ironman, Marathon</strong></li>
-    <li>Applies <strong>AI Decision Frameworks</strong> (Seiler 80/20, Banister TRIMP, Foster Monotony, Friel Periodisation, San Millán)</li>
-    <li>Outputs <strong>action-based insights</strong> (“Maintain”, “Adjust”, “Recover”) via adaptive URF scoring</li>
-    <li>Fully <strong>Cloudflare–Railway integrated</strong> pipeline ensuring data fidelity</li>
-  </ul>
+    <section id="features" class="card">
+      <h2>🚀 Core Features</h2>
+      <ul>
+        <li>Automatic <strong>Weekly, Seasonal, and Wellness Reports</strong> (URF v5.1)</li>
+        <li>Load, Recovery, and Quality markers auto-classified 🟢🟠🔴</li>
+        <li>Subjective logs (RPE, mood, fatigue, feel) integrated with objective metrics (TSS, HRV, CTL, ATL)</li>
+        <li>Supports <strong>Triathlon, Cycling, Running, Ironman, Marathon</strong></li>
+        <li>Applies <strong>AI Decision Frameworks</strong> (Seiler 80/20, Banister TRIMP, Foster Monotony, Friel
+          Periodisation, San Millán)</li>
+        <li>Outputs <strong>action-based insights</strong> (“Maintain”, “Adjust”, “Recover”) via adaptive URF scoring
+        </li>
+        <li>Fully <strong>Cloudflare–Railway integrated</strong> pipeline ensuring data fidelity</li>
+      </ul>
 
-  <hr>
-  <section id="coach" class="card"></section>
-  <h2>🧭 Coach Framework Model Reference</h2>
-  <p>Each model contributes to the Coach’s adaptive intelligence system and ensures consistent endurance data interpretation:</p>
+      <hr>
+      <!-- ===================================================
+🧭 COACH FRAMEWORK MODEL REFERENCE
+=================================================== -->
+      <section id="coach" class="card">
 
-  <div class="overflow-x-auto">
-    <table class="min-w-full text-xs border border-gray-200 bg-white rounded-lg shadow-sm">
-      <thead>
-        <tr>
-          <th>Model Reference</th>
-          <th>Framework Link</th>
-          <th>Metric Source</th>
-          <th>Output Type</th>
-          <th>Coaching Role</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr><td><strong>Seiler Polarisation</strong></td><td>Intensity Framework</td><td>Z1–Z3%</td><td>Polarisation Ratio</td><td>Validates 80/20 intensity distribution</td></tr>
-        <tr><td><strong>Banister Fitness–Fatigue</strong></td><td>Load Adaptation</td><td>ATL, CTL, TSB</td><td>Training Load Model</td><td>Predicts fatigue vs adaptation trajectory</td></tr>
-        <tr><td><strong>Coggan Power–Duration</strong></td><td>Efficiency Framework</td><td>FTP, Power Curve</td><td>Efficiency Factor</td><td>Tracks metabolic endurance and fatigue resistance</td></tr>
-        <tr><td><strong>Foster Overtraining</strong></td><td>Recovery Alignment</td><td>Strain, Monotony</td><td>Overtraining Index</td><td>Detects excessive cumulative stress</td></tr>
-        <tr><td><strong>San Millán Metabolic</strong></td><td>Metabolic Efficiency</td><td>FatOx Index</td><td>Mito Efficiency</td><td>Evaluates fat utilization and Zone 2 economy</td></tr>
-        <tr><td><strong>Noakes Central Governor</strong></td><td>Readiness Forecast</td><td>HRV × RPE</td><td>CNS Fatigue Index</td><td>Detects neural fatigue and motivational readiness</td></tr>
-        <tr><td><strong>Skiba Critical Power</strong></td><td>Performance Integration</td><td>CP, W′</td><td>Fatigue Decay Curve</td><td>Predicts endurance performance limits</td></tr>
-        <tr><td><strong>Mujika Tapering</strong></td><td>Periodisation</td><td>Load % Reduction</td><td>Taper Efficiency</td><td>Optimizes pre-event tapering blocks</td></tr>
-        <tr><td><strong>Friel Training Stress</strong></td><td>Consistency Framework</td><td>TSS, Compliance</td><td>Adherence Score</td><td>Validates plan execution and load control</td></tr>
-        <tr><td><strong>Sandbakk–Holmberg Integration</strong></td><td>Action Generation</td><td>Multi-framework synthesis</td><td>Adaptive Action Score</td><td>Produces holistic, actionable coaching feedback</td></tr>
-      </tbody>
-    </table>
-  </div>
+        <h2>🧭 Coach Framework Model Reference</h2>
 
-  <hr>
-  <p class="muted">
-    The Coach V5 functions as a <strong>multi-framework inference engine</strong> — blending classical endurance physiology with modern adaptive data modeling to intelligently evolve training plans in real time.
-  </p>
-</section>
-<!-- ===================================================
+        <p>
+          Each model contributes to the Coach’s adaptive intelligence system
+          and ensures consistent endurance data interpretation.
+        </p>
+
+        <div class="overflow-x-auto">
+          <table>
+            <thead>
+              <tr>
+                <th>Model Reference</th>
+                <th>Framework Link</th>
+                <th>Metric Source</th>
+                <th>Output Type</th>
+                <th>Coaching Role</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>Seiler Polarisation</strong></td>
+                <td>Intensity Framework</td>
+                <td>Z1–Z3%</td>
+                <td>Polarisation Ratio</td>
+                <td>Validates 80/20 intensity distribution</td>
+              </tr>
+              <tr>
+                <td><strong>Banister Fitness–Fatigue</strong></td>
+                <td>Load Adaptation</td>
+                <td>ATL, CTL, TSB</td>
+                <td>Training Load Model</td>
+                <td>Predicts fatigue vs adaptation trajectory</td>
+              </tr>
+              <tr>
+                <td><strong>Coggan Power–Duration</strong></td>
+                <td>Efficiency Framework</td>
+                <td>FTP, Power Curve</td>
+                <td>Efficiency Factor</td>
+                <td>Tracks metabolic endurance and fatigue resistance</td>
+              </tr>
+              <tr>
+                <td><strong>Foster Overtraining</strong></td>
+                <td>Recovery Alignment</td>
+                <td>Strain, Monotony</td>
+                <td>Overtraining Index</td>
+                <td>Detects excessive cumulative stress</td>
+              </tr>
+              <tr>
+                <td><strong>San Millán Metabolic</strong></td>
+                <td>Metabolic Efficiency</td>
+                <td>FatOx Index</td>
+                <td>Mito Efficiency</td>
+                <td>Evaluates fat utilization and Zone 2 economy</td>
+              </tr>
+              <tr>
+                <td><strong>Noakes Central Governor</strong></td>
+                <td>Readiness Forecast</td>
+                <td>HRV × RPE</td>
+                <td>CNS Fatigue Index</td>
+                <td>Detects neural fatigue and motivational readiness</td>
+              </tr>
+              <tr>
+                <td><strong>Skiba Critical Power</strong></td>
+                <td>Performance Integration</td>
+                <td>CP, W′</td>
+                <td>Fatigue Decay Curve</td>
+                <td>Predicts endurance performance limits</td>
+              </tr>
+              <tr>
+                <td><strong>Mujika Tapering</strong></td>
+                <td>Periodisation</td>
+                <td>Load % Reduction</td>
+                <td>Taper Efficiency</td>
+                <td>Optimizes pre-event tapering blocks</td>
+              </tr>
+              <tr>
+                <td><strong>Friel Training Stress</strong></td>
+                <td>Consistency Framework</td>
+                <td>TSS, Compliance</td>
+                <td>Adherence Score</td>
+                <td>Validates plan execution and load control</td>
+              </tr>
+              <tr>
+                <td><strong>Sandbakk–Holmberg Integration</strong></td>
+                <td>Action Generation</td>
+                <td>Multi-framework synthesis</td>
+                <td>Adaptive Action Score</td>
+                <td>Produces holistic, actionable coaching feedback</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <hr>
+
+        <p class="muted-center">
+          The Coach V5 functions as a <strong>multi-framework inference engine</strong> —
+          blending classical endurance physiology with modern adaptive data modelling
+          to evolve training decisions deterministically.
+        </p>
+
+      </section>
+
+      <!-- ===================================================
 🧩 COACHING MARKERS MONITORED (FULL STACK - UNIFIED FORMAT)
 =================================================== -->
-<section id="markers" class="card">
-  <h2>🧩 Coaching Markers Monitored — Full URF v5.1 Stack</h2>
-  <p>
-    The <strong>Coach GPT V5</strong> engine continuously monitors a multidimensional suite of
-    <strong>42 coaching markers</strong> across physiological, psychological, and metabolic domains.
-    These metrics are structured into <strong>three tiers</strong> within the
-    <em>Unified Reporting Framework (URF v5.1)</em>.
-  </p>
+      <section id="markers" class="card">
+        <h2>🧩 Coaching Markers Monitored — Full URF v5.1 Stack</h2>
+        <p>
+          The <strong>Coach GPT V5</strong> engine continuously monitors a multidimensional suite of
+          <strong>42 coaching markers</strong> across physiological, psychological, and metabolic domains.
+          These metrics are structured into <strong>three tiers</strong> within the
+          <em>Unified Reporting Framework (URF v5.1)</em>.
+        </p>
 
-  <hr>
+        <hr>
 
-  <!-- Tier 1 -->
-  <details open>
-    <summary>🧭 Tier-1 Core Coaching Markers (32 active)</summary>
-    <p>Primary load, recovery, metabolic, and readiness metrics — continuously monitored across all report types.</p>
+        <!-- Tier 1 -->
+        <details open>
+          <summary>🧭 Tier-1 Core Coaching Markers (32 active)</summary>
+          <p>Primary load, recovery, metabolic, and readiness metrics — continuously monitored across all report types.
+          </p>
 
-    <div class="overflow-x-auto">
-      <table>
-        <thead>
-          <tr><th>Domain</th><th>Markers</th><th>Purpose</th></tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Load & Performance</strong></td>
-            <td>CTL, ATL, TSB, TSS, ACWR, Monotony, Strain, LIR, Fatigue Trend</td>
-            <td>Measure training load, balance, and adaptation trends.</td>
-          </tr>
-          <tr>
-            <td><strong>Wellness & Recovery</strong></td>
-            <td>Recovery Index, HRV, Resting HR, Sleep Score, Sleep Duration, Stress Tolerance, Mood, Soreness</td>
-            <td>Assess physiological recovery and psychological readiness.</td>
-          </tr>
-          <tr>
-            <td><strong>Metabolic Efficiency</strong></td>
-            <td>FatOx, MES, EF, Efficiency Drift %, Fatigue Resistance, Z2 Stability</td>
-            <td>Evaluate aerobic durability and energy system balance.</td>
-          </tr>
-          <tr>
-            <td><strong>Periodisation</strong></td>
-            <td>Block Phase, Taper Efficiency, Consistency Score, Durability Index, Adaptation Ratio</td>
-            <td>Track training phase progression and long-term load control.</td>
-          </tr>
-          <tr>
-            <td><strong>Readiness & CNS</strong></td>
-            <td>CNS Fatigue Index, Motivation Stability, Readiness Forecast</td>
-            <td>Measure neural recovery and performance readiness.</td>
-          </tr>
-          <tr>
-            <td><strong>Holistic Actions</strong></td>
-            <td>Adaptive Action Score, Action State 🟢🟠🔴, Trend Confidence %</td>
-            <td>Generate adaptive feedback and actionable coaching guidance.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </details>
+          <div class="overflow-x-auto">
+            <table>
+              <thead>
+                <tr>
+                  <th>Domain</th>
+                  <th>Markers</th>
+                  <th>Purpose</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Load & Performance</strong></td>
+                  <td>CTL, ATL, TSB, TSS, ACWR, Monotony, Strain, LIR, Fatigue Trend</td>
+                  <td>Measure training load, balance, and adaptation trends.</td>
+                </tr>
+                <tr>
+                  <td><strong>Wellness & Recovery</strong></td>
+                  <td>Recovery Index, HRV, Resting HR, Sleep Score, Sleep Duration, Stress Tolerance, Mood, Soreness
+                  </td>
+                  <td>Assess physiological recovery and psychological readiness.</td>
+                </tr>
+                <tr>
+                  <td><strong>Metabolic Efficiency</strong></td>
+                  <td>FatOx, MES, EF, Efficiency Drift %, Fatigue Resistance, Z2 Stability</td>
+                  <td>Evaluate aerobic durability and energy system balance.</td>
+                </tr>
+                <tr>
+                  <td><strong>Periodisation</strong></td>
+                  <td>Block Phase, Taper Efficiency, Consistency Score, Durability Index, Adaptation Ratio</td>
+                  <td>Track training phase progression and long-term load control.</td>
+                </tr>
+                <tr>
+                  <td><strong>Readiness & CNS</strong></td>
+                  <td>CNS Fatigue Index, Motivation Stability, Readiness Forecast</td>
+                  <td>Measure neural recovery and performance readiness.</td>
+                </tr>
+                <tr>
+                  <td><strong>Holistic Actions</strong></td>
+                  <td>Adaptive Action Score, Action State 🟢🟠🔴, Trend Confidence %</td>
+                  <td>Generate adaptive feedback and actionable coaching guidance.</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
 
-  <!-- Tier 2 -->
-  <details>
-    <summary>🧮 Tier-2 Derived / Conditional Markers (+7 if present)</summary>
-    <p>Derived from device integrations (Garmin, HRV4, Whoop) or advanced load models; used to refine URF analytics.</p>
+        <!-- Tier 2 -->
+        <details>
+          <summary>🧮 Tier-2 Derived / Conditional Markers (+7 if present)</summary>
+          <p>Derived from device integrations (Garmin, HRV4, Whoop) or advanced load models; used to refine URF
+            analytics.</p>
 
-    <div class="overflow-x-auto">
-      <table>
-        <thead>
-          <tr><th>Marker</th><th>Source / Dependency</th><th>Purpose</th></tr>
-        </thead>
-        <tbody>
-          <tr><td><strong>VO₂ Estimation (VO₂eff)</strong></td><td>Garmin or power–HR model</td><td>Cardiorespiratory efficiency trend</td></tr>
-          <tr><td><strong>Intensity Factor (IF)</strong></td><td>Power data (FTP defined)</td><td>Session intensity relative to threshold</td></tr>
-          <tr><td><strong>Session RPE (sRPE)</strong></td><td>Manual / subjective input</td><td>Perceived load calibration (TSS × RPE)</td></tr>
-          <tr><td><strong>Sleep Debt Index</strong></td><td>Wellness logs (Sleep vs Target)</td><td>Quantifies chronic recovery deficit</td></tr>
-          <tr><td><strong>HRV-SDNN / RMSSD</strong></td><td>HRV4Training / Whoop API</td><td>Autonomic variance for deeper readiness precision</td></tr>
-          <tr><td><strong>Glycogen Depletion Score</strong></td><td>Power × Duration × IF model</td><td>Estimates carbohydrate utilisation</td></tr>
-          <tr><td><strong>Hydration Score</strong></td><td>Body weight & HR trend</td><td>Detects dehydration or plasma volume shifts</td></tr>
-        </tbody>
-      </table>
-    </div>
-  </details>
+          <div class="overflow-x-auto">
+            <table>
+              <thead>
+                <tr>
+                  <th>Marker</th>
+                  <th>Source / Dependency</th>
+                  <th>Purpose</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>VO₂ Estimation (VO₂eff)</strong></td>
+                  <td>Garmin or power–HR model</td>
+                  <td>Cardiorespiratory efficiency trend</td>
+                </tr>
+                <tr>
+                  <td><strong>Intensity Factor (IF)</strong></td>
+                  <td>Power data (FTP defined)</td>
+                  <td>Session intensity relative to threshold</td>
+                </tr>
+                <tr>
+                  <td><strong>Session RPE (sRPE)</strong></td>
+                  <td>Manual / subjective input</td>
+                  <td>Perceived load calibration (TSS × RPE)</td>
+                </tr>
+                <tr>
+                  <td><strong>Sleep Debt Index</strong></td>
+                  <td>Wellness logs (Sleep vs Target)</td>
+                  <td>Quantifies chronic recovery deficit</td>
+                </tr>
+                <tr>
+                  <td><strong>HRV-SDNN / RMSSD</strong></td>
+                  <td>HRV4Training / Whoop API</td>
+                  <td>Autonomic variance for deeper readiness precision</td>
+                </tr>
+                <tr>
+                  <td><strong>Glycogen Depletion Score</strong></td>
+                  <td>Power × Duration × IF model</td>
+                  <td>Estimates carbohydrate utilisation</td>
+                </tr>
+                <tr>
+                  <td><strong>Hydration Score</strong></td>
+                  <td>Body weight & HR trend</td>
+                  <td>Detects dehydration or plasma volume shifts</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
 
-<!-- Tier 3 -->
-<details>
-  <summary>🧠 Tier-3 Performance Intelligence (Structural Capability Modeling +3)</summary>
-  <p>
-    Tier-3 introduces structural capability modeling — evaluating how fitness behaves under stress,
-    not just how much load is accumulated.
-  </p>
+        <!-- Tier 3 -->
+        <details>
+          <summary>🧠 Tier-3 Performance Intelligence (Structural Capability Modeling +3)</summary>
+          <p>
+            Tier-3 introduces structural capability modeling — evaluating how fitness behaves under stress,
+            not just how much load is accumulated.
+          </p>
 
-  <div class="overflow-x-auto">
-    <table>
-      <thead>
-        <tr><th>Model</th><th>Core Signals</th><th>Purpose</th></tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td><strong>WDRM — Anaerobic Repeatability</strong></td>
-          <td>W′ depletion %, high-depletion sessions, joules above FTP</td>
-          <td>Measures repeatable supra-threshold resilience</td>
-        </tr>
-        <tr>
-          <td><strong>ISDM — Durability</strong></td>
-          <td>Decoupling, high-drift sessions, long-session load</td>
-          <td>Evaluates fatigue resistance and power stability</td>
-        </tr>
-        <tr>
-          <td><strong>NDLI — Neural Density</strong></td>
-          <td>Rolling joules > FTP, intensity clustering, IF density</td>
-          <td>Detects CNS strain and intensity stacking</td>
-        </tr>
-      </tbody>
-    </table>
-  </div>
-</details>
-
-
-  <hr>
-
-  <p class="muted" style="text-align:left;">
-    🧩 <strong>Total Monitored Markers:</strong>
-    Tier-1 (32) + Tier-2 (7) + Tier-3 (3) → ≈ <strong>42</strong><br>
-    Weighted dynamically across report types (Weekly • Seasonal • Wellness • Summary)
-    via the URF adaptive relevance model.
-  </p>
-</section>
+          <div class="overflow-x-auto">
+            <table>
+              <thead>
+                <tr>
+                  <th>Model</th>
+                  <th>Core Signals</th>
+                  <th>Purpose</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>WDRM — Anaerobic Repeatability</strong></td>
+                  <td>W′ depletion %, high-depletion sessions, joules above FTP</td>
+                  <td>Measures repeatable supra-threshold resilience</td>
+                </tr>
+                <tr>
+                  <td><strong>ISDM — Durability</strong></td>
+                  <td>Decoupling, high-drift sessions, long-session load</td>
+                  <td>Evaluates fatigue resistance and power stability</td>
+                </tr>
+                <tr>
+                  <td><strong>NDLI — Neural Density</strong></td>
+                  <td>Rolling joules > FTP, intensity clustering, IF density</td>
+                  <td>Detects CNS strain and intensity stacking</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </details>
 
 
+        <hr>
 
-<!-- ===================================================
+        <p class="muted" style="text-align:left;">
+          🧩 <strong>Total Monitored Markers:</strong>
+          Tier-1 (32) + Tier-2 (7) + Tier-3 (3) → ≈ <strong>42</strong><br>
+          Weighted dynamically across report types (Weekly • Seasonal • Wellness • Summary)
+          via the URF adaptive relevance model.
+        </p>
+      </section>
+
+
+
+      <!-- ===================================================
 📡 INTERVALS.ICU DEPENDENCY
 =================================================== -->
-<section id="intervals" class="card">
-  <h2>📡 Intervals.icu Dependency</h2>
+      <section id="intervals" class="card">
+        <h2>📡 Intervals.icu Dependency</h2>
 
-  <div class="content-left">
-    <p>
-      The <strong>Coach GPT App</strong> is fully dependent on
-      <a href="https://intervals.icu" target="_blank">Intervals.icu</a>
-      for athlete data. All workouts, wellness logs, and training load
-      calculations are sourced directly from your Intervals.icu account.
-    </p>
+        <div class="content-left">
+          <p>
+            The <strong>Coach GPT App</strong> is fully dependent on
+            <a href="https://intervals.icu" target="_blank">Intervals.icu</a>
+            for athlete data. All workouts, wellness logs, and training load
+            calculations are sourced directly from your Intervals.icu account.
+          </p>
 
-    <p>
-      For best accuracy, ensure your wellness markers are synced:
-      <strong>HRV</strong>, <strong>Resting HR</strong>, <strong>Sleep</strong>,
-      <strong>Mood</strong>, <strong>Stress</strong>, and <strong>Soreness</strong>.
-      Garmin users should expose
-      <strong>VO₂maxGarmin</strong>,
-      <strong>Performance Indicators</strong>, and
-      <strong>Intensity Factor (IF)</strong>.
-    </p>
-  </div>
+          <p>
+            For best accuracy, ensure your wellness markers are synced:
+            <strong>HRV</strong>, <strong>Resting HR</strong>, <strong>Sleep</strong>,
+            <strong>Mood</strong>, <strong>Stress</strong>, and <strong>Soreness</strong>.
+            Garmin users should expose
+            <strong>VO₂maxGarmin</strong>,
+            <strong>Performance Indicators</strong>, and
+            <strong>Intensity Factor (IF)</strong>.
+          </p>
+        </div>
 
-  <div class="image-center">
-    <img src="./custom_activity_fields_intervals_icu.jpeg"
-         alt="Custom Activity Fields Example"
-         width="260">
-  </div>
+        <div class="image-center">
+          <img src="./custom_activity_fields_intervals_icu.jpeg" alt="Custom Activity Fields Example" width="260">
+        </div>
 
-  <p class="muted-center">
-    🙏 Special thanks to <strong>David Tinker</strong>,
-    creator of Intervals.icu, for enabling open endurance data
-    access and seamless athlete integration.
-  </p>
-</section>
+        <p class="muted-center">
+          🙏 Special thanks to <strong>David Tinker</strong>,
+          creator of Intervals.icu, for enabling open endurance data
+          access and seamless athlete integration.
+        </p>
+      </section>
 
 
 
 
-<!-- ===================================================
+      <!-- ===================================================
 📥 DOWNLOAD SECTION
 =================================================== -->
-<section id="download" class="card">
-  <h2>📥 Get the App</h2>
-  <p>Search in the GPT Store for <strong>“Intervals ICU Coach V5”</strong>
-     or click on top link below 👇</p>
+      <section id="download" class="card">
+        <h2>📥 Get the App</h2>
+        <p>Search in the GPT Store for <strong>“Intervals ICU Coach V5”</strong>
+          or click on top link below 👇</p>
 
-  <ul>
-    <li>
-      <a href="https://chatgpt.com/g/g-6933fc6bcd008191bb52885be4d1927c-intervals-icu-coach-v5-railway-t2-engine"
-         target="_blank">
-         🌐 Intervals ICU Coach V5 on GPT Store
-      </a>
-    </li>
-    <li>
-      <a href="https://apps.apple.com/us/app/chatgpt/id6448311069"
-         target="_blank">
-         📱 Download ChatGPT (iOS)
-      </a>
-    </li>
-    <li>
-      <a href="https://play.google.com/store/apps/details?id=com.openai.chatgpt"
-         target="_blank">
-         📱 Download ChatGPT (Android)
-      </a>
-    </li>
-  </ul>
+        <ul>
+          <li>
+            <a href="https://chatgpt.com/g/g-6933fc6bcd008191bb52885be4d1927c-intervals-icu-coach-v5-railway-t2-engine"
+              target="_blank">
+              🌐 Intervals ICU Coach V5 on GPT Store
+            </a>
+          </li>
+          <li>
+            <a href="https://apps.apple.com/us/app/chatgpt/id6448311069" target="_blank">
+              📱 Download ChatGPT (iOS)
+            </a>
+          </li>
+          <li>
+            <a href="https://play.google.com/store/apps/details?id=com.openai.chatgpt" target="_blank">
+              📱 Download ChatGPT (Android)
+            </a>
+          </li>
+        </ul>
 
-  <p class="muted">
-    Note: Version 3 is now deprecated — please use the latest
-    <strong>V5 Railway Engine build</strong> for best performance and accuracy.
-  </p>
-</section>
+        <p class="muted">
+          Note: Version 3 is now deprecated — please use the latest
+          <strong>V5 Railway Engine build</strong> for best performance and accuracy.
+        </p>
+      </section>
 
-<!-- ===================================================
+      <!-- ===================================================
 ✨ FEATURE REQUESTS & ROADMAP
 =================================================== -->
-<section id="feature-requests" class="card">
-  <h2>✨ Feature Requests & Roadmap</h2>
+      <section id="feature-requests" class="card">
+        <h2>✨ Feature Requests & Roadmap</h2>
 
-  <p>
-    The <strong>Coach GPT App</strong> evolves in the open.
-    Feature ideas, enhancements, and experimental concepts are discussed publicly,
-    while shipped and committed work is tracked separately.
-  </p>
+        <p>
+          The <strong>Coach GPT App</strong> evolves in the open.
+          Feature ideas, enhancements, and experimental concepts are discussed publicly,
+          while shipped and committed work is tracked separately.
+        </p>
 
-  <hr>
+        <hr>
 
-  <h3>🧩 Feature Requests (Open Discussion)</h3>
+        <h3>🧩 Feature Requests (Open Discussion)</h3>
 
-  <p>
-    New ideas and enhancement requests are tracked as GitHub issues.
-    This keeps discussion transparent and ensures proposals are evaluated against
-    URF guarantees such as determinism, auditability, and context integrity.
-  </p>
+        <p>
+          New ideas and enhancement requests are tracked as GitHub issues.
+          This keeps discussion transparent and ensures proposals are evaluated against
+          URF guarantees such as determinism, auditability, and context integrity.
+        </p>
 
-  <a
-    href="https://github.com/revo2wheels/intervalsicugptcoach-public/issues?q=state%3Aopen%20label%3A%22feature%20request%22"
-    target="_blank"
-    class="github-button"
-  >
-    <svg viewBox="0 0 16 16" aria-hidden="true">
-      <path fill-rule="evenodd"
-            d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38
+        <a href="https://github.com/revo2wheels/intervalsicugptcoach-public/issues?q=state%3Aopen%20label%3A%22feature%20request%22"
+          target="_blank" class="github-button">
+          <svg viewBox="0 0 16 16" aria-hidden="true">
+            <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38
                0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94
                -.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21
                1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95
@@ -1423,73 +2062,60 @@ Thu ▂  Fri ▇  Sat ▇  Sun ▇  Mon ▇  Tue ▇
                2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82
                1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54
                1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.01 8.01 0
-               0016 8c0-4.42-3.58-8-8-8z"/>
-    </svg>
-    View Open Feature Requests
-  </a>
-  <a
-    href="https://forum.intervals.icu/t/yet-another-ai-chatgpt-coach/117856"
-    target="_blank"
-    class="github-button"
-  >
-    🧩 Intervals.icu Forum Discussion
-  </a>
-  <hr>
+               0016 8c0-4.42-3.58-8-8-8z" />
+          </svg>
+          View Open Feature Requests
+        </a>
+        <a href="https://forum.intervals.icu/t/yet-another-ai-chatgpt-coach/117856" target="_blank"
+          class="github-button">
+          🧩 Intervals.icu Forum Discussion
+        </a>
+        <hr>
 
-  <h3>🗺️ Roadmap & Changelog (Committed Work)</h3>
+        <h3>🗺️ Roadmap & Changelog (Committed Work)</h3>
 
-  <p>
-    Features that have been accepted, implemented, or released are documented in the
-    public roadmap and changelog.
-    This reflects <strong>what is real and live</strong>, not speculative ideas.
-  </p>
+        <p>
+          Features that have been accepted, implemented, or released are documented in the
+          public roadmap and changelog.
+          This reflects <strong>what is real and live</strong>, not speculative ideas.
+        </p>
 
-  <p>
-    👉 View the roadmap and full release history here:
-  </p>
+        <p>
+          👉 View the roadmap and full release history here:
+        </p>
 
-  <a
-    href="https://www.cliveking.net/pipeline.html"
-    target="_blank"
-    class="github-button"
-  >
-    🗺️ View Roadmap
-  </a>
-  <a
-    href="https://www.cliveking.net/changelog.html"
-    target="_blank"
-    class="github-button"
-  >
-    🗺️ View Changelog
-  </a>
+        <a href="https://www.cliveking.net/pipeline.html" target="_blank" class="github-button">
+          🗺️ View Roadmap
+        </a>
+        <a href="https://www.cliveking.net/changelog.html" target="_blank" class="github-button">
+          🗺️ View Changelog
+        </a>
 
 
-  <p class="muted-left">
-    🔍 Feature requests may not appear on the roadmap until they are validated,
-    scoped, and aligned with URF design constraints.
-  </p>
-</section>
+        <p class="muted-left">
+          🔍 Feature requests may not appear on the roadmap until they are validated,
+          scoped, and aligned with URF design constraints.
+        </p>
+      </section>
 
 
-<!-- ===================================================
+      <!-- ===================================================
 📬 CONTACT SECTION
 =================================================== -->
-<section id="contact">
-  <div class="card">
-    <h2>📬 Contact</h2>
-    <p>
-      For integration, customization, or coaching inquiries, connect via
-      GitHub link below or DM via 
-      <a href="https://intervals.icu/athlete/1914741" target="_blank">Intervals.icu DM</a> and contribute in 
-      <a href="https://forum.intervals.icu/t/yet-another-ai-chatgpt-coach/117856" target="_blank">Intervals.icu Forum</a>.
-    </p>
+      <section id="contact">
+        <div class="card">
+          <h2>📬 Contact</h2>
+          <p>
+            For integration, customization, or coaching inquiries, connect via
+            GitHub link below or DM via
+            <a href="https://intervals.icu/athlete/1914741" target="_blank">Intervals.icu DM</a> and contribute in
+            <a href="https://forum.intervals.icu/t/yet-another-ai-chatgpt-coach/117856" target="_blank">Intervals.icu
+              Forum</a>.
+          </p>
 
-    <a href="https://github.com/revo2wheels/intervalsicugptcoach-public"
-       target="_blank"
-       class="github-button">
-      <svg viewBox="0 0 16 16" aria-hidden="true">
-        <path fill-rule="evenodd"
-              d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38
+          <a href="https://github.com/revo2wheels/intervalsicugptcoach-public" target="_blank" class="github-button">
+            <svg viewBox="0 0 16 16" aria-hidden="true">
+              <path fill-rule="evenodd" d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.59c.4.07.55-.17.55-.38
                  0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94
                  -.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21
                  1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95
@@ -1498,45 +2124,50 @@ Thu ▂  Fri ▇  Sat ▇  Sun ▇  Mon ▇  Tue ▇
                  2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82
                  1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54
                  1.48 0 1.07-.01 1.93-.01 2.19 0 .21.15.46.55.38A8.01 8.01 0
-                 0016 8c0-4.42-3.58-8-8-8z"/>
-      </svg>
-      <strong>github.com/revo2wheels</strong>
-    </a>
-    
-    <p class="muted" style="margin-top:1rem; text-align:Left;">
-      Built with ❤️ for endurance athletes — by <strong>Clive King</strong>.<br>
-      Powered by <a href="https://intervals.icu" target="_blank">Intervals.icu</a>, Cloudflare and the <a href="https://railway.com?referralCode=-xO_3x">Railway</a> Engine.
-    </p>
-    <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js" data-name="bmc-button" data-slug="revo2wheels" data-color="#FFDD00" data-emoji=""  data-font="Cookie" data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000" data-coffee-color="#ffffff" ></script>
-  </div>
-</section>
+                 0016 8c0-4.42-3.58-8-8-8z" />
+            </svg>
+            <strong>github.com/revo2wheels</strong>
+          </a>
+
+          <p class="muted" style="margin-top:1rem; text-align:Left;">
+            Built with ❤️ for endurance athletes — by <strong>Clive King</strong>.<br>
+            Powered by <a href="https://intervals.icu" target="_blank">Intervals.icu</a>, Cloudflare and the <a
+              href="https://railway.com?referralCode=-xO_3x">Railway</a> Engine.
+          </p>
+          <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
+            data-name="bmc-button" data-slug="revo2wheels" data-color="#FFDD00" data-emoji="" data-font="Cookie"
+            data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000"
+            data-coffee-color="#ffffff"></script>
+        </div>
+      </section>
 
 
 
-<!-- ===================================================
+      <!-- ===================================================
 🦶 FOOTER
 =================================================== -->
-<footer id="footer">
-  <p>
-    © 2026 Coach GPT App — Data-driven endurance intelligence.<br>
-    Powered by <a href="https://intervals.icu" target="_blank">Intervals.icu</a>
-    and the <a href="https://railway.com?referralCode=-xO_3x">Railway</a> Engine.
-  </p>
-  <a href="/privacy.html">Privacy & GDPR</a>
+      <footer id="footer">
+        <p>
+          © 2026 Coach GPT App — Data-driven endurance intelligence.<br>
+          Powered by <a href="https://intervals.icu" target="_blank">Intervals.icu</a>
+          and the <a href="https://railway.com?referralCode=-xO_3x">Railway</a> Engine.
+        </p>
+        <a href="/privacy.html">Privacy & GDPR</a>
 
-</footer>
+      </footer>
 
-<!-- ===================================================
+      <!-- ===================================================
 ⬆️ FLOATING BACK TO TOP BUTTON
 =================================================== -->
-<a href="#top" id="backTop" title="Back to top">⬆</a>
+      <a href="#top" id="backTop" title="Back to top">⬆</a>
 
-<script>
-window.addEventListener("scroll", () => {
-  const btn = document.getElementById("backTop");
-  btn.style.display = (window.scrollY > 400) ? "block" : "none";
-});
-</script>
+      <script>
+        window.addEventListener("scroll", () => {
+          const btn = document.getElementById("backTop");
+          btn.style.display = (window.scrollY > 400) ? "block" : "none";
+        });
+      </script>
 
 </body>
+
 </html>
