@@ -37,32 +37,148 @@
 
 
     <!-- ===================================================
-    ⚙️ CURRENT PIPELINE
-    ==================================================== -->
+⚙️ CURRENT ARCHITECTURE OVERVIEW
+=================================================== -->
     <section class="card">
       <h1>Unified Prefetch Architecture — v5.1 Design</h1>
       <p style="text-align:center;max-width:750px;margin:0 auto 2rem;">
-        The <strong>Coach GPT App</strong> now runs on a unified prefetch architecture that separates
-        <em>data retrieval</em>, <em>normalization</em>, and <em>semantic report generation</em>
-        across Cloudflare and Railway.
-        This ensures deterministic output, fixed schema contracts, and verifiable data lineage from
-        <strong>Intervals.icu</strong>.
+        The <strong>Coach GPT App</strong> operates on a deterministic,
+        authority-driven architecture separating
+        <em>measurement</em>, <em>interpretation</em>, <em>prescription</em>,
+        and <em>interface</em>.
+        <br><br>
+        Data integrity originates from <strong>Intervals.icu</strong>,
+        computation executes in Railway, and conversational rendering
+        never alters canonical truth.
       </p>
     </section>
 
     <section class="card" style="border-left:4px solid #22c55e;">
-      <h2>🟢 What Exists Today vs 🔵 What Comes Next</h2>
+      <h2>🧠 Strategy • 🟢 Technical • 🟠 Coaching • 🔵 LLM-Native</h2>
+
       <p>
-        The Coach GPT App is already fully operational today using a deterministic,
-        audited pipeline. The sections below distinguish between:
+        The system is intentionally divided into independent architectural layers,
+        each with a single responsibility and defined authority.
       </p>
+
       <ul>
-        <li><strong>🟢 Current Architecture</strong> — running in production now</li>
-        <li><strong>🔵 Future Architecture</strong> — planned evolution toward MCP-native, multi-LLM operation</li>
+        <li>
+          <strong>🧠 <a href="#strategy">Strategy & Philosophy</a></strong> —
+          Governing architectural doctrine. Defines authority boundaries and non-negotiable contracts for interpretation.
+        </li>
+
+        <li>
+          <strong>🟢 <a href="#technical-pipeline">Technical Pipeline</a></strong> —
+          Deterministic data ingestion, validation, aggregation,
+          and semantic serialization (URF v5.1). Immutable canonical outputs.
+        </li>
+
+        <li>
+          <strong>🟠 <a href="#coaching-pipeline">Coaching Intelligence Pipeline</a></strong> —
+          Structural performance modelling (Tier-3), progression analysis,
+          and deterministic adaptive prescription logic.
+        </li>
+
+        <li>
+          <strong>🔵 <a href="#llm-native-architecture">Future Technical Pipeline</a></strong> —
+          Model-agnostic conversational layer using MCP tools.
+          Renders insights without computing or mutating metrics.
+        </li>
       </ul>
+
+      <p style="margin-top:1rem;">
+        This separation enforces:
+      </p>
+
+      <ul>
+        <li><strong>Measurement Integrity</strong></li>
+        <li><strong>Transparent Decision Intelligence</strong></li>
+        <li><strong>Interface Abstraction Without Authority</strong></li>
+      </ul>
+
+      <p>
+        Conversational AI is a rendering layer — never a computational authority.
+      </p>
     </section>
 
-    <section class="card" style="border-left:4px solid #22c55e;">
+    <!-- ===================================================
+🧠 SYSTEM STRATEGY & PHILOSOPHY
+=================================================== -->
+    <section id="strategy" class="card" style="border-left:4px solid #a855f7;">
+
+      <h2>🧠 System Strategy & Architectural Philosophy</h2>
+
+      <p>
+        The Coach GPT App is engineered around strict authority separation.
+        No layer may override or recompute another layer’s outputs.
+      </p>
+
+      <hr>
+
+      <h3>🔒 Core Architectural Contract</h3>
+
+      <p>
+        <strong>Coaching logic never mutates canonical metrics.</strong><br>
+        Tier-1 and Tier-2 outputs are immutable and remain the single source of performance truth.
+      </p>
+
+      <ul>
+        <li>Measurement is deterministic and audited.</li>
+        <li>Interpretation is rule-based and traceable.</li>
+        <li>Prescription executes via a deterministic state engine.</li>
+        <li>LLMs render outcomes but never compute, infer, or adjust metrics.</li>
+      </ul>
+
+      <p>
+        This prevents metric drift, silent recomputation,
+        probabilistic coaching artifacts, and black-box behavior.
+      </p>
+
+      <hr>
+
+      <h3>🧱 Responsibility Separation Model</h3>
+
+      <div class="codeblock" style="font-family:'Courier New',monospace;font-size:0.85rem;overflow-x:auto;">
+        <pre>
+Measurement    → Technical Pipeline (Tier-0 / Tier-1 / Tier-2)
+Interpretation → Coaching Pipeline (Tier-3 Intelligence)
+Prescription   → Adaptive Decision Engine (Deterministic Rules)
+Interface      → LLM Rendering Layer (Read-Only)
+</pre>
+      </div>
+
+      <p>
+        No single layer owns more than one responsibility.
+        This structure enables auditability, stateless execution,
+        and predictable system evolution.
+      </p>
+
+      <hr>
+
+      <h3>🎯 Strategic Positioning</h3>
+
+      <p>
+        Unlike heuristic AI dashboards or machine-learning coaching engines,
+        this system does not invent, infer, or probabilistically manipulate performance metrics.
+      </p>
+
+      <ul>
+        <li>No hidden state</li>
+        <li>No probabilistic coaching inference</li>
+        <li>No language-model metric computation</li>
+        <li>No silent threshold adjustment</li>
+      </ul>
+
+      <p>
+        The result is a deterministic performance intelligence platform —
+        not a black-box AI coach.
+      </p>
+
+    </section>
+
+
+    <section id="technical-pipeline" class="card" style="border-left:4px solid #22c55e;">
+
       <h2>⚙️ Current Operational Pipeline (Production)</h2>
       <p class="muted">
         Status: <strong>Live</strong> • Used in production • Backward compatible
@@ -169,8 +285,9 @@
     <!-- ===================================================
 🧠 LLM-NATIVE ARCHITECTURE
 ==================================================== -->
-    <section class="card" style="border-left:4px solid #38bdf8;">
-      <h2>🧠 Future LLM-Native Architecture (Planned)</h2>
+    <section id="llm-native-architecture" class="card" style="border-left:4px solid #38bdf8;">
+
+      <h2>🧠 Future Technical Pipeline</h2>
 
       <table>
         <thead>
@@ -455,6 +572,177 @@
         <li>Same URF v5.1 semantic contract</li>
         <li>Same Intervals.icu data authority</li>
       </ul>
+      <h3>🎯 Decision Governance</h3>
+      <ul>
+        <li>The Adaptive Decision Engine is the sole prescriptive authority.</li>
+        <li>Tier-2 metrics provide diagnostic context.</li>
+        <li>Tier-3 synthesizes capability state.</li>
+        <li>LLMs never modify, override, or invent recommendations.</li>
+      </ul>
+    </section>
+
+
+
+
+    <!-- ===================================================
+🧠 COACHING PIPELINE
+=================================================== -->
+    <section id="coaching-pipeline" class="card" style="border-left:4px solid #f97316;">
+
+      <h2>🧠 Coaching Intelligence Pipeline (Performance Layer)</h2>
+
+      <p class="muted">
+        Status: <strong>Evolutionary (v6+)</strong> • Deterministic • Rule-based • No metric recomputation
+      </p>
+
+      <p>
+        The <strong>Coaching Pipeline</strong> operates strictly on validated canonical data
+        produced by the Technical Pipeline. It does <em>not</em> compute raw metrics.
+        It transforms trusted semantic inputs into structured performance intelligence
+        and deterministic training decisions.
+      </p>
+
+      <hr>
+
+      <div class="codeblock"
+        style="font-family:'Courier New',monospace;font-size:0.9rem;overflow-x:auto;text-align:center;">
+        <pre>
+CANONICAL SEMANTIC DATA (URF v5.1)
+                │
+                ▼
+Tier-3A: Stress Intelligence
+(WDRM / ISDM / NDLI)
+                │
+                ▼
+Tier-3B: Progression Intelligence
+(ESPE — Energy System Progression)
+                │
+                ▼
+Adaptive Decision Engine (ADE)
+                │
+                ▼
+COACHING SEMANTIC LAYER (v6)
+                │
+                ▼
+Final Structured Report (Athlete + Coach Modes)
+</pre>
+      </div>
+
+      <hr>
+
+      <h3>🔍 Stage 1 — Stress Intelligence</h3>
+      <p>
+        Evaluates how the athlete is expressing training load under fatigue.
+      </p>
+      <ul>
+        <li><strong>WDRM</strong> — Anaerobic repeatability and W′ depletion behavior</li>
+        <li><strong>ISDM</strong> — Durability and fatigue resistance</li>
+        <li><strong>NDLI</strong> — Neural load density and intensity clustering</li>
+      </ul>
+      <p>
+        Answers: <em>“Can the athlete tolerate additional stress?”</em>
+      </p>
+
+      <hr>
+
+      <h3>📈 Stage 2 — Progression Intelligence (ESPE)</h3>
+      <p>
+        Tracks energy system progression using power curves and structural signals.
+      </p>
+      <ul>
+        <li>Endurance (60min trend)</li>
+        <li>Threshold (20min trend)</li>
+        <li>VO₂ Capacity (5min trend)</li>
+        <li>Anaerobic Repeatability (1min + W′ behavior)</li>
+      </ul>
+      <p>
+        Answers: <em>“Is current training producing adaptation?”</em>
+      </p>
+
+      <hr>
+
+      <h3>🧭 Stage 3 — Adaptive Decision Engine (ADE)</h3>
+      <p>
+        Applies deterministic, rule-based logic to produce structured prescription guidance.
+      </p>
+
+      <div class="codeblock" style="font-family:'Courier New',monospace;font-size:0.85rem;overflow-x:auto;">
+        <pre>
+IF:
+  Neural density high
+  AND Repeatability decreasing
+  AND FatigueTrend elevated
+THEN:
+  Reduce VO2 duration 15%
+  Convert tempo → endurance
+  Insert OFF day
+</pre>
+      </div>
+      <p>
+        No GPT improvisation. No hidden logic.
+        Rules are executed inside Railway and serialized into the semantic graph.
+      </p>
+      <hr>
+
+      <h3>🧠 Training State Machine</h3>
+
+      <p>
+        All prescription logic is governed by a deterministic training state model.
+        The system cannot prescribe progression outside the current state.
+      </p>
+
+      <div class="codeblock" style="font-family:'Courier New',monospace;font-size:0.85rem;overflow-x:auto;">
+        <pre>
+Training State Machine:
+  Stable → Progress
+  Dense → Absorb
+  Strain → Consolidate
+  Overreached → Recover
+</pre>
+      </div>
+
+      <p>
+        The state machine governs intensity permission and load progression.
+        It ensures Tier-2 diagnostics cannot override Tier-3 state.
+      </p>
+
+      <hr>
+
+      <h3>📦 Coaching Semantic Output (v6)</h3>
+
+      <div class="codeblock" style="font-family:'Courier New',monospace;font-size:0.85rem;overflow-x:auto;">
+        <pre>
+adaptive_layer:
+  readiness_state
+  progression_state
+  neural_state
+  durability_state
+  prescription_adjustment
+</pre>
+      </div>
+
+      <p>
+        This structured block feeds both:
+      </p>
+      <ul>
+        <li><strong>Athlete Mode</strong> — Clear readiness + next action</li>
+        <li><strong>Coach Mode</strong> — Deep structural diagnostics</li>
+      </ul>
+
+      <hr>
+
+      <h3>🔐 Architectural Guarantees</h3>
+      <ul>
+        <li><strong>No recomputation</strong> of canonical metrics</li>
+        <li><strong>No mutation</strong> of Tier-1 or Tier-2 outputs</li>
+        <li><strong>No hidden state</strong> — fully stateless execution</li>
+        <li><strong>No LLM authority</strong> over prescription logic</li>
+      </ul>
+
+      <p>
+        The Coaching Pipeline interprets — it never invents.
+      </p>
+
     </section>
 
 
@@ -508,5 +796,16 @@
 
     </footer>
 </body>
+<!-- ===================================================
+⬆️ FLOATING BACK TO TOP BUTTON
+=================================================== -->
+<a href="#top" id="backTop" title="Back to top">⬆</a>
+
+<script>
+  window.addEventListener("scroll", () => {
+    const btn = document.getElementById("backTop");
+    btn.style.display = (window.scrollY > 400) ? "block" : "none";
+  });
+</script>
 
 </html>
