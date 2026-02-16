@@ -257,17 +257,19 @@ nav a:hover {
 =================================================== */
 section {
   max-width: 1000px;
-  margin: 2rem auto;
+  margin: 0 auto;
   padding: 0;
-  box-sizing: border-box;
 }
+
 .card {
   background: #fff;
-  padding: 1.75rem;
-  margin-bottom: 2rem;
-  border-radius: 10px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.08);
+  padding: 2.25rem;
+  margin-bottom: 5rem;   /* was 2–3rem */
+  border-radius: 14px;
+  box-shadow: 0 12px 35px rgba(15, 23, 42, 0.06);
 }
+
+
 h2, h3 {
   font-family: "Segoe UI", Arial, sans-serif;
   font-weight: 700;
@@ -280,7 +282,12 @@ h3 { font-size: 1.2rem; margin-bottom: 0.75rem; }
 p { margin-bottom: 0.75rem; line-height: 1.6; }
 ul, ol { margin-left: 1.2rem; }
 ul li, ol li { margin-bottom: 0.4rem; }
-hr { border: none; border-top: 1px solid #e5e7eb; margin: 1.5rem 0; }
+hr {
+  border: none;
+  border-top: 1px solid rgba(56, 189, 248, 0.35);
+  margin: 2rem 0;
+}
+
 
 /* Base (desktop + default) */
 blockquote {
