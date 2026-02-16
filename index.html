@@ -325,42 +325,43 @@
     <h2>🧭 Quick Start — Coach Tips</h2>
 
     <ol class="coach-tips-list">
-      <li><strong>Install the GPT App:</strong>
+      <li>
+        <strong>Open the App:</strong>
+        Launch
         <a href="https://chatgpt.com/g/g-6933fc6bcd008191bb52885be4d1927c-intervals-icu-coach-v5-railway-t2-engine"
           target="_blank">
-          Intervals ICU Coach V5</a> (v3 is now deprecated)
+          Intervals ICU Coach V5
+        </a>.
       </li>
-      <li>If you are having trouble see this <a href="setup.html">setup guide</a> for first time</li>
-      <li><strong>First time setup:</strong> You’ll be redirected to
-        <code>intervalsicugptcoach.clive-a5a.workers.dev</code> for secure OAuth authorization. Sign in, approve
-        access,
-        and return to ChatGPT.
+
+      <li>
+        <strong>First time?</strong>
+        Follow the <a href="setup.html">Setup Guide</a> to complete secure OAuth authorization.
       </li>
-      <li><strong>Your data is safe:</strong> No credentials or data are stored — the app exchanges Intervals.icu data
-        via tokenized access only.</li>
-      <li><strong>OAuth:</strong> Enables secure account linking without passwords or API keys.</li>
-      <li><strong>Confirm Intervals.icu connection:</strong> Type “Connection active” before your first report to
-        verify
-        integration.</li>
-      <li><strong>FTP, age, and zones:</strong> These are auto-retrieved from Intervals.icu (defaults to 35 years old
-        if
-        not set).</li>
-      <li><strong>Log subjective data:</strong> Sleep, mood, fatigue, soreness, hydration — these enhance report
-        accuracy and wellness alignment.</li>
-      <li><strong>Keep FTP and zones current:</strong> Re-test every 6 weeks or after major training blocks.</li>
-      <li><strong>Use precise commands:</strong> e.g. “Run a weekly report (7 days)” or “Run a wellness report (42
-        days)”.</li>
-      <li><strong>Ask explainer questions:</strong> “What does ACWR mean?” or “Explain Monotony and Strain.”</li>
-      <li><strong>Check for data sync issues:</strong> If reports return blanks, confirm your Intervals.icu activity
-        privacy settings allow API access.</li>
-      <li><strong>Optional advanced use:</strong> Ask for “Fatigue forecast”, “Metabolic report”, or “Race readiness
-        check” to trigger extended analysis modes.</li>
+
+      <li>
+        <strong>Run a Data Quality Check:</strong>
+        Type <em>“Run a data quality audit”</em> to confirm your Intervals.icu data,
+        FTP, zones, HRV, and wellness markers are syncing <a href="#strava-note" class="note-ref">correctly. ⓘ</a>
+      </li>
+
+      <li>
+        <strong>Generate your first report:</strong>
+        Type <em>“Run a weekly report”</em>
+        or <em>“Run a wellness report”</em>.
+      </li>
+
+      <li>
+        <strong>Unlock Intelligence:</strong>
+        Ask <em>“Show Performance Intelligence”</em>
+        or <em>“Create a 7–10 day forecast plan.”</em>
+      </li>
     </ol>
 
     <p class="muted">
-      💡 Pro Tip: Add subjective logs in Intervals.icu (mood, soreness, stress) for richer coaching intelligence and
-      better URF alignment.
+      💡 Tip: Keep FTP updated and log sleep/mood in Intervals.icu for higher signal accuracy.
     </p>
+
 
     <hr>
 
@@ -379,17 +380,22 @@
     </ul>
 
     <p class="muted-left">
-      Best for advanced users who want full control over model choice, cost, or output style, but remember you don't get the advantage of natural chat response, its pure input and output. However, its a useful demonstration to illustrate we can connect to any LLM of choice.
+      Best for advanced users who want full control over model choice, cost, or output style, but remember you don't get
+      the advantage of natural chat response, its pure input and output. However, its a useful demonstration to
+      illustrate we can connect to any LLM of choice.
     </p>
 
 
-    <p class="muted-left">
-      IMPORTANT NOTE: Please be aware that because of STRAVA API policy intervals.icu cannot share any STRAVA sourced
+    <p id="strava-note" class="muted-left">
+      <strong>IMPORTANT NOTE:</strong> Please be aware that because of STRAVA API policy intervals.icu cannot share any
+      STRAVA sourced
       data with third parties.
       This is otherwise fine for Garmin, Wahoo, Zwift etc, and FIT file uploads to Intevals.ICU - please connect these
       to your intervals.icu profile. After you have connected a proper source
-      import all your activities from Strava, this is not subject to API terms! see <A
-        href="https://forum.intervals.icu/t/import-all-data-from-strava/81068">Import all Your data from Strava</A>
+      import all your activities from Strava, this is not subject to API terms! see
+      <a href="https://forum.intervals.icu/t/import-all-data-from-strava/81068">
+        Import all Your data from Strava
+      </a>
     </p>
   </section>
   </section>
@@ -1997,316 +2003,316 @@ Thu ▂  Fri ▇  Sat ▇  Sun ▇  Mon ▇  Tue ▇
         Friel Periodisation, San Millán metabolic modeling
       </li>
     </ul>
-</section> 
+  </section>
 
-    <!-- ===================================================
+  <!-- ===================================================
 🧭 COACH FRAMEWORK MODEL REFERENCE
 =================================================== -->
-    <section id="coach" class="card">
+  <section id="coach" class="card">
 
-      <h2>🧭 Coach Framework Model Reference</h2>
+    <h2>🧭 Coach Framework Model Reference</h2>
 
-      <p>
-        The Coach operates as a multi-framework inference engine.
-        Each physiological model contributes structured signals that are
-        blended, weighted, and resolved deterministically within URF.
-      </p>
-      <p>
-        Tier-3 structural markers (WDRM, ISDM, NDLI) are derived extensions
-        of established endurance physiology frameworks — including Critical Power,
-        cardiovascular drift research, and CNS fatigue models —
-        applied to multi-session load interpretation.
+    <p>
+      The Coach operates as a multi-framework inference engine.
+      Each physiological model contributes structured signals that are
+      blended, weighted, and resolved deterministically within URF.
+    </p>
+    <p>
+      Tier-3 structural markers (WDRM, ISDM, NDLI) are derived extensions
+      of established endurance physiology frameworks — including Critical Power,
+      cardiovascular drift research, and CNS fatigue models —
+      applied to multi-session load interpretation.
+    </p>
+
+    <div class="overflow-x-auto">
+      <table>
+        <thead>
+          <tr>
+            <th>Model Reference</th>
+            <th>Framework Link</th>
+            <th>Metric Source</th>
+            <th>Output Type</th>
+            <th>Coaching Role</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Seiler Polarisation</strong></td>
+            <td>Intensity Framework</td>
+            <td>Z1–Z3%</td>
+            <td>Polarisation Ratio</td>
+            <td>Validates 80/20 intensity distribution</td>
+          </tr>
+          <tr>
+            <td><strong>Banister Fitness–Fatigue</strong></td>
+            <td>Load Adaptation</td>
+            <td>ATL, CTL, TSB</td>
+            <td>Training Load Model</td>
+            <td>Models fitness–fatigue impulse response and adaptation balance</td>
+          </tr>
+          <tr>
+            <td><strong>Coggan Power–Duration</strong></td>
+            <td>Efficiency Framework</td>
+            <td>FTP, Power Curve</td>
+            <td>Efficiency Factor</td>
+            <td>Tracks metabolic endurance and fatigue resistance</td>
+          </tr>
+          <tr>
+            <td><strong>Foster Overtraining</strong></td>
+            <td>Recovery Alignment</td>
+            <td>Strain, Monotony</td>
+            <td>Overtraining Index</td>
+            <td>Quantifies cumulative stress risk using monotony × strain dynamics</td>
+          </tr>
+          <tr>
+            <td><strong>San Millán Metabolic</strong></td>
+            <td>Metabolic Efficiency</td>
+            <td>FatOx Index</td>
+            <td>Mito Efficiency</td>
+            <td>Evaluates fat utilization and Zone 2 economy</td>
+          </tr>
+          <tr>
+            <td><strong>Noakes Central Governor</strong></td>
+            <td>Readiness Forecast</td>
+            <td>HRV × RPE</td>
+            <td>CNS Fatigue Index</td>
+            <td>Detects neural fatigue and motivational readiness</td>
+          </tr>
+          <tr>
+            <td><strong>Skiba Critical Power</strong></td>
+            <td>Performance Integration</td>
+            <td>CP, W′</td>
+            <td>Fatigue Decay Curve</td>
+            <td>Predicts endurance performance limits</td>
+          </tr>
+          <tr>
+            <td><strong>Mujika Tapering</strong></td>
+            <td>Periodisation</td>
+            <td>Load % Reduction</td>
+            <td>Taper Efficiency</td>
+            <td>Optimizes pre-event tapering blocks</td>
+          </tr>
+          <tr>
+            <td><strong>Friel Training Stress</strong></td>
+            <td>Consistency Framework</td>
+            <td>TSS, Compliance</td>
+            <td>Adherence Score</td>
+            <td>Validates plan execution and load control</td>
+          </tr>
+          <tr>
+            <td><strong>Sandbakk–Holmberg Integration</strong></td>
+            <td>Action Generation</td>
+            <td>Multi-framework synthesis</td>
+            <td>Adaptive Action Score</td>
+            <td>Produces holistic, actionable coaching feedback</td>
+          </tr>
+          <tr>
+            <td><strong>Skiba + Critical Power Extension</strong></td>
+            <td>W′ Depletion & Recovery Modelling</td>
+            <td>W′ Balance, Joules > FTP</td>
+            <td>Anaerobic Repeatability State (WDRM)</td>
+            <td>Evaluates supra-threshold repeatability under fatigue</td>
+          </tr>
+
+          <tr>
+            <td><strong>Cardiovascular Drift Theory</strong></td>
+            <td>Durability & Decoupling</td>
+            <td>Power–HR Decoupling %, Drift Exposure</td>
+            <td>Durability State (ISDM)</td>
+            <td>Measures aerobic stability under prolonged load</td>
+          </tr>
+
+          <tr>
+            <td><strong>Noakes + CNS Fatigue Models</strong></td>
+            <td>Neural Load Regulation</td>
+            <td>IF Density, Intensity Clustering</td>
+            <td>Neural Density State (NDLI)</td>
+            <td>Detects central fatigue and intensity stacking risk</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <hr>
+
+    <p class="muted-center">
+      The Coach V5 functions as a <strong>deterministic multi-framework inference engine</strong> —
+      blending classical endurance physiology, structural capability modelling,
+      and adaptive load dynamics into a unified decision layer.
+    </p>
+
+  </section>
+
+  <!-- ===================================================
+🧩 COACHING MARKERS MONITORED (FULL STACK - UNIFIED FORMAT)
+=================================================== -->
+  <section id="markers" class="card">
+    <h2>🧩 Coaching Markers Monitored — Full URF v5.1 Stack</h2>
+    <p>
+      The <strong>Coach GPT V5</strong> engine continuously monitors a multidimensional suite of
+      <strong>42+ coaching markers</strong> across physiological, psychological, and metabolic domains.
+      These metrics are structured into <strong>three tiers</strong> within the
+      <em>Unified Reporting Framework (URF v5.1)</em>.
+    </p>
+
+    <hr>
+
+    <!-- Tier 1 -->
+    <details open>
+      <summary>🧭 Tier-1 Core Coaching Markers (32 active)</summary>
+      <p>Primary load, recovery, metabolic, and readiness metrics — continuously monitored across all report types.
       </p>
 
       <div class="overflow-x-auto">
         <table>
           <thead>
             <tr>
-              <th>Model Reference</th>
-              <th>Framework Link</th>
-              <th>Metric Source</th>
-              <th>Output Type</th>
-              <th>Coaching Role</th>
+              <th>Domain</th>
+              <th>Markers</th>
+              <th>Purpose</th>
             </tr>
           </thead>
           <tbody>
             <tr>
-              <td><strong>Seiler Polarisation</strong></td>
-              <td>Intensity Framework</td>
-              <td>Z1–Z3%</td>
-              <td>Polarisation Ratio</td>
-              <td>Validates 80/20 intensity distribution</td>
+              <td><strong>Load & Performance</strong></td>
+              <td>CTL, ATL, TSB, TSS, ACWR, Monotony, Strain, LIR, Fatigue Trend</td>
+              <td>Measure training load, balance, and adaptation trends.</td>
             </tr>
             <tr>
-              <td><strong>Banister Fitness–Fatigue</strong></td>
-              <td>Load Adaptation</td>
-              <td>ATL, CTL, TSB</td>
-              <td>Training Load Model</td>
-              <td>Models fitness–fatigue impulse response and adaptation balance</td>
+              <td><strong>Wellness & Recovery</strong></td>
+              <td>Recovery Index, HRV, Resting HR, Sleep Score, Sleep Duration, Stress Tolerance, Mood, Soreness
+              </td>
+              <td>Assess physiological recovery and psychological readiness.</td>
             </tr>
             <tr>
-              <td><strong>Coggan Power–Duration</strong></td>
-              <td>Efficiency Framework</td>
-              <td>FTP, Power Curve</td>
-              <td>Efficiency Factor</td>
-              <td>Tracks metabolic endurance and fatigue resistance</td>
+              <td><strong>Metabolic Efficiency</strong></td>
+              <td>FatOx, MES, EF, Efficiency Drift %, Fatigue Resistance, Z2 Stability</td>
+              <td>Evaluate aerobic durability and energy system balance.</td>
             </tr>
             <tr>
-              <td><strong>Foster Overtraining</strong></td>
-              <td>Recovery Alignment</td>
-              <td>Strain, Monotony</td>
-              <td>Overtraining Index</td>
-              <td>Quantifies cumulative stress risk using monotony × strain dynamics</td>
+              <td><strong>Periodisation</strong></td>
+              <td>Block Phase, Taper Efficiency, Consistency Score, Durability Index, Adaptation Ratio</td>
+              <td>Track training phase progression and long-term load control.</td>
             </tr>
             <tr>
-              <td><strong>San Millán Metabolic</strong></td>
-              <td>Metabolic Efficiency</td>
-              <td>FatOx Index</td>
-              <td>Mito Efficiency</td>
-              <td>Evaluates fat utilization and Zone 2 economy</td>
+              <td><strong>Readiness & CNS</strong></td>
+              <td>CNS Fatigue Index, Motivation Stability, Readiness Forecast</td>
+              <td>Measure neural recovery and performance readiness.</td>
             </tr>
             <tr>
-              <td><strong>Noakes Central Governor</strong></td>
-              <td>Readiness Forecast</td>
-              <td>HRV × RPE</td>
-              <td>CNS Fatigue Index</td>
-              <td>Detects neural fatigue and motivational readiness</td>
-            </tr>
-            <tr>
-              <td><strong>Skiba Critical Power</strong></td>
-              <td>Performance Integration</td>
-              <td>CP, W′</td>
-              <td>Fatigue Decay Curve</td>
-              <td>Predicts endurance performance limits</td>
-            </tr>
-            <tr>
-              <td><strong>Mujika Tapering</strong></td>
-              <td>Periodisation</td>
-              <td>Load % Reduction</td>
-              <td>Taper Efficiency</td>
-              <td>Optimizes pre-event tapering blocks</td>
-            </tr>
-            <tr>
-              <td><strong>Friel Training Stress</strong></td>
-              <td>Consistency Framework</td>
-              <td>TSS, Compliance</td>
-              <td>Adherence Score</td>
-              <td>Validates plan execution and load control</td>
-            </tr>
-            <tr>
-              <td><strong>Sandbakk–Holmberg Integration</strong></td>
-              <td>Action Generation</td>
-              <td>Multi-framework synthesis</td>
-              <td>Adaptive Action Score</td>
-              <td>Produces holistic, actionable coaching feedback</td>
-            </tr>
-            <tr>
-              <td><strong>Skiba + Critical Power Extension</strong></td>
-              <td>W′ Depletion & Recovery Modelling</td>
-              <td>W′ Balance, Joules > FTP</td>
-              <td>Anaerobic Repeatability State (WDRM)</td>
-              <td>Evaluates supra-threshold repeatability under fatigue</td>
-            </tr>
-
-            <tr>
-              <td><strong>Cardiovascular Drift Theory</strong></td>
-              <td>Durability & Decoupling</td>
-              <td>Power–HR Decoupling %, Drift Exposure</td>
-              <td>Durability State (ISDM)</td>
-              <td>Measures aerobic stability under prolonged load</td>
-            </tr>
-
-            <tr>
-              <td><strong>Noakes + CNS Fatigue Models</strong></td>
-              <td>Neural Load Regulation</td>
-              <td>IF Density, Intensity Clustering</td>
-              <td>Neural Density State (NDLI)</td>
-              <td>Detects central fatigue and intensity stacking risk</td>
+              <td><strong>Holistic Actions</strong></td>
+              <td>Adaptive Action Score, Action State 🟢🟠🔴, Trend Confidence %</td>
+              <td>Generate adaptive feedback and actionable coaching guidance.</td>
             </tr>
           </tbody>
         </table>
       </div>
+    </details>
 
-      <hr>
+    <!-- Tier 2 -->
+    <details>
+      <summary>🧮 Tier-2 Derived / Conditional Markers (+7 if present)</summary>
+      <p>Derived from device integrations (Garmin, HRV4, Whoop) or advanced load models; used to refine URF
+        analytics.</p>
 
-      <p class="muted-center">
-        The Coach V5 functions as a <strong>deterministic multi-framework inference engine</strong> —
-        blending classical endurance physiology, structural capability modelling,
-        and adaptive load dynamics into a unified decision layer.
-      </p>
+      <div class="overflow-x-auto">
+        <table>
+          <thead>
+            <tr>
+              <th>Marker</th>
+              <th>Source / Dependency</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>VO₂ Estimation (VO₂eff)</strong></td>
+              <td>Garmin or power–HR model</td>
+              <td>Cardiorespiratory efficiency trend</td>
+            </tr>
+            <tr>
+              <td><strong>Intensity Factor (IF)</strong></td>
+              <td>Power data (FTP defined)</td>
+              <td>Session intensity relative to threshold</td>
+            </tr>
+            <tr>
+              <td><strong>Session RPE (sRPE)</strong></td>
+              <td>Manual / subjective input</td>
+              <td>Perceived load calibration (TSS × RPE)</td>
+            </tr>
+            <tr>
+              <td><strong>Sleep Debt Index</strong></td>
+              <td>Wellness logs (Sleep vs Target)</td>
+              <td>Quantifies chronic recovery deficit</td>
+            </tr>
+            <tr>
+              <td><strong>HRV-SDNN / RMSSD</strong></td>
+              <td>HRV4Training / Whoop API</td>
+              <td>Autonomic variance for deeper readiness precision</td>
+            </tr>
+            <tr>
+              <td><strong>Glycogen Depletion Score</strong></td>
+              <td>Power × Duration × IF model</td>
+              <td>Estimates carbohydrate utilisation</td>
+            </tr>
+            <tr>
+              <td><strong>Hydration Score</strong></td>
+              <td>Body weight & HR trend</td>
+              <td>Detects dehydration or plasma volume shifts</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
 
-    </section>
-
-    <!-- ===================================================
-🧩 COACHING MARKERS MONITORED (FULL STACK - UNIFIED FORMAT)
-=================================================== -->
-    <section id="markers" class="card">
-      <h2>🧩 Coaching Markers Monitored — Full URF v5.1 Stack</h2>
+    <!-- Tier 3 -->
+    <details>
+      <summary>🧠 Tier-3 Performance Intelligence (Structural Capability Modeling +3)</summary>
       <p>
-        The <strong>Coach GPT V5</strong> engine continuously monitors a multidimensional suite of
-        <strong>42+ coaching markers</strong> across physiological, psychological, and metabolic domains.
-        These metrics are structured into <strong>three tiers</strong> within the
-        <em>Unified Reporting Framework (URF v5.1)</em>.
+        Tier-3 introduces structural capability modeling — evaluating how fitness behaves under stress,
+        not just how much load is accumulated.
       </p>
 
-      <hr>
-
-      <!-- Tier 1 -->
-      <details open>
-        <summary>🧭 Tier-1 Core Coaching Markers (32 active)</summary>
-        <p>Primary load, recovery, metabolic, and readiness metrics — continuously monitored across all report types.
-        </p>
-
-        <div class="overflow-x-auto">
-          <table>
-            <thead>
-              <tr>
-                <th>Domain</th>
-                <th>Markers</th>
-                <th>Purpose</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>Load & Performance</strong></td>
-                <td>CTL, ATL, TSB, TSS, ACWR, Monotony, Strain, LIR, Fatigue Trend</td>
-                <td>Measure training load, balance, and adaptation trends.</td>
-              </tr>
-              <tr>
-                <td><strong>Wellness & Recovery</strong></td>
-                <td>Recovery Index, HRV, Resting HR, Sleep Score, Sleep Duration, Stress Tolerance, Mood, Soreness
-                </td>
-                <td>Assess physiological recovery and psychological readiness.</td>
-              </tr>
-              <tr>
-                <td><strong>Metabolic Efficiency</strong></td>
-                <td>FatOx, MES, EF, Efficiency Drift %, Fatigue Resistance, Z2 Stability</td>
-                <td>Evaluate aerobic durability and energy system balance.</td>
-              </tr>
-              <tr>
-                <td><strong>Periodisation</strong></td>
-                <td>Block Phase, Taper Efficiency, Consistency Score, Durability Index, Adaptation Ratio</td>
-                <td>Track training phase progression and long-term load control.</td>
-              </tr>
-              <tr>
-                <td><strong>Readiness & CNS</strong></td>
-                <td>CNS Fatigue Index, Motivation Stability, Readiness Forecast</td>
-                <td>Measure neural recovery and performance readiness.</td>
-              </tr>
-              <tr>
-                <td><strong>Holistic Actions</strong></td>
-                <td>Adaptive Action Score, Action State 🟢🟠🔴, Trend Confidence %</td>
-                <td>Generate adaptive feedback and actionable coaching guidance.</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </details>
-
-      <!-- Tier 2 -->
-      <details>
-        <summary>🧮 Tier-2 Derived / Conditional Markers (+7 if present)</summary>
-        <p>Derived from device integrations (Garmin, HRV4, Whoop) or advanced load models; used to refine URF
-          analytics.</p>
-
-        <div class="overflow-x-auto">
-          <table>
-            <thead>
-              <tr>
-                <th>Marker</th>
-                <th>Source / Dependency</th>
-                <th>Purpose</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>VO₂ Estimation (VO₂eff)</strong></td>
-                <td>Garmin or power–HR model</td>
-                <td>Cardiorespiratory efficiency trend</td>
-              </tr>
-              <tr>
-                <td><strong>Intensity Factor (IF)</strong></td>
-                <td>Power data (FTP defined)</td>
-                <td>Session intensity relative to threshold</td>
-              </tr>
-              <tr>
-                <td><strong>Session RPE (sRPE)</strong></td>
-                <td>Manual / subjective input</td>
-                <td>Perceived load calibration (TSS × RPE)</td>
-              </tr>
-              <tr>
-                <td><strong>Sleep Debt Index</strong></td>
-                <td>Wellness logs (Sleep vs Target)</td>
-                <td>Quantifies chronic recovery deficit</td>
-              </tr>
-              <tr>
-                <td><strong>HRV-SDNN / RMSSD</strong></td>
-                <td>HRV4Training / Whoop API</td>
-                <td>Autonomic variance for deeper readiness precision</td>
-              </tr>
-              <tr>
-                <td><strong>Glycogen Depletion Score</strong></td>
-                <td>Power × Duration × IF model</td>
-                <td>Estimates carbohydrate utilisation</td>
-              </tr>
-              <tr>
-                <td><strong>Hydration Score</strong></td>
-                <td>Body weight & HR trend</td>
-                <td>Detects dehydration or plasma volume shifts</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </details>
-
-      <!-- Tier 3 -->
-      <details>
-        <summary>🧠 Tier-3 Performance Intelligence (Structural Capability Modeling +3)</summary>
-        <p>
-          Tier-3 introduces structural capability modeling — evaluating how fitness behaves under stress,
-          not just how much load is accumulated.
-        </p>
-
-        <div class="overflow-x-auto">
-          <table>
-            <thead>
-              <tr>
-                <th>Model</th>
-                <th>Core Signals</th>
-                <th>Purpose</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td><strong>WDRM — Anaerobic Repeatability</strong></td>
-                <td>W′ depletion %, high-depletion sessions, joules above FTP</td>
-                <td>Measures repeatable supra-threshold resilience</td>
-              </tr>
-              <tr>
-                <td><strong>ISDM — Durability</strong></td>
-                <td>Decoupling, high-drift sessions, long-session load</td>
-                <td>Evaluates fatigue resistance and power stability</td>
-              </tr>
-              <tr>
-                <td><strong>NDLI — Neural Density</strong></td>
-                <td>Rolling joules > FTP, intensity clustering, IF density</td>
-                <td>Detects CNS strain and intensity stacking</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-      </details>
+      <div class="overflow-x-auto">
+        <table>
+          <thead>
+            <tr>
+              <th>Model</th>
+              <th>Core Signals</th>
+              <th>Purpose</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>WDRM — Anaerobic Repeatability</strong></td>
+              <td>W′ depletion %, high-depletion sessions, joules above FTP</td>
+              <td>Measures repeatable supra-threshold resilience</td>
+            </tr>
+            <tr>
+              <td><strong>ISDM — Durability</strong></td>
+              <td>Decoupling, high-drift sessions, long-session load</td>
+              <td>Evaluates fatigue resistance and power stability</td>
+            </tr>
+            <tr>
+              <td><strong>NDLI — Neural Density</strong></td>
+              <td>Rolling joules > FTP, intensity clustering, IF density</td>
+              <td>Detects CNS strain and intensity stacking</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </details>
 
 
-      <hr>
+    <hr>
 
-      <p class="muted" style="text-align:left;">
-        🧩 <strong>Total Monitored Markers:</strong>
-        Tier-1 (32) + Tier-2 (7) + Tier-3 (3) → <strong>42+</strong><br>
-        Weighted dynamically across report types (Weekly • Seasonal • Wellness • Summary)
-        via the URF adaptive relevance model.
-      </p>
-    </section>
+    <p class="muted" style="text-align:left;">
+      🧩 <strong>Total Monitored Markers:</strong>
+      Tier-1 (32) + Tier-2 (7) + Tier-3 (3) → <strong>42+</strong><br>
+      Weighted dynamically across report types (Weekly • Seasonal • Wellness • Summary)
+      via the URF adaptive relevance model.
+    </p>
+  </section>
   </section>
 
 
