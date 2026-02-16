@@ -64,6 +64,96 @@ nav a:hover {
 }
 
 /* ===================================================
+🚀 PERFORMANCE LOOP HIGHLIGHT
+=================================================== */
+
+.highlight {
+  display: inline-block;
+  margin: 1rem 0 1.25rem 0;
+  padding: 0.6rem 1.1rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.04em;
+  border-radius: 999px;
+  background: linear-gradient(90deg, #2563eb, #38bdf8);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(37, 99, 235, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.highlight:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(37, 99, 235, 0.35);
+}
+
+/* Slightly tighter on mobile */
+@media (max-width: 600px) {
+  .highlight {
+    font-size: 0.85rem;
+    padding: 0.5rem 0.9rem;
+  }
+}
+
+/* ===================================================
+🚀 PERFORMANCE PIPELINE
+=================================================== */
+
+.pipeline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  margin: 1.5rem 0;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.pipeline span {
+  padding: 0.45rem 0.9rem;
+  border-radius: 6px;
+  background: #f0f9ff;
+  border: 1px solid #38bdf8;
+  color: #2563eb;
+  transition: all 0.25s ease;
+}
+
+.pipeline span.arrow {
+  background: transparent;
+  border: none;
+  padding: 0;
+  font-weight: 700;
+  color: #9ca3af;
+}
+
+.pipeline span:hover:not(.arrow) {
+  background: #2563eb;
+  color: #fff;
+  transform: translateY(-2px);
+}
+
+.pipeline span {
+  position: relative;
+  overflow: hidden;
+}
+
+.pipeline span::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(56,189,248,0.3), transparent);
+  animation: flow 4s infinite;
+}
+
+@keyframes flow {
+  0% { left: -100%; }
+  100% { left: 100%; }
+}
+
+/* ===================================================
 📦 SECTION & CARD LAYOUT
 =================================================== */
 section {
