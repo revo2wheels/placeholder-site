@@ -153,6 +153,27 @@ nav a:hover {
   100% { left: 100%; }
 }
 
+#Questions summary {
+  font-weight: 600;
+  font-size: 0.98rem;
+  cursor: pointer;
+  padding: 6px 0;
+}
+
+#Questions summary:hover {
+  color: #38bdf8;
+}
+
+.qnum {
+  font-weight: 700;
+  margin-right: 6px;
+  color: #94a3b8;
+}
+
+.qnum.elite {
+  color: #f59e0b; /* subtle gold tone for elite tier */
+}
+
 /* ===================================================
 📦 SECTION & CARD LAYOUT
 =================================================== */
