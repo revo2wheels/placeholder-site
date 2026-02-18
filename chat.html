@@ -453,6 +453,46 @@ details p { padding: 0.5rem 0.75rem; margin: 0; }
   text-decoration: underline;
 }
 
+.loading-message {
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-align: center;
+  padding: 30px 0;
+  color: #2563eb;
+}
+
+#analysisOutput h1,
+#analysisOutput h2,
+#analysisOutput h3 {
+  margin-top: 1.2rem;
+}
+
+#analysisOutput ul {
+  margin-left: 1.2rem;
+}
+
+#analysisOutput pre {
+  background: #0f172a;
+  color: #e5e7eb;
+  padding: 12px 14px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-size: 0.85rem;
+  line-height: 1.4;
+  margin: 12px 0;
+}
+
+#analysisOutput code {
+  font-family: "Courier New", monospace;
+}
+#analysisOutput {
+  text-align: left;
+  max-width: 100%;
+  overflow-x: hidden;
+}
+
+
+
 /* ===================================================
 🧾 COMPACT CHANGELOG ROWS (COLLAPSED STATE)
 =================================================== */
@@ -641,6 +681,8 @@ section .card {
   background: transparent;
 }
 
+
+
 /* === DEBUG GRID VISUALIZER === */
 /*section {
   outline: 2px dashed rgba(56, 189, 248, 0.6);
@@ -751,6 +793,7 @@ body, main, .content {
 <footer>
   © 2026 Clive King · Intervals ICU Coach
 </footer>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 
 <script>
 
@@ -855,7 +898,11 @@ async function analyzeReport() {
   const athlete = athleteId.value.trim();
   if (!athlete || !selectedReportType) return;
 
-  analysisOutput.innerHTML = "Loading report...";
+  const analysisOutput = document.getElementById('analysisOutput');
+  const errorOutput = document.getElementById('errorOutput');
+
+  analysisOutput.innerHTML =
+    '<div class="loading-message">⏳ Loading report…</div>';
   errorOutput.innerHTML = "";
 
   try {
@@ -863,21 +910,48 @@ async function analyzeReport() {
     if (!reportResp.ok) throw new Error("Report fetch failed");
 
     currentReport = await reportResp.json();
-    analysisOutput.innerHTML = "Analyzing...";
 
-const analysis = await callLLM(
-  llmProvider.value,
-  modelSelect.value,
-  apiKey.value,
-  currentReport
-);
+    analysisOutput.innerHTML =
+      '<div class="loading-message">🤖 Analyzing with AI…</div>';
 
-analysisOutput.textContent = analysis;
+    const analysis = await callLLM(
+      llmProvider.value,
+      modelSelect.value,
+      apiKey.value,
+      currentReport
+    );
+
+    /* ---------- CREATE DOWNLOADABLE BLOBS ---------- */
+
+    // Markdown file
+    var mdBlob = new Blob([analysis], { type: "text/markdown" });
+    var mdUrl = URL.createObjectURL(mdBlob);
+
+    // JSON file
+    var jsonBlob = new Blob(
+      [JSON.stringify(currentReport, null, 2)],
+      { type: "application/json" }
+    );
+    var jsonUrl = URL.createObjectURL(jsonBlob);
+
+    /* ---------- RENDER OUTPUT + LINKS ---------- */
+
+    analysisOutput.innerHTML =
+      '<div class="report">' +
+        marked.parse(analysis) +
+      '</div>' +
+      '<div style="margin-top:18px; font-weight:600;">' +
+        '<a href="' + mdUrl + '" download="icu-analysis.md">⬇ Download Markdown</a>' +
+        ' &nbsp; | &nbsp; ' +
+        '<a href="' + jsonUrl + '" download="icu-report.json">⬇ Download JSON</a>' +
+      '</div>';
 
   } catch (err) {
-    errorOutput.innerHTML = '<div class="error-box">❌ ' + err.message + '</div>';
+    errorOutput.innerHTML =
+      '<div class="error-box">❌ ' + err.message + '</div>';
   }
 }
+
 
 async function disconnectAthlete() {
   const athlete = athleteId.value.trim();
@@ -904,8 +978,9 @@ async function callLLM(provider, model, key, data) {
 var raw = JSON.stringify(data, null, 2);
 
   var prompt =
-    "Analyze this training report following URF v5.1 rendering instructions.\n\n" +
+    "Analyze this training report following URF v5.1 rendering instructions.\\n\\n" +
     raw;
+
 
   switch (provider) {
     case "openai":
@@ -962,6 +1037,7 @@ function checkConnectionStatus() {
       '</div>';
   }
 }
+
 
 async function callOpenAI(model, key, prompt) {
 
@@ -1036,7 +1112,7 @@ async function callGoogle(model, key, prompt) {
           parts: [
             {
               text:
-                "You are an expert endurance sports coach. Follow URF v5.1 formatting.\n\n" +
+                "You are an expert endurance sports coach. Follow URF v5.1 formatting.\\n\\n" +
                 prompt
             }
           ]
@@ -1057,6 +1133,8 @@ async function callGoogle(model, key, prompt) {
   var j = await r.json();
   return j.candidates[0].content.parts[0].text;
 }
+
+
 
 
 document.addEventListener("DOMContentLoaded", () => {
