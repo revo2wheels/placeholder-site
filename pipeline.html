@@ -64,7 +64,8 @@
       <ul>
         <li>
           <strong>🧠 <a href="#strategy">Strategy & Philosophy</a></strong> —
-          Governing architectural doctrine. Defines authority boundaries and non-negotiable contracts for interpretation.
+          Governing architectural doctrine. Defines authority boundaries and non-negotiable contracts for
+          interpretation.
         </li>
 
         <li>
@@ -209,6 +210,8 @@ Interface      → LLM Rendering Layer (Read-Only)
 │     - moving_time filtering, zero-checks     │
 │  • Tier-2: Aggregation + enforcement         │
 │     - Totals reconciliation, variance checks │
+│  • Tier-3: Forecast, PI and ESPE             │
+│     - Advanced Coaching                      │
 │  • Outputs URF v5.1 Semantic JSON            │
 └─────────────┬────────────────────────────────┘
               ▼
@@ -230,57 +233,63 @@ Interface      → LLM Rendering Layer (Read-Only)
     <section class="card" style="border-left:4px solid #22c55e;">
       <h2>🧩 Current Architecture Guarantees</h2>
       <div class="overflow-x-auto">
-      <table>
-        <thead>
-          <tr>
-            <th>Area</th>
-            <th>Implementation</th>
-            <th>Guarantee</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Prefetch Flow</td>
-            <td>Cloudflare normalizes date params and injects optional test payloads</td>
-            <td>Safe staging tests without real data</td>
-          </tr>
-          <tr>
-            <td>Execution Model</td>
-            <td>Python execution on Railway (FastAPI + Pandas)</td>
-            <td>Deterministic, audited output</td>
-          </tr>
-          <tr>
-            <td>Tier-0 Validation</td>
-            <td>Baseline column checks (`moving_time`, `distance`, etc.)</td>
-            <td>No schema drift or missing fields</td>
-          </tr>
-          <tr>
-            <td>Tier-1 Audit</td>
-            <td>Filters invalid / null activities, computes daily summaries</td>
-            <td>Enforced numeric consistency</td>
-          </tr>
-          <tr>
-            <td>Tier-2 Enforcement</td>
-            <td>Lock totals, enforce logical consistency</td>
-            <td>No variance bleed between scopes</td>
-          </tr>
-          <tr>
-            <td>Serialization</td>
-            <td>Single-pass semantic JSON (no float loss)</td>
-            <td>Stable numeric precision</td>
-          </tr>
-          <tr>
-            <td>Observability</td>
-            <td>Structured logs at all Tier boundaries</td>
-            <td>Traceable audit chain (light→full→wellness)</td>
-          </tr>
-          <tr>
-            <td>Schema Version</td>
-            <td>URF v5.1 unified contracts</td>
-            <td>Cross-version compatibility with GPT tool API</td>
-          </tr>
-        </tbody>
-      </table></div>
+        <table>
+          <thead>
+            <tr>
+              <th>Area</th>
+              <th>Implementation</th>
+              <th>Guarantee</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Prefetch Flow</td>
+              <td>Cloudflare normalizes date params and injects optional test payloads</td>
+              <td>Safe staging tests without real data</td>
+            </tr>
+            <tr>
+              <td>Execution Model</td>
+              <td>Python execution on Railway (FastAPI + Pandas)</td>
+              <td>Deterministic, audited output</td>
+            </tr>
+            <tr>
+              <td>Tier-0 Validation</td>
+              <td>Baseline column checks (`moving_time`, `distance`, etc.)</td>
+              <td>No schema drift or missing fields</td>
+            </tr>
+            <tr>
+              <td>Tier-1 Audit</td>
+              <td>Filters invalid / null activities, computes daily summaries</td>
+              <td>Enforced numeric consistency</td>
+            </tr>
+            <tr>
+              <td>Tier-2 Metrics & Enforcement</td>
+              <td>Derived Metrics, Lock totals, enforce logical consistency</td>
+              <td>No variance bleed between scopes</td>
+            </tr>
+            <tr>
+              <td>Tier-3 Coaching</td>
+              <td>Forecast, Performance Intelligence and ESPE</td>
+              <td>Integrated performance modelling</td>
+            </tr>
+            <tr>
+              <td>Serialization</td>
+              <td>Single-pass semantic JSON (no float loss)</td>
+              <td>Stable numeric precision</td>
+            </tr>
+            <tr>
+              <td>Observability</td>
+              <td>Structured logs at all Tier boundaries</td>
+              <td>Traceable audit chain (light→full→wellness)</td>
+            </tr>
+            <tr>
+              <td>Schema Version</td>
+              <td>URF v5.1 unified contracts</td>
+              <td>Cross-version compatibility with GPT tool API</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <!-- ===================================================
@@ -289,68 +298,69 @@ Interface      → LLM Rendering Layer (Read-Only)
     <section id="llm-native-architecture" class="card" style="border-left:4px solid #38bdf8;">
 
       <h2>🧠 Future Technical Pipeline</h2>
-<div class="overflow-x-auto">
-      <table>
-        <thead>
-          <tr>
-            <th>Design Goal</th>
-            <th>Implementation</th>
-            <th>Guarantee</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>Natural Language Interface</td>
-            <td>LLMs interact exclusively via MCP tools (no UI state, no clicks)</td>
-            <td>Human-like interaction without loss of determinism</td>
-          </tr>
-          <tr>
-            <td>Multi-LLM Compatibility</td>
-            <td>MCP-standard tool schemas (OpenAI, Anthropic, Mistral, local models)</td>
-            <td>No vendor lock-in; identical outputs across models</td>
-          </tr>
-          <tr>
-            <td>Secure Access Control</td>
-            <td>Cloudflare Workers act as MCP + OAuth gateway</td>
-            <td>Intervals.icu tokens never exposed to LLMs</td>
-          </tr>
-          <tr>
-            <td>Edge Policy Enforcement</td>
-            <td>OAuth scopes, rate limits, and request validation at Cloudflare Edge</td>
-            <td>Strong isolation between clients, tools, and athletes</td>
-          </tr>
-          <tr>
-            <td>Execution Engine</td>
-            <td>Python services on Railway (FastAPI + Pandas)</td>
-            <td>Deterministic, auditable metric computation</td>
-          </tr>
-          <tr>
-            <td>Authoritative Data Source</td>
-            <td>Intervals.icu APIs (activities, intervals, FIT-derived data)</td>
-            <td>Single source of truth for all training data</td>
-          </tr>
-          <tr>
-            <td>Semantic Contract</td>
-            <td>URF v5.1 structured semantic JSON</td>
-            <td>LLMs interpret results without recomputation or inference</td>
-          </tr>
-          <tr>
-            <td>Context Integrity</td>
-            <td>Explicit context windows (activity, 7d, 90d, rolling)</td>
-            <td>No accidental “seasonal” or cross-scope mislabeling</td>
-          </tr>
-          <tr>
-            <td>Headless by Design</td>
-            <td>No dependency on web UI or dashboards</td>
-            <td>Future-proof for voice, agents, automation, and APIs</td>
-          </tr>
-          <tr>
-            <td>Tool-First Expansion</td>
-            <td>New capabilities exposed as MCP tools</td>
-            <td>Feature growth without breaking existing clients</td>
-          </tr>
-        </tbody>
-      </table></div>
+      <div class="overflow-x-auto">
+        <table>
+          <thead>
+            <tr>
+              <th>Design Goal</th>
+              <th>Implementation</th>
+              <th>Guarantee</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Natural Language Interface</td>
+              <td>LLMs interact exclusively via MCP tools (no UI state, no clicks)</td>
+              <td>Human-like interaction without loss of determinism</td>
+            </tr>
+            <tr>
+              <td>Multi-LLM Compatibility</td>
+              <td>MCP-standard tool schemas (OpenAI, Anthropic, Mistral, local models)</td>
+              <td>No vendor lock-in; identical outputs across models</td>
+            </tr>
+            <tr>
+              <td>Secure Access Control</td>
+              <td>Cloudflare Workers act as MCP + OAuth gateway</td>
+              <td>Intervals.icu tokens never exposed to LLMs</td>
+            </tr>
+            <tr>
+              <td>Edge Policy Enforcement</td>
+              <td>OAuth scopes, rate limits, and request validation at Cloudflare Edge</td>
+              <td>Strong isolation between clients, tools, and athletes</td>
+            </tr>
+            <tr>
+              <td>Execution Engine</td>
+              <td>Python services on Railway (FastAPI + Pandas)</td>
+              <td>Deterministic, auditable metric computation</td>
+            </tr>
+            <tr>
+              <td>Authoritative Data Source</td>
+              <td>Intervals.icu APIs (activities, intervals, FIT-derived data)</td>
+              <td>Single source of truth for all training data</td>
+            </tr>
+            <tr>
+              <td>Semantic Contract</td>
+              <td>URF v5.1 structured semantic JSON</td>
+              <td>LLMs interpret results without recomputation or inference</td>
+            </tr>
+            <tr>
+              <td>Context Integrity</td>
+              <td>Explicit context windows (activity, 7d, 90d, rolling)</td>
+              <td>No accidental “seasonal” or cross-scope mislabeling</td>
+            </tr>
+            <tr>
+              <td>Headless by Design</td>
+              <td>No dependency on web UI or dashboards</td>
+              <td>Future-proof for voice, agents, automation, and APIs</td>
+            </tr>
+            <tr>
+              <td>Tool-First Expansion</td>
+              <td>New capabilities exposed as MCP tools</td>
+              <td>Feature growth without breaking existing clients</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
     </section>
 
     <!-- ===================================================
@@ -398,6 +408,7 @@ Interface      → LLM Rendering Layer (Read-Only)
 │ • Tier-0 validation          │
 │ • Tier-1 audit               │
 │ • Tier-2 enforcement         │
+│ • Tier-3 Methodology         │
 │ • Deterministic computation  │
 └─────────┬────────────────────┘
           │ Canonical queries
@@ -616,7 +627,18 @@ Tier-3A: Stress Intelligence
                 │
                 ▼
 Tier-3B: Progression Intelligence
-(ESPE — Energy System Progression)
+ESPE v1 — Power Curve Progression
+• Duration anchors (5s / 1m / 5m / 20m / 60m)
+• Curve rotation detection
+• Endurance vs anaerobic shift
+                │
+                ▼
+Tier-3C: System Modeling (Future)
+ESPE v2 — Physiological System Engine
+• Glycolytic vs aerobic bias
+• Durability gradient
+• VO₂ reserve capacity
+• Energy system balance score
                 │
                 ▼
 Adaptive Decision Engine (ADE)
@@ -625,7 +647,7 @@ Adaptive Decision Engine (ADE)
 COACHING SEMANTIC LAYER (v6)
                 │
                 ▼
-Final Structured Report (Athlete + Coach Modes)
+Final Structured Report
 </pre>
       </div>
 
@@ -646,7 +668,7 @@ Final Structured Report (Athlete + Coach Modes)
 
       <hr>
 
-      <h3>📈 Stage 2 — Progression Intelligence (ESPE)</h3>
+      <h3>📈 Stage 2 — Progression Intelligence (ESPE v1)</h3>
       <p>
         Tracks energy system progression using power curves and structural signals.
       </p>
@@ -658,6 +680,27 @@ Final Structured Report (Athlete + Coach Modes)
       </ul>
       <p>
         Answers: <em>“Is current training producing adaptation?”</em>
+      </p>
+
+      <h3>🧬 Stage 2B — System Modeling (ESPE v2)</h3>
+
+      <p>
+        The next evolution of the Energy System Progression Engine extends
+        beyond simple power-duration changes and models the athlete’s
+        physiological system balance.
+      </p>
+
+      <ul>
+        <li>Glycolytic vs aerobic bias</li>
+        <li>Durability gradient</li>
+        <li>VO₂ reserve capacity</li>
+        <li>System balance score</li>
+      </ul>
+
+      <p>
+        This stage transforms curve progression into deeper physiological
+        diagnostics describing how the athlete’s energy systems are
+        adapting to training stimulus.
       </p>
 
       <hr>
@@ -707,17 +750,17 @@ Training State Machine:
         It ensures Tier-2 diagnostics cannot override Tier-3 state.
       </p>
 
-<hr>
+      <hr>
 
-<h3>📦 Coaching Semantic Output (v6)</h3>
+      <h3>📦 Coaching Semantic Output (v6)</h3>
 
-<p>
-  The Coaching Semantic Layer converts structural intelligence into
-  clear, athlete-readable language — without removing analytical depth.
-</p>
+      <p>
+        The Coaching Semantic Layer converts structural intelligence into
+        clear, athlete-readable language — without removing analytical depth.
+      </p>
 
-<div class="codeblock" style="font-family:'Courier New',monospace;font-size:0.85rem;overflow-x:auto;">
-<pre>
+      <div class="codeblock" style="font-family:'Courier New',monospace;font-size:0.85rem;overflow-x:auto;">
+        <pre>
 adaptive_layer:
   readiness_state
   progression_state
@@ -725,32 +768,33 @@ adaptive_layer:
   durability_state
   prescription_adjustment
 </pre>
-</div>
+      </div>
 
-<p>
-  The system supports:
-</p>
+      <p>
+        The system supports:
+      </p>
 
-<ul>
-  <li><strong>Athlete Mode</strong> — Clear readiness, next-step guidance, and actionable adjustments.</li>
-  <li><strong>Coach Mode</strong> — Full structural diagnostics including WDRM, ESPE, NDLI, thresholds, state transitions, and rule traces.</li>
-</ul>
+      <ul>
+        <li><strong>Athlete Mode</strong> — Clear readiness, next-step guidance, and actionable adjustments.</li>
+        <li><strong>Coach Mode</strong> — Full structural diagnostics including WDRM, ESPE, NDLI, thresholds, state
+          transitions, and rule traces.</li>
+      </ul>
 
-<p>
-  Complexity is abstracted in Athlete Mode,
-  but fully accessible in Coach Mode.
-</p>
+      <p>
+        Complexity is abstracted in Athlete Mode,
+        but fully accessible in Coach Mode.
+      </p>
 
-<p>
-  Any recommendation can be queried for complete technical breakdown —
-  including source metrics, thresholds, trend deltas, and deterministic rule logic.
-</p>
+      <p>
+        Any recommendation can be queried for complete technical breakdown —
+        including source metrics, thresholds, trend deltas, and deterministic rule logic.
+      </p>
 
-<p>
-  The system hides complexity — it never hides transparency.
-</p>
+      <p>
+        The system hides complexity — it never hides transparency.
+      </p>
 
-</section>
+    </section>
 
 
 
