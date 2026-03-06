@@ -362,6 +362,15 @@ blockquote::before {
   max-width: 600px;
   width: 100%;
 }
+.diagram-caption{
+  max-width:720px;
+  margin:0.6rem auto 0;
+  font-size:0.85rem;
+  color:#64748b;
+  text-align:center;
+  line-height:1.5;
+  font-style:italic;
+}
 /* ===================================================
 🪶 REPORT SAMPLE CARD STYLING
 =================================================== */
