@@ -43,7 +43,7 @@
     <section class="card">
       <h1>Montis.icu Unified Prefetch Architecture — v5.1 Design</h1>
       <p style="text-align:center;max-width:750px;margin:0 auto 2rem;">
-        The <strong>Montis.icu Coach App</strong> operates on a authority-driven architecture separating
+        The <strong>Montis.icu Coach App</strong> operates on an authority-driven architecture separating
         <em>measurement</em>, <em>interpretation</em>, <em>prescription</em>,
         and <em>interface</em>.
         <br><br>
@@ -178,6 +178,132 @@ Interface      → LLM Rendering Layer (Read-Only)
     </section>
 
 
+    <section class="card" style="border-left:4px solid #38bdf8;">
+      <h2>🔐 Identity & Token Resolution</h2>
+
+      <p>
+        Montis resolves athlete identity at runtime using two independent sources:
+        stored OAuth tokens (KV) or direct bearer tokens supplied by external clients.
+      </p>
+
+      <div class="diagram">
+        <img src="assets/Identity_and_Token_Resolution_Model.svg" alt="Identity and Token Resolution Model" />
+      </div>
+
+      <p class="muted" style="text-align:center;">
+        Bearer token present → direct execution (no KV)<br>
+        No token → fallback to Worker-managed OAuth (KV)
+      </p>
+
+      <hr>
+
+      <h3>🔑 Separation of Concerns</h3>
+
+      <ul>
+        <li><strong>Execution access</strong> → MCP / /chat / /run_*</li>
+        <li><strong>Data access</strong> → OAuth token (KV or direct)</li>
+      </ul>
+
+      <p>
+        MCP grants control tool execution only.<br>
+        OAuth tokens control access to athlete data.
+      </p>
+    </section>
+
+    <section class="card" style="border-left:4px solid #38bdf8;">
+      <h2>⚙️ Unified Execution Model</h2>
+
+      <p>
+        Montis.icu operates a <strong>multi-entry, dual-identity execution architecture</strong>.
+        Tool execution and athlete identity are resolved independently at runtime.
+      </p>
+
+      <div class="codeblock"
+        style="font-family:'Courier New',monospace;font-size:0.9rem;overflow-x:auto;text-align:center;">
+        <pre>
+Client
+  → Worker (Edge)
+    → Dispatcher (Internal Tools)
+      → Railway (Computation)
+        → Intervals API (Data)
+</pre>
+      </div>
+
+      <hr>
+
+      <h3>⚙️ Runtime Token Resolution</h3>
+
+      <div class="codeblock">
+        <pre>
+if (incoming_token) {
+  use incoming token        // ChatGPT OAuth
+} else {
+  load token from KV        // Default model
+}
+</pre>
+      </div>
+
+      <p>
+        This logic applies uniformly across:
+      </p>
+
+      <ul>
+        <li>/run_* endpoints</li>
+        <li>/chat/api</li>
+        <li>/mcp</li>
+      </ul>
+
+      <hr>
+
+      <h3>🧩 Separation of Concerns</h3>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Concern</th>
+            <th>Mechanism</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Tool Execution</td>
+            <td>MCP / Chat / Direct endpoints</td>
+          </tr>
+          <tr>
+            <td>Athlete Identity</td>
+            <td>KV OAuth or Incoming Token</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <p>
+        MCP grants control <strong>tool access</strong>, not athlete data.<br>
+        OAuth tokens control <strong>data access</strong>, not execution.
+      </p>
+
+      <hr>
+
+      <h3>🧠 Execution Patterns</h3>
+
+      <div class="codeblock">
+        <pre>
+Browser / CLI:
+  Client → Worker → KV → Intervals
+
+MCP (Claude):
+  LLM → MCP → Worker → KV → Intervals
+
+ChatGPT OAuth:
+  ChatGPT → Token → Worker → Intervals
+</pre>
+      </div>
+
+      <p>
+        All paths converge into the same dispatcher and produce identical outputs.
+      </p>
+
+    </section>
+
     <section id="technical-pipeline" class="card" style="border-left:4px solid #22c55e;">
 
       <h2>⚙️ Current Operational Pipeline (Production)</h2>
@@ -185,41 +311,8 @@ Interface      → LLM Rendering Layer (Read-Only)
         Status: <strong>Live</strong> • Used in production • Backward compatible
       </p>
 
-      <div class="codeblock"
-        style="font-family:'Courier New',monospace;font-size:0.9rem;overflow-x:auto;text-align:center;">
-        <pre>
-┌──────────────────────────────┐
-│        ChatGPT / CLI App     │
-│  (Tool invocation layer)     │
-└─────────────┬────────────────┘
-              │  HTTPS tool call
-              ▼
-┌──────────────────────────────────────────────┐
-│          Cloudflare Worker (Edge)            │
-│  • Auth + routing proxy                      │
-│  • Handles start/end normalization           │
-│  • Prefetches Intervals data → JSON context  │
-└─────────────┬────────────────────────────────┘
-              ▼
-┌──────────────────────────────────────────────┐
-│         Railway Backend (FastAPI)            │
-│  • Tier-0: Prefetch normalization            │
-│     - DataFrame coercion + baseline columns  │
-│     - Empty-source detection + AuditHalt     │
-│  • Tier-1: Activity & wellness validation    │
-│     - moving_time filtering, zero-checks     │
-│  • Tier-2: Aggregation + enforcement         │
-│     - Totals reconciliation, variance checks │
-│  • Tier-3: Forecast, PI and ESPE             │
-│     - Advanced Coaching                      │
-│  • Outputs URF v5.1 Semantic JSON            │
-└─────────────┬────────────────────────────────┘
-              ▼
-┌──────────────────────────────┐
-│     Intervals.icu API        │
-│   (authoritative source)     │
-└──────────────────────────────┘
-</pre>
+      <div class="diagram">
+        <img src="assets/Execution_Flow_Diagram.svg" alt="Execution Flow" />
       </div>
       <p style="text-align:center;margin-top:1rem;">
         🔄 Cloudflare handles authentication, routing, and optional synthetic testing.<br>
@@ -297,70 +390,95 @@ Interface      → LLM Rendering Layer (Read-Only)
 ==================================================== -->
     <section id="llm-native-architecture" class="card" style="border-left:4px solid #38bdf8;">
 
-      <h2>🧠 Future Technical Pipeline</h2>
-      <div class="overflow-x-auto">
-        <table>
-          <thead>
-            <tr>
-              <th>Design Goal</th>
-              <th>Implementation</th>
-              <th>Guarantee</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr>
-              <td>Natural Language Interface</td>
-              <td>LLMs interact exclusively via MCP tools (no UI state, no clicks)</td>
-              <td>Human-like interaction without loss of determinism</td>
-            </tr>
-            <tr>
-              <td>Multi-LLM Compatibility</td>
-              <td>MCP-standard tool schemas (OpenAI, Anthropic, Mistral, local models)</td>
-              <td>No vendor lock-in; identical outputs across models</td>
-            </tr>
-            <tr>
-              <td>Secure Access Control</td>
-              <td>Cloudflare Workers act as MCP + OAuth gateway</td>
-              <td>Intervals.icu tokens never exposed to LLMs</td>
-            </tr>
-            <tr>
-              <td>Edge Policy Enforcement</td>
-              <td>OAuth scopes, rate limits, and request validation at Cloudflare Edge</td>
-              <td>Strong isolation between clients, tools, and athletes</td>
-            </tr>
-            <tr>
-              <td>Execution Engine</td>
-              <td>Python services on Railway (FastAPI + Pandas)</td>
-              <td>Deterministic, auditable metric computation</td>
-            </tr>
-            <tr>
-              <td>Authoritative Data Source</td>
-              <td>Intervals.icu APIs (activities, intervals, FIT-derived data)</td>
-              <td>Single source of truth for all training data</td>
-            </tr>
-            <tr>
-              <td>Semantic Contract</td>
-              <td>URF v5.1 structured semantic JSON</td>
-              <td>LLMs interpret results without recomputation or inference</td>
-            </tr>
-            <tr>
-              <td>Context Integrity</td>
-              <td>Explicit context windows (activity, 7d, 90d, rolling)</td>
-              <td>No accidental “seasonal” or cross-scope mislabeling</td>
-            </tr>
-            <tr>
-              <td>Headless by Design</td>
-              <td>No dependency on web UI or dashboards</td>
-              <td>Future-proof for voice, agents, automation, and APIs</td>
-            </tr>
-            <tr>
-              <td>Tool-First Expansion</td>
-              <td>New capabilities exposed as MCP tools</td>
-              <td>Feature growth without breaking existing clients</td>
-            </tr>
-          </tbody>
-        </table>
+      <h2>🧠 Unified Tool & LLM Architecture</h2>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Capability</th>
+            <th>Implementation</th>
+            <th>Guarantee</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Multi-LLM Support</td>
+            <td>MCP + Direct Tool Calls</td>
+            <td>Works across ChatGPT, Claude, Gemini</td>
+          </tr>
+          <tr>
+            <td>Dual OAuth Model</td>
+            <td>KV OAuth + Incoming Token</td>
+            <td>Flexible identity resolution</td>
+          </tr>
+          <tr>
+            <td>Execution Engine</td>
+            <td>Cloudflare Dispatcher → Railway</td>
+            <td>Single deterministic pipeline</td>
+          </tr>
+          <tr>
+            <td>Data Authority</td>
+            <td>Intervals API</td>
+            <td>Single source of truth</td>
+          </tr>
+          <tr>
+            <td>Semantic Contract</td>
+            <td>URF v5.1</td>
+            <td>No recomputation or drift</td>
+          </tr>
+          <tr>
+            <td>Stateless Execution</td>
+            <td>No UI dependency</td>
+            <td>Fully reproducible</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <hr>
+
+      <h3>⚙️ Execution Flow</h3>
+
+      <div class="codeblock" style="text-align:center;">
+        <pre>
+Client / LLM
+    ↓
+Cloudflare Worker (Edge)
+    • Token Resolver (incoming > KV)
+    • Routing
+    ↓
+Dispatcher (Internal Tools)
+    ↓
+Railway Engine (Tier 0–3)
+    ↓
+Intervals API (Data)
+    ↓
+Semantic JSON (URF v5.1)
+    ↓
+LLM Rendering Layer (Read-only, tool-driven)
+</pre>
       </div>
+
+      <hr>
+
+      <h3>🔑 Key Properties</h3>
+
+      <ul>
+        <li><strong>Single execution path</strong> — all clients use the same dispatcher</li>
+        <li><strong>Dual identity resolution</strong> — KV or incoming token</li>
+        <li><strong>No recomputation in LLMs</strong></li>
+        <li><strong>Deterministic outputs across all interfaces</strong></li>
+      </ul>
+
+      <hr>
+
+      <h3>⚠️ Important Clarification</h3>
+
+      <ul>
+        <li>MCP controls <strong>tool access</strong></li>
+        <li>OAuth controls <strong>data access</strong></li>
+        <li>ChatGPT uses <strong>direct OAuth (no MCP)</strong></li>
+      </ul>
+
     </section>
 
     <!-- ===================================================
@@ -377,70 +495,55 @@ Interface      → LLM Rendering Layer (Read-Only)
         style="font-family:'Courier New',monospace;font-size:0.9rem;overflow-x:auto;text-align:center;">
         <pre>
 
-🧭 System Diagram
+🧭 System Diagram (Unified Execution Model)
 
-┌────────────────────┐
-│  Human / LLM Agent │
-│  (Chat, Voice, AI) │
-└─────────┬──────────┘
-          │  Natural Language
-          ▼
-┌──────────────────────────────┐
-│ MCP Tool Interface (Standard)│
-│ • Typed tool contracts       │
-│ • No UI state                │
-│ • Multi-LLM compatible       │
-└─────────┬────────────────────┘
-          │ MCP call
-          ▼
-┌──────────────────────────────┐
-│ Cloudflare Edge (OAuth + MCP)│
-│ • OAuth token handling       │
-│ • Scope enforcement          │
-│ • Rate limiting              │
-│ • Request normalization      │
-└─────────┬────────────────────┘
-          │ Authenticated request
-          ▼
-┌──────────────────────────────┐
-│ Railway Execution Layer      │
-│ (FastAPI + Pandas)           │
-│ • Tier-0 validation          │
-│ • Tier-1 audit               │
-│ • Tier-2 enforcement         │
-│ • Tier-3 Methodology         │
-│ • Deterministic computation  │
-└─────────┬────────────────────┘
-          │ Canonical queries
-          ▼
-┌──────────────────────────────┐
-│ Intervals.icu APIs           │
-│ • Activities (7d / 90d)      │
-│ • Intervals & FIT-derived    │
-└─────────┬────────────────────┘
-          │ Structured data
-          ▼
-┌──────────────────────────────┐
-│ Semantic JSON (URF v5.1)     │
-│ • Explicit context windows   │
-│ • Locked totals              │
-│ • No recomputation allowed   │
-└─────────┬────────────────────┘
-          │ Read-only
-          ▼
-┌──────────────────────────────┐
-│ LLM Rendering / Reasoning    │
-│ • Descriptive only           │
-│ • Coach-like narrative       │
-│ • No metric invention        │
-└──────────────────────────────┘
+┌────────────────────────────┐
+│ Client / LLM / Application │
+│ (ChatGPT, Claude, CLI, UI) │
+└──────────────┬─────────────┘
+               │ Tool call (direct OR MCP)
+               ▼
+┌────────────────────────────────────┐
+│ Cloudflare Worker (Edge)           │
+│ • Token resolution (direct / KV)   │
+│ • Routing + normalization          │
+│ • Rate limiting / policy           │
+└──────────────┬─────────────────────┘
+               │ Authenticated execution
+               ▼
+┌────────────────────────────────────┐
+│ Dispatcher (Internal Execution)    │
+│ • Single execution path            │
+└──────────────┬─────────────────────┘
+               │
+        ┌──────┴─────────┐
+        ▼                ▼
+┌──────────────┐   ┌──────────────────┐
+│ Intervals API│   │ Railway Engine   │
+│ (Data Source)│   │ (Tier 0–3)       │
+└──────┬───────┘   └────────┬─────────┘
+       │                    │
+       └────────────┬───────┘
+                    ▼
+┌────────────────────────────────────┐
+│ Semantic JSON (URF v5.1)           │
+│ • Deterministic                    │
+│ • Context explicit                 │
+│ • No recomputation                 │
+└──────────────┬─────────────────────┘
+               ▼
+┌────────────────────────────────────┐
+│ LLM Rendering Layer (Read-only)    │
+│ • Narrative only                   │
+│ • No metric computation            │
+└────────────────────────────────────┘
 
 </pre>
       </div>
       <p style="text-align:Left;margin-top:1rem;">
         🔄 Cloudflare handles authentication, routing, and optional synthetic testing.<br>
         🚉 Railway performs full computation, validation, and serialization.<br>
-        💡Independence from LLMs via MCP
+        💡Independence from LLMs via consistent execution (Railway)
       </p>
     </section>
 
@@ -460,7 +563,7 @@ Interface      → LLM Rendering Layer (Read-Only)
         </li>
 
         <li>
-          <strong>OAuth tokens never reach the model</strong><br>
+          <strong>OAuth tokens are handled at the edge and never exposed to LLM reasoning</strong><br>
           Cloudflare fully isolates authentication from reasoning.
         </li>
 
@@ -491,7 +594,7 @@ Interface      → LLM Rendering Layer (Read-Only)
         </li>
 
         <li>
-          <strong>Request is converted into an MCP tool call</strong>
+          <strong>Request is converted into a tool call (direct or MCP)</strong>
           <ul>
             <li>Strongly typed inputs</li>
             <li>Explicit report scope (weekly / season / activity)</li>
@@ -569,13 +672,17 @@ Interface      → LLM Rendering Layer (Read-Only)
       <p>
         <strong>Natural language becomes the interface — not the source of truth.</strong>
       </p>
+      <p>
+        Every decision is rule-based, auditable, and reproducible — never guessed or generated.
+      </p>
 
     </section>
 
     <section class="card" style="border-left:4px solid #a855f7;">
       <h2>🔁 Architectural Continuity</h2>
       <p>
-        The future MCP-native architecture does <strong>not</strong> replace the current system.
+        The system evolves toward a unified tool-based architecture (direct + MCP), without changing execution
+        guarantees.
         It formalizes the same guarantees behind a standard tool interface.
       </p>
       <ul>
@@ -593,25 +700,39 @@ Interface      → LLM Rendering Layer (Read-Only)
       </ul>
     </section>
 
+    <section class="card" style="border-left:4px solid #f97316; text-align:center;">
 
+      <h2>🧠 Montis Intelligence Stack</h2>
 
+      <p class="muted" style="max-width:700px;margin:0 auto 1.5rem;">
+        From raw training load to adaptive coaching decisions — a closed-loop performance system.
+      </p>
 
-    <!-- ===================================================
-🧠 COACHING PIPELINE
-=================================================== -->
+      <div class="diagram">
+        <img src="assets/montis_intelligence_stack.png" alt="Montis Intelligence Stack"
+          style="max-width:100%;height:auto;" />
+      </div>
+
+    </section>
+
     <section id="coaching-pipeline" class="card" style="border-left:4px solid #f97316;">
 
       <h2>🧠 Coaching Intelligence Pipeline (Performance Layer)</h2>
 
       <p class="muted">
-        Status: <strong>Evolutionary (v6+)</strong> • Deterministic • Rule-based • No metric recomputation
+        Status: <strong>Active (v6)</strong> • Rule-based • Closed-loop • Production
       </p>
 
       <p>
         The <strong>Coaching Pipeline</strong> operates strictly on validated canonical data
         produced by the Technical Pipeline. It does <em>not</em> compute raw metrics.
         It transforms trusted semantic inputs into structured performance intelligence
-        and deterministic training decisions.
+        and executes deterministic training decisions.
+      </p>
+
+      <p>
+        Tier-3 now operates as a <strong>closed-loop system</strong>:
+        performance intelligence directly drives prescription via the Adaptive Decision Engine.
       </p>
 
       <hr>
@@ -622,26 +743,25 @@ Interface      → LLM Rendering Layer (Read-Only)
 CANONICAL SEMANTIC DATA (URF v5.1)
                 │
                 ▼
-Tier-3A: Stress Intelligence
+Tier-3A: Stress Intelligence (PI)
 (WDRM / ISDM / NDLI)
                 │
                 ▼
 Tier-3B: Progression Intelligence
-ESPE v1 — Power Curve Progression
-• Duration anchors (5s / 1m / 5m / 20m / 60m)
-• Curve rotation detection
-• Endurance vs anaerobic shift
+ESPE v1 — Power Curve Adaptation (ACTIVE)
+• 5s / 1m / 5m / 20m / 60m anchors
+• Rolling window comparison (current vs previous)
+• Adaptation bias + plateau detection
                 │
                 ▼
-Tier-3C: System Modeling (Future)
-ESPE v2 — Physiological System Engine
-• Glycolytic vs aerobic bias
+Tier-3C: System Modeling
+(PI + ESPE synthesis)
+• Energy system balance
 • Durability gradient
-• VO₂ reserve capacity
-• Energy system balance score
+• Adaptation state
                 │
                 ▼
-Adaptive Decision Engine (ADE)
+Adaptive Decision Engine (ADE v1 — Control Layer)
                 │
                 ▼
 COACHING SEMANTIC LAYER (v6)
@@ -653,9 +773,9 @@ Final Structured Report
 
       <hr>
 
-      <h3>🔍 Stage 1 — Stress Intelligence</h3>
+      <h3>🔍 Stage 1 — Stress Intelligence (PI)</h3>
       <p>
-        Evaluates how the athlete is expressing training load under fatigue.
+        Evaluates how the athlete expresses training load under fatigue.
       </p>
       <ul>
         <li><strong>WDRM</strong> — Anaerobic repeatability and W′ depletion behavior</li>
@@ -668,9 +788,9 @@ Final Structured Report
 
       <hr>
 
-      <h3>📈 Stage 2 — Progression Intelligence (ESPE v1)</h3>
+      <h3>📈 Stage 2 — Progression Intelligence (ESPE v1 — Active)</h3>
       <p>
-        Tracks energy system progression using power curves and structural signals.
+        Tracks energy system adaptation using deterministic power curve comparison.
       </p>
       <ul>
         <li>Endurance (60min trend)</li>
@@ -682,32 +802,31 @@ Final Structured Report
         Answers: <em>“Is current training producing adaptation?”</em>
       </p>
 
-      <h3>🧬 Stage 2B — System Modeling (ESPE v2)</h3>
+      <hr>
+
+      <h3>🧬 Stage 3 — System Modeling</h3>
 
       <p>
-        The next evolution of the Energy System Progression Engine extends
-        beyond simple power-duration changes and models the athlete’s
-        physiological system balance.
+        Combines stress signals (PI) and progression signals (ESPE)
+        into a unified physiological state model.
       </p>
 
       <ul>
-        <li>Glycolytic vs aerobic bias</li>
+        <li>Energy system balance (aerobic vs glycolytic)</li>
         <li>Durability gradient</li>
-        <li>VO₂ reserve capacity</li>
-        <li>System balance score</li>
+        <li>Adaptation bias (VO₂ / threshold / endurance)</li>
+        <li>Plateau detection</li>
       </ul>
 
       <p>
-        This stage transforms curve progression into deeper physiological
-        diagnostics describing how the athlete’s energy systems are
-        adapting to training stimulus.
+        This stage transforms raw progression into actionable system-level intelligence.
       </p>
 
       <hr>
 
-      <h3>🧭 Stage 3 — Adaptive Decision Engine (ADE)</h3>
+      <h3>🧭 Stage 4 — Adaptive Decision Engine (ADE v1)</h3>
       <p>
-        Applies deterministic, rule-based logic to produce structured prescription guidance.
+        Executes rule-based control over training prescription based on Tier-3 state.
       </p>
 
       <div class="codeblock" style="font-family:'Courier New',monospace;font-size:0.85rem;overflow-x:auto;">
@@ -722,10 +841,12 @@ THEN:
   Insert OFF day
 </pre>
       </div>
+
       <p>
         No GPT improvisation. No hidden logic.
         Rules are executed inside Railway and serialized into the semantic graph.
       </p>
+
       <hr>
 
       <h3>🧠 Training State Machine</h3>
@@ -775,19 +896,13 @@ adaptive_layer:
       </p>
 
       <ul>
-        <li><strong>Athlete Mode</strong> — Clear readiness, next-step guidance, and actionable adjustments.</li>
-        <li><strong>Coach Mode</strong> — Full structural diagnostics including WDRM, ESPE, NDLI, thresholds, state
-          transitions, and rule traces.</li>
+        <li><strong>Athlete Mode</strong> — Clear readiness and actionable guidance</li>
+        <li><strong>Coach Mode</strong> — Full structural diagnostics and rule traceability</li>
       </ul>
 
       <p>
         Complexity is abstracted in Athlete Mode,
         but fully accessible in Coach Mode.
-      </p>
-
-      <p>
-        Any recommendation can be queried for complete technical breakdown —
-        including source metrics, thresholds, trend deltas, and deterministic rule logic.
       </p>
 
       <p>
