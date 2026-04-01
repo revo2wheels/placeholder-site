@@ -714,32 +714,31 @@ LLM Rendering Layer (Read-only, tool-driven)
       </div>
 
     </section>
+<section id="coaching-pipeline" class="card" style="border-left:4px solid #f97316;">
 
-    <section id="coaching-pipeline" class="card" style="border-left:4px solid #f97316;">
+  <h2>🧠 Coaching Intelligence Pipeline (Performance Layer)</h2>
 
-      <h2>🧠 Coaching Intelligence Pipeline (Performance Layer)</h2>
+  <p class="muted">
+    Status: <strong>Active (v6 / ADE v2)</strong> • Rule-based • Closed-loop • Production
+  </p>
 
-      <p class="muted">
-        Status: <strong>Active (v6)</strong> • Rule-based • Closed-loop • Production
-      </p>
+  <p>
+    The <strong>Coaching Pipeline</strong> operates strictly on validated canonical data
+    produced by the Technical Pipeline. It does <em>not</em> compute raw metrics.
+    It transforms trusted semantic inputs into structured performance intelligence
+    and executes deterministic training decisions.
+  </p>
 
-      <p>
-        The <strong>Coaching Pipeline</strong> operates strictly on validated canonical data
-        produced by the Technical Pipeline. It does <em>not</em> compute raw metrics.
-        It transforms trusted semantic inputs into structured performance intelligence
-        and executes deterministic training decisions.
-      </p>
+  <p>
+    Tier-3 now operates as a <strong>closed-loop system with hierarchical control</strong>:
+    performance intelligence drives prescription, but <strong>phase governance can override execution</strong>.
+  </p>
 
-      <p>
-        Tier-3 now operates as a <strong>closed-loop system</strong>:
-        performance intelligence directly drives prescription via the Adaptive Decision Engine.
-      </p>
+  <hr>
 
-      <hr>
-
-      <div class="codeblock"
-        style="font-family:'Courier New',monospace;font-size:0.9rem;overflow-x:auto;text-align:center;">
-        <pre>
+  <div class="codeblock"
+    style="font-family:'Courier New',monospace;font-size:0.9rem;overflow-x:auto;text-align:center;">
+    <pre>
 CANONICAL SEMANTIC DATA (URF v5.1)
                 │
                 ▼
@@ -749,19 +748,18 @@ Tier-3A: Stress Intelligence (PI)
                 ▼
 Tier-3B: Progression Intelligence
 ESPE v1 — Power Curve Adaptation (ACTIVE)
-• 5s / 1m / 5m / 20m / 60m anchors
-• Rolling window comparison (current vs previous)
-• Adaptation bias + plateau detection
                 │
                 ▼
 Tier-3C: System Modeling
 (PI + ESPE synthesis)
-• Energy system balance
-• Durability gradient
-• Adaptation state
                 │
                 ▼
-Adaptive Decision Engine (ADE v1 — Control Layer)
+ADE v2 — Adaptive Decision Engine
+(Operational Layer — metrics driven)
+                │
+                ▼
+PHASE GOVERNANCE LAYER (Strategic Override)
+(required_phase enforcement)
                 │
                 ▼
 COACHING SEMANTIC LAYER (v6)
@@ -769,68 +767,68 @@ COACHING SEMANTIC LAYER (v6)
                 ▼
 Final Structured Report
 </pre>
-      </div>
+  </div>
 
-      <hr>
+  <hr>
 
-      <h3>🔍 Stage 1 — Stress Intelligence (PI)</h3>
-      <p>
-        Evaluates how the athlete expresses training load under fatigue.
-      </p>
-      <ul>
-        <li><strong>WDRM</strong> — Anaerobic repeatability and W′ depletion behavior</li>
-        <li><strong>ISDM</strong> — Durability and fatigue resistance</li>
-        <li><strong>NDLI</strong> — Neural load density and intensity clustering</li>
-      </ul>
-      <p>
-        Answers: <em>“Can the athlete tolerate additional stress?”</em>
-      </p>
+  <h3>🔍 Stage 1 — Stress Intelligence (PI)</h3>
+  <p>
+    Evaluates how the athlete expresses training load under fatigue.
+  </p>
+  <ul>
+    <li><strong>WDRM</strong> — Anaerobic repeatability and W′ depletion behavior</li>
+    <li><strong>ISDM</strong> — Durability and fatigue resistance</li>
+    <li><strong>NDLI</strong> — Neural load density and intensity clustering</li>
+  </ul>
+  <p>
+    Answers: <em>“Can the athlete tolerate additional stress?”</em>
+  </p>
 
-      <hr>
+  <hr>
 
-      <h3>📈 Stage 2 — Progression Intelligence (ESPE v1 — Active)</h3>
-      <p>
-        Tracks energy system adaptation using deterministic power curve comparison.
-      </p>
-      <ul>
-        <li>Endurance (60min trend)</li>
-        <li>Threshold (20min trend)</li>
-        <li>VO₂ Capacity (5min trend)</li>
-        <li>Anaerobic Repeatability (1min + W′ behavior)</li>
-      </ul>
-      <p>
-        Answers: <em>“Is current training producing adaptation?”</em>
-      </p>
+  <h3>📈 Stage 2 — Progression Intelligence (ESPE v1 — Active)</h3>
+  <p>
+    Tracks energy system adaptation using deterministic power curve comparison.
+  </p>
+  <ul>
+    <li>Endurance (60min trend)</li>
+    <li>Threshold (20min trend)</li>
+    <li>VO₂ Capacity (5min trend)</li>
+    <li>Anaerobic Repeatability (1min + W′ behavior)</li>
+  </ul>
+  <p>
+    Answers: <em>“Is current training producing adaptation?”</em>
+  </p>
 
-      <hr>
+  <hr>
 
-      <h3>🧬 Stage 3 — System Modeling</h3>
+  <h3>🧬 Stage 3 — System Modeling</h3>
 
-      <p>
-        Combines stress signals (PI) and progression signals (ESPE)
-        into a unified physiological state model.
-      </p>
+  <p>
+    Combines stress signals (PI) and progression signals (ESPE)
+    into a unified physiological state model.
+  </p>
 
-      <ul>
-        <li>Energy system balance (aerobic vs glycolytic)</li>
-        <li>Durability gradient</li>
-        <li>Adaptation bias (VO₂ / threshold / endurance)</li>
-        <li>Plateau detection</li>
-      </ul>
+  <ul>
+    <li>Energy system balance</li>
+    <li>Durability gradient</li>
+    <li>Adaptation bias</li>
+    <li>Plateau detection</li>
+  </ul>
 
-      <p>
-        This stage transforms raw progression into actionable system-level intelligence.
-      </p>
+  <p>
+    This stage defines <strong>system capability and constraints</strong>.
+  </p>
 
-      <hr>
+  <hr>
 
-      <h3>🧭 Stage 4 — Adaptive Decision Engine (ADE v1)</h3>
-      <p>
-        Executes rule-based control over training prescription based on Tier-3 state.
-      </p>
+  <h3>🧭 Stage 4 — ADE v2 (Operational Decision Layer)</h3>
+  <p>
+    Executes rule-based training adjustments based on current physiological state.
+  </p>
 
-      <div class="codeblock" style="font-family:'Courier New',monospace;font-size:0.85rem;overflow-x:auto;">
-        <pre>
+  <div class="codeblock" style="font-family:'Courier New',monospace;font-size:0.85rem;overflow-x:auto;">
+    <pre>
 IF:
   Neural density high
   AND Repeatability decreasing
@@ -840,76 +838,98 @@ THEN:
   Convert tempo → endurance
   Insert OFF day
 </pre>
-      </div>
+  </div>
 
-      <p>
-        No GPT improvisation. No hidden logic.
-        Rules are executed inside Railway and serialized into the semantic graph.
-      </p>
+  <p>
+    This layer answers: <em>“What can the athlete handle right now?”</em>
+  </p>
 
-      <hr>
+  <hr>
 
-      <h3>🧠 Training State Machine</h3>
+  <h3>🧭 Stage 5 — Phase Governance (Strategic Override Layer)</h3>
 
-      <p>
-        All prescription logic is governed by a deterministic training state model.
-        The system cannot prescribe progression outside the current state.
-      </p>
+  <p>
+    Enforces mesocycle intent over short-term optimisation.
+  </p>
 
-      <div class="codeblock" style="font-family:'Courier New',monospace;font-size:0.85rem;overflow-x:auto;">
-        <pre>
-Training State Machine:
-  Stable → Progress
-  Dense → Absorb
-  Strain → Consolidate
-  Overreached → Recover
+  <p>
+    <strong>Critical rule:</strong>
+  </p>
+
+  <div class="codeblock" style="font-family:'Courier New',monospace;font-size:0.85rem;">
+    <pre>
+IF:
+  required_phase != operational_state
+THEN:
+  override ADE decision
 </pre>
-      </div>
+  </div>
 
-      <p>
-        The state machine governs intensity permission and load progression.
-        It ensures Tier-2 diagnostics cannot override Tier-3 state.
-      </p>
+  <p>
+    This layer answers: <em>“What should the athlete be doing now?”</em>
+  </p>
 
-      <hr>
+  <ul>
+    <li>Prevents fatigue accumulation drift</li>
+    <li>Forces recovery / taper when required</li>
+    <li>Ends blocks when adaptation saturates</li>
+  </ul>
 
-      <h3>📦 Coaching Semantic Output (v6)</h3>
+  <p>
+    <strong>Hierarchy:</strong><br>
+    Phase (strategy) &gt; ADE (execution)
+  </p>
 
-      <p>
-        The Coaching Semantic Layer converts structural intelligence into
-        clear, athlete-readable language — without removing analytical depth.
-      </p>
+  <hr>
 
-      <div class="codeblock" style="font-family:'Courier New',monospace;font-size:0.85rem;overflow-x:auto;">
-        <pre>
+  <h3>🧠 Training State Model (ADE v2)</h3>
+
+  <div class="codeblock" style="font-family:'Courier New',monospace;font-size:0.85rem;">
+    <pre>
+Operational States:
+  load_progression
+  stable_load
+  absorption_required
+  recovery_priority
+</pre>
+  </div>
+
+  <p>
+    These states define execution capacity, but do <strong>not override phase intent</strong>.
+  </p>
+
+  <hr>
+
+  <h3>📦 Coaching Semantic Output (v6)</h3>
+
+  <div class="codeblock" style="font-family:'Courier New',monospace;font-size:0.85rem;">
+    <pre>
 adaptive_layer:
-  readiness_state
-  progression_state
-  neural_state
-  durability_state
+  operational_state
+  required_phase
+  phase_alignment
+  resolution
+  adaptation_focus
   prescription_adjustment
 </pre>
-      </div>
+  </div>
 
-      <p>
-        The system supports:
-      </p>
+  <p>
+    The system supports:
+  </p>
 
-      <ul>
-        <li><strong>Athlete Mode</strong> — Clear readiness and actionable guidance</li>
-        <li><strong>Coach Mode</strong> — Full structural diagnostics and rule traceability</li>
-      </ul>
+  <ul>
+    <li><strong>Athlete Mode</strong> — Clear directive</li>
+    <li><strong>Coach Mode</strong> — Full traceability</li>
+  </ul>
 
-      <p>
-        Complexity is abstracted in Athlete Mode,
-        but fully accessible in Coach Mode.
-      </p>
+  <p>
+    Complexity is abstracted in Athlete Mode, but fully accessible in Coach Mode.
 
-      <p>
-        The system hides complexity — it never hides transparency.
-      </p>
+    The system hides complexity — it never hides transparency.
+  </p>
 
-    </section>
+</section>
 
 
 
