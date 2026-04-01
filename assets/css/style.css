@@ -790,6 +790,80 @@ section .card {
   background: transparent;
 }
 
+.ai-markdown {
+  line-height: 1.5;
+}
+
+.ai-markdown h1 { font-size:1.4rem; margin-top:0; }
+.ai-markdown h2 { font-size:1.2rem; margin-top:1rem; }
+.ai-markdown h3 { font-size:1.1rem; margin-top:0.8rem; }
+
+.ai-markdown ul,
+.ai-markdown ol {
+  margin-left: 1.3rem;
+}
+
+.ai-markdown code {
+  background:#1e293b;
+  color:#e2e8f0;
+  padding:2px 6px;
+  border-radius:4px;
+}
+
+.ai-markdown pre {
+  background:#0f172a;
+  color:#e2e8f0;
+  padding:12px;
+  border-radius:6px;
+  overflow-x:auto;
+}
+
+.ai-markdown table {
+  width:100%;
+  border-collapse:collapse;
+  margin-top:10px;
+}
+
+.ai-markdown td, .ai-markdown th {
+  border:1px solid #334155;
+  padding:6px;
+}
+
+.framework-block {
+  margin-top: 10px;
+}
+
+.framework-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 14px;
+}
+
+.framework-table th,
+.framework-table td {
+  border: 1px solid #334155;
+  padding: 6px;
+}
+
+.framework-tree {
+  font-family: monospace;
+  background: #0f172a;
+  color: #e2e8f0;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.framework-tree div {
+  padding: 2px 0;
+}
+
+.lvl1 { margin-left: 10px; }
+.lvl2 { margin-left: 20px; }
+.lvl3 { margin-left: 30px; }
+.lvl4 { margin-left: 40px; }
+
+
+
 /* === DEBUG GRID VISUALIZER === */
 /*section {
   outline: 2px dashed rgba(56, 189, 248, 0.6);

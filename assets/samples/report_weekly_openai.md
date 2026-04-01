@@ -5,7 +5,6 @@ Load Pressure — recovery_priority
 - version: v16.17
 - generated_at (local): 2026-04-01T12:48:13+02:00
 - timezone: Europe/Zurich
-- athlete.id: 1234567
 - athlete.name: Demo Athlete
 - athlete.sex / dob / location: M / 1975-01-01 / Zurich, Switzerland
 - primary_sport: ride
