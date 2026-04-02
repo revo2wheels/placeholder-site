@@ -862,7 +862,27 @@ section .card {
 .lvl3 { margin-left: 30px; }
 .lvl4 { margin-left: 40px; }
 
+/* MOBILE SWIPE FOR AI REPORT TABLES */
+.ai-markdown {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
 
+.ai-markdown table {
+  min-width: 720px;
+}
+
+/* swipe hint */
+@media (max-width: 768px) {
+  .ai-markdown::after {
+    content: "Swipe →";
+    display: block;
+    text-align: right;
+    font-size: 0.75rem;
+    color: #888;
+    padding-top: 0.4rem;
+  }
+}
 
 /* === DEBUG GRID VISUALIZER === */
 /*section {

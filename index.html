@@ -573,7 +573,7 @@
 
   </section>
 
-  <section id="Coachdoes" class="card">
+  <section id="Coach" class="card">
     <h2>⚙️ What the Coach Actually Does</h2>
 
     <ul>
@@ -945,7 +945,7 @@ Weekly   = Microcycle (execution + inferred phase)
 =================================================== -->
 
 
-  <section id="coach" class="card">
+  <section id="coachmmodel" class="card">
 
     <h3>🔬 Scientific & Methodological Framework</h3>
 
@@ -1570,6 +1570,13 @@ Weekly   = Microcycle (execution + inferred phase)
     window.addEventListener("scroll", () => {
       const btn = document.getElementById("backTop");
       btn.style.display = (window.scrollY > 400) ? "block" : "none";
+    });
+
+    document.querySelectorAll(".ai-markdown table").forEach(t => {
+      const wrapper = document.createElement("div");
+      wrapper.className = "overflow-x-auto";
+      t.parentNode.insertBefore(wrapper, t);
+      wrapper.appendChild(t);
     });
   </script>
 
