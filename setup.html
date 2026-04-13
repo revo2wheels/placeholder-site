@@ -24,7 +24,6 @@
       <a href="index.html#samples">Samples</a>
       <a href="index.html#coach">Coach</a>
       <a href="index.html#quick">Quickstart</a>
-      <a href="index.html#download">Download</a>
       <a href="index.html#contact">Contact</a>
       <a href="changelog.html">Changelog</a>
       <a href="pipeline.html">Design</a>
@@ -42,43 +41,100 @@
     </p>
   </section>
 <section class="card">
-  <h2>🚀 Step-by-Step Setup</h2>
+<h2>🚀 Setup — Choose Your Interface</h2>
 
-  <p>
-    <strong>First question:</strong> in ChatGPT: "How to setup?" will link to here and explain what to do <br>
-    <strong>Second question:</strong> "what can you do?" <br>
-    <strong>Third question:</strong> "whats your coaching framework?"
-  </p>
+  <div class="card" style="margin-bottom:1rem;">
+  <h3>Choose how you want to use Montis</h3>
 
-  <h3>Step 1 — Open the Montis.icu Coach</h3>
+  <ul>
+    <li><strong>🤖 ChatGPT (Recommended)</strong> — guided chat experience</li>
+    <li><strong>🧠 Claude + MCP</strong> — direct tool connection</li>
+  </ul>
+</div>
+
+<h3>🤖 ChatGPT Setup</h3>
+<h4>Step 1 — Open the Montis.icu Coach</h4>
   <p>
     Open the Montis.icu Coach App inside ChatGPT (best in web browser not Mobile app first time), click on this link in a web browser <a href="https://chatgpt.com/g/g-6933fc6bcd008191bb52885be4d1927c-montis-icu-coach-v5-railway-t2-engine"> Montis.icu Coach V5</a>
   and type or click "run a weekly report" and the following sign in prompt will appear, click <strong> sign in</strong>. This will redirect you to sign into Intervals.icu or if already signed in it will move to step 2.</p> 
-  <img src="assets/Screenshot_13-2-2026_95338_chatgpt.com.jpeg" alt="Open Coach in ChatGPT" style="width:75%;border-radius:10px;margin:1rem 0;">
+  <img src="assets/montis_connect.png" alt="Open Coach in ChatGPT" style="width:75%;border-radius:10px;margin:1rem 0;">
 
   <h3>Step 2 — Connect your Intervals.icu account</h3>
   <p>
     When prompted, click <strong>OK - to Connect Intervals.icu</strong> and approve access, do not uncheck any items.
     This allows the coach to read your training data securely and create new calendar events.
   </p>
-  <img src="assets/Screenshot_13-2-2026_95351_intervals.icu.jpeg" alt="Authorize Intervals account" style="width:30%;border-radius:10px;margin:1rem 0;">
+  <img src="assets/montis_auth.png" alt="Authorize Intervals account" style="width:30%;border-radius:10px;margin:1rem 0;">
 
   <h3>Step 3 — Return to ChatGPT</h3>
   <p>
-    After authorization, you will be redirected back to ChatGPT, it will flash up a green message stating "connected", then prompt the following: Click <strong> always allow</strong> to stop this happening on every request.
+    After authorization, you will be redirected back to ChatGPT, it will flash up a green message stating "connected".
   </p>
-  <img src="assets/Screenshot_13-2-2026_9545_chatgpt.com.jpeg" alt="Return to ChatGPT" style="width:75%;border-radius:10px;margin:1rem 0;">
+  <img src="assets/montis_connected.png" alt="Return to ChatGPT" style="width:75%;border-radius:10px;margin:1rem 0;">
 
   <h3>Step 4 — Run your first report</h3>
     <p>
-    It will now continue to show your report
+    Click <strong> always allow</strong> to stop this prompt on every request.It will now continue to show your report.
   </p>
 
-  <img src="assets/Screenshot_13-2-2026_95426_chatgpt.com.jpeg" alt="Run weekly report" style="width:75%;border-radius:10px;margin:1rem 0;">
+  <img src="assets/montis_allow.png" alt="Run weekly report" style="width:75%;border-radius:10px;margin:1rem 0;">
 
-  <p>
-    You should now see your first training summary.
-  </p>
+<hr>
+
+<h3>🧠 Claude Setup (MCP)</h3>
+
+<p>
+  If you use Claude, you can connect Montis directly using
+  <strong>Model Context Protocol (MCP)</strong>.
+</p>
+
+<h4>Step 1 — Add Montis MCP Server</h4>
+
+<pre><code>{
+  "url": "https://montis.icu/mcp",
+  "client_id": "intervals-mcp"
+}</code></pre>
+
+<p>
+  Add this configuration in your Claude MCP / connector settings.
+</p>
+
+<!-- Screenshot 1 -->
+<img src="assets/mcp_config.png" 
+     alt="Add MCP server in Claude"
+     style="width:50%;border-radius:10px;margin:1rem 0;">
+
+<h4>Step 2 — Authorize Intervals.icu</h4>
+
+<p>
+  You will be prompted to connect your Intervals.icu account.
+  Approve access to continue.
+</p>
+
+<!-- Screenshot 2 -->
+<img src="assets/mcp_auth.png" 
+     alt="Authorize Intervals via MCP"
+     style="width:30%;border-radius:10px;margin:1rem 0;">
+
+<h4>Step 3 — Use Montis Tools</h4>
+
+<p>
+  Once connected, Claude can call Montis tools directly.
+</p>
+
+<pre><code>run Weekly Report
+run Wellness Report
+get Activity for yesterday</code></pre>
+
+<!-- Screenshot 3 -->
+<img src="assets/mcp_tools.png" 
+     alt="Claude using Montis tools"
+     style="width:75%;border-radius:10px;margin:1rem 0;">
+
+<p class="muted-left">
+  MCP connects Claude directly to the Montis engine — no chat wrapper.
+</p>
+
 </section>
 
 
