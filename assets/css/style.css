@@ -884,6 +884,51 @@ section .card {
   }
 }
 
+.app-shot-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-top: 10px;
+}
+
+.app-shot {
+  width: 140px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.12);
+  transition: transform 0.15s ease;
+}
+
+.app-shot:hover {
+  transform: scale(1.03);
+}
+
+.app-shot-modal {
+  display: none;
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0,0,0,0.85);
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+.app-shot-modal.open {
+  display: flex;
+}
+
+.app-shot-modal-img {
+  max-width: 92vw;
+  max-height: 92vh;
+  width: auto;
+  height: auto;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.45);
+}
+
 /* === DEBUG GRID VISUALIZER === */
 /*section {
   outline: 2px dashed rgba(56, 189, 248, 0.6);

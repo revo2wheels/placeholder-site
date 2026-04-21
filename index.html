@@ -289,33 +289,33 @@
 🧭 QUICK START — SETUP
 =================================================== -->
   <section id="quick" class="card">
-  <h2>🧭 Quick Start — Setup</h2>
+    <h2>🧭 Quick Start — Setup</h2>
 
-  <h3>1. Choose Your Interface</h3>
+    <h3>1. Choose Your Interface</h3>
 
-  <p>You can use Montis.icu Coach in three ways:</p>
+    <p>You can use Montis.icu Coach in three ways:</p>
 
-  <ul>
-    <li>
-      <strong>ChatGPT (Recommended):</strong>
-      Simple, natural chat experience
-    </li>
+    <ul>
+      <li>
+        <strong>ChatGPT (Recommended):</strong>
+        Simple, natural chat experience
+      </li>
 
-    <li>
-      <strong>Claude + MCP:</strong>
-      Direct tool access via Model Context Protocol
-    </li>
+      <li>
+        <strong>Claude + MCP:</strong>
+        Direct tool access via Model Context Protocol
+      </li>
 
-    <li>
-      <strong>Montis Apps:</strong>
-      Use the <a href="https://montis.icu/app">Apps Hub</a> to launch provider apps
-      (Gemini BETA and OpenAI BETA live, Claude coming soon, BYOK)
-    </li>
-  </ul>
+      <li>
+        <strong>Montis Apps:</strong>
+        Use the <a href="https://montis.icu/app">Apps Hub</a> to launch provider apps
+        (Gemini BETA and OpenAI BETA live, Claude coming soon, BYOK)
+      </li>
+    </ul>
 
-  <p>
-    You must have an <a href="https://www.intervals.icu">Intervals.icu</a> account and activity data.
-  </p>
+    <p>
+      You must have an <a href="https://www.intervals.icu">Intervals.icu</a> account and activity data.
+    </p>
 
     <!-- ================= CHATGPT ================= -->
     <h3>🤖 Option A — ChatGPT GPT APP (Recommended)</h3>
@@ -417,16 +417,23 @@
       <li>
         <a href="https://montis.icu/app">Apps Hub</a> — central launcher (recommended)
       </li>
+
       <li>
         <a href="https://geminiapp.montis.icu">Gemini App</a> — available now in beta (BYOK)
-      </li>
-      <li>
-        <a href="https://openaiapp.montis.icu">OpenAI App</a> — coming soon in beta (BYOK)
-      </li>
-      <li>
-        Claude App — coming soon (BYOK)
+        <p><strong>NOW</strong> with new Athlete dashboard.</p>
+
+        <div class="app-shot-row">
+          <img src="/assets/dash1.png" alt="Gemini App dashboard login" class="app-shot"
+            onclick="openAppShot(this.src, this.alt)" />
+          <img src="/assets/dash2.png" alt="Gemini App dashboard example" class="app-shot"
+            onclick="openAppShot(this.src, this.alt)" />
+        </div>
       </li>
     </ul>
+
+    <div id="appShotModal" class="app-shot-modal" onclick="closeAppShot()">
+      <img id="appShotModalImg" class="app-shot-modal-img" alt="">
+    </div>
 
     <p class="muted-left">
       Each app uses a Bring Your Own Key (BYOK) model — you use your own AI provider
@@ -1557,6 +1564,19 @@ Weekly   = Microcycle (execution + inferred phase)
       t.parentNode.insertBefore(wrapper, t);
       wrapper.appendChild(t);
     });
+
+    function openAppShot(src, alt) {
+      const modal = document.getElementById("appShotModal");
+      const img = document.getElementById("appShotModalImg");
+      img.src = src;
+      img.alt = alt || "";
+      modal.classList.add("open");
+    }
+
+    function closeAppShot() {
+      document.getElementById("appShotModal").classList.remove("open");
+    }
+
   </script>
 
 </body>
