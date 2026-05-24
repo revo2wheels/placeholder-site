@@ -84,6 +84,112 @@
 
 <hr>
 
+<section id="chatgpt-gpt-issues" class="section faq">
+  <h2>FAQ — ChatGPT / Montis GPT connection issues</h2>
+
+  <p>
+    If Montis works from the command line or browser tools but fails inside ChatGPT,
+    the problem is usually ChatGPT session state, app state, connector auth state,
+    browser storage, network filtering, VPN/security DNS, or a temporary OpenAI-side issue.
+  </p>
+
+  <details>
+    <summary>Montis says there is an upstream connection error. What should I try?</summary>
+
+    <ol>
+      <li>
+        <strong>Start a brand-new ChatGPT chat (common cause).</strong><br>
+        Open the Montis GPT in a new chat and type exactly:
+        <code>run weekly report</code><br>
+        This rules out stale conversation state or a stuck tool/action state, ChatGPT stale conversations are very common cause of many issues.
+      </li>
+
+      <li>
+        <strong>Use the browser instead of the ChatGPT app.</strong><br>
+        Go to <code>chatgpt.com</code> in Chrome, Edge, or Safari and run the same command.
+        This separates a ChatGPT app issue from an account/tool issue.
+      </li>
+
+      <li>
+        <strong>Try an incognito/private window.</strong><br>
+        Log in to ChatGPT, open the Montis GPT, and run:
+        <code>run weekly report</code><br>
+        This rules out cookies, cache, extensions, and stored app state.
+      </li>
+
+      <li>
+        <strong>Try a different network.</strong><br>
+        Use mobile data or a hotspot instead of home, work, school, corporate Wi-Fi,
+        or filtered networks. This rules out ISP, VPN, DNS, proxy, firewall, or security filtering.
+      </li>
+
+      <li>
+        <strong>Disable VPN, proxy, iCloud Private Relay, secure DNS, or filtering tools.</strong><br>
+        Temporarily turn off VPNs, proxies, iCloud Private Relay, NextDNS, AdGuard,
+        Web Protect, antivirus web filtering, or similar tools. OpenAI lists these as common causes
+        of ChatGPT network, websocket, and response-generation errors.
+      </li>
+
+      <li>
+        <strong>Use the default model/mode in a new chat.</strong><br>
+        Do not continue from an old Thinking, Deep Research, or long-running conversation.
+        Start fresh and use the normal/default ChatGPT mode.
+      </li>
+
+      <li>
+        <strong>Run a small Montis action first.</strong><br>
+        Try:
+        <code>read calendar next 7 days</code><br>
+        If the small action works but the weekly report fails, the issue may be related to
+        a heavier ChatGPT action run, payload handling, or timeout behaviour.
+      </li>
+
+      <li>
+        <strong>Disconnect and reconnect Montis in ChatGPT.</strong><br>
+        In ChatGPT/GPT connector authentication (via privacy settings/connected accounts menu), disconnect Montis, reconnect it,
+        then run a small action first, followed by:
+        <code>run weekly report</code><br>
+        This rules out stale OAuth/action binding.
+      </li>
+    </ol>
+  </details>
+
+  <details>
+    <summary>Does this mean Montis itself is down?</summary>
+
+    <p>
+      Not necessarily, you can also check <a href="https://status.montis.icu" target="_blank">https://status.montis.icu</a>. If the same athlete report works from Montis Gemini APP <a href="https://geminiapp.montis.icu" target="_blank">https://geminiapp.montis.icu</a> or another ChatGPT account/session, then the backend is responding correctly.
+      The remaining likely causes are ChatGPT session state, connector auth binding,
+      app/browser storage, network filtering, or temporary OpenAI-side execution issues. These are the most common issues, plus the growing daily list of ChatGPT bugs (thinking state carry forward etc and stale conversations are common). 
+    </p>
+  </details>
+
+  <details>
+    <summary>What should I send to support if it still fails?</summary>
+
+    <ul>
+      <li>The exact prompt used, for example: <code>run weekly report</code></li>
+      <li>Whether it fails in the ChatGPT app, browser, or both</li>
+      <li>Whether incognito/private mode works</li>
+      <li>Whether mobile data/hotspot works</li>
+      <li>Whether VPN, Private Relay, secure DNS, or filtering tools are enabled</li>
+      <li>The approximate date/time of the failed attempt</li>
+      <li>The visible ChatGPT error message</li>
+    </ul>
+  </details>
+
+  <p class="note">
+    Reference: OpenAI Help Center —
+    <a href="https://help.openai.com/en/articles/7996703-troubleshooting-chatgpt-error-messages"
+       target="_blank"
+       rel="noopener noreferrer">
+      Troubleshooting ChatGPT Error Messages
+    </a>
+  </p>
+</section>
+
+<hr>
+
 <h3>🧠 Claude Setup (MCP)</h3>
 
 <p>
