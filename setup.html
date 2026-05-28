@@ -19,6 +19,7 @@
     <nav>
       <a href="index.html#about">About</a>
       <a href="index.html#quick">Quickstart</a>
+      <a href="setup.html" style="font-weight:bold;color:#38bdf8;">Setup</a>
       <a href="index.html#feedback">Feedback</a>
       <a href="index.html#samples">Samples</a>
       <a href="index.html#coach">Coach</a>
@@ -34,313 +35,384 @@
     </nav>
   </header>
 
-<main>
+  <main>
 
-  <section class="card">
-    <h1>⚙️ Montis.icu Coach First-Time Setup</h1>
-    <p>
-      Follow these steps to connect your Intervals.icu account and generate your first training report in montis.icu Coach App.
-      The entire setup takes less than one minute.
-    </p>
-  </section>
-<section class="card">
-<h2>🚀 Setup — Choose Your Interface</h2>
+    <section class="card">
+      <h1>⚙️ Montis.icu Coach First-Time Setup</h1>
+      <p>
+        Follow these steps to connect your Intervals.icu account and generate your first training report in montis.icu
+        Coach App.
+        The entire setup takes less than one minute.
+      </p>
+    </section>
 
-  <div class="card" style="margin-bottom:1rem;">
-  <h3>Choose how you want to use Montis</h3>
+    <section class="card">
+      <h2>🚀 Setup — Choose Your Interface</h2>
 
-  <ul>
-    <li><strong>🤖 ChatGPT (Recommended)</strong> — guided chat experience</li>
-    <li><strong>🧠 Claude + MCP</strong> — direct tool connection</li>
-  </ul>
-</div>
+      <div class="card" style="margin-bottom:1rem;">
+        <h3>Choose how you want to use Montis</h3>
 
-<h3>🤖 ChatGPT Setup</h3>
-<h4>Step 1 — Open the Montis.icu Coach</h4>
-  <p>
-    Open the Montis.icu Coach App inside ChatGPT (best in web browser not Mobile app first time), click on this link in a web browser <a href="https://chatgpt.com/g/g-6933fc6bcd008191bb52885be4d1927c-montis-icu-coach-v5-railway-t2-engine"> Montis.icu Coach V5</a>
-  and type or click "run a weekly report" and the following sign in prompt will appear, click <strong> sign in</strong>. This will redirect you to sign into Intervals.icu or if already signed in it will move to step 2.</p> 
-  <img src="assets/montis_connect.png" alt="Open Coach in ChatGPT" style="width:75%;border-radius:10px;margin:1rem 0;">
+        <ul>
+          <li><strong>🤖 <a href="#chatgpt">ChatGPT (Recommended)</a></strong> — guided chat experience</li>
+          <li><strong>🧠 <a href="#claude">Claude + MCP</a></strong> — direct tool connection</li>
+          <li><strong>⚙️ <a href="#gemini">Gemini App</a></strong> — direct tool connection</li>
+          <li><a href="#chatgpt-gpt-issues">ChatGPT connection issues FAQ</a> — toubleshoot your ChatGPT experience</li>
 
-  <h3>Step 2 — Connect your Intervals.icu account</h3>
-  <p>
-    When prompted, click <strong>OK - to Connect Intervals.icu</strong> and approve access, do not uncheck any items.
-    This allows the coach to read your training data securely and create new calendar events.
-  </p>
-  <img src="assets/montis_auth.png" alt="Authorize Intervals account" style="width:30%;border-radius:10px;margin:1rem 0;">
 
-  <h3>Step 3 — Return to ChatGPT</h3>
-  <p>
-    After authorization, you will be redirected back to ChatGPT, it will flash up a green message stating "connected".
-  </p>
-  <img src="assets/montis_connected.png" alt="Return to ChatGPT" style="width:75%;border-radius:10px;margin:1rem 0;">
+        </ul>
+      </div>
+    </section>
+    <section id="chatgpt" class="card">
+      <h3>🤖 ChatGPT Setup</h3>
+      <h4>Step 1 — Open the Montis.icu Coach</h4>
+      <p>
+        Open the Montis.icu Coach App inside ChatGPT (best in web browser not Mobile app first time), click on this link
+        in a web browser <a
+          href="https://chatgpt.com/g/g-6933fc6bcd008191bb52885be4d1927c-montis-icu-coach-v5-railway-t2-engine">
+          Montis.icu Coach V5</a>
+        and type or click "run a weekly report" and the following sign in prompt will appear, click <strong> sign
+          in</strong>. This will redirect you to sign into Intervals.icu or if already signed in it will move to step 2.
+      </p>
+      <img src="assets/montis_connect.png" alt="Open Coach in ChatGPT"
+        style="width:75%;border-radius:10px;margin:1rem 0;">
 
-  <h3>Step 4 — Run your first report</h3>
-    <p>
-    Click <strong> always allow</strong> to stop this prompt on every request.It will now continue to show your report.
-  </p>
+      <h3>Step 2 — Connect your Intervals.icu account</h3>
+      <p>
+        When prompted, click <strong>OK - to Connect Intervals.icu</strong> and approve access, do not uncheck any
+        items.
+        This allows the coach to read your training data securely and create new calendar events.
+      </p>
+      <img src="assets/montis_auth.png" alt="Authorize Intervals account"
+        style="width:30%;border-radius:10px;margin:1rem 0;">
 
-  <img src="assets/montis_allow.png" alt="Run weekly report" style="width:75%;border-radius:10px;margin:1rem 0;">
+      <h3>Step 3 — Return to ChatGPT</h3>
+      <p>
+        After authorization, you will be redirected back to ChatGPT, it will flash up a green message stating
+        "connected" (this can take up to a minute!, if it fails it will show a red banner briefly).
+      </p>
+      <img src="assets/montis_connected.png" alt="Return to ChatGPT"
+        style="width:75%;border-radius:10px;margin:1rem 0;">
 
-<hr>
+      <h3>Step 4 — Run your first report</h3>
+      <p>
+        Click <strong> always allow</strong> to stop this prompt on every request.It will now continue to show your
+        report.
+      </p>
 
-<section id="chatgpt-gpt-issues" class="section faq">
-  <h2>FAQ — ChatGPT / Montis GPT connection issues</h2>
+      <img src="assets/montis_allow.png" alt="Run weekly report" style="width:75%;border-radius:10px;margin:1rem 0;">
 
-  <p>
-    If Montis works from the command line or browser tools but fails inside ChatGPT,
-    the problem is usually ChatGPT session state, app state, connector auth state,
-    browser storage, network filtering, VPN/security DNS, or a temporary OpenAI-side issue.
-  </p>
+      <hr>
 
-  <details>
-    <summary>Montis says there is an upstream connection error. What should I try?</summary>
+      <section id="chatgpt-gpt-issues" class="section faq">
+        <h2>FAQ — ChatGPT / Montis GPT connection issues</h2>
 
-    <ol>
-      <li>
-        <strong>Start a brand-new ChatGPT chat (common cause).</strong><br>
-        Open the Montis GPT in a new chat and type exactly:
-        <code>run weekly report</code><br>
-        This rules out stale conversation state or a stuck tool/action state, ChatGPT stale conversations are very common cause of many issues.
-      </li>
+        <p>
+          If Montis works from the command line, Montis Gemini App, browser tools, or another ChatGPT session
+          but fails inside one ChatGPT Montis GPT chat, the problem is usually ChatGPT chat/tool binding,
+          session state, app state, connector auth state, browser storage, network filtering, VPN/security DNS,
+          or a temporary OpenAI-side issue.
+        </p>
 
-      <li>
-        <strong>Use the browser instead of the ChatGPT app.</strong><br>
-        Go to <code>chatgpt.com</code> in Chrome, Edge, or Safari and run the same command.
-        This separates a ChatGPT app issue from an account/tool issue.
-      </li>
+        <details>
+          <summary>Montis says there is an upstream connection error. What should I try?</summary>
 
-      <li>
-        <strong>Try an incognito/private window.</strong><br>
-        Log in to ChatGPT, open the Montis GPT, and run:
-        <code>run weekly report</code><br>
-        This rules out cookies, cache, extensions, and stored app state.
-      </li>
+          <ol>
+            <li>
+              <strong>Start a completely new Montis GPT chat first.</strong><br>
+              Open the Montis GPT in a brand-new chat and type exactly:
+              <code>run weekly report</code><br>
+              This rules out stale conversation state or a failed ChatGPT tool/action binding for that specific chat.
+              A new chat can sometimes fix the issue without refreshing the browser tab.
+            </li>
 
-      <li>
-        <strong>Try a different network.</strong><br>
-        Use mobile data or a hotspot instead of home, work, school, corporate Wi-Fi,
-        or filtered networks. This rules out ISP, VPN, DNS, proxy, firewall, or security filtering.
-      </li>
+            <li>
+              <strong>If that new chat still fails, start one more new Montis GPT chat.</strong><br>
+              ChatGPT can occasionally fail to attach the tool runtime correctly to a single new chat.
+              If the second fresh chat works, the issue was almost certainly ChatGPT chat/tool runtime state,
+              not Montis.
+            </li>
 
-      <li>
-        <strong>Disable VPN, proxy, iCloud Private Relay, secure DNS, or filtering tools.</strong><br>
-        Temporarily turn off VPNs, proxies, iCloud Private Relay, NextDNS, AdGuard,
-        Web Protect, antivirus web filtering, or similar tools. OpenAI lists these as common causes
-        of ChatGPT network, websocket, and response-generation errors.
-      </li>
+            <li>
+              <strong>Refresh the ChatGPT browser tab.</strong><br>
+              If repeated new chats fail, refresh the browser tab and open Montis GPT again.
+              This resets more of ChatGPT's browser-side app/runtime state than simply starting a new chat.
+            </li>
 
-      <li>
-        <strong>Use the default model/mode in a new chat.</strong><br>
-        Do not continue from an old Thinking, Deep Research, or long-running conversation.
-        Start fresh and use the normal/default ChatGPT mode.
-      </li>
+            <li>
+              <strong>Use the browser instead of the ChatGPT app.</strong><br>
+              Go to <code>chatgpt.com</code> in Chrome, Edge, or Safari and run the same command.
+              This separates a ChatGPT app issue from an account/tool issue.
+            </li>
 
-      <li>
-        <strong>Run a small Montis action first.</strong><br>
-        Try:
-        <code>read calendar next 7 days</code><br>
-        If the small action works but the weekly report fails, the issue may be related to
-        a heavier ChatGPT action run, payload handling, or timeout behaviour.
-      </li>
+            <li>
+              <strong>Try an incognito/private window.</strong><br>
+              Log in to ChatGPT, open the Montis GPT, and run:
+              <code>run weekly report</code><br>
+              This rules out cookies, cache, extensions, and stored app state.
+            </li>
 
-      <li>
-        <strong>Disconnect and reconnect Montis in ChatGPT.</strong><br>
-        In ChatGPT/GPT connector authentication (via privacy settings/connected accounts menu), disconnect Montis, reconnect it,
-        then run a small action first, followed by:
-        <code>run weekly report</code><br>
-        This rules out stale OAuth/action binding.
-      </li>
-    </ol>
-  </details>
+            <li>
+              <strong>Try a different network.</strong><br>
+              Use mobile data or a hotspot instead of home, work, school, corporate Wi-Fi,
+              or filtered networks. This rules out ISP, VPN, DNS, proxy, firewall, or security filtering.
+            </li>
 
-  <details>
-    <summary>Does this mean Montis itself is down?</summary>
+            <li>
+              <strong>Disable VPN, proxy, iCloud Private Relay, secure DNS, or filtering tools.</strong><br>
+              Temporarily turn off VPNs, proxies, iCloud Private Relay, NextDNS, AdGuard,
+              Web Protect, antivirus web filtering, or similar tools. OpenAI lists these as common causes
+              of ChatGPT network, websocket, and response-generation errors.
+            </li>
 
-    <p>
-      Not necessarily, you can also check <a href="https://status.montis.icu" target="_blank">https://status.montis.icu</a>. If the same athlete report works from Montis Gemini APP <a href="https://geminiapp.montis.icu" target="_blank">https://geminiapp.montis.icu</a> or another ChatGPT account/session, then the backend is responding correctly.
-      The remaining likely causes are ChatGPT session state, connector auth binding,
-      app/browser storage, network filtering, or temporary OpenAI-side execution issues. These are the most common issues, plus the growing daily list of ChatGPT bugs (thinking state carry forward etc and stale conversations are common). 
-    </p>
-  </details>
+            <li>
+              <strong>Use the default model/mode in a new chat.</strong><br>
+              Do not continue from an old Thinking, Deep Research, or long-running conversation.
+              Start fresh and use the normal/default ChatGPT mode.
+            </li>
 
-  <details>
-    <summary>What should I send to support if it still fails?</summary>
+            <li>
+              <strong>Run a small Montis action first.</strong><br>
+              Try:
+              <code>read calendar next 7 days</code><br>
+              If the small action works but the weekly report fails, the issue may be related to
+              a heavier ChatGPT action run, payload handling, or timeout behaviour.
+            </li>
 
-    <ul>
-      <li>The exact prompt used, for example: <code>run weekly report</code></li>
-      <li>Whether it fails in the ChatGPT app, browser, or both</li>
-      <li>Whether incognito/private mode works</li>
-      <li>Whether mobile data/hotspot works</li>
-      <li>Whether VPN, Private Relay, secure DNS, or filtering tools are enabled</li>
-      <li>The approximate date/time of the failed attempt</li>
-      <li>The visible ChatGPT error message</li>
-    </ul>
-  </details>
+            <li>
+              <strong>Disconnect and reconnect Montis in ChatGPT.</strong><br>
+              In ChatGPT/GPT connector authentication, disconnect Montis, reconnect it,
+              then run a small action first, followed by:
+              <code>run weekly report</code><br>
+              This rules out stale OAuth/action binding.
+            </li>
+          </ol>
+        </details>
 
-  <p class="note">
-    Reference: OpenAI Help Center —
-    <a href="https://help.openai.com/en/articles/7996703-troubleshooting-chatgpt-error-messages"
-       target="_blank"
-       rel="noopener noreferrer">
-      Troubleshooting ChatGPT Error Messages
-    </a>
-  </p>
-</section>
+        <details>
+          <summary>Does this mean Montis itself is down?</summary>
 
-<hr>
+          <p>
+            Not necessarily. You can check
+            <a href="https://status.montis.icu" target="_blank" rel="noopener noreferrer">https://status.montis.icu</a>.
+            If the same athlete report works from Montis Gemini App
+            <a href="https://geminiapp.montis.icu" target="_blank"
+              rel="noopener noreferrer">https://geminiapp.montis.icu</a>,
+            from the command line, from browser tools, or from another ChatGPT chat/account/session,
+            then the Montis backend is responding correctly.
+          </p>
 
-<h3>🧠 Claude Setup (MCP)</h3>
+          <p>
+            In that case, the most likely causes are ChatGPT chat/tool runtime binding,
+            stale conversation state, connector auth binding, app/browser storage,
+            network filtering, or a temporary OpenAI-side execution issue.
+          </p>
+        </details>
+        <details>
+          <summary>What should I send to support if it still fails?</summary>
 
-<p>
-  If you use Claude, you can connect Montis directly using
-  <strong>Model Context Protocol (MCP)</strong>.
-</p>
+          <ul>
+            <li>The exact prompt used, for example: <code>run weekly report</code></li>
+            <li>Whether one new Montis GPT chat failed but another new chat worked</li>
+            <li>Whether it fails in the ChatGPT app, browser, or both</li>
+            <li>Whether refreshing the ChatGPT tab helps</li>
+            <li>Whether incognito/private mode works</li>
+            <li>Whether mobile data/hotspot works</li>
+            <li>Whether VPN, Private Relay, secure DNS, or filtering tools are enabled</li>
+            <li>The approximate date/time of the failed attempt</li>
+            <li>The visible ChatGPT error message</li>
+          </ul>
+        </details>
 
-<h4>Step 1 — Add Montis MCP Server</h4>
+        <p class="note">
+          Reference: OpenAI Help Center —
+          <a href="https://help.openai.com/en/articles/7996703-troubleshooting-chatgpt-error-messages" target="_blank"
+            rel="noopener noreferrer">
+            Troubleshooting ChatGPT Error Messages
+          </a>
+        </p>
+      </section>
 
-<pre><code>{
+      <hr>
+    </section>
+    <section id="claude" class="card">
+
+      <h3>🧠 Claude Setup (MCP)</h3>
+
+      <p>
+        If you use Claude, you can connect Montis directly using
+        <strong>Model Context Protocol (MCP)</strong>.
+      </p>
+
+      <h4>Step 1 — Add Montis MCP Server</h4>
+
+      <pre><code>{
   "url": "https://montis.icu/mcp",
   "client_id": "intervals-mcp"
 }</code></pre>
 
-<p>
-  Add this configuration in your Claude MCP / connector settings.
-</p>
+      <p>
+        Add this configuration in your Claude MCP / connector settings.
+      </p>
 
-<!-- Screenshot 1 -->
-<img src="assets/mcp_config.png" 
-     alt="Add MCP server in Claude"
-     style="width:50%;border-radius:10px;margin:1rem 0;">
+      <!-- Screenshot 1 -->
+      <img src="assets/mcp_config.png" alt="Add MCP server in Claude"
+        style="width:50%;border-radius:10px;margin:1rem 0;">
 
-<h4>Step 2 — Authorize Intervals.icu</h4>
+      <h4>Step 2 — Authorize Intervals.icu</h4>
 
-<p>
-  You will be prompted to connect your Intervals.icu account.
-  Approve access to continue.
-</p>
+      <p>
+        You will be prompted to connect your Intervals.icu account.
+        Approve access to continue.
+      </p>
 
-<!-- Screenshot 2 -->
-<img src="assets/mcp_auth.png" 
-     alt="Authorize Intervals via MCP"
-     style="width:30%;border-radius:10px;margin:1rem 0;">
+      <!-- Screenshot 2 -->
+      <img src="assets/mcp_auth.png" alt="Authorize Intervals via MCP"
+        style="width:30%;border-radius:10px;margin:1rem 0;">
 
-<h4>Step 3 — Use Montis Tools</h4>
+      <h4>Step 3 — Use Montis Tools</h4>
 
-<p>
-  Once connected, Claude can call Montis tools directly.
-</p>
+      <p>
+        Once connected, Claude can call Montis tools directly.
+      </p>
 
-<!-- Screenshot 3 -->
-<img src="assets/mcp_tools.png" 
-     alt="Claude using Montis tools"
-     style="width:75%;border-radius:10px;margin:1rem 0;">
+      <!-- Screenshot 3 -->
+      <img src="assets/mcp_tools.png" alt="Claude using Montis tools"
+        style="width:75%;border-radius:10px;margin:1rem 0;">
 
-<p class="muted-left">
-  MCP connects Claude directly to the Montis engine — no chat wrapper.
-</p>
+      <p class="muted-left">
+        MCP connects Claude directly to the Montis engine — no chat wrapper.
+      </p>
 
-<h4>Step 4 — Open new Claude chat</h4>
+      <h4>Step 4 — Open new Claude chat</h4>
 
-<p>
-  In the chat just ask for any of the tools, like a weekly report. (Different concept to a ChatGPT GPT app), tools are available in any chat.
+      <p>
+        In the chat just ask for any of the tools, like a weekly report. (Different concept to a ChatGPT GPT app),
+        tools are available in any chat.
 
-  
-<pre><code>run Weekly Report
+
+      <pre><code>run Weekly Report
 run Wellness Report
 get Activity for yesterday</code></pre>
 
-</p>
+      </p>
 
-</section>
+    </section>
+
+        <section id="gemini" class="card">
+      <h3>⚙️ Gemini Setup</h3>
+
+      <h4>Step 1 — goto <a href="https://geminiapp.montis.icu" target="_blank">Gemini App, geminiapp.montis.icu</a></h4>
+
+      <!-- Screenshot 1 -->
+      <img src="assets/dash1.png" alt="Connect Montis to Intervals"
+        style="width:50%;border-radius:10px;margin:1rem 0;">
+
+      <h4>Step 2 — Authorize Intervals.icu for Montis</h4>
+
+      <p>
+        You will be prompted to connect your Intervals.icu account.
+        Approve access to continue.
+      </p>
+
+      <!-- Screenshot 2 -->
+      <img src="assets/mcp_auth.png" alt="Authorize Intervals via MCP"
+        style="width:30%;border-radius:10px;margin:1rem 0;">
+
+      <h4>Step 3 — Use Montis App!</h4>
+      <!-- Screenshot 3 -->
+
+      <img src="assets/dash2.png" alt="Connect Montis to Intervals"
+        style="width:50%;border-radius:10px;margin:1rem 0;">
+      
+    </section>
+
+    <section class="card">
+      <h2>⚠️ Common Setup Issues</h2>
+
+      <h3>Athlete profile missing or account not connected</h3>
+      <p>
+        This means the OAuth connection was not completed.
+      </p>
+      <ol>
+        <li>Reopen the Coach link above and start with step 1. Try a different web browser or clear cache/cookies if
+          you are having issues</li>
+        <li>Click <strong>sign in </strong>to connect Intervals.icu</li>
+        <li>Approve access "allow always"</li>
+        <li>Run the report again</li>
+      </ol>
+
+      <hr>
+
+      <h3>STRAVA activities are not available via the API</h3>
+      <p>
+        This means your activities exist only in Strava, and Intervals cannot access
+        the required training metrics.
+      </p>
+
+      <p>
+        To fix this, connect a direct recording source:
+      </p>
+      <ul>
+        <li>Garmin</li>
+        <li>Wahoo</li>
+        <li>Zwift</li>
+        <li>TrainerRoad</li>
+        <li>Upload FIT files directly</li>
+      </ul>
+
+      <p>
+        Explanation:
+        <a href="https://forum.intervals.icu/t/import-all-data-from-strava/81068" target="_blank">
+          Why Strava-only accounts don’t work →
+        </a>
+      </p>
+    </section>
+
+    <section class="card">
+      <h2>📊 Data Requirements</h2>
+      <p>The coach works best when your account has:</p>
+      <ul>
+        <li>Activities with time, distance, and training load</li>
+        <li>A connected device or training platform</li>
+        <li>Optional wellness data for recovery analysis</li>
+      </ul>
+    </section>
+
+    <section class="card">
+      <h2>🧪 Run a Data Quality Check</h2>
+      <p>
+        If your report looks incorrect, empty, or missing activities,
+        run a quick data quality audit.
+      </p>
+
+      <p>
+        After you have connected. In ChatGPT or Claude, type:
+      </p>
+      <pre><code>run data quality report</code></pre>
+
+      <p>
+        This report checks:
+      </p>
+      <ul>
+        <li>If your athlete profile is connected correctly</li>
+        <li>If activities are available</li>
+        <li>If training load, heart rate, and power data exist</li>
+        <li>If wellness data is present</li>
+        <li>If any sources are missing or incomplete</li>
+      </ul>
+
+      <p>
+        The report will return a <strong>data quality score</strong> and
+        highlight actions to fix any issues.
+      </p>
+
+      <p>
+        For a demo ask "<strong>run a weekly report demo test</strong>". This will return a sample demo report.
+      </p>
+    </section>
 
 
-  <section class="card">
-    <h2>⚠️ Common Setup Issues</h2>
-
-    <h3>Athlete profile missing or account not connected</h3>
-    <p>
-      This means the OAuth connection was not completed.
-    </p>
-    <ol>
-      <li>Reopen the Coach link above and start with step 1. Try a different web browser or clear cache/cookies if you are having issues</li>
-      <li>Click <strong>sign in </strong>to connect Intervals.icu</li>
-      <li>Approve access "allow always"</li>
-      <li>Run the report again</li>
-    </ol>
-
-    <hr>
-
-    <h3>STRAVA activities are not available via the API</h3>
-    <p>
-      This means your activities exist only in Strava, and Intervals cannot access
-      the required training metrics.
-    </p>
-
-    <p>
-      To fix this, connect a direct recording source:
-    </p>
-    <ul>
-      <li>Garmin</li>
-      <li>Wahoo</li>
-      <li>Zwift</li>
-      <li>TrainerRoad</li>
-      <li>Upload FIT files directly</li>
-    </ul>
-
-    <p>
-      Explanation:
-      <a href="https://forum.intervals.icu/t/import-all-data-from-strava/81068" target="_blank">
-        Why Strava-only accounts don’t work →
-      </a>
-    </p>
-  </section>
-
-  <section class="card">
-    <h2>📊 Data Requirements</h2>
-    <p>The coach works best when your account has:</p>
-    <ul>
-      <li>Activities with time, distance, and training load</li>
-      <li>A connected device or training platform</li>
-      <li>Optional wellness data for recovery analysis</li>
-    </ul>
-  </section>
-
-  <section class="card">
-    <h2>🧪 Run a Data Quality Check</h2>
-    <p>
-      If your report looks incorrect, empty, or missing activities,
-      run a quick data quality audit.
-    </p>
-
-    <p>
-      After you have connected. In ChatGPT, type:
-    </p>
-    <pre><code>run data quality report</code></pre>
-
-    <p>
-      This report checks:
-    </p>
-    <ul>
-      <li>If your athlete profile is connected correctly</li>
-      <li>If activities are available</li>
-      <li>If training load, heart rate, and power data exist</li>
-      <li>If wellness data is present</li>
-      <li>If any sources are missing or incomplete</li>
-    </ul>
-
-    <p>
-      The report will return a <strong>data quality score</strong> and
-      highlight actions to fix any issues.
-    </p>
-
-        <p>
-      For a demo ask "<strong>run a weekly report demo test</strong>". This will return a sample demo report.
-    </p>
-  </section>
-
-  
-</main>
+  </main>
 
   <!-- ===================================================
 📬 CONTACT SECTION
@@ -392,4 +464,5 @@ get Activity for yesterday</code></pre>
   </footer>
 
 </body>
+
 </html>
