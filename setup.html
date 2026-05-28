@@ -298,14 +298,13 @@ get Activity for yesterday</code></pre>
 
     </section>
 
-        <section id="gemini" class="card">
+    <section id="gemini" class="card">
       <h3>⚙️ Gemini Setup</h3>
 
       <h4>Step 1 — goto <a href="https://geminiapp.montis.icu" target="_blank">Gemini App, geminiapp.montis.icu</a></h4>
 
       <!-- Screenshot 1 -->
-      <img src="assets/dash1.png" alt="Connect Montis to Intervals"
-        style="width:50%;border-radius:10px;margin:1rem 0;">
+      <img src="assets/dash1.png" alt="Connect Montis to Intervals" style="width:50%;border-radius:10px;margin:1rem 0;">
 
       <h4>Step 2 — Authorize Intervals.icu for Montis</h4>
 
@@ -321,9 +320,67 @@ get Activity for yesterday</code></pre>
       <h4>Step 3 — Use Montis App!</h4>
       <!-- Screenshot 3 -->
 
-      <img src="assets/dash2.png" alt="Connect Montis to Intervals"
-        style="width:50%;border-radius:10px;margin:1rem 0;">
-      
+      <img src="assets/dash2.png" alt="Connect Montis to Intervals" style="width:50%;border-radius:10px;margin:1rem 0;">
+
+
+
+      <section class="section-narrow">
+        <div class="card">
+          <h3>Note: to use Gemini AI in the App you can use a Free Tier (API Key)</h3>
+
+          <p>
+            Its not required for the dashboard, but is required for AI aspects.
+            You can generate a free Gemini API key here:
+            <br>
+            👉 <a href="https://aistudio.google.com/app/api-keys" target="_blank">
+              https://aistudio.google.com/app/api-keys
+            </a>
+          </p>
+
+          <p class="muted">
+            No credit card required. Keys are created instantly and default to the Free Tier and you can track estimated
+            usage in the Montis Gemini App. .
+          </p>
+
+          <h4>📊 Free Tier Limits (Gemini 3.1 Flash lite)</h4>
+          <ul>
+            <li><strong>Up to 10,000 requests per minute burst capacity (RPM)</strong></li>
+            <li><strong>350,000 requests per day sustained quota (RPD)</strong></li>
+            <li><strong>10 million tokens per minute throughput (TPM)</strong></li>
+          </ul>
+
+          <h4>⏱️ How Limits Reset</h4>
+          <ul>
+            <li>
+              <strong>Minute limits (RPM / TPM):</strong>
+              Sliding window — capacity returns gradually within ~60 seconds.
+            </li>
+            <li>
+              <strong>Daily limit (RPD):</strong>
+              Resets every 24 hours (typically midnight Pacific Time).
+            </li>
+          </ul>
+
+          <h4>🔐 Important: Data Usage</h4>
+          <ul>
+            <li>
+              <strong>Free tier:</strong> Google may use your prompts and responses to improve models.
+            </li>
+            <li>
+              <strong>Paid tier:</strong> Your data is <strong>not used for training</strong>.
+            </li>
+          </ul>
+
+          <h4>📎 Full Pricing & Limits</h4>
+          <p>
+            See official comparison here:
+            <br>
+            👉 <a href="https://ai.google.dev/pricing" target="_blank">
+              https://ai.google.dev/pricing
+            </a>
+          </p>
+        </div>
+      </section>
     </section>
 
     <section class="card">
