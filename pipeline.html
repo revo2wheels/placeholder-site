@@ -307,6 +307,97 @@ ChatGPT OAuth:
 
     </section>
 
+    <section class="card" style="border-left:4px solid #0ea5e9;">
+
+  <h2>📘 Public API & MCP Documentation</h2>
+
+  <p>
+    Montis exposes two public integration surfaces:
+    a REST/OpenAPI interface for direct HTTP integrations and
+    a Model Context Protocol (MCP) interface for AI assistants and tool clients.
+  </p>
+
+  <p class="muted">
+    Railway remains a private compute backend. Public access is provided exclusively through Cloudflare Worker routes.
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Interface</th>
+        <th>Purpose</th>
+        <th>Documentation</th>
+      </tr>
+    </thead>
+    <tbody>
+
+      <tr>
+        <td><strong>REST API</strong></td>
+        <td>
+          Direct HTTP access to Montis APIs via Cloudflare.
+        </td>
+        <td>
+          <a href="https://montis.icu/docs" target="_blank">
+            API Docs
+          </a>
+          <br>
+          <a href="https://montis.icu/openapi.json" target="_blank">
+            OpenAPI Schema
+          </a>
+        </td>
+      </tr>
+
+      <tr>
+        <td><strong>MCP</strong></td>
+        <td>
+          Model Context Protocol endpoint for ChatGPT, Claude,
+          Gemini and MCP-capable clients.
+        </td>
+        <td>
+          <a href="https://montis.icu/mcp/docs" target="_blank">
+            MCP Documentation
+          </a>
+        </td>
+      </tr>
+
+    </tbody>
+  </table>
+
+  <hr>
+
+  <h3>🔌 MCP Endpoint</h3>
+
+  <div class="codeblock">
+    <pre>
+Server URL
+https://montis.icu/mcp
+
+Client ID
+intervals-mcp
+
+Local MCP Inspector
+npx @modelcontextprotocol/inspector
+
+Inspector URL
+http://localhost:6274/#tools
+</pre>
+  </div>
+
+  <hr>
+
+  <h3>🔐 Security Model</h3>
+
+  <ul>
+    <li>MCP endpoint URLs and OAuth discovery metadata are public by design.</li>
+    <li>The OAuth client identifier (<code>intervals-mcp</code>) is public and not a secret.</li>
+    <li>Access to athlete data requires successful OAuth authentication.</li>
+    <li>Bearer tokens are validated before tool execution.</li>
+    <li>Intervals.icu access tokens remain server-side and are never exposed through MCP.</li>
+    <li>MCP controls tool access; OAuth controls athlete data access.</li>
+  </ul>
+
+</section>
+
     <section id="technical-pipeline" class="card" style="border-left:4px solid #22c55e;">
 
       <h2>⚙️ Current Operational Pipeline (Production)</h2>
