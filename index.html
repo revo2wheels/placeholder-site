@@ -422,12 +422,19 @@
         <a href="https://geminiapp.montis.icu">Gemini App</a> — available now in beta. BYOK is only needed for AI responses
         <p><strong>NOW</strong> with new Athlete dashboard (API key not needed).</p>
 
-        <div class="app-shot-row">
-          <img src="/assets/dash1.png" alt="Gemini App dashboard login" class="app-shot"
-            onclick="openAppShot(this.src, this.alt)" />
-          <img src="/assets/dash2.png" alt="Gemini App dashboard example" class="app-shot"
-            onclick="openAppShot(this.src, this.alt)" />
-        </div>
+      <div class="app-shot-carousel" data-folder="/assets/samples/gemini_screenshots">
+        <button class="app-shot-nav" onclick="moveAppShot(-1)">‹</button>
+
+      <img id="appShotCarouselImg"
+          class="app-shot app-shot-carousel-img"
+          src="/assets/samples/gemini_screenshots/AI_Coach.png"
+          alt="Gemini App screenshot"
+          onclick="openAppShot(this.src, this.alt)" />
+
+        <button class="app-shot-nav" onclick="moveAppShot(1)">›</button>
+      </div>
+
+      <div id="appShotDots" class="app-shot-dots"></div>
       </li>
     </ul>
 
@@ -1575,6 +1582,43 @@ Weekly   = Microcycle (execution + inferred phase)
     function closeAppShot() {
       document.getElementById("appShotModal").classList.remove("open");
     }
+
+    let appShotImages = [];
+    let appShotIndex = 0;
+    const appShotFolder = "/assets/samples/gemini_screenshots";
+
+    async function loadAppShots() {
+      const res = await fetch(`${appShotFolder}/index.json`);
+      appShotImages = await res.json();
+      renderAppShotCarousel();
+    }
+
+    function renderAppShotCarousel() {
+      const img = document.getElementById("appShotCarouselImg");
+      const dots = document.getElementById("appShotDots");
+
+      if (!img || !dots || !appShotImages.length) return;
+
+      img.src = `${appShotFolder}/${appShotImages[appShotIndex]}`;
+      img.alt = `Gemini App screenshot ${appShotIndex + 1}`;
+
+      dots.innerHTML = appShotImages.map((_, i) =>
+        `<span class="app-shot-dot ${i === appShotIndex ? "active" : ""}" onclick="setAppShot(${i})"></span>`
+      ).join("");
+    }
+
+    function moveAppShot(delta) {
+      appShotIndex = (appShotIndex + delta + appShotImages.length) % appShotImages.length;
+      renderAppShotCarousel();
+    }
+
+    function setAppShot(index) {
+      appShotIndex = index;
+      renderAppShotCarousel();
+    }
+
+    loadAppShots();
+
 
   </script>
 
