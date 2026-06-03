@@ -212,12 +212,25 @@
 
       <hr>
 
-      <img class="diagram" src="/assets/montis_intelligence_stack.png" alt="Montis Intelligence Stack Diagram">
+      <div class="diagram-shot-grid">
 
-      <p class="diagram-caption">
-        Load creates stress → Physiology measures response → Performance Intelligence models capability →
-        ESPE reveals adaptation → <strong>ADE resolves what you can do vs what you should do</strong>.
-      </p>
+        <div class="diagram-shot-left">
+          <img class="diagram" src="/assets/montis_intelligence_stack.png" alt="Montis Intelligence Stack Diagram">
+
+          <p class="diagram-caption">
+            Load creates stress → Physiology measures response → Performance Intelligence models capability →
+            ESPE reveals adaptation → <strong>ADE resolves what you can do vs what you should do</strong>.
+          </p>
+        </div>
+
+        <div class="diagram-shot-right">
+          <div class="scroll-shot-frame">
+            <img src="/assets/samples/gemini_screenshots/mobile_overview.png" alt="Montis Intelligence Lab mobile dashboard screenshot"
+              class="scroll-shot-img" />
+          </div>
+        </div>
+
+      </div>
 
 
       <hr>
@@ -419,40 +432,37 @@
       </li>
 
       <li>
-        <a href="https://geminiapp.montis.icu">Gemini App</a> — available now in beta. BYOK is only needed for AI responses
+        <a href="https://geminiapp.montis.icu">Gemini App</a> — available now in beta. BYOK is only needed for AI
+        responses
         <p><strong>NOW</strong> with new Athlete dashboard (API key not needed).</p>
 
-      <div class="app-shot-carousel" data-folder="/assets/samples/gemini_screenshots">
-        <button class="app-shot-nav" onclick="moveAppShot(-1)">‹</button>
+        <div class="app-shot-carousel" data-folder="/assets/samples/gemini_screenshots">
+          <button class="app-shot-nav" onclick="moveAppShot(-1)">‹</button>
 
-      <img id="appShotCarouselImg"
-          class="app-shot app-shot-carousel-img"
-          src="/assets/samples/gemini_screenshots/AI_Coach.png"
-          alt="Gemini App screenshot"
-          onclick="openAppShot(this.src, this.alt)" />
+          <img id="appShotCarouselImg" class="app-shot app-shot-carousel-img"
+            src="/assets/samples/gemini_screenshots/AI_Coach.png" alt="Gemini App screenshot"
+            onclick="openAppShot(this.src, this.alt)" />
 
-        <button class="app-shot-nav" onclick="moveAppShot(1)">›</button>
-      </div>
+          <button class="app-shot-nav" onclick="moveAppShot(1)">›</button>
+        </div>
 
-      <div id="appShotDots" class="app-shot-dots"></div>
+        <div id="appShotDots" class="app-shot-dots"></div>
       </li>
     </ul>
 
     <div id="appShotModal" class="app-shot-modal" onclick="closeAppShot()">
       <button class="app-shot-modal-nav app-shot-modal-prev"
-              onclick="event.stopPropagation(); moveAppShot(-1)">‹</button>
+        onclick="event.stopPropagation(); moveAppShot(-1)">‹</button>
 
-      <img id="appShotModalImg"
-          class="app-shot-modal-img"
-          alt=""
-          onclick="event.stopPropagation()">
+      <img id="appShotModalImg" class="app-shot-modal-img" alt="" onclick="event.stopPropagation()">
 
       <button class="app-shot-modal-nav app-shot-modal-next"
-              onclick="event.stopPropagation(); moveAppShot(1)">›</button>
+        onclick="event.stopPropagation(); moveAppShot(1)">›</button>
     </div>
 
     <p class="muted-left">
-      Gemini app uses a Bring Your Own Key API (BYOK) model, which you enter into the app. Details of how to get the Free Gemini API key are in App Hub.
+      Gemini app uses a Bring Your Own Key API (BYOK) model, which you enter into the app. Details of how to get the
+      Free Gemini API key are in App Hub.
     </p>
 
     <hr>
