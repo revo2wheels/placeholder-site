@@ -203,7 +203,7 @@ Interface      → LLM Rendering Layer (Read-Only)
       <h3>🔑 Separation of Concerns</h3>
 
       <ul>
-        <li><strong>Execution access</strong> → MCP / /chat / /run_*</li>
+        <li><strong>Execution access</strong> → MCP /run_*</li>
         <li><strong>Data access</strong> → OAuth token (KV or direct)</li>
       </ul>
 
@@ -251,8 +251,7 @@ if (incoming_token) {
       </p>
 
       <ul>
-        <li>/run_* endpoints</li>
-        <li>/chat/api</li>
+        <li>/run_* /get_* Rest API endpoints</li>
         <li>/mcp</li>
       </ul>
 
@@ -270,7 +269,7 @@ if (incoming_token) {
         <tbody>
           <tr>
             <td>Tool Execution</td>
-            <td>MCP / Chat / Direct endpoints</td>
+            <td>MCP / Rest API endpoints</td>
           </tr>
           <tr>
             <td>Athlete Identity</td>
