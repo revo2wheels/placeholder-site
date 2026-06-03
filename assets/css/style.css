@@ -505,8 +505,15 @@ tbody tr:hover { background: #eef6ff; transition: background 0.2s ease-in-out; }
   }
 }
 
+@media (max-width: 768px) {
+  section {
+    padding: 0 12px;
+  }
 
-
+  .card {
+    padding: 1.25rem;
+  }
+}
 
 
 /* ===================================================
@@ -776,18 +783,21 @@ section .card {
   background: #f9fafb;
   border-radius: 8px;
   padding: 1rem 1.25rem;
-  text-align: center;
+  text-align: left;
   overflow-x: auto;
+  max-width: 100%;
   box-shadow: 0 2px 6px rgba(0,0,0,0.05);
 }
 
 .codeblock pre {
-  display: inline-block;
-  text-align: left;
-  margin: 0 auto;
+  display: block;
+  max-width: 100%;
+  margin: 0;
   font-family: "Courier New", monospace;
   font-size: 0.9rem;
   background: transparent;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
 }
 
 .ai-markdown {
@@ -816,6 +826,9 @@ section .card {
   padding:12px;
   border-radius:6px;
   overflow-x:auto;
+  max-width:100%;
+  white-space:pre-wrap;
+  overflow-wrap:anywhere;
 }
 
 .ai-markdown table {
@@ -930,22 +943,28 @@ section .card {
 }
 
 .app-shot-carousel {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: 12px;
   margin-top: 10px;
+  max-width: 100%;
   min-height: 360px;
+  overflow: hidden;
 }
 
 .app-shot-carousel .app-shot {
-  width: auto;
-  max-width: min(720px, 100%);
+  width: 100%;
+  max-width: 720px;
   height: 360px;
   object-fit: contain;
 }
 
 .app-shot-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 2;
   width: 42px;
   height: 42px;
   border: none;
@@ -955,11 +974,18 @@ section .card {
   font-size: 1.6rem;
   font-weight: 700;
   cursor: pointer;
-  flex-shrink: 0;
 }
 
 .app-shot-nav:hover {
   background: #e5e7eb;
+}
+
+.app-shot-nav:first-child {
+  left: 8px;
+}
+
+.app-shot-nav:last-child {
+  right: 8px;
 }
 
 .app-shot-dots {
@@ -983,13 +1009,52 @@ section .card {
 
 @media (max-width: 768px) {
   .app-shot-carousel {
-    min-height: 240px;
+    min-height: 220px;
   }
 
   .app-shot-carousel .app-shot {
-    height: 240px;
+    height: 220px;
     max-width: 100%;
   }
+
+  .app-shot-nav {
+    width: 36px;
+    height: 36px;
+    font-size: 1.4rem;
+  }
+}
+
+/* ===================================================
+📱 MOBILE-SAFE PRE / CODE BLOCKS
+=================================================== */
+
+pre {
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+pre code {
+  white-space: inherit;
+  overflow-wrap: inherit;
+  word-break: inherit;
+}
+
+@media (max-width: 768px) {
+  pre {
+    font-size: 0.78rem;
+    line-height: 1.45;
+  }
+}
+
+.framework-tree {
+  max-width: 100%;
+  overflow-x: auto;
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 
 /* === DEBUG GRID VISUALIZER === */
