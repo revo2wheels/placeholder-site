@@ -1007,6 +1007,47 @@ section .card {
   background: #38bdf8;
 }
 
+.app-shot-modal-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10000;
+  width: 48px;
+  height: 48px;
+  border: none;
+  border-radius: 999px;
+  background: rgba(255,255,255,0.9);
+  color: #111;
+  font-size: 2rem;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.app-shot-modal-prev {
+  left: 24px;
+}
+
+.app-shot-modal-next {
+  right: 24px;
+}
+
+@media (max-width: 768px) {
+  .app-shot-modal-nav {
+    width: 40px;
+    height: 40px;
+    font-size: 1.6rem;
+  }
+
+  .app-shot-modal-prev {
+    left: 10px;
+  }
+
+  .app-shot-modal-next {
+    right: 10px;
+  }
+}
+
+
 @media (max-width: 768px) {
   .app-shot-carousel {
     min-height: 220px;

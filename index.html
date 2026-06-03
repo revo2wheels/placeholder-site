@@ -439,7 +439,16 @@
     </ul>
 
     <div id="appShotModal" class="app-shot-modal" onclick="closeAppShot()">
-      <img id="appShotModalImg" class="app-shot-modal-img" alt="">
+      <button class="app-shot-modal-nav app-shot-modal-prev"
+              onclick="event.stopPropagation(); moveAppShot(-1)">‹</button>
+
+      <img id="appShotModalImg"
+          class="app-shot-modal-img"
+          alt=""
+          onclick="event.stopPropagation()">
+
+      <button class="app-shot-modal-nav app-shot-modal-next"
+              onclick="event.stopPropagation(); moveAppShot(1)">›</button>
     </div>
 
     <p class="muted-left">
@@ -1605,6 +1614,14 @@ Weekly   = Microcycle (execution + inferred phase)
       dots.innerHTML = appShotImages.map((_, i) =>
         `<span class="app-shot-dot ${i === appShotIndex ? "active" : ""}" onclick="setAppShot(${i})"></span>`
       ).join("");
+
+      const modal = document.getElementById("appShotModal");
+      const modalImg = document.getElementById("appShotModalImg");
+
+      if (modal?.classList.contains("open") && modalImg) {
+        modalImg.src = img.src;
+        modalImg.alt = img.alt;
+      }
     }
 
     function moveAppShot(delta) {
