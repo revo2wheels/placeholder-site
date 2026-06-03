@@ -1065,6 +1065,42 @@ section .card {
   }
 }
 
+.card-subnote {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  padding: 1rem 1.25rem;
+  background: #fafafa;
+  border-left: 4px solid #38bdf8;
+  box-shadow: none;
+}
+
+.card-subnote h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.card-subnote h4 {
+  font-size: 0.9rem;
+  margin-top: 1rem;
+  margin-bottom: 0.4rem;
+  color: #475569;
+}
+
+.card-subnote p,
+.card-subnote li {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.card-subnote ul {
+  margin-top: 0.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.card-subnote strong {
+  font-weight: 600;
+}
+
 /* ===================================================
 📱 MOBILE-SAFE PRE / CODE BLOCKS
 =================================================== */
