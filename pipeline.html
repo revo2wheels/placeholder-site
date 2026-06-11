@@ -7,6 +7,47 @@
   <title>Pipeline Architecture — Unified Prefetch Design | Montis.icu Coach App</title>
   <link rel="icon" type="image/png" href="https://avatars.githubusercontent.com/u/44225520?v=4" />
   <link rel="stylesheet" href="assets/css/style.css?v=1.8">
+  <script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      mermaid.initialize({
+        startOnLoad: true,
+        theme: "default",
+        flowchart: {
+          useMaxWidth: false,
+          htmlLabels: true,
+          curve: "basis"
+        }
+      });
+    });
+  </script>
+  <style>
+    .mermaid-diagram {
+      width: 100%;
+      overflow-x: auto;
+      text-align: center;
+      margin: 1.5rem auto;
+    }
+    .mermaid-diagram .mermaid {
+      display: block;
+      width: 100%;
+      min-width: 900px;
+      max-width: none;
+      background: transparent;
+    }
+    .mermaid-diagram svg {
+      width: 100% !important;
+      max-width: none !important;
+      height: auto !important;
+      display: block;
+      margin: 0 auto;
+    }
+    @media (max-width: 900px) {
+      .mermaid-diagram .mermaid {
+        min-width: 760px;
+      }
+    }
+  </style>
 </head>
 
 <body>
@@ -57,7 +98,7 @@
     </section>
 
     <section class="card" style="border-left:4px solid #22c55e;">
-      <h2>🧠 Strategy • 🟢 Technical • 🟠 Coaching • 🔵 Future </h2>
+      <h2>🧠 Strategy • 🟢 Technical • 🟠 Coaching • 🔵 Tool & LLM </h2>
 
       <p>
         The system is intentionally divided into independent architectural layers,
@@ -73,20 +114,23 @@
 
         <li>
           <strong>🟢 <a href="#technical-pipeline">Technical Pipeline - Operational Architecture</a></strong> —
-          Deterministic data ingestion, validation, aggregation,
-          and semantic serialization (URF v5.1). Immutable canonical outputs.
+          Cloudflare Services handle identity resolution, OAuth facades, sessions, grants, routing,
+          and policy. Railway performs deterministic data ingestion, validation, aggregation,
+          and semantic serialization (URF v5.1). Canonical outputs remain immutable.
         </li>
 
         <li>
           <strong>🟠 <a href="#coaching-pipeline">Coaching Intelligence Pipeline</a></strong> —
-          Structural performance modelling (Tier-3), progression analysis,
-          and deterministic adaptive prescription logic.
+          Uses validated URF outputs for Tier-3 structural performance modelling, progression analysis,
+          phase governance, and deterministic Adaptive Decision Engine prescription logic.
+          It never mutates Tier-1 or Tier-2 metrics.
         </li>
 
         <li>
-          <strong>🔵 <a href="#llm-native-architecture">Future Technical Pipeline Architecture</a></strong> —
-          Model-agnostic conversational layer using MCP tools.
-          Renders insights without computing or mutating metrics.
+          <strong>🔵 <a href="#llm-native-architecture">Tool & LLM Architecture</a></strong> —
+          ChatGPT, MCP, Gemini App, browser app, and CLI resolve through Cloudflare Services.
+          Client wrappers resolve to the shared Montis Intervals connection record where required.
+          LLMs render and converse through tools without computing or mutating metrics.
         </li>
       </ul>
 
@@ -185,17 +229,110 @@ Interface      → LLM Rendering Layer (Read-Only)
       <h2>🔐 Identity & Token Resolution</h2>
 
       <p>
-        Montis resolves athlete identity at runtime using two independent sources:
-        stored OAuth tokens (KV) or direct bearer tokens supplied by external clients.
+        Montis resolves athlete identity at runtime through client access wrappers:
+        browser session, ChatGPT JWT, MCP JWT, or a limited legacy fallback.
+        The primary data connection is the shared server-side KV token record.
       </p>
 
-      <div class="diagram">
-        <img src="assets/Identity_and_Token_Resolution_Model.svg" alt="Identity and Token Resolution Model" />
+      <div class="mermaid-diagram" aria-label="Authentication Model">
+        <div class="mermaid">
+flowchart TB
+
+subgraph Clients["Clients"]
+direction TB
+A1["Browser /app"]
+A2["Gemini App"]
+A3["ChatGPT GPT Actions"]
+A4["Claude / Codex MCP Clients"]
+A5["CLI report.py"]
+end
+
+subgraph Cloudflare["Cloudflare Services"]
+direction TB
+
+subgraph Entry["Entry / Auth Wrapper"]
+direction TB
+B1["Browser/App session<br>montis_session cookie"]
+B2["ChatGPT OAuth facade<br>Montis GPT JWT"]
+B3["MCP OAuth facade<br>MCP JWT"]
+B4["Legacy bearer / ICU_OAUTH"]
+end
+
+subgraph Routes["Worker Routes"]
+direction TB
+C1["/connect<br>Intervals OAuth"]
+C2["/disconnect / /logout"]
+C3["/oauth/authorize<br>/api/oauth/token"]
+C4["/mcp/oauth/authorize<br>/mcp/oauth/token"]
+C5["/connection/status"]
+C6["Unified Auth Resolver"]
+C7["Dispatcher / Internal Tools"]
+end
+
+subgraph KV["Cloudflare KV"]
+direction TB
+D1["SESSIONS<br>session:{uuid}"]
+D2["MCP_GRANTS<br>GPT/MCP temporary grants"]
+D3["INTERVALS_TOKENS<br>intervals:{athleteId}<br>access_token + refresh_token"]
+end
+
+end
+
+subgraph External["External"]
+direction TB
+E1["Intervals.icu OAuth + API"]
+E2["OpenAI / ChatGPT"]
+E3["Claude / MCP"]
+end
+
+A1 --> B1
+A2 --> B1
+A3 --> B2
+A4 --> B3
+A5 --> B4
+
+B1 --> D1
+B2 --> C3
+B3 --> C4
+B4 --> C6
+
+A1 --> C1
+A2 --> C1
+A1 --> C2
+A2 --> C2
+
+C1 --> E1
+E1 --> C1
+C1 --> D1
+C1 --> D3
+
+C2 --> D1
+C2 --> D3
+
+C3 --> D1
+C3 --> D2
+C3 --> B2
+C3 --> E2
+
+C4 --> D1
+C4 --> D2
+C4 --> B3
+C4 --> E3
+
+C5 --> C6
+
+D1 -->|browser_session → athlete_id| C6
+B2 -->|gpt_jwt → kv_key| C6
+B3 -->|mcp_jwt → kv_key| C6
+C6 -->|load shared token| D3
+D3 --> C7
+C7 --> E1
+        </div>
       </div>
 
       <p class="muted" style="text-align:center;">
-        Bearer token present → direct execution (no KV)<br>
-        Worker-managed OAuth (KV) for MCP
+        Browser session, ChatGPT JWT, and MCP JWT resolve to the shared KV token record.<br>
+        Intervals access tokens remain server-side in Cloudflare KV.
       </p>
 
       <hr>
@@ -217,7 +354,7 @@ Interface      → LLM Rendering Layer (Read-Only)
       <h2>⚙️ Unified Execution Model</h2>
 
       <p>
-        Montis.icu operates a <strong>multi-entry, dual-identity execution architecture</strong>.
+        Montis.icu operates a <strong>multi-entry, shared-token execution architecture</strong>.
         Tool execution and athlete identity are resolved independently at runtime.
       </p>
 
@@ -225,10 +362,12 @@ Interface      → LLM Rendering Layer (Read-Only)
         style="font-family:'Courier New',monospace;font-size:0.9rem;overflow-x:auto;text-align:center;">
         <pre>
 Client
-  → Worker (Edge)
-    → Dispatcher (Internal Tools)
-      → Railway (Computation)
-        → Intervals API (Data)
+  → Cloudflare Services
+    → Unified Auth Resolver
+      → Dispatcher / Internal Tools
+        → Intervals API + Railway Engine
+          → Semantic JSON (URF v5.1)
+            → LLM Rendering Layer
 </pre>
       </div>
 
@@ -238,10 +377,16 @@ Client
 
       <div class="codeblock">
         <pre>
-if (incoming_token) {
-  use incoming token        // ChatGPT OAuth
+if (valid_gpt_jwt_with_kv_key) {
+  load shared Intervals token from KV
+} else if (valid_mcp_jwt_with_kv_key) {
+  load shared Intervals token from KV
+} else if (valid_browser_session) {
+  resolve athlete_id and load shared Intervals token from KV
+} else if (legacy_bearer_or_ICU_OAUTH) {
+  use fallback token path
 } else {
-  load token from KV        // Default model
+  return 401
 }
 </pre>
       </div>
@@ -251,8 +396,11 @@ if (incoming_token) {
       </p>
 
       <ul>
-        <li>/run_* /get_* Rest API endpoints</li>
-        <li>/mcp</li>
+        <li>/run_* report endpoints</li>
+        <li>/calendar/* calendar endpoints</li>
+        <li>/athlete/* athlete data endpoints</li>
+        <li>/connection/status diagnostics</li>
+        <li>/mcp tool calls</li>
       </ul>
 
       <hr>
@@ -269,18 +417,18 @@ if (incoming_token) {
         <tbody>
           <tr>
             <td>Tool Execution</td>
-            <td>MCP / Rest API endpoints</td>
+            <td>ChatGPT Actions, MCP, REST endpoints, browser app, Gemini App, CLI</td>
           </tr>
           <tr>
-            <td>Athlete Identity</td>
-            <td>KV OAuth or Incoming Token</td>
+            <td>Athlete Data Access</td>
+            <td>Shared KV token: <code>intervals:{athleteId}</code></td>
           </tr>
         </tbody>
       </table>
 
       <p>
-        MCP grants control <strong>tool access</strong>, not athlete data.<br>
-        OAuth tokens control <strong>data access</strong>, not execution.
+        Tool access does <strong>not</strong> equal athlete data access.<br>
+        Protected data execution requires resolution to the shared Intervals KV token record.
       </p>
 
       <hr>
@@ -289,14 +437,17 @@ if (incoming_token) {
 
       <div class="codeblock">
         <pre>
-Browser / CLI:
-  Client → Worker → KV → Intervals
+Browser / Gemini App:
+  Client → montis_session → KV → Intervals
 
-MCP (Claude):
-  LLM → MCP → Worker → KV → Intervals
+ChatGPT:
+  ChatGPT → Montis GPT JWT → kv_key → KV → Intervals
 
-ChatGPT OAuth:
-  ChatGPT → Token → Worker → Intervals
+MCP:
+  Claude / Codex → MCP JWT → kv_key → KV → Intervals
+
+CLI / Legacy:
+  Client → Worker endpoint → Bearer or KV fallback → Intervals
 </pre>
       </div>
 
@@ -349,8 +500,8 @@ ChatGPT OAuth:
       <tr>
         <td><strong>MCP</strong></td>
         <td>
-          Model Context Protocol endpoint for ChatGPT, Claude,
-          Gemini and MCP-capable clients.
+          Model Context Protocol endpoint for Claude, Codex,
+          Gemini-style MCP clients and other MCP-capable clients.
         </td>
         <td>
           <a href="https://montis.icu/mcp/docs" target="_blank">
@@ -404,8 +555,110 @@ http://localhost:6274/#tools
         Status: <strong>Live</strong> • Used in production • Backward compatible
       </p>
 
-      <div class="diagram">
-        <img src="assets/Execution_Flow_Diagram.svg" alt="Execution Flow" />
+      <div class="mermaid-diagram" aria-label="Current Execution Paths">
+        <div class="mermaid">
+flowchart TB
+
+subgraph Clients["Clients"]
+direction TB
+A1["Browser /app"]
+A2["Gemini App"]
+A3["CLI report.py"]
+A4["ChatGPT GPT Actions"]
+A5["Claude / Codex MCP Clients"]
+end
+
+subgraph Cloudflare["Cloudflare Services"]
+direction TB
+
+subgraph Routes["Worker Routes"]
+direction TB
+B1["/connect"]
+B2["/logout / /disconnect"]
+B3["/oauth/* GPT facade"]
+B4["/mcp"]
+B5["/connection/status"]
+B6["/run_*"]
+B7["/calendar/*"]
+B8["/athlete/*"]
+B9["Unified Auth Resolver"]
+B10["Dispatcher / Internal Tools"]
+end
+
+subgraph KV["Cloudflare KV"]
+direction TB
+C1["SESSIONS"]
+C2["MCP_GRANTS"]
+C3["INTERVALS_TOKENS<br>intervals:{athleteId}"]
+end
+
+end
+
+subgraph Processing["Processing"]
+direction TB
+D1["Intervals.icu API"]
+D2["Railway Report Engine<br>URF v5.1<br>Tier 0-3"]
+end
+
+subgraph LLM["LLM / Rendering"]
+direction TB
+E1["OpenAI / ChatGPT"]
+E2["Claude / MCP"]
+E3["Gemini / BYOK"]
+end
+
+A1 -->|connect| B1
+A2 -->|connect| B1
+A1 -->|logout / disconnect| B2
+A2 -->|logout / disconnect| B2
+
+A1 -->|session cookie| B6
+A1 -->|session cookie| B7
+A1 -->|session cookie| B8
+A1 --> B5
+
+A2 -->|same browser session as /app| B6
+A2 -->|same browser session as /app| B7
+A2 -->|same browser session as /app| B8
+A2 --> B5
+A2 -->|BYOK direct| E3
+
+A3 -->|direct API| B6
+
+A4 -->|OAuth setup| B3
+A4 -->|Bearer GPT JWT| B6
+A4 -->|Bearer GPT JWT| B7
+A4 -->|Bearer GPT JWT| B8
+A4 --> B5
+
+A5 -->|MCP discovery/tools| B4
+B4 --> B9
+
+B1 --> C1
+B1 --> C3
+B2 --> C1
+B2 --> C3
+B3 --> C1
+B3 --> C2
+B4 --> C1
+B4 --> C2
+
+B5 --> B9
+B6 --> B9
+B7 --> B9
+B8 --> B9
+
+B9 -->|browser_session| C1
+B9 -->|gpt_jwt kv_key| C3
+B9 -->|mcp_jwt kv_key| C3
+C3 --> B10
+
+B10 --> D1
+B10 --> D2
+D2 --> E1
+D2 --> E2
+D2 --> E3
+        </div>
       </div>
       <p style="text-align:center;margin-top:1rem;">
         🔄 Cloudflare handles authentication, routing, and optional synthetic testing.<br>
@@ -430,7 +683,7 @@ http://localhost:6274/#tools
           <tbody>
             <tr>
               <td>Prefetch Flow</td>
-              <td>Cloudflare normalizes date params and injects optional test payloads</td>
+              <td>Cloudflare Services normalize date params, resolve identity, and inject optional test payloads</td>
               <td>Safe staging tests without real data</td>
             </tr>
             <tr>
@@ -500,9 +753,9 @@ http://localhost:6274/#tools
             <td>Works across ChatGPT, Claude, Gemini</td>
           </tr>
           <tr>
-            <td>Dual OAuth Model</td>
-            <td>KV OAuth + Incoming Token</td>
-            <td>Flexible identity resolution</td>
+            <td>Shared Token Resolution</td>
+            <td>Browser session + GPT JWT + MCP JWT → KV</td>
+            <td>All clients resolve to the same Intervals connection</td>
           </tr>
           <tr>
             <td>Execution Engine</td>
@@ -535,8 +788,8 @@ http://localhost:6274/#tools
         <pre>
 Client / LLM
     ↓
-Cloudflare Worker (Edge)
-    • Token Resolver (incoming > KV)
+Cloudflare Services
+    • Token Resolver (GPT JWT / MCP JWT / browser session → KV)
     • Routing
     ↓
 Dispatcher (Internal Tools)
@@ -557,7 +810,7 @@ LLM Rendering Layer (Read-only, tool-driven)
 
       <ul>
         <li><strong>Single execution path</strong> — all clients use the same dispatcher</li>
-        <li><strong>Dual identity resolution</strong> — KV or incoming token</li>
+        <li><strong>Shared identity resolution</strong> — browser session, GPT JWT, and MCP JWT all resolve to KV</li>
         <li><strong>No recomputation in LLMs</strong></li>
         <li><strong>Deterministic outputs across all interfaces</strong></li>
       </ul>
@@ -569,78 +822,12 @@ LLM Rendering Layer (Read-only, tool-driven)
       <ul>
         <li>MCP controls <strong>tool access</strong></li>
         <li>OAuth controls <strong>data access</strong></li>
-        <li>ChatGPT uses <strong>direct OAuth (no MCP)</strong></li>
+        <li>ChatGPT uses a <strong>Montis OAuth facade</strong> and receives a Montis GPT JWT</li>
       </ul>
 
     </section>
 
-    <!-- ===================================================
-🧩 FUTURE PIPELINE
-==================================================== -->
-
-    <section class="card" style="border-left:4px solid #38bdf8;">
-      <h2>⚙️ Future Operational Pipeline</h2>
-      <p class="muted">
-        Status: <strong>Planned</strong> • Incremental rollout • No breaking changes
-      </p>
-
-      <div class="codeblock"
-        style="font-family:'Courier New',monospace;font-size:0.9rem;overflow-x:auto;text-align:center;">
-        <pre>
-
-🧭 System Diagram (Unified Execution Model)
-
-┌────────────────────────────┐
-│ Client / LLM / Application │
-│ (ChatGPT, Claude, CLI, UI) │
-└──────────────┬─────────────┘
-               │ Tool call (direct OR MCP)
-               ▼
-┌────────────────────────────────────┐
-│ Cloudflare Worker (Edge)           │
-│ • Token resolution (direct / KV)   │
-│ • Routing + normalization          │
-│ • Rate limiting / policy           │
-└──────────────┬─────────────────────┘
-               │ Authenticated execution
-               ▼
-┌────────────────────────────────────┐
-│ Dispatcher (Internal Execution)    │
-│ • Single execution path            │
-└──────────────┬─────────────────────┘
-               │
-        ┌──────┴─────────┐
-        ▼                ▼
-┌──────────────┐   ┌──────────────────┐
-│ Intervals API│   │ Railway Engine   │
-│ (Data Source)│   │ (Tier 0–3)       │
-└──────┬───────┘   └────────┬─────────┘
-       │                    │
-       └────────────┬───────┘
-                    ▼
-┌────────────────────────────────────┐
-│ Semantic JSON (URF v5.1)           │
-│ • Deterministic                    │
-│ • Context explicit                 │
-│ • No recomputation                 │
-└──────────────┬─────────────────────┘
-               ▼
-┌────────────────────────────────────┐
-│ LLM Rendering Layer (Read-only)    │
-│ • Narrative only                   │
-│ • No metric computation            │
-└────────────────────────────────────┘
-
-</pre>
-      </div>
-      <p style="text-align:Left;margin-top:1rem;">
-        🔄 Cloudflare handles authentication, routing, and optional synthetic testing.<br>
-        🚉 Railway performs full computation, validation, and serialization.<br>
-        💡Independence from LLMs via consistent execution (Railway)
-      </p>
-    </section>
-
-    <section class="card" style="border-left:4px solid #38bdf8;">
+<section class="card" style="border-left:4px solid #38bdf8;">
 
       <h2>🔑 Key Insights</h2>
 
@@ -656,8 +843,8 @@ LLM Rendering Layer (Read-only, tool-driven)
         </li>
 
         <li>
-          <strong>OAuth tokens are handled at the edge and never exposed to LLM reasoning</strong><br>
-          Cloudflare fully isolates authentication from reasoning.
+          <strong>Intervals tokens remain server-side in Cloudflare KV</strong><br>
+          Client wrappers resolve to the shared token record without exposing Intervals tokens to LLM reasoning.
         </li>
 
         <li>
@@ -695,7 +882,7 @@ LLM Rendering Layer (Read-only, tool-driven)
         </li>
 
         <li>
-          <strong>Cloudflare Edge handles trust and policy</strong>
+          <strong>Cloudflare Services handle trust and policy</strong>
           <ul>
             <li>OAuth token exchange with Intervals.icu</li>
             <li>Scope validation</li>
