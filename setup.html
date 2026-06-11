@@ -44,6 +44,10 @@
         Coach App.
         The entire setup takes less than one minute.
       </p>
+      <p class="muted">
+        Montis uses one shared Intervals.icu connection. Browser App, Gemini App, ChatGPT, and MCP clients authenticate
+        differently, but all resolve back to the same Montis Intervals connection where required.
+      </p>
     </section>
 
     <section class="card">
@@ -91,7 +95,9 @@
           href="https://chatgpt.com/g/g-6933fc6bcd008191bb52885be4d1927c-montis-icu-coach-v5-railway-t2-engine">
           Montis.icu Coach V5</a>
         and type or click "run a weekly report" and the following sign in prompt will appear, click <strong> sign
-          in</strong>. This will redirect you to sign into Intervals.icu or if already signed in it will move to step 2.
+          in</strong>. This starts the Montis ChatGPT connection flow. ChatGPT signs in to Montis, and Montis then
+        resolves your shared Intervals.icu connection securely. If your Intervals.icu connection is missing or expired,
+        Montis will ask you to reconnect Intervals.icu.
       </p>
       <img src="assets/montis_connect.png" alt="Open Coach in ChatGPT"
         style="width:75%;border-radius:10px;margin:1rem 0;">
@@ -140,7 +146,7 @@
             <li>
               <strong>Start a completely new Montis GPT chat first.</strong><br>
               Open the Montis GPT in a brand-new chat and type exactly:
-              <code>run weekly report</code><br>
+              Type <code>check connection</code> then <code>run weekly report</code><br>
               This rules out stale conversation state or a failed ChatGPT tool/action binding for that specific chat.
               A new chat can sometimes fix the issue without refreshing the browser tab.
             </li>
@@ -199,11 +205,13 @@
             </li>
 
             <li>
-              <strong>Disconnect and reconnect Montis in ChatGPT.</strong><br>
-              In ChatGPT/GPT connector authentication, disconnect Montis, reconnect it,
-              then run a small action first, followed by:
-              <code>run weekly report</code><br>
-              This rules out stale OAuth/action binding.
+              <strong>Run check connection first.</strong><br>
+              If the shared Intervals connection is missing, ChatGPT should trigger the Montis sign-in/reconnect prompt
+              automatically. This rules out stale OAuth/action binding. If it doesn't then:
+              <p>
+                Type <code>check connection</code>. A successful response means ChatGPT has a valid Montis token and
+                Montis can resolve your shared Intervals.icu connection.
+              </p>
             </li>
           </ol>
         </details>
@@ -361,7 +369,8 @@ get Activity for yesterday</code></pre>
       <h4>Step 3 — Use Montis App!</h4>
       <!-- Screenshot 3 -->
 
-      <img src="assets/samples/gemini_screenshots/gemini_overview.png" alt="Connect Montis to Intervals" style="width:50%;border-radius:10px;margin:1rem 0;">
+      <img src="assets/samples/gemini_screenshots/gemini_overview.png" alt="Connect Montis to Intervals"
+        style="width:50%;border-radius:10px;margin:1rem 0;">
 
 
 
@@ -435,7 +444,9 @@ get Activity for yesterday</code></pre>
         <li>Reopen the Coach link above and start with step 1. Try a different web browser or clear cache/cookies if
           you are having issues</li>
         <li>Click <strong>sign in </strong>to connect Intervals.icu</li>
-        <li>Approve access "allow always"</li>
+        <li>Approve Intervals.icu authorization when prompted</li>
+        <li>In ChatGPT, click <strong>Always allow</strong> only for Montis tool calls if you want to avoid repeated tool prompts</li>
+        <li>Run <code>check connection</code></li>
         <li>Run the report again</li>
       </ol>
 
