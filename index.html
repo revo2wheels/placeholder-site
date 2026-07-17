@@ -5,11 +5,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description"
-    content="Montis.icu Coach App — An AI-powered endurance coach integrating Intervals.icu data to deliver intelligent training, recovery, and performance insights.">
+    content="Montis.icu Coach — physiology-governed endurance intelligence powered by Intervals.icu, available through ChatGPT, Claude MCP, and the Montis Gemini App.">
   <meta name="author" content="Clive King">
   <meta property="og:title" content="Montis.icu Coach App — Training Intelligence">
   <meta property="og:description"
-    content="Smart AI coaching powered by Intervals.icu and the Unified Reporting Framework (URF)">
+    content="Physiology-governed endurance coaching through ChatGPT, Claude MCP, and the Montis Gemini App.">
   <meta property="og:image" content="https://avatars.githubusercontent.com/u/44225520?v=4">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://www.montis.icu">
@@ -225,8 +225,8 @@
 
         <div class="diagram-shot-right">
           <div class="scroll-shot-frame">
-            <img src="/assets/samples/gemini_screenshots/mobile_overview.png" alt="Montis Intelligence Lab mobile dashboard screenshot"
-              class="scroll-shot-img" />
+            <img src="/assets/samples/gemini_screenshots/mobile_overview.png"
+              alt="Montis Intelligence Lab mobile dashboard screenshot" class="scroll-shot-img" />
           </div>
         </div>
 
@@ -311,27 +311,30 @@
 
     <ul>
       <li>
-        <strong>ChatGPT (Recommended):</strong>
-        Simple, natural chat experience
+        <strong>ChatGPT:</strong>
+        Natural-language coaching, reports, calendar tools, and training decisions.
       </li>
 
       <li>
         <strong>Claude + MCP:</strong>
-        Direct tool access via Model Context Protocol
+        Direct access to Montis tools and reports through Model Context Protocol.
       </li>
 
       <li>
-        <strong>Montis Apps:</strong>
-        Use the <a href="https://montis.icu/app">Apps Hub</a> to launch provider apps
+        <strong>Gemini App:</strong>
+        Full browser-based coaching, dashboards, calendar and workout tools,
+        activity analysis, and *coached-athlete access (*subscriber only).
       </li>
     </ul>
 
     <p>
       You must have an <a href="https://www.intervals.icu">Intervals.icu</a> account and activity data.
     </p>
+        <hr>
+
 
     <!-- ================= CHATGPT ================= -->
-    <h3>🤖 Option A — ChatGPT GPT APP (Recommended)</h3>
+    <h3>🤖 Option A — ChatGPT GPT APP </h3>
 
     <ol class="coach-tips-list">
       <li>
@@ -360,7 +363,7 @@
     </ol>
 
     <p class="muted">
-      Best for: Most users. Natural conversation + full coaching output.
+      Best for: ChatGPT Users looking for natural conversation + full coaching output.
     </p>
 
     <hr>
@@ -420,35 +423,82 @@
     <hr>
 
     <!-- ================= LLM APPS ================= -->
-    <h3>⚙️ Option C — Montis LLM Apps</h3>
+    <h3>⚙️ Option C — Gemini App</h3>
 
     <p>
-      Launch Montis via the <a href="https://montis.icu/app">Apps Hub</a>, which provides access to all provider apps.
+      The <a href="https://geminiapp.montis.icu" target="_blank">Montis Gemini App</a>
+      provides the complete browser-based Montis experience.
+    </p>
+
+    <ul>
+      <li>AI coaching and Montis reports</li>
+      <li>Athlete dashboards and training intelligence</li>
+      <li>Calendar and workout builder tools</li>
+      <li>Activity and terrain analysis</li>
+      <li>Intelligent AI plan Builder for 4, 8 & 12 week blocks</li>
+      <li>Coached-athlete tools for eligible members</li>
+      <li>Installable as a PWA on phone, tablet, and desktop</li>
+    </ul>
+
+    <div class="card-subnote">
+      <h3>Montis Subscription — $5/month</h3>
+
+      <p>Subscribers receive:</p>
+
+      <ul>
+        <li>Coached-athlete tools</li>
+        <li>Included Gemini AI usage allowance</li>
+        <li>Lower-latency managed Gemini API access</li>
+        <li>Subscriber support</li>
+      </ul>
+
+      <p>
+        No personal Google API key is required when using the included subscriber allowance.
+      </p>
+
+      <a href="https://buymeacoffee.com/revo2wheels"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="github-button">
+        Subscribe for $5/month
+      </a>
+    </div>
+
+    <h4>Personal Gemini API keys remain supported</h4>
+
+    <p>
+      You can continue using your own Gemini Free Tier or PAYG API key.
+      The subscription is an additional managed-access option, not a replacement for BYOK.
     </p>
 
     <ul>
       <li>
-        <a href="https://montis.icu/app">App Hub</a> — central launcher (recommended)
+        <strong>Free Tier key:</strong>
+        use your own free Google Gemini API allowance.
       </li>
 
       <li>
-        <a href="https://geminiapp.montis.icu">Gemini App</a> — available now in beta. BYOK is only needed for AI
-        responses
-        <p><strong>NOW</strong> with new Athlete dashboard (API key not needed).</p>
-
-        <div class="app-shot-carousel" data-folder="/assets/samples/gemini_screenshots">
-          <button class="app-shot-nav" onclick="moveAppShot(-1)">‹</button>
-
-          <img id="appShotCarouselImg" class="app-shot app-shot-carousel-img"
-            src="/assets/samples/gemini_screenshots/AI_Coach.png" alt="Gemini App screenshot"
-            onclick="openAppShot(this.src, this.alt)" />
-
-          <button class="app-shot-nav" onclick="moveAppShot(1)">›</button>
-        </div>
-
-        <div id="appShotDots" class="app-shot-dots"></div>
+        <strong>PAYG key:</strong>
+        use your own Google Gemini billing account and paid API quota.
       </li>
     </ul>
+
+    <p>
+      API-key setup details are available in the
+      <a href="https://montis.icu/app">Montis App Hub</a>.
+    </p>
+
+    <div class="app-shot-carousel" data-folder="/assets/samples/gemini_screenshots">
+      <button class="app-shot-nav" onclick="moveAppShot(-1)">‹</button>
+
+      <img id="appShotCarouselImg" class="app-shot app-shot-carousel-img"
+        src="/assets/samples/gemini_screenshots/AI_Coach.png" alt="Gemini App screenshot"
+        onclick="openAppShot(this.src, this.alt)" />
+
+      <button class="app-shot-nav" onclick="moveAppShot(1)">›</button>
+    </div>
+
+    <div id="appShotDots" class="app-shot-dots"></div>
 
     <div id="appShotModal" class="app-shot-modal" onclick="closeAppShot()">
       <button class="app-shot-modal-nav app-shot-modal-prev"
@@ -459,11 +509,6 @@
       <button class="app-shot-modal-nav app-shot-modal-next"
         onclick="event.stopPropagation(); moveAppShot(1)">›</button>
     </div>
-
-    <p class="muted-left">
-      Gemini app uses a Bring Your Own Key API (BYOK) model, which you enter into the app. Details of how to get the
-      Free Gemini API key are in App Hub.
-    </p>
 
     <hr>
 
@@ -537,7 +582,7 @@
     <p>
       Below are example outputs from the system. These are <strong>pre-rendered snapshots</strong>
       generated from the live pipeline (no runtime cost). Examples include OpenAI, Gemini and Anthropic (Claude). These
-      can be generated in the <a href="/APP"> LLM APP</a>, via MCP or inside ChatGPT for (OpenAI)
+      can be generated in the <a href="/app"> App Hub</a>, via MCP or inside ChatGPT for (OpenAI)
     </p>
     <div class="report-switcher">
       <label>LLM Output:</label>
@@ -1417,7 +1462,7 @@ Weekly   = Microcycle (execution + inferred phase)
                0016 8c0-4.42-3.58-8-8-8z" />
       </svg>
       View Open Feature Requests
-    </a>
+    </a><br>
     <a href="https://forum.intervals.icu/t/yet-another-ai-chatgpt-coach/117856" target="_blank" class="github-button">
       🧩 Intervals.icu Forum Discussion
     </a>
@@ -1489,19 +1534,29 @@ Weekly   = Microcycle (execution + inferred phase)
           href="https://railway.com?referralCode=-xO_3x">Railway</a> Engine.
       </p>
       <p>
-        Montis.icu Coach App is free to use.
-        If you find value in it and would like to support continued development,
-        infrastructure costs, and new features,
-        you can become a supporter below.
-        Your support genuinely helps keep the project independent and improving.
+        Montis continues to support free access through ChatGPT, Claude MCP,
+        and personal Gemini Free Tier or PAYG API keys.
       </p>
 
-      <center>
-        <script type="text/javascript" src="https://cdnjs.buymeacoffee.com/1.0.0/button.prod.min.js"
-          data-name="bmc-button" data-slug="revo2wheels" data-color="#FFDD00" data-emoji="" data-font="Cookie"
-          data-text="Buy me a coffee" data-outline-color="#000000" data-font-color="#000000"
-          data-coffee-color="#ffffff"></script>
-      </center>
+      <p>
+        A $5 monthly Montis subscription is also available for users who want
+        included Gemini AI usage, lower-latency managed API access,
+        coached-athlete tools, and subscriber support.
+      </p>
+
+      <p>
+        One-off supporters also help fund infrastructure, development,
+        and the future direction of Montis.
+      </p>
+
+<div style="text-align:center;margin:22px 0;">
+        <a href="https://buymeacoffee.com/revo2wheels"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="github-button">
+          Subscribe or Support Montis
+        </a>
+      </div>
     </div>
   </section>
 

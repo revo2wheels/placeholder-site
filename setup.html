@@ -39,15 +39,16 @@
 
     <section class="card">
       <h1>⚙️ Montis.icu Coach First-Time Setup</h1>
-      <p>
-        Follow these steps to connect your Intervals.icu account and generate your first training report in montis.icu
-        Coach App.
-        The entire setup takes less than one minute.
-      </p>
-      <p class="muted">
-        Montis uses one shared Intervals.icu connection. Browser App, Gemini App, ChatGPT, and MCP clients authenticate
-        differently, but all resolve back to the same Montis Intervals connection where required.
-      </p>
+<p>
+  Follow these steps to connect your Intervals.icu account and use Montis
+  through ChatGPT, Claude MCP, or the Gemini browser app.
+  Initial connection normally takes less than one minute.
+</p>
+<p class="muted">
+  Montis uses one shared Intervals.icu connection. ChatGPT, Claude MCP,
+  the App Hub, and the Gemini App authenticate through different client flows,
+  but resolve back to the same connected athlete account where required.
+</p>
     </section>
 
     <section class="card">
@@ -59,7 +60,7 @@
         <ul class="llm-links">
           <li>
             <strong>🤖 <a href="#chatgpt">ChatGPT</a></strong>
-            <span>Recommended guided chat experience</span>
+            <span>Natural language guided chat experience</span>
             <ul>
               <li>
                 <a href="#chatgpt-gpt-issues">ChatGPT connection issues FAQ</a>
@@ -70,7 +71,7 @@
 
           <li>
             <strong>🧠 <a href="#claude">Claude + MCP</a></strong>
-            <span>Direct MCP tool connection</span>
+            <span>Direct MCP tool connection with natural language</span>
             <ul>
               <li>
                 <a href="#claude-issues">Claude connection issues FAQ</a>
@@ -81,7 +82,10 @@
 
           <li>
             <strong>⚙️ <a href="#gemini">Gemini App</a></strong>
-            <span>MCP tool connection</span>
+            <span>
+              Full browser app with dashboards, reports, activity tools,
+              calendar access, and optional managed Gemini AI natural langugae
+            </span>
           </li>
         </ul>
       </div>
@@ -347,88 +351,143 @@ get Activity for yesterday</code></pre>
     </section>
 
     <section id="gemini" class="card">
-      <h3>⚙️ Gemini Setup</h3>
-
-      <h4>Step 1 — in a web browser (recommeded CHROME, EDGE or BRAVE) goto <a href="https://geminiapp.montis.icu"
-          target="_blank">Gemini App</a>, geminiapp.montis.icu and connect</h4>
-
-      <!-- Screenshot 1 -->
-      <img src="assets/dash1.png" alt="Connect Montis to Intervals" style="width:50%;border-radius:10px;margin:1rem 0;">
-
-      <h4>Step 2 — Authorize Intervals.icu for Montis</h4>
+      <h3>⚙️ Gemini App Setup</h3>
 
       <p>
-        You will be prompted to connect your Intervals.icu account.
-        Approve access to continue.
+        The Montis Gemini App is the complete browser-based Montis experience.
+        It includes athlete dashboards, reports, calendar and workout tools,
+        activity analysis, and AI coaching.
       </p>
 
-      <!-- Screenshot 2 -->
-      <img src="assets/mcp_auth.png" alt="Authorize Intervals via MCP"
-        style="width:30%;border-radius:10px;margin:1rem 0;">
+      <h4>Step 1 — Open the Gemini App</h4>
 
-      <h4>Step 3 — Use Montis App!</h4>
-      <!-- Screenshot 3 -->
+      <p>
+        In Chrome, Edge, Brave, Safari, or another modern browser, open:
+        <a href="https://geminiapp.montis.icu" target="_blank" rel="noopener noreferrer">
+          geminiapp.montis.icu
+        </a>.
+      </p>
 
-      <img src="assets/samples/gemini_screenshots/gemini_overview.png" alt="Connect Montis to Intervals"
+      <p>
+        Select <strong>Connect Intervals</strong> to begin.
+      </p>
+
+      <img src="assets/dash1.png" alt="Connect the Montis Gemini App to Intervals.icu"
         style="width:50%;border-radius:10px;margin:1rem 0;">
 
+      <h4>Step 2 — Authorize Intervals.icu</h4>
 
+      <p>
+        Approve the Intervals.icu authorization request without removing
+        any requested permissions.
+      </p>
+
+      <p>
+        This allows Montis to read your athlete data and, where required,
+        create or update calendar events.
+      </p>
+
+      <img src="assets/mcp_auth.png" alt="Authorize Intervals.icu for Montis"
+        style="width:30%;border-radius:10px;margin:1rem 0;">
+
+      <h4>Step 3 — Open the App</h4>
+
+      <p>
+        After authorization, return to the Gemini App. Your athlete dashboard
+        and non-AI tools are available without entering a Gemini API key.
+      </p>
+
+      <img src="assets/samples/gemini_screenshots/gemini_overview.png" alt="Montis Gemini App athlete dashboard"
+        style="width:50%;border-radius:10px;margin:1rem 0;">
 
       <section class="section-narrow">
         <div class="card card-subnote">
-          <h3>Note: to use Gemini AI in the App you can use a Free Tier (API Key)</h3>
+          <h3>Choose how Gemini AI usage is provided</h3>
 
           <p>
-            Its not required for the dashboard, but is required for AI aspects.
-            You can generate a free Gemini API key here:
-            <br>
-            👉 <a href="https://aistudio.google.com/app/api-keys" target="_blank">
-              https://aistudio.google.com/app/api-keys
+            The athlete dashboard and standard Montis tools do not require
+            a Gemini API key. An AI access method is only required when using
+            Gemini-powered coaching and report interpretation.
+          </p>
+
+          <h4>Option A — Montis Subscription</h4>
+
+          <p>
+            A Montis subscription costs <strong>$5 per month</strong> and includes:
+          </p>
+
+          <ul>
+            <li>Gemini AI usage allowance</li>
+            <li>Lower-latency managed Gemini API access</li>
+            <li>Coached-athlete tools</li>
+            <li>Subscriber support</li>
+          </ul>
+
+          <p>
+            Subscribers do not need to create or maintain a personal Google
+            Gemini API key while using their included Montis allowance.
+          </p>
+
+          <a href="https://buymeacoffee.com/revo2wheels" target="_blank" rel="noopener noreferrer"
+            class="github-button">
+            Subscribe for $5/month
+          </a>
+
+          <hr>
+
+          <h4>Option B — Your own Gemini Free Tier key</h4>
+
+          <p>
+            You can continue using your own Google Gemini Free Tier API key.
+            Generate one at:
+          </p>
+
+          <p>
+            <a href="https://aistudio.google.com/app/api-keys" target="_blank" rel="noopener noreferrer">
+              Google AI Studio API Keys
             </a>
           </p>
 
-          <p class="muted">
-            No credit card required. Keys are created instantly and default to the Free Tier and you can track estimated
-            usage in the Montis Gemini App. .
+          <p class="muted-left">
+            No credit card is normally required for a Free Tier key.
+            Availability and quotas are controlled by Google and may change.
           </p>
 
-          <h4>📊 Free Tier Limits (Gemini 3.1 Flash lite)</h4>
-          <ul>
-            <li><strong>Up to 10,000 requests per minute burst capacity (RPM)</strong></li>
-            <li><strong>350,000 requests per day sustained quota (RPD)</strong></li>
-            <li><strong>10 million tokens per minute throughput (TPM)</strong></li>
-          </ul>
+          <h4>Option C — Your own Gemini PAYG key</h4>
 
-          <h4>⏱️ How Limits Reset</h4>
-          <ul>
-            <li>
-              <strong>Minute limits (RPM / TPM):</strong>
-              Sliding window — capacity returns gradually within ~60 seconds.
-            </li>
-            <li>
-              <strong>Daily limit (RPD):</strong>
-              Resets every 24 hours (typically midnight Pacific Time).
-            </li>
-          </ul>
-
-          <h4>🔐 Important: Data Usage</h4>
-          <ul>
-            <li>
-              <strong>Free tier:</strong> Google may use your prompts and responses to improve models.
-            </li>
-            <li>
-              <strong>Paid tier:</strong> Your data is <strong>not used for training</strong>.
-            </li>
-          </ul>
-
-          <h4>📎 Full Pricing & Limits</h4>
           <p>
-            See official comparison here:
-            <br>
-            👉 <a href="https://ai.google.dev/pricing" target="_blank">
-              https://ai.google.dev/pricing
+            You can also use a Gemini API key connected to your own Google
+            paid billing account. Usage and billing remain directly between
+            you and Google.
+          </p>
+
+          <p>
+            Current Google pricing and limits:
+            <a href="https://ai.google.dev/pricing" target="_blank" rel="noopener noreferrer">
+              Gemini API pricing
             </a>
           </p>
+
+          <h4>Fallback behaviour</h4>
+
+          <p>
+            If your Montis subscriber allowance is exhausted, you can switch
+            back to your own Free Tier or PAYG Gemini API key in the app.
+          </p>
+
+          <h4>Data usage</h4>
+
+          <ul>
+            <li>
+              <strong>Montis subscription:</strong>
+              Gemini requests use the managed Montis allowance.
+            </li>
+
+            <li>
+              <strong>Your own API key:</strong>
+              Google account, billing, quota, and data-use terms apply.
+            </li>
+          </ul>
         </div>
       </section>
     </section>
@@ -445,7 +504,8 @@ get Activity for yesterday</code></pre>
           you are having issues</li>
         <li>Click <strong>sign in </strong>to connect Intervals.icu</li>
         <li>Approve Intervals.icu authorization when prompted</li>
-        <li>In ChatGPT, click <strong>Always allow</strong> only for Montis tool calls if you want to avoid repeated tool prompts</li>
+        <li>In ChatGPT, click <strong>Always allow</strong> only for Montis tool calls if you want to avoid repeated
+          tool prompts</li>
         <li>Run <code>check connection</code></li>
         <li>Run the report again</li>
       </ol>
