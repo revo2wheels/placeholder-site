@@ -39,16 +39,16 @@
 
     <section class="card">
       <h1>⚙️ Montis.icu Coach First-Time Setup</h1>
-<p>
-  Follow these steps to connect your Intervals.icu account and use Montis
-  through ChatGPT, Claude MCP, or the Gemini browser app.
-  Initial connection normally takes less than one minute.
-</p>
-<p class="muted">
-  Montis uses one shared Intervals.icu connection. ChatGPT, Claude MCP,
-  the App Hub, and the Gemini App authenticate through different client flows,
-  but resolve back to the same connected athlete account where required.
-</p>
+      <p>
+        Follow these steps to connect your Intervals.icu account and use Montis
+        through ChatGPT, Claude MCP, or the Gemini browser app.
+        Initial connection normally takes less than one minute.
+      </p>
+      <p class="muted">
+        Montis uses one shared Intervals.icu connection. ChatGPT, Claude MCP,
+        the App Hub, and the Gemini App authenticate through different client flows,
+        but resolve back to the same connected athlete account where required.
+      </p>
     </section>
 
     <section class="card">
@@ -133,15 +133,64 @@
 
       <hr>
 
+      Use this exact structure:
+
       <section id="chatgpt-gpt-issues" class="section faq">
         <h2>FAQ — ChatGPT / Montis GPT connection issues</h2>
 
         <p>
-          If Montis works from the command line, Montis Gemini App, browser tools, or another ChatGPT session
-          but fails inside one ChatGPT Montis GPT chat, the problem is usually ChatGPT chat/tool binding,
-          session state, app state, connector auth state, browser storage, network filtering, VPN/security DNS,
-          or a temporary OpenAI-side issue.
+          Use the steps below when Montis fails to connect, does not call a tool,
+          or returns an upstream connection error inside ChatGPT.
         </p>
+
+        <details open>
+          <summary>Which ChatGPT plan and model should I use with Montis?</summary>
+
+          <p>
+            A <strong>ChatGPT subscription using a Thinking model is recommended</strong>
+            for the most reliable Montis experience.
+          </p>
+
+          <p>
+            Montis can still be used with ChatGPT Free and Instant models, but results
+            may vary significantly. Instant models have shown intermittent problems
+            calling Montis actions correctly, including failing to call an action,
+            returning an incomplete response, or behaving differently between chats.
+          </p>
+
+          <p>
+            This affects ChatGPT action execution, not the underlying Montis calculations.
+            When a Montis tool is called successfully, Montis returns the same governed data
+            and deterministic report output.
+          </p>
+
+          <ul>
+            <li>
+              <strong>ChatGPT subscription with a Thinking model:</strong>
+              recommended for reliable action calling, detailed coaching reports,
+              larger outputs, and multi-step workflows.
+            </li>
+
+            <li>
+              <strong>ChatGPT Free:</strong>
+              supported, but available model access, usage limits, and action reliability
+              may affect whether a report completes successfully.
+            </li>
+
+            <li>
+              <strong>Instant model:</strong>
+              currently not recommended for Montis reports or action-heavy workflows
+              because action calls can be inconsistent or fail entirely.
+            </li>
+          </ul>
+
+          <p class="note">
+            OpenAI support is aware of the Instant-model action reliability issue
+            and an investigation is open. Until it is resolved, use a Thinking model
+            for weekly, wellness, season, summary, calendar, event-analysis, and
+            training-plan requests.
+          </p>
+        </details>
 
         <details>
           <summary>Montis says there is an upstream connection error. What should I try?</summary>
@@ -195,9 +244,11 @@
             </li>
 
             <li>
-              <strong>Use the default model/mode in a new chat.</strong><br>
-              Do not continue from an old Thinking, Deep Research, or long-running conversation.
-              Start fresh and use the normal/default ChatGPT mode.
+              <strong>Use a Thinking model in a new chat.</strong><br>
+              Instant models can be unreliable when calling Montis actions.
+              Start a new Montis GPT chat, select a Thinking model, then try
+              <code>check connection</code> followed by
+              <code>run weekly report</code>.
             </li>
 
             <li>
