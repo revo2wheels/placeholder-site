@@ -994,219 +994,232 @@ LLM Rendering Layer (Read-only, tool-driven)
       </div>
 
     </section>
+<!-- Updated Coaching Intelligence Pipeline section -->
+
 <section id="coaching-pipeline" class="card" style="border-left:4px solid #f97316;">
 
-  <h2>🧠 Coaching Intelligence Pipeline (Performance Layer)</h2>
+  <h2>🧠 Coaching Intelligence Pipeline</h2>
 
   <p class="muted">
-    Status: <strong>Active (v5 / ADE v2)</strong> • Rule-based • Closed-loop • Production
+    Status: <strong>Active</strong> • PI v1.61 • ESPE v1.2 • ADE v2.21 • Deterministic • Production
   </p>
 
   <p>
-    The <strong>Coaching Pipeline</strong> operates strictly on validated canonical data
-    produced by the Technical Pipeline. It does <em>not</em> compute raw metrics.
-    It transforms trusted semantic inputs into structured performance intelligence
-    and executes deterministic training decisions.
+    The Coaching Intelligence Pipeline operates on validated Tier-1 and Tier-2 outputs.
+    It does not recompute canonical metrics. Tier-3 models capability under stress,
+    ESPE evaluates adaptation direction, and ADE produces the operational decision
+    before phase and event governance determine the final coaching instruction.
   </p>
-
-  <p>
-    Tier-3 now operates as a <strong>closed-loop system with hierarchical control</strong>:
-    performance intelligence drives prescription, but <strong>phase governance can override execution</strong>.
-  </p>
-
-  <hr>
 
   <div class="codeblock"
     style="font-family:'Courier New',monospace;font-size:0.9rem;overflow-x:auto;text-align:center;">
     <pre>
-CANONICAL SEMANTIC DATA (URF v5.1)
+VALIDATED TIER-1 / TIER-2 OUTPUTS
                 │
                 ▼
-Tier-3A: Stress Intelligence (PI)
-(WDRM / ISDM / NDLI)
+Performance Intelligence — PI v1.61
+WDRM / ISDM / NDLI
                 │
                 ▼
-Tier-3B: Progression Intelligence
-ESPE v1 — Power Curve Adaptation (ACTIVE)
+Training State
+load_accepting / recovery_priority
                 │
                 ▼
-Tier-3C: System Modeling
-(PI + ESPE synthesis)
+Energy System Progression — ESPE v1.2
+Power-curve adaptation state
                 │
                 ▼
-ADE v2 — Adaptive Decision Engine
-(Operational Layer — metrics driven)
+ADE v2.21 BASE DECISION — CAN
+Operational capacity and risk
                 │
                 ▼
-PHASE GOVERNANCE LAYER (Strategic Override)
-(required_phase enforcement)
+PHASE + EVENT GOVERNANCE — SHOULD
+Recovery, build, taper and event-form control
                 │
                 ▼
-COACHING SEMANTIC LAYER (v5)
+SEMANTIC OUTPUT
+Actions / Guidance / Alignment / Event Context
                 │
                 ▼
-Final Structured Report
+LLM RENDERING
+Read-only interpretation
 </pre>
   </div>
 
   <hr>
 
-  <h3>🔍 Stage 1 — Stress Intelligence (PI)</h3>
+  <h3>⚙️ Stage 1 — Performance Intelligence</h3>
+
   <p>
-    Evaluates how the athlete expresses training load under fatigue.
+    Performance Intelligence evaluates how fitness is expressed under current stress.
   </p>
+
   <ul>
-    <li><strong>WDRM</strong> — Anaerobic repeatability and W′ depletion behavior</li>
-    <li><strong>ISDM</strong> — Durability and fatigue resistance</li>
-    <li><strong>NDLI</strong> — Neural load density and intensity clustering</li>
+    <li>
+      <strong>WDRM</strong> — W′ depletion depth, repeated deep-depletion exposure,
+      and joules above FTP.
+    </li>
+    <li>
+      <strong>ISDM</strong> — activity-level durability using decoupling,
+      drift-session count, and long-session exposure.
+    </li>
+    <li>
+      <strong>NDLI</strong> — high-intensity exposure and density proxies using
+      joules above FTP, intensity factor, efficiency, and variability.
+    </li>
   </ul>
+
   <p>
-    Answers: <em>“Can the athlete tolerate additional stress?”</em>
+    Weekly reports use the 7-day FULL dataset. Season and Summary reports use
+    the 90-day LIGHT dataset with a 7-day FULL acute overlay.
+  </p>
+
+  <p>
+    PI does not directly measure CNS fatigue, W′ recovery between efforts,
+    or stream-level late-session power decay.
   </p>
 
   <hr>
 
-  <h3>📈 Stage 2 — Progression Intelligence (ESPE v1 — Active)</h3>
-  <p>
-    Tracks energy system adaptation using deterministic power curve comparison.
-  </p>
-  <ul>
-    <li>Endurance (60min trend)</li>
-    <li>Threshold (20min trend)</li>
-    <li>VO₂ Capacity (5min trend)</li>
-    <li>Anaerobic Repeatability (1min + W′ behavior)</li>
-  </ul>
-  <p>
-    Answers: <em>“Is current training producing adaptation?”</em>
-  </p>
-
-  <hr>
-
-  <h3>🧬 Stage 3 — System Modeling</h3>
+  <h3>🧠 Stage 2 — Training State</h3>
 
   <p>
-    Combines stress signals (PI) and progression signals (ESPE)
-    into a unified physiological state model.
+    Montis combines load, wellness, forecast, and Performance Intelligence into
+    a consolidated Training State.
   </p>
 
   <ul>
-    <li>Energy system balance</li>
-    <li>Durability gradient</li>
-    <li>Adaptation bias</li>
-    <li>Plateau detection</li>
+    <li>CTL / ATL / TSB</li>
+    <li>HRV ratio and recovery context</li>
+    <li>Future fatigue classification</li>
+    <li>WDRM exposure</li>
+    <li>Durability state</li>
+    <li>NDLI intensity exposure</li>
   </ul>
 
   <p>
-    This stage defines <strong>system capability and constraints</strong>.
+    ADE consumes two operational states:
   </p>
 
-  <hr>
-
-  <h3>🧭 Stage 4 — ADE v2 (Operational Decision Layer)</h3>
-  <p>
-    Executes rule-based training adjustments based on current physiological state.
-  </p>
-
-  <div class="codeblock" style="font-family:'Courier New',monospace;font-size:0.85rem;overflow-x:auto;">
+  <div class="codeblock">
     <pre>
-IF:
-  Neural density high
-  AND Repeatability decreasing
-  AND FatigueTrend elevated
-THEN:
-  Reduce VO2 duration 15%
-  Convert tempo → endurance
-  Insert OFF day
+load_accepting
+recovery_priority
 </pre>
   </div>
 
+  <hr>
+
+  <h3>📈 Stage 3 — ESPE v1.2</h3>
+
   <p>
-    This layer answers: <em>“What can the athlete handle right now?”</em>
+    ESPE evaluates power-curve progression using two normalized comparison windows,
+    normally equal rolling windows of approximately 84 days.
+  </p>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Anchor</th>
+        <th>Primary system</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>1 minute</td><td>Anaerobic</td></tr>
+      <tr><td>5 minutes</td><td>VO₂</td></tr>
+      <tr><td>20 minutes</td><td>Threshold</td></tr>
+      <tr><td>60 minutes</td><td>Aerobic durability</td></tr>
+    </tbody>
+  </table>
+
+  <p>
+    ESPE also exposes CP, W′, pMax, FTP, regression slope, regression R²,
+    curve quality, curve profile, plateau state, adaptation bias, and adaptation state.
+  </p>
+
+  <p>
+    When no previous comparison window exists, ESPE returns a baseline state
+    rather than inventing progression.
   </p>
 
   <hr>
 
-  <h3>🧭 Stage 5 — Phase Governance (Strategic Override Layer)</h3>
+  <h3>🎯 Stage 4 — ADE v2.21 Base Decision</h3>
 
   <p>
-    Enforces mesocycle intent over short-term optimisation.
+    ADE determines what the athlete can tolerate now.
   </p>
 
   <p>
-    <strong>Critical rule:</strong>
+    It consumes the governed operational state, forecast fatigue, load trend,
+    HRV ratio, ESPE adaptation state, nutrition context, and target-event context.
   </p>
 
-  <div class="codeblock" style="font-family:'Courier New',monospace;font-size:0.85rem;">
-    <pre>
-IF:
-  required_phase != operational_state
-THEN:
-  override ADE decision
-</pre>
-  </div>
+  <p>
+    ADE produces a pre-governance score and directive. It does not directly
+    rewrite workouts or automatically insert calendar events.
+  </p>
+
+  <hr>
+
+  <h3>🧭 Stage 5 — Phase and Event Governance</h3>
 
   <p>
-    This layer answers: <em>“What should the athlete be doing now?”</em>
+    Phase and event governance determine what the athlete should do.
   </p>
 
   <ul>
-    <li>Prevents fatigue accumulation drift</li>
-    <li>Forces recovery / taper when required</li>
-    <li>Ends blocks when adaptation saturates</li>
+    <li>Current and projected phase</li>
+    <li>Recovery or deload requirement</li>
+    <li>Planned load direction</li>
+    <li>Taper state</li>
+    <li>Event TSB against target range</li>
+    <li>Controlled sharpening when projected form is too fresh</li>
   </ul>
 
   <p>
-    <strong>Hierarchy:</strong><br>
-    Phase (strategy) &gt; ADE (execution)
+    Recovery and Deload share a recovery bucket. Taper remains separate because
+    event form can justify selective intensity preservation or sharpening.
   </p>
+
+  <div class="codeblock">
+    <pre>
+Can: ADE operational directive
+Should: governed phase and event action
+</pre>
+  </div>
 
   <hr>
 
-  <h3>🧠 Training State Model (ADE v2)</h3>
+  <h3>📦 Final Semantic Output</h3>
 
-  <div class="codeblock" style="font-family:'Courier New',monospace;font-size:0.85rem;">
+  <div class="codeblock">
     <pre>
-Operational States:
-  load_progression
-  stable_load
-  absorption_required
-  recovery_priority
+performance_intelligence
+energy_system_progression
+actions
+training_guidance
+decision_context
+phase_alignment
+event_targets
+future_forecast
 </pre>
   </div>
 
   <p>
-    These states define execution capacity, but do <strong>not override phase intent</strong>.
-  </p>
-
-  <hr>
-
-  <h3>📦 Coaching Semantic Output (v5)</h3>
-
-  <div class="codeblock" style="font-family:'Courier New',monospace;font-size:0.85rem;">
-    <pre>
-adaptive_layer:
-  operational_state
-  required_phase
-  phase_alignment
-  resolution
-  adaptation_focus
-  prescription_adjustment
-</pre>
-  </div>
-
-  <p>
-    The system supports:
+    Final ADE resolution is classified as:
   </p>
 
   <ul>
-    <li><strong>Athlete Mode</strong> — Clear directive</li>
-    <li><strong>Coach Mode</strong> — Full traceability</li>
+    <li><code>honoured</code></li>
+    <li><code>honoured_with_sharpening</code></li>
+    <li><code>overridden_by_phase</code></li>
+    <li><code>historical_only</code></li>
   </ul>
 
   <p>
-    Complexity is abstracted in Athlete Mode, but fully accessible in Coach Mode.
-
-    The system hides complexity — it never hides transparency.
+    The LLM renders this governed output. It does not compute metrics,
+    replace classifications, or invent a competing coaching directive.
   </p>
 
 </section>
